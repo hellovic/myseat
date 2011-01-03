@@ -1,0 +1,51 @@
+div.wysiwyg ul.panel li.separator { height: 16px; }
+
+.option .text
+{
+	margin: 0 0 0 10px;
+}
+
+.date .text
+{
+	margin: 0 0 0 10px;
+	position: relative;
+	top: 13px;
+}
+
+.date input
+{
+	top: 5px;
+	left: -20px;
+}
+
+.onecolumn
+{
+	position: relative;
+	top: -1px;
+}
+
+.first_level_tab
+{
+	border-right: 0;
+}
+
+.first_level_tab li a
+{
+	margin-top: 1px;
+	z-index: -1;
+	border-top: 3px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.first_level_tab li a.active
+{
+	z-index: 10;
+	border-top: 3px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.pagination
+{
+	border: 1px solid #ccc;
+	margin-bottom: -20px;
+}
