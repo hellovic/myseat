@@ -6,7 +6,8 @@
 			 <div class="onecolumn" style="margin-right:5%; margin-left:5%;">
 			  <div class="content" >
 		
-			<? 
+			<?
+			$row = '';
 			include('includes/messagebox.inc.php');
 			include('register/property_form.inc.php'); 
 			?>

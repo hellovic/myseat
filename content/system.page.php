@@ -29,14 +29,14 @@
 				</a>
 			</li>
 		<?php endif ?>
-		<?php if ( current_user_can( 'Properties-Edit' ) ): ?>
+		<?php if ( current_user_can( 'Property-New' ) ): ?>
 			<li>
 				<a href="?p=6&q=5" <? if ($q == 5) { echo " class='active'";}?> >
 					<?= _property; ?>
 				</a>
 			</li>
 		<?php endif ?>
-		<?php if ( current_user_can( 'Properties-All' ) ): ?>
+		<?php if ( current_user_can( 'Property-Overview' ) ): ?>
 			<li>
 				<a href="?p=6&q=6" <? if ($q == 6) { echo " class='active'";}?> >
 					<?= _property." "._overview; ?>
@@ -218,7 +218,7 @@
 				break;
 				case '6':
 					// property overview
-					header( 'Location: properties.php' ) ;
+					header( 'Location: properties.php?p=6' ) ;
 				break;
 			}
 			?>

@@ -31,7 +31,7 @@ function querySQL($statement){
 			$result = query("SELECT * FROM `outlets` 
 							WHERE ( `saison_year` = 0 OR `saison_year` = '%d' )
 							AND `property_id` ='%d'
-							AND `webform` = 1
+							AND `webform` = '1'
 							ORDER BY outlet_name",$_SESSION['selectedDate_year'],$_SESSION['property']);
 			return getRowList($result);
 		break;
@@ -100,7 +100,7 @@ function querySQL($statement){
 			return getResult($result);
 		break;
 		case 'capability':
-			$result = query("SELECT `".$_SESSION['role']."` FROM `capabilities` WHERE `capability`='%s'", $_SESSION['capability']);
+			$result = query("SELECT `%d` FROM `capabilities` WHERE `capability`='%s'", $_SESSION['role'], $_SESSION['capability']);
 			return getResult($result);
 		break;
 		case 'capabilities':
@@ -128,10 +128,10 @@ function querySQL($statement){
 			return getRowList($result);
 		break;
 		case 'search_reservations':
-			$result = query("SELECT * FROM `reservations` WHERE `reservation_guest_name` LIKE 'ortten%'");
 			$result = query("SELECT * FROM `reservations` INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
 				WHERE `reservation_hidden` = '0' 
-				AND `reservation_guest_name` LIKE '%s' ORDER BY reservation_guest_name ASC",$searchquery);
+				AND (`reservation_guest_name` LIKE '%s' OR `reservation_bookingnumber` LIKE '%s') 
+				ORDER BY reservation_guest_name ASC",$searchquery,$searchquery);
 			return getRowList($result);
 		break;
 		case 'availability':
@@ -335,11 +335,22 @@ function querySQL($statement){
 					ORDER BY country ASC");
 			return getRowList($result);
 		break;
+		case 'property_countries_num':
+			$result = query("SELECT DISTINCT country FROM `properties` 
+					ORDER BY country ASC");
+			return mysql_num_rows($result);
+		break;
 		case 'property_cities':
 			$result = query("SELECT DISTINCT city,country FROM `properties`
 					WHERE `country` ='%s'
 					ORDER BY city ASC",$_SESSION['countryID']);
 			return getRowList($result);
+		break;
+		case 'property_cities_num':
+			$result = query("SELECT DISTINCT city,country FROM `properties`
+					WHERE `country` ='%s'
+					ORDER BY city ASC",$_SESSION['countryID']);
+			return mysql_num_rows($result);
 		break;
 		case 'view_img':
 			$result = query("SELECT img,img_filetype,img_filename FROM `properties` 

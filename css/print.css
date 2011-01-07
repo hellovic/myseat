@@ -31,7 +31,15 @@ body {
 .first_level_tab {
 		  display:none;
 		 }
-		
+
+#datetext {
+		  font-weight:strong;
+		 }
+
+.navgroup {
+		  display:none;
+		 }
+                 
 .onecolumn {
 	border: 0px;
 }

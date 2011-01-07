@@ -101,9 +101,8 @@ if (!$_SESSION['selectedDate']) {
 	$_SESSION['selectedDate'] = ($_GET['selectedDate']) ? $_GET['selectedDate'] : buildDate($settings['dbdate']);
 }else if ($_GET['selectedDate']) {
 	$_SESSION['selectedDate'] = $_GET['selectedDate'];
-}else{
-	$_SESSION['selectedDate'] = buildDate($settings['dbdate']);
 }
+
 list($sj,$sm,$sd)                = explode("-",$_SESSION['selectedDate']);
 $_SESSION['selectedDate_user']   = buildDate($general['dateformat'],$sd,$sm,$sj);
 $_SESSION['selectedDate_saison'] = $sm.$sd;

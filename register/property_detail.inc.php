@@ -7,6 +7,7 @@
 			      zoom: 16 });
 	});
 </script>
+
 				<h3>	 	 				 
 					<?= $row['name'];?>
 				</h3>

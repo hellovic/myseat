@@ -64,9 +64,9 @@
 				<p>
 					<? if ( current_user_can( 'Daily-Outlet-Edit' ) ){
 						echo'<input type="text" name="outlet_child_passer_max_pax" id="outlet_child_passer_max_pax" 
-								style="width:50px;" value="'.$maitre['outlet_child_passer_max_pax'].'"/>';
+								style="width:50px;" value="'.$maitre['passerby_max_pax'].'"/>';
 					   }else{
-						echo ($maitre['outlet_child_passer_max_pax']) ? $maitre['outlet_child_passer_max_pax'] : 0;
+						echo ($maitre['passerby_max_pax']) ? $maitre['passerby_max_pax'] : 0;
 					   }
 					?>
 				</p>

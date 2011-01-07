@@ -9,9 +9,9 @@
 </script>
 <?
 // Get property details
-$row = querySQL('property_info');
+    $_SESSION['propertyID'] = ($_SESSION['propertyID']=="") ? $_SESSION['property'] : $_SESSION['propertyID'];
+    $row = querySQL('property_info');?>
 
-?>	
 <!-- Begin detail -->
 <div class="content">
 	<div id="content_wrapper">

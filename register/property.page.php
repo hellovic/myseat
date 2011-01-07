@@ -2,7 +2,7 @@
 	<ul class="first_level_tab">
 		<?php if ( current_user_can( 'Property-Overview' ) ): ?>
 		<li>
-			<a href="?p=1" <? if ($_SESSION['page'] == 1) { echo " class='active'";}?> >
+			<a href="?p=1" <? if ($_SESSION['page'] == 1 || $_SESSION['page'] == 6) { echo " class='active'";}?> >
 				<?= _property; ?>
 			</a>
 		</li>
@@ -25,7 +25,7 @@
 		<div class="header">
 			<div class="description">
 				<?
-				if ($_SESSION['page'] == 1) { 
+				if ($_SESSION['page'] == 1 || $_SESSION['page'] == 6) { 
 					echo "<h3>"._property." "._overview."</h3>";
 				}else if ($_SESSION['page'] == 2) { 
 					echo "<h3>"._create." "._property."</h3>";
@@ -52,7 +52,7 @@
 					</li>
 				<?php endif ?>
 				<li>
-					<a href="main_page.php?p=2">
+					<a href="properties.php?p=1">
 						<?= _back;?>
 					</a>
 				</li>
@@ -79,12 +79,16 @@
 					// property detail
 					include('register/detail.property.page.php');
 				break;
+				case '6':
+					// property overview
+					include('register/property_grid.inc.php');
+				break;
 				case '7':
 					// jump to new user after adding a property
 					include('includes/users_new.inc.php');
 				break;
 				case '8':
-					// jump to new user after adding a property
+					// jump to success page after registration process
 					include('register/success.inc.php');
 				break;
 			}

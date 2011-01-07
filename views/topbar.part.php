@@ -4,14 +4,18 @@
 	
 	<!-- Begin logo -->
 	<div class="logo">
-		<img src="images/logo.png" alt=""/>
+		<a href="/web"><img src="images/logo.png" alt=""/></a>
 	</div>
 	<!-- End logo -->
 	
 	<!-- Begin account menu -->
 	<div class="account">
 		<div class="detail">
-			<?= _hello."<a href=''><strong> ".$_SESSION['u_name']."</strong></a>, ".$roles[$_SESSION['role']]." - <strong>".querySQL('db_property')."</strong>"; ?>
+			<?
+			if($this_page != "property"){
+				echo _hello."<a href=''><strong> ".$_SESSION['u_name']."</strong></a>, ".$roles[$_SESSION['role']]." - <strong>".querySQL('db_property')."</strong>";
+			}
+			?>
 		</div>
 		<ul class="icon">
 			<!--

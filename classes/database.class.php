@@ -217,7 +217,7 @@ ob_start();
 			
 			// create and store booking number
 			if (!$_POST['reservation_id'] || $_POST['reservation_id']=='') {
-			    $_SESSION['booking_number'] = uniqueID();
+			    $_SESSION['booking_number'] = uniqueBookingnumber();
 			    $keys[] = 'reservation_bookingnumber';
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}

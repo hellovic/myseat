@@ -427,7 +427,7 @@ function randomPassword($pw_length = 6, $use_caps = false, $use_numeric = true, 
 }
 
 // compare a random password with the database to create a unique booking number
-function uniqueID(){
+function uniqueBookingnumber(){
 	do {
 		$value = randomPassword();
 		$num = querySQL('check_unique_id');

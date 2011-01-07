@@ -1,5 +1,5 @@
 
-<?php if ( current_user_can( 'Properties-All' ) ): ?>
+<?php if ( current_user_can( 'Property-Overview' ) ): ?>
 <!-- Begin property table data -->
 <table class="global" style="margin:0px 0px;" cellpadding="0" cellspacing="0">
 	<thead>
@@ -17,7 +17,7 @@
 	<tbody>
 		<?
 
-		$properties =	querySQL('all_properties');
+		$properties = querySQL('all_properties');
 		
 		if ($properties ) {
 			foreach($properties as $row) {

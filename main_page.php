@@ -1,6 +1,24 @@
 <?
 session_start();
 
+/*
+COPYRIGHT:
+This file is part of mySeat.
+
+    mySeat is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    mySeat is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with mySeat.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 /** Login **/
 	require_once '../PLC/plc.class.php';
 	$user = new flexibleAccess();
@@ -65,7 +83,7 @@ echo "<body>
 	switch($_SESSION['page']){
 		case '1':
 			// facility
-			include('content/facility.page.php');
+			include('properties.php?p=6');
 		break;
 		case '2':
 			// outlet

@@ -2,8 +2,10 @@
 session_start();
 
 $this_page = "property";
+$_SESSION['role'] = ($_SESSION['role']!="") ? $_SESSION['role'] : 6;
 
-if($_GET['p'] == 6){
+if($_GET['p'] == 6 || $_GET['p'] == 5 || $_GET['logout']==1){
+
 /** Login **/
 	require_once '../PLC/plc.class.php';
 	$user = new flexibleAccess();
@@ -26,8 +28,6 @@ if($_GET['p'] == 6){
 
 	}
 }
-// Set STANDARD 
-//$_SESSION['property'] = 1;
 
 // ** set configuration
 	include('../config/config.general.php');
@@ -48,10 +48,10 @@ if($_GET['p'] == 6){
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	translateSite(substr($_SESSION['language'],0,2));
+	translateSite('en');
 // ** get superglobal variables
 	// special setup for properties
-		if ( current_user_can( 'Properties-All' )){
+	if ( current_user_can( 'Property-Overview' )){
 		$_SESSION['page'] = 1;
 	}else{
 		$_SESSION['page'] = 2;
@@ -89,7 +89,7 @@ echo "<body>
 
 		// property page wrapper
 		include('register/property.page.php');
-	
+echo"</div>";	
 // ** modal messages
 include('ajax/modal.inc.php');
 	

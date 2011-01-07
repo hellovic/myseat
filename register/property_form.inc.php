@@ -6,6 +6,7 @@ if ($p == 2 || $_SESSION['page'] == 2){
 }else{
 	$link = '?p=1';	
 }
+
 ?>
 
 <form method="post" action="<?= $link; ?>" id="property_form" enctype="multipart/form-data">
