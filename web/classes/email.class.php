@@ -15,7 +15,11 @@
 	$headers .= 'Bcc: '.$_SESSION['selOutlet']['confirmation_email']. "\r\n";
 	
 	// Subject of email
-	$subject = _email_subject." ".$_SESSION['selOutlet']['outlet_name'];
+        if ( $_POST['email_type'] == 'en' ) {
+		$subject = _email_subject_en." ".$_SESSION['selOutlet']['outlet_name'];
+	}else{
+		$subject = _email_subject." ".$_SESSION['selOutlet']['outlet_name'];
+	}
 	
 	//Salutation
 	switch ($_POST['reservation_title']) {
@@ -34,14 +38,21 @@
 	}
 	
 	//Text
-	$text = _email_confirmation_1;
+	if ( $_POST['email_type'] == 'en' ) {
+		$text = _email_confirmation_1_en;
+	}else{
+		$text = _email_confirmation_1;	
+	}
 	$body = sprintf( $text , $salut, $_POST['reservation_guest_name'], $_SESSION['selOutlet']['outlet_name'], $_POST['reservation_pax'], $pdate );
 	if ($sdate!='' && $pdate!=$sdate) {
 		$body .= " "._till." ".$sdate;
 	}
-	
-	$text = " "._email_confirmation_2;
-	$body .= sprintf( $text, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $_POST['reservation_author'] );
+	if ( $_POST['email_type'] == 'en' ) {
+		$text = _email_confirmation_2_en;
+        }else{
+		$text = _email_confirmation_2;	
+	}
+	$body .= " ".sprintf( $text, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $_POST['reservation_author'] );
 
 
 	//***

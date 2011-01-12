@@ -287,7 +287,7 @@ ob_start();
 					  $_SESSION['errors'][] = date($general['dateformat'],strtotime($_SESSION['selectedDate']))." "._wait_list;	
 				}
 			}
-			// END =-=-=-=-=-=-=-=-=
+			// END Availability
 
 
 			// number of database fields
@@ -313,7 +313,7 @@ ob_start();
 			$res_dat += (60*60*24);
 		 } // end while
 		
-			// send email
+			// *** send confirmation email
 			if ( $_POST['email_type'] != 'no' ) {
 				include('classes/email.class.php');
 			}

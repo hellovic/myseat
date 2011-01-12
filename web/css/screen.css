@@ -673,7 +673,7 @@ input.button_red:active                 {
                                         }
 .media_photos li .action img            { border: 0 }
 .media_photos li a                      { text-align: center }
-.alert_warning, .alert_info, .alert_success, .alert_error, .alert_tip 
+.alert_warning, .alert_info, .alert_success, .alert_error, .alert_tip, .alert_hint 
                                         {
                                             margin: 20px;
                                             font-weight: bold;
@@ -706,14 +706,21 @@ input.button_red:active                 {
                                             color: #E3302C;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
                                         }
-.alert_tip 				{
+.alert_hint				{
                                             background: #FFECCD;
                                             border: 1px solid #DD9854;
                                             margin: 20px;
                                             color: #69610A;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
 					}
-.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_tip  p
+.alert_tip				{
+                                            background: #EBD9F1;
+                                            border: 1px solid #A7A1B6;
+                                            margin: 20px;
+                                            color: #543551;
+                                            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
+					}
+.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_tip  p, .alert_hint  p
                                         { margin: 15px }
 .graph_wrapper                          { padding: 10px 0 5px 0 }
 #footer                                 {
