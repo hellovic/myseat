@@ -105,6 +105,7 @@ if ($_SESSION['button']==2) {
 				</small>
 			<?php endif ?>	
 			<input type="hidden" name="outlet_id" value="<?= $row->outlet_id;?>">
+			<input type="hidden" name="property_id" value="<?= $_SESSION['property'];?>">
 			<input type="hidden" name="token" value="<?php echo $token; ?>" />
 			<input type="hidden" name="action" value="save_out">
 </form>
