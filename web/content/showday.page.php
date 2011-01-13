@@ -47,7 +47,7 @@
 			<!-- Begin 2nd level tab -->
 			<ul class="second_level_tab">
 				<li>
-					<a href="" id="outlet_detail_button">
+					<a href="#" id="outlet_detail_button">
 						<?= _detail;?>
 					</a>
 				</li>

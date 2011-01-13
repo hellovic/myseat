@@ -21,7 +21,7 @@ $rows = querySQL('outlet_info');
 		<!-- Begin 2nd level tab -->
 		<ul class="second_level_tab">
 			<li>
-				<a href="" id="editToggle" onclick="return false;">
+				<a href="#" id="editToggle" onclick="return false;">
 					<?= _edit;?>
 				</a>
 			</li>

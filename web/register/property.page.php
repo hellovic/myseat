@@ -46,7 +46,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="" id="editToggle" onclick="return false;">
+						<a href="#" id="editToggle" onclick="return false;">
 							<?= _edit;?>
 						</a>
 					</li>

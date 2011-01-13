@@ -22,7 +22,7 @@ $rows = querySQL('reservation_info');
 		<ul class="second_level_tab">
 			<?php if ( $dayoff == 0 && current_user_can( 'Reservation-New' ) ): ?>
 			<li>
-				<a href="" id="editToggle" onclick="return false;">
+				<a href="#" id="editToggle" onclick="return false;">
 					<?= _edit;?>
 				</a>
 			</li>

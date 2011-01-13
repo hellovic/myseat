@@ -20,12 +20,12 @@
 		<ul class="icon">
 			<!--
 			<li>
-				<a href="" title="Message">
+				<a href="#" title="Message">
 					<img src="images/icon_message.png" alt="" class="middle"/>
 				</a>
 			</li>
 			<li>
-				<a href="" title="Setting">
+				<a href="#" title="Setting">
 					<img src="images/icon_setting.png" alt="" class="middle"/>
 				</a>
 			</li>

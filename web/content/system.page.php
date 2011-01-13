@@ -158,7 +158,7 @@
 			<?php if ( $q == 5 ): ?>
 			<ul class="second_level_tab" style="line-height:1.4em">
 				<li>
-					<a href="" id="editToggle" onclick="return false;">
+					<a http://localhost/XT/06-code/web/main_page.php?q=1 id="editToggle" onclick="return false;">
 						<?= _edit;?>
 					</a>
 				</li>
