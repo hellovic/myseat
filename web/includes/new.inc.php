@@ -4,8 +4,7 @@
 	 <div class="twocolumn">
 	  <div class="content" style="height:710px;">
 <!-- Beginn left column -->	
-<form method="post" action="?q=1" id="new_reservation_form">
-<input type="hidden" name="reservation_date" value="<?= $_SESSION['selectedDate'];?>">
+<form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 		<br/>
 		<label><?= _time; ?>*</label><br/>
 			<div class="option">
@@ -118,16 +117,16 @@
 			<div class="text" id="recurring_text"></div>
 			<input type="text" name="recurring_date" id="recurring_date" value="<?= $_SESSION['selectedDate_user']; ?>"/>
 			<input type="hidden" name="recurring_dbdate" id="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
-	    </div>
+		</div>
 		</p>
 	</div></div></div> <!-- end right column -->
-
+	<input type="hidden" name="reservation_date" value="<?= $_SESSION['selectedDate'];?>">
 	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">
 	<input type="hidden" name="reservation_timestamp" value="<?= date('Y-m-d H:i:s');?>">
 	<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>">
 	<input type="hidden" name="token" value="<?php echo $token; ?>" />
 	<input type="hidden" name="action" value="save_res">
-	</form><!-- end form -->
-	<br class="clear">
+ </form><!-- end form -->
+ <br class="clear">
 </div> <!-- end content wrapper -->
 <br/><br/><br/>

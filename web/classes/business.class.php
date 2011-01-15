@@ -415,7 +415,6 @@ function randomPassword($pw_length = 6, $use_caps = false, $use_numeric = true, 
 
 	return implode('', $compl);
 }
-
 // compare a random password with the database to create a unique booking number
 function uniqueBookingnumber(){
 	do {
@@ -424,10 +423,9 @@ function uniqueBookingnumber(){
 	} while($num==0);
 	return $value;
 }
-
-// ++++++++++++++++++++++++++++++++++++++++
-// +++             THE CORE             +++
-// ++++++++++++++++++++++++++++++++++++++++
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// =-=               THE CORE              =-=
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // calculate the maximum capacity of outlet
 function maxCapacity(){
@@ -506,7 +504,8 @@ function getAvailability($ava_by_time, $intervall='15') {
 					$ava_temp = ($ava_by_time[date('H:i:s',$startvalue)]) ? $ava_by_time[date('H:i:s',$startvalue)] : 0;
 					$out_ava_temp_before += $ava_temp;
 				}
-				$startvalue = mktime($h3+0,$m3+$ii*$intervall,0,date("m",$startvalue),date("d",$startvalue),date("Y",$startvalue)); 
+				//echo "$startvalue = mktime(".$h3."+1-1,".$m3."+".$ii."*".$intervall.",0,date('m',".$startvalue."),date('d',".$startvalue."),date('Y',".$startvalue."));";
+				$startvalue = mktime($h3+1-1,$m3+$ii*$intervall,0,date("m",$startvalue),date("d",$startvalue),date("Y",$startvalue)); 
 				if($startvalue>=$endtime){break;}
 				$ii++;
 			}

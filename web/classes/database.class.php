@@ -105,7 +105,10 @@ ob_start();
 		return mysql_num_rows($result);
 	}
 	
-
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	//     Store in database
+	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	function writeForm($table =''){
 	// rather than recursively calling query, insert all rows with one query
 		GLOBAL $general;
@@ -183,8 +186,6 @@ ob_start();
 			  $result     = move_uploaded_file($_FILES['img']["tmp_name"],"../uploads/img/".$imgName);
 				$keys[$i] = 'img_filename';
 				$values[$i] = "'".$imgName."'";
-			  }else{
-			  	$_SESSION['errors'][] = _sorry;
 			  }
 		}
 		
@@ -199,9 +200,7 @@ ob_start();
 	    	$values[] = "'".$saison_end."'";
 		}
 
-		// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-		//     Store in database
-		// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		// =-=-=-=Store in database =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		if ($table == 'reservations') {
 			// clear old booking number
 			$_SESSION['booking_number'] = '';
@@ -272,6 +271,7 @@ ob_start();
 			  $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_occupancy[$startvalue]; 
 
 			if( (int)$res_pax > $val_capacity || $tbl_capacity < 1 ){
+			  echo "HERE";
 				//prevent double entry 	
 				$index = array_search('reservation_wait',$keys);
 				if($index>0){
@@ -288,7 +288,6 @@ ob_start();
 				}
 			}
 			// END Availability
-
 
 			// number of database fields
 			$max_keys = count($keys);
@@ -311,7 +310,7 @@ ob_start();
 			// -----
 			// increase reservation date
 			$res_dat += (60*60*24);
-		 } // end while
+		 } // end while: reservation to store
 		
 			// *** send confirmation email
 			if ( $_POST['email_type'] != 'no' ) {
@@ -324,11 +323,12 @@ ob_start();
 			// set back selected date
 			$_SESSION['selectedDate'] = $selectedDate;
 		}else{
+		  
 		  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		  // No reservation, everything else to store
 		  // enter into database
 		  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-		
+
 			// number of database fields
 			$max_keys = count($keys);
 			$query = "INSERT INTO `$table` (".implode(',', $keys).") VALUES (".implode(',', $values).") ON DUPLICATE KEY UPDATE ";

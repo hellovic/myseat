@@ -43,24 +43,24 @@ This file is part of mySeat.
 
 // ** set configuration
 	include('../config/config.general.php');
-// ** database functions
-	include('classes/database.class.php');
+// ** connect to database
+	include('classes/connect.db.php');
 // ** localization functions
 	include('classes/local.class.php');
+// translate to selected language
+	translateSite(substr($_SESSION['language'],0,2));
+// ** database functions
+	include('classes/database.class.php');
 // ** business functions
 	include('classes/business.class.php');
 // ** select cuisines styles functions
 	include('classes/cuisines.class.php');
 // ** select country functions
 	include('classes/country.class.php');
-// ** connect to database
-	include('classes/connect.db.php');
 // ** all database queries
 	include('classes/db_queries.db.php');
 // ** set configuration
 	include('../config/config.inc.php');
-// translate to selected language
-	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	include('includes/get_variables.inc.php');
 // ** check booking

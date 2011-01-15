@@ -34,10 +34,6 @@
 <![endif]-->
 
 <!-- Jquery and plugins -->
-<?php if($settings['googlemap_key'] != ""){?>
-    <!-- Google Map Key -->
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<?= $settings['googlemap_key']; ?>" type="text/javascript" ></script>
-<?php } ?>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/jquery.img.preload.js"></script>
@@ -50,7 +46,6 @@
 <script type="text/javascript" src="js/browser.js"></script>
 <script type="text/javascript" src="js/jquery.autocomplete.pack.js"></script>
 <script type="text/javascript" src="js/jquery.jeditable.js"></script>
-<script type="text/javascript" src="js/jquery.gmap-1.1.0-min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 
 <?

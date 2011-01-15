@@ -40,21 +40,19 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 }
 
 // Error & success messages
-if (($_POST['action'] == 'save' || $_POST['action'] == 'save_set') && $resultQuery ) {
-	echo "<div id='messageBox'>";
-	echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>". _new_entry ."</p></div></div>";
-}else if ( ($_POST['action'] == 'save' || $_POST['action'] == 'save_set') && !$resultQuery ) {
-	echo "<div id='messageBox'>";
-	echo "<div class='alert_error'><p><img src='images/icon_error.png' alt='error' class='middle'/>". _sorry ."</p></div></div>";	
-}
-if (($_POST['action'] == 'save' || $_POST['action'] == 'save_set') && count($_SESSION['errors']) > 1) {
-	echo "<div style='cursor:pointer;'>";
+if ( !empty($_SESSION['errors']) ) {
+	echo "<div id='messageBox' style='cursor:pointer;'>";
 	echo "<div class='alert_error'>
 	<p><img src='images/icon_error.png' alt='error' class='middle' />";
 	foreach ($_SESSION['errors'] as $key => $value) {
 		echo $value."<br>";
 	}
-	echo "</p></div></div>";	
+	echo "</p></div></div>";
+	//Clear errors after printing
+	$_SESSION['errors'] = "";
+}else if ( $resultQuery ) {
+	echo "<div id='messageBox'>";
+	echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>". _new_entry ."</p></div></div>";
 }
 
 // Messages

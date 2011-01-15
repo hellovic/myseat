@@ -6,7 +6,8 @@ secureSuperGlobals();
 if ($_SESSION['token'] == $_POST['token']) {
 	// submitted forms storage
 	if ($_POST['action']=='save_res') {
-		$resultQuery = writeForm('reservations');
+		// Out of order; see ajax/process_reservation.php
+		//$resultQuery = writeForm('reservations');
 	}else if ($_POST['action']=='save_book' &&  (int)$_POST['verify'] == 4) {
 		$resultQuery = writeForm('reservations');
 	}else if ($_POST['action']=='save_out') {
