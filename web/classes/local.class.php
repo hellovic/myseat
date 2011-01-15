@@ -60,7 +60,7 @@ function translateSite($selected_lang='en'){
 	$sql = "SELECT * FROM `l16n`";
 	$result = mysql_query($sql);
 	while($row = mysql_fetch_array($result)){ 
-		define ( $row['needle'],utf8_encode($row[$selected_lang]));
+		define ( $row['needle'],$row[$selected_lang]);
 	}
 }
 

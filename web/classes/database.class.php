@@ -343,7 +343,7 @@ ob_start();
 			// run sql query 				
 			$query = substr($query,0,-1);
 			    //DEbugging
-			    echo $query;				   
+			    //echo $query;				   
 			$result = query($query);
 			$new_id = mysql_insert_id();
 			
