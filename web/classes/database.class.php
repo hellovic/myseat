@@ -109,6 +109,7 @@ ob_start();
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	//     Store in database
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	
 	function writeForm($table =''){
 	// rather than recursively calling query, insert all rows with one query
 		GLOBAL $general;
@@ -169,7 +170,7 @@ ob_start();
 					$_SESSION['reservation_pax'] = "'".$value."'";
 			}
 			$i++;
-		}
+		} // END foreach $_POST
 		
 		// img upload
 		// =-=-=-=-=-=
@@ -271,7 +272,6 @@ ob_start();
 			  $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_occupancy[$startvalue]; 
 
 			if( (int)$res_pax > $val_capacity || $tbl_capacity < 1 ){
-			  echo "HERE";
 				//prevent double entry 	
 				$index = array_search('reservation_wait',$keys);
 				if($index>0){
@@ -343,7 +343,7 @@ ob_start();
 			// run sql query 				
 			$query = substr($query,0,-1);
 			    //DEbugging
-			    //echo $query;				   
+			    echo $query;				   
 			$result = query($query);
 			$new_id = mysql_insert_id();
 			

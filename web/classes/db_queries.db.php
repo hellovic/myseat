@@ -379,8 +379,8 @@ function querySQL($statement){
 			return $result;
 		break;
 		case 'check_unique_id':
-			$result = query("SELECT reservation_bookingnumber FROM `reservations` WHERE `reservation_bookingnumber`='%s'",$value);
-			return mysql_num_rows($result);
+			$result = query("SELECT COUNT(*) FROM `reservations` WHERE `reservation_bookingnumber`='%s'",$_SESSION['PWD']);
+			return getResult($result);
 		break;
 		case 'store_unique_id':
 			$result = query("UPDATE `reservations` SET reservation_bookingnumber = '' WHERE `reservation_date`<'%s'",$today);

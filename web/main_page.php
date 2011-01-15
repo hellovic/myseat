@@ -47,8 +47,6 @@ This file is part of mySeat.
 	include('classes/connect.db.php');
 // ** localization functions
 	include('classes/local.class.php');
-// translate to selected language
-	translateSite(substr($_SESSION['language'],0,2));
 // ** database functions
 	include('classes/database.class.php');
 // ** business functions
@@ -61,6 +59,8 @@ This file is part of mySeat.
 	include('classes/db_queries.db.php');
 // ** set configuration
 	include('../config/config.inc.php');
+// translate to selected language
+	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	include('includes/get_variables.inc.php');
 // ** check booking

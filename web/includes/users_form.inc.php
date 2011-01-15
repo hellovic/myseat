@@ -7,7 +7,7 @@ if ($_SESSION['button']==2 || $_SESSION['page'] == 7) {
 }
 
 // redirect to right page
-if ($_SESSION['button']==2) {
+if ($_SESSION['button']==2 || $_SESSION['button']==3) {
 	$link = "main_page.php?p=6&q=2&btn=1";
 }
 if ($_SESSION['page'] == 7){
@@ -46,12 +46,10 @@ if ($_SESSION['page'] == 7){
 	<label><?= _type;?></label>
 	<p>
 			<?
-			if($_SESSION['page'] != 7 && $row['userID'] ==''){	
+			if($_SESSION['page'] != 7 && $row['userID'] !=''){	
 				echo "<div class='option'>\n<div class='text'></div>\n<select name='role' id='role' size='1'>\n";
 				//set role
 				$role = ($row['role']) ? $row['role'] : 6;
-				// creating a new property and admin
-				if ($_SESSION['page']==7){$role = 2;}
 				
 				// only allow to create roles smaller than your own
 				foreach($roles as $key => $value) {
@@ -65,6 +63,7 @@ if ($_SESSION['page'] == 7){
 				
 				echo "</select></div>\n";
 			}else{
+				// creating a new property and admin
 				echo "<strong>".$roles[2]."</strong><input type='hidden' name='role' id='role' value='2'>";
 			}
 			?>

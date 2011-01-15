@@ -29,7 +29,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$value = $_POST['username'];
 			$sql_check = querySQL('check_username');
 		}
-		if(!mysql_num_rows($sql_check) || mysql_num_rows($sql_check) == 0){
+		if(mysql_num_rows($sql_check) < 1 || $_POST['userID'] != ''){
 			$resultQuery = writeForm('plc_users');
 		}
 	}

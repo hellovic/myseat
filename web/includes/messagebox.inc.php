@@ -49,7 +49,7 @@ if ( !empty($_SESSION['errors']) ) {
 	}
 	echo "</p></div></div>";
 	//Clear errors after printing
-	$_SESSION['errors'] = "";
+	$_SESSION['errors'] = array();
 }else if ( $resultQuery ) {
 	echo "<div id='messageBox'>";
 	echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>". _new_entry ."</p></div></div>";
@@ -62,7 +62,9 @@ if (count($_SESSION['messages']) >= 1) {
 	foreach ($_SESSION['messages'] as $key => $value) {
 		echo $value."<br>";
 	}
-	echo "</p></div>";	
+	echo "</p></div>";
+	//Clear messages after printing
+	$_SESSION['messages'] = array();
 }
 
 ?>

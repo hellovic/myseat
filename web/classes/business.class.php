@@ -418,10 +418,11 @@ function randomPassword($pw_length = 6, $use_caps = false, $use_numeric = true, 
 // compare a random password with the database to create a unique booking number
 function uniqueBookingnumber(){
 	do {
-		$value = randomPassword();
+		$_SESSION['PWD'] = randomPassword();
 		$num = querySQL('check_unique_id');
-	} while($num==0);
-	return $value;
+	} while( $num>=1 );
+	$_SESSION['messages'][] = _booknum.":&nbsp;&nbsp;' ".$_SESSION['PWD']." '";
+	return 	$_SESSION['PWD'];
 }
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=               THE CORE              =-=
