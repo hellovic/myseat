@@ -9,7 +9,7 @@
 			<th style="width:10%"><?= _phone_room; ?></th>
 			<th style="width:2%"><?= _type; ?></th>
 			<th style="width:35%"><?= _note; ?></th>
-			<th style="width:10%"><?= _author; ?></th>
+			<th style="width:10%" class='noprint'><?= _author; ?></th>
 			<?
 			if($_SESSION['wait'] == 0){
 				echo "<th style='width:2%'>"._table."</th>";
@@ -17,7 +17,7 @@
 			?>
 	    	<th style="width:2%"><?= _status; ?></th>
 			<th></th>
-			<th style="width:2%"><?= _edit; ?></th>
+			<th style="width:2%" class='noprint'><?= _edit; ?></th>
 	    </tr>
 	</thead>
 	<tbody>
@@ -56,20 +56,20 @@
 			<td>".$row->reservation_guest_phone."</td>
 			<td>".$row->reservation_hotelguest_yn."</td>
 			<td>".$row->reservation_notes."</td>
-			<td>".$row->reservation_booker_name."</td>";
+			<td class='noprint'>".$row->reservation_booker_name."</td>";
 			//<td><small>".humanize($row->reservation_timestamp)."</small></td>
 			if($_SESSION['wait'] == 0){
-				echo "<td class='big tb_nr'><div id='reservation_table-".$id."' class='inlineedit'>".$row->reservation_table."</div></td>";
+				echo "<td class='big tb_nr'><div id='reservation_table-".$id."' class='inlineedit noprint'>".$row->reservation_table."</div></td>";
 			}
-			echo "<td>";
+			echo "<td><div class='noprint'>";
 				getStatusList($id, $row->reservation_status);
-			echo "</td>";
-			echo "<td>";
+			echo "</div></td>";
+			echo "<td class='noprint'>";
 				if( (strtotime($row->reservation_timestamp) + $general['old_days']*86400) <= time() ){
 					echo "<img src='images/icons/clock-ex.png' class='help' title='"._sentence_11."' style='float:right;'/>";
 				}
 			echo "</td>";
-			echo "<td style='padding:7px 0px;'>";
+			echo "<td style='padding:7px 0px;' class='noprint'>";
 			// DELETE BUTTON
 			if ( current_user_can( 'Reservation-Delete' ) ){
 		    	echo"<a href='#modalsecurity' name='".$row->repeat_id."' id='".$id."' class='delbtn'>
@@ -92,22 +92,3 @@
 	</tbody>
 </table>
 <!-- End reservation table data -->
-
-<!-- Start manual lines table -->
-<table class="print global" width="100%" style="margin-top: 80px; border: 1px solid #999;">
-	<thead>
-	<tr>
-		<th style='width:10%;'><?= _time;?></th>
-		<th style='width:80%;'><?= _guest_name;?></th>
-		<th style='width:10%;'><?= _pax;?></th>
-	</tr>
-	</thead>
-	<tbody>
-	<?
-	for ($i = 1; $i <= $general['manual_lines']; $i++) {
-		echo"<tr style='height:30px;'><td style='width:10%; border: 1px solid #999;'></td><td style='width:90%; border: 1px solid #999;'></td><td style='width:10%; border: 1px solid #999;'></td></tr>";
-	}
-	?>
-	</tbody>
-</table>
-<!-- End manual lines table -->

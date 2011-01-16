@@ -11,6 +11,9 @@ body {
 .print {
 		  display:block;
 		 }
+.noprint {
+		  display:none;
+		 }
 
 #top_bar {
 		  display:none;
@@ -37,7 +40,12 @@ body {
 		 }
 
 #datetext {
-		  font-weight:strong;
+		  font-weight:bold;
+                  font-size: 1.5em;
+		 }
+
+.dategroup_name a {
+		 color: #000;
 		 }
 
 .navgroup {
@@ -45,5 +53,9 @@ body {
 		 }
                  
 .onecolumn {
-	border: 0px;
+                  border: 0px;
+}
+
+.global td{
+                  border: 1px solid #999;
 }

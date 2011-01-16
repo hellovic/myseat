@@ -41,11 +41,13 @@
 				&raquo;
 			</a>
 			<div class="dategroup_name">
-				<?= querySQL('db_outlet'); ?>
+				<a href="?selectedDate=<?= buildDate($settings['dbdate']); ?>">
+					<?= querySQL('db_outlet'); ?>
+				</a>
 			</div>
 			
 			<!-- Begin 2nd level tab -->
-			<ul class="second_level_tab">
+			<ul class="second_level_tab noprint">
 				<li>
 					<a href="#" id="outlet_detail_button">
 						<?= _detail;?>
@@ -130,6 +132,7 @@
 				break;
 			}
 			echo"<br/>";
+			include('includes/manual_lines.inc.php');
 			//most recent reservations
 			include('includes/recent.inc.php');
 			?>

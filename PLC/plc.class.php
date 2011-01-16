@@ -998,37 +998,6 @@ function login_form(){
           </form>
 			 </div>';
 }
-function login_form_original(){
-	  echo '<div id="stylized" class="myform">
-			  <form name="ajaxform" id="ajaxform">
-		    	<h1>You\'ve got to login.</h1>
-		    	<p>No Password to login?  <a href="">Ask the Admin.</a></p>
-				<label>User
-			        <span class="small">Required</span>
-			    </label>
-            <input type="text" name="user" id="user" class="textfield user" maxlength="30"/>
-			    <label>Password
-			        <span class="small">Min. size 6 chars</span>
-			    </label>
-            <input type="password" name="token" id="token" class="textfield pass" maxlength="12"/>
-			<!-- <div class="small">Change Password</div> -->
-				<div id="changePass">
-					<label>New Password
-				        <span class="small">Min. size 6 chars</span>
-				    </label>
-	              	<input type="password" name="nPass1" id="nPass1" class="textfield nwpss" maxlength="12"/>
-					<label>Confirm
-				        <span class="small">Retype Password</span>
-				    </label>
-	              	<input type="password" name="nPass2" id="nPass2" class="textfield nwpss" maxlength="12"/>
-				</div>
-            <button  type="submit" id="sbmt">Log-in</button><br/>
-			<a href="#" id="nButton" style="float:left;"><img src="img/arrow_circle_double.png" alt="[New Password]" /> </a>
-			  <p style="text-align:right;"> <!-- <a href="'.$this->settingsLink.'"><img src="img/gear-arrow.png" alt="[Settings]"></a> --> 
-		<img src="img/star_icon.png" alt="StarLog" style="vertical-align:middle;"/><small style="vertical-align:middle;"> &copy; PLC Starlog</small></p>
-          </form>
-			 </div>';
-}
   /**
   	* Login form TRUE holder 
   	* @access private

@@ -113,12 +113,13 @@ function querySQL($statement){
 			return getRowListarray($result);
 		break;
 		case 'event_advertise':
-			$result = query("SELECT *,outlets.outlet_name FROM `events`
+			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
 						AND `event_date` >= CURDATE()
 						AND events.outlet_id != '%d'
-						AND events.property_id ='%d'",$_SESSION['outletID'],$_SESSION['property']);
+						AND events.property_id ='%d'
+						ORDER BY advertise_start ASC",$_SESSION['outletID'],$_SESSION['property']);
 			return getRowList($result);
 		break;
 		case 'event_data_day':

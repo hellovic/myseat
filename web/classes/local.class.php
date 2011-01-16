@@ -48,9 +48,9 @@ function humanize($date) {
 
 // format time 12/24h
 function formatTime($tm, $format){
-	$tm 				= substr($tm,0,5);
+	$tm 			= substr($tm,0,5);
 	list($h1,$m1)		= explode(":",$tm);
-	$mktime  			= mktime($h1+0,$m1+0,0,date("m"),date("d"),date("Y"));
+	$mktime  		= mktime($h1+0,$m1+0,0,date("m"),date("d"),date("Y"));
 	$time_new = ($format == 24) ? date('H:i',$mktime) : date("g:i a",$mktime);
 	return $time_new;
 }

@@ -5,15 +5,17 @@ if ($_SESSION['button']==2) {
 	$row = querySQL('event_data_single');	
 }
 
+list($sj,$sm,$sd)                = explode("-",$row['event_date']);
+$eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 ?>
-<form method="post" action="?p=6&q=4&btn=3" id="event_form">
+<form method="post" action="?p=6&q=4&btn=1" id="event_form">
 	<br/>
 	<label><?= _date;?></label>
 	<p>	
 		<div class="date dategroup">
-			<div class="text" id="datetext"><?= $_SESSION['selectedDate_user']; ?></div>
+			<div class="text" id="datetext"><?= $eventdate; ?></div>
 			<input type="text" id="ev_datepicker"/>
-			<input type="hidden" name="event_date" id="event_date" value="<?= $_SESSION['selectedDate']; ?>"/>
+			<input type="hidden" name="event_date" id="event_date" value="<?= $row['event_date']; ?>"/>
 	    </div>
 	</p>	
 	<br style='clear:both'><br/>
@@ -57,6 +59,10 @@ if ($_SESSION['button']==2) {
 	<label><?= _contact;?></label>
 	<p>
 		<input type="text" name="contact" id="contact" class="required" title=' ' style='width: 57%;' value="<?= $row['contact'];?>"/>
+	</p>
+	<label><?= _open_to;?></label>
+	<p>
+		<input type="text" name="open_to" id="open_to" class="required" title=' ' value="<?= $row['open_to'];?>"/>
 	</p>
 	<label><?= _ticket_price;?></label>
 	<p>

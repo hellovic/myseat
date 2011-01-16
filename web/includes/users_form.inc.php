@@ -46,7 +46,7 @@ if ($_SESSION['page'] == 7){
 	<label><?= _type;?></label>
 	<p>
 			<?
-			if($_SESSION['page'] != 7 && $row['userID'] !=''){	
+			if(($_SESSION['page'] != 7 && $row['userID'] !='') || ($_SESSION['page'] == 6 && $row['userID'] =='')){	
 				echo "<div class='option'>\n<div class='text'></div>\n<select name='role' id='role' size='1'>\n";
 				//set role
 				$role = ($row['role']) ? $row['role'] : 6;
