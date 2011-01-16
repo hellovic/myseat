@@ -281,6 +281,8 @@ echo "The Settings table has been created. <br />";
 // DATA ---------------------------------------------------
     
     //translations
+    $sql = query("set names 'utf-8';");
+
     include('l16n.php');
 
 // --------------------------------------------------------
@@ -307,5 +309,5 @@ echo "User Permissions have been set by default. <br /><br />";
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="images/icon_message.png" alt="success" class="middle"/>';
 echo '<strong>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">So wait 5 sec please... System in process</div><br /></p>';
 
-echo '<br /><a href="../web/properties.php?p=2"><input type="button" value="Proceed" class="button_dark"></a></div>';
+echo '<br /><center><a href="../web/properties.php?p=2"><input type="button" value="Proceed" class="button_dark"></a></center></div>';
 ?>
