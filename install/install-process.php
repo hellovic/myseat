@@ -281,7 +281,7 @@ echo "The Settings table has been created. <br />";
 // DATA ---------------------------------------------------
     
     //translations
-    $sql = query("set names 'utf-8';");
+    //$sql = query("set names 'utf-8';");
 
     include('l16n.php');
 
