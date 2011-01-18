@@ -25,7 +25,7 @@ if ($p == 2 || $_SESSION['page'] == 2){
 	</p>
 	<label><?= _zip;?></label>
 	<p>
-		<input type="text" name="zip" id="zip" class="required digits" minlength="4" title=' ' value="<?= $row['zip'];?>"/>
+		<input type="text" name="zip" id="zip" class="required" minlength="4" title=' ' value="<?= $row['zip'];?>"/>
 	</p>
 	<label><?= _city;?></label>
 	<p>
