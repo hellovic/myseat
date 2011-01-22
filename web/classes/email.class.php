@@ -57,6 +57,6 @@
 
 	//***
 	//SEND OUT MAIL
-		mail( $_POST['reservation_guest_email'], $subject, $body, $headers); 
+		mail( $_POST['reservation_guest_email'], $subject, nl2br($body), $headers); 
 	//***
 ?>

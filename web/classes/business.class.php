@@ -46,21 +46,23 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		while( $value <= $endtime )
 		{ 
 			// Generating the time drop down menu
-				echo "<option value='".date('H:i',$value)."'";
-				if ( $select == date('H:i:s',$value) ) {
-					echo "selected='selected'";
-				}
-				echo " >";
-				$txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
+			      echo "<option value='".date('H:i',$value)."'";
+			      if ( $select == date('H:i:s',$value) ) {
+				      echo "selected='selected'";
+			      }
+			      echo " >";			
+								
+			      $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
+			      $pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
+
+			      $txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
+			      echo $txt_value;
 				
-				$tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
-				$pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
-				
-				echo $txt_value;
-				if ($showtime == 1) {
-					echo " - ".$pax_capacity." "._seats." "._free;
-				}
-				echo"</option>\n";
+			      if ($showtime == 1) {
+				 echo " - ".$pax_capacity." "._seats." "._free;
+			      }
+			      
+			      echo"</option>\n";
 			$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
 			$i++;
 		} 
@@ -421,7 +423,6 @@ function uniqueBookingnumber(){
 		$_SESSION['PWD'] = randomPassword();
 		$num = querySQL('check_unique_id');
 	} while( $num>=1 );
-	$_SESSION['messages'][] = _booknum.":&nbsp;&nbsp;' ".$_SESSION['PWD']." '";
 	return 	$_SESSION['PWD'];
 }
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

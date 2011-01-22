@@ -41,9 +41,12 @@
         $_SESSION['selectedDate'] = $_GET['selectedDate'];
     }elseif ($_POST['selectedDate']) {
         $_SESSION['selectedDate'] = $_POST['selectedDate'];
+    }elseif ($_POST['dbdate']) {
+        $_SESSION['selectedDate'] = $_POST['dbdate'];
     }elseif (!$_SESSION['selectedDate']){
         //$_SESSION['selectedDate'] = date('Y-m-d');
     }
+
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
@@ -55,6 +58,7 @@
     $bookingdate = date($general['dateformat'],strtotime($_POST['dbdate']));
     $bookingtime = formatTime($_POST['reservation_time'],$general['timeformat']);
     $outlet_name = querySQL('db_outlet');
+    //$_SESSION['booking_number'] = '';
   
   //The subject of the confirmation email
   $subject = $lang["email_subject"]." ".$outlet_name;
@@ -93,7 +97,7 @@
 		<div id="header">
 			<div class="wrap">
 				
-				<a href="index.php" class="logo"><img src="img/logo.png" alt="hanbai logo" /></a>  
+				<a href="index.php" class="logo"><img src="img/logo.png" alt="logo" /></a>  
 				
 				<div class="contactInfo">
 					<?php lang("contact_info"); ?>
@@ -123,66 +127,60 @@
 			
 
 			<h3>
-			<?php
-			  lang("conf_intro"); 
-			  echo " ".$outlet_name." ".$lang["_at_"]." ".buildDate($general['dateformat'],$sd,$sm,$sy)." ".$bookingtime;
-			?>
+			  <?php
+			    lang("conf_intro"); 
+			    echo " ".$outlet_name." ".$lang["_at_"]." ".buildDate($general['dateformat'],$sd,$sm,$sy)." ".$bookingtime;
+			  ?>
 			</h3>
 			<br/>
-			<?php
-			  // =-=-=-=-=-=-=-=-=-=-=
-			  //  Process the Booking
-			  // =-=-=-=-=-=-=-=-=-=-=
+			<span id="result">
+			  <?php
+			    // =-=-=-=-=-=-=-=-=-=-=
+			    //  Process the Booking
+			    // =-=-=-=-=-=-=-=-=-=-=
+			    
+			    // Check the captcha
+			    $field1 = intval($_POST['captchaField1']);
+			    $operator = $_POST['captchaField2'];
+			    $field3 = intval($_POST['captchaField3']);
+			    
+			    $operator = ($operator == "+") ? true : false;
+			    $correct = $operator ? $field1+$field3 : $field1-$field3; 
+			    
+			    if($_POST['captcha'] == $correct){
+			      // CSRF - Secure forms with token
+			      if ($_SESSION['barrier'] == $_POST['barrier']) {
+				// <Do booking>
+				$waitlist = processBooking();
+			      }
+			      // CSRF - Secure forms with token
+			      $barrier = md5(uniqid(rand(), true)); 
+			      $_SESSION['barrier'] = $barrier;
+			      
+			      if($waitlist == 2){
+				echo "<span class='success'>".$lang['contact_form_success']." ".$_SESSION['booking_number']."</span>";
+			      }else if ($waitlist == 1){
+				echo "<span class='fail'>".$lang['contact_form_full']."</span>";
+			      }else{
+				echo "<span class='fail'>".$lang['contact_form_fail']."</span>";
+			      }
+			    
+			    }
 			  
-			  // Check the captcha
-			  $field1 = intval($_POST['captchaField1']);
-			  $operator = $_POST['captchaField2'];
-			  $field3 = intval($_POST['captchaField3']);
-			  
-			  $operator = ($operator == "+") ? true : false;
-			  $correct = $operator ? $field1+$field3 : $field1-$field3; 
-			  
-			  if($_POST['captcha'] == $correct)
-			  {
-			    // <Do booking>
-			    $process_booking = processBooking();
-			  
-			  }
-			
-			?>
-			        <span>
-                			<span class='success'><?php lang('contact_form_success'); ?></span>
-            				<span class='fail'><?php lang('contact_form_fail'); ?></span>
-                		</span>
-			
+			  ?>
+                	</span>
+			<br/>
+			<a href="index.php"><div class="button" style="line-height:32px;">Back</div></a>
+			<br/>
 			<div class="clear"></div>
-			
+			<br/><br/><br/>
 		</div><!-- main close -->
 		<div id="mainBottom"></div>
 	
 	</div><!-- wrap close -->
 			
 	<div id="footer">
-		<div class="wrap">
-			
-			<div class="oneOfThree">
-				
-				<?php lang("footer_one"); ?>
-				
-			</div>
-			<div class="oneOfThree">
-				
-				<?php lang("footer_two"); ?>
-				
-			</div>
-			<div class="oneOfThree last">
-				
-				<?php lang("footer_three"); ?>
-			
-			</div>
-			<div class="clear"></div>
-			
-		</div>
+
 	</div><!-- footer close -->
 		
 		

@@ -122,6 +122,15 @@ function querySQL($statement){
 						ORDER BY advertise_start ASC",$_SESSION['outletID'],$_SESSION['property']);
 			return getRowList($result);
 		break;
+		case 'event_advertise_web':
+			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
+						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
+						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
+						AND `event_date` >= CURDATE()
+						ORDER BY advertise_start,event_date ASC
+						LIMIT 5");
+			return getRowList($result);
+		break;
 		case 'event_data_day':
 			$result = query("SELECT * FROM `events` 
 						WHERE `event_date` ='%s' 
@@ -366,9 +375,17 @@ function querySQL($statement){
 			return mysql_num_rows($result);
 		break;
 		case 'view_img':
-			$result = query("SELECT img,img_filetype,img_filename FROM `properties` 
+			$result = query("SELECT img_filename FROM `properties` 
 					WHERE `id` ='%d'
-                                        LIMIT 1",$id);
+                                        LIMIT 1",$_SESSION['property']);
+			return getResult($result);
+		break;
+		case 'featured_outlet':
+			$result = query("SELECT * FROM `outlets`
+					WHERE outlet_id >= (SELECT FLOOR( MAX(outlet_id) * RAND()) FROM `outlets` ) 
+					AND ( `saison_year` = 0 OR `saison_year` = '%d' )
+					AND `webform` = '1'
+					ORDER BY outlet_id LIMIT 1",$_SESSION['selectedDate_year']);
 			return getRowListarray($result);
 		break;
 		case 'del_properties':

@@ -32,7 +32,7 @@ ob_start();
 			$query = call_user_func_array('sprintf', $args);
 		}
 		//DeBUGGING
-		//echo "SEND QUERY: $query\n";
+		//echo "SEND QUERY: $query<br/>";
 		$result = mysql_query($query) or die ("Error in query: $query. ".mysql_error());
 		return $result;
 	}
@@ -218,6 +218,7 @@ ob_start();
 			// create and store booking number
 			if (!$_POST['reservation_id'] || $_POST['reservation_id']=='') {
 			    $_SESSION['booking_number'] = uniqueBookingnumber();
+			    $_SESSION['messages'][] = _booknum.":&nbsp;&nbsp;' ".$_SESSION['booking_number']." '";
 			    $keys[] = 'reservation_bookingnumber';
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}
@@ -306,6 +307,13 @@ ob_start();
 			$query = substr($query,0,-1);				   
 			$result = query($query);
 			$_SESSION['result'] = $result;
+			
+			// Reservation ID
+			if(!$_POST['reservation_id']){
+			  $resID = mysql_insert_id();
+			}else{
+			  $resID = $_POST['reservation_id'];
+			}
 
 			// -----
 			// increase reservation date
@@ -318,7 +326,7 @@ ob_start();
 			}
 			
 			// store changes in history
-			$result = query("INSERT INTO `res_history` (reservation_id,author) VALUES ('%d','%s')",$_POST['reservation_id'],$_POST['reservation_booker_name']);
+			$result = query("INSERT INTO `res_history` (reservation_id,author) VALUES ('%d','%s')",$resID,$_POST['reservation_booker_name']);
 			
 			// set back selected date
 			$_SESSION['selectedDate'] = $selectedDate;

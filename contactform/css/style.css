@@ -276,7 +276,7 @@ ul.social li a:hover{
 
 
 /* - -- --- FORMS --- -- - */
-
+/*
 .form{
 	margin: 0 0 10px;
 	width: 300px;
@@ -290,7 +290,6 @@ ul.social li a:hover{
 	color: #444;
 	position: relative;
 }
-
 .drop{
 	background: #f6f5f0;
 	border: none;
@@ -298,6 +297,36 @@ ul.social li a:hover{
 	margin: 12px 0px;
 	font: normal 16px tahoma;
 	color: #444;
+}
+*/
+.form{
+	padding:10px 5px;
+	background:#fff url(../img/bg-input.gif) repeat-x top;
+	border:1px solid #D9D9D9;
+	width:448px;
+	font: bold 16px tahoma;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.drop{
+	padding:10px 5px;
+	background:#fff url(../img/bg-input.gif) repeat-x top;
+	border:1px solid #D9D9D9;
+	padding: 2px 2px;
+	margin: 12px 0px;
+	font: bold 16px tahoma;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+label{
+	padding: 13px 0 0;
+	font: normal 14px quicksand, arial;
+	color: #444;
+	text-transform: uppercase;
 }
 
 .form::-webkit-input-placeholder{
@@ -321,12 +350,6 @@ textarea.form{
 	font: normal 14px quicksand, arial;
 	text-transform: uppercase;
 	float: left;
-}
-
-label{
-	padding: 13px 0 0;
-	font: normal 14px quicksand, arial;
-	text-transform: uppercase;
 }
 
 span.captchaField{
@@ -376,12 +399,16 @@ span.captchaField{
 
 #result .success{
 	color: green;
-	display: none;
+	font-weight: bold;
+	font-size: 16px;
+	display: block;
 }
 
 #result .fail{
 	color: red;
-	display: none;
+	font-weight: bold;
+	font-size: 16px;
+	display: block;
 }
 
 #searchForm{

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$_SESSION['role'] = 6;
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
@@ -19,6 +22,10 @@
 	include('../config/config.inc.php');
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
+// CSRF - Secure forms with token
+	$barrier = md5(uniqid(rand(), true)); 
+	$_SESSION['barrier'] = $barrier;
+
 
 // Get POST data	
    // outlet id
@@ -38,20 +45,22 @@
     // selected date
     if ($_GET['selectedDate']) {
         $_SESSION['selectedDate'] = $_GET['selectedDate'];
-    }elseif ($_POST['selectedDate']) {
+    }else if ($_POST['selectedDate']) {
         $_SESSION['selectedDate'] = $_POST['selectedDate'];
-    }elseif (!$_SESSION['selectedDate']){
+    }else if (!$_SESSION['selectedDate']){
         //$_SESSION['selectedDate'] = date('Y-m-d');
     }
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
   // get Pax by timeslot
-    $resbyTime = reservationsByTime();
-  // get availability by timeslot
+    $resbyTime = reservationsByTime('pax');
+    $tblbyTime = reservationsByTime('tbl');
+    // get availability by timeslot
     $availability = getAvailability($resbyTime,$general['timeintervall']);
+    $tbl_availability = getAvailability($tblbyTime,$general['timeintervall']);
+
   // some constants
-    $bookingdate = date($general['dateformat'],strtotime($_POST['dbdate']));
     $outlet_name = querySQL('db_outlet');
 ?>
 
@@ -86,7 +95,7 @@
 		<div id="header">
 			<div class="wrap">
 				
-				<a href="index.php" class="logo"><img src="img/logo.png" alt="hanbai logo" /></a>  
+				<a href="index.php" class="logo"><img src="img/logo.png" alt="logo" /></a>  
 				
 				<div class="contactInfo">
 					<?php lang("contact_info"); ?>
@@ -116,8 +125,8 @@
 			
 
 			<?php lang("contact_form_intro"); ?>
-			<div style='font-size:1.3em; font-weight:bold;'><?= $outlet_name." - ".buildDate($general['dateformat'],$sd,$sm,$sy); ?><br/></div>
 			<br/>
+			<h3><?= $outlet_name." - ".buildDate($general['dateformat'],$sd,$sm,$sy); ?></h3>
 			
 			<?php
 				// Generate captcha fields
@@ -153,27 +162,37 @@
 		    </div>
 		    <br/>
 		    <div>
+			<label><?php lang("contact_form_title"); ?></label><br/>
 			<?php
 			    titleList();
 			?>
 		    </div>
 		    <br/>
 		    <div>
-                        <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" placeholder="<?php lang("contact_form_name"); ?>" value="" />
+			<label><?php lang("contact_form_name"); ?></label><br/>
+                        <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="" />
                     </div>
+		    <br/>
 		    <div>
-                        <input type="text" name="reservation_pax" class="form required digits" id="reservation_pax" placeholder="<?php lang("contact_form_pax"); ?>" value="" style="width:130px;"/>
+			<label><?php lang("contact_form_pax"); ?></label><br/>
+                        <input type="text" name="reservation_pax" class="form required digits" id="reservation_pax" value="" style="width:100px;" />
                     </div>
+		    <br/>
                     <div>
-                        <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" placeholder="<?php lang("contact_form_email"); ?>" value="" />
+			<label><?php lang("contact_form_email"); ?></label><br/>
+                        <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" value="" />
                     </div>
+		    <br/>
 		    <div>
-                        <input type="text" name="reservation_guest_phone" class="form required" id="reservation_guest_phone" placeholder="<?php lang("contact_form_pax"); ?>" value="" />
+			<label><?php lang("contact_form_phone"); ?></label><br/>
+                        <input type="text" name="reservation_guest_phone" class="form required" id="reservation_guest_phone" value="" />
                     </div>
+		    <br/>
                     <div>
-                	<textarea cols="50" rows="10" name="reservation_notes" class="form required" id="reservation_notes" placeholder="<?php lang("contact_form_notes"); ?>"></textarea>
+			<label><?php lang("contact_form_notes"); ?></label><br/>
+                	<textarea cols="50" rows="10" name="reservation_notes" class="form" id="reservation_notes" ></textarea>
                     </div>
-		    
+		    <br/>
 		    <div class="side">
                 	<div class="captchaContainer">
                 		<label for="captcha"><?php lang("contact_form_captcha"); ?></label>
@@ -196,6 +215,8 @@
 		    </div> 
                 	<div class="oh">
 				<input type="hidden" name="action" id="action" value="submit"/>
+				<input type="hidden" name="barrier" value="<?php echo $barrier; ?>" />
+				<input type="hidden" name="reservation_hotelguest_yn" id="reservation_hotelguest_yn" value="PASS"/>
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
 				<input type="hidden" name="email_type" id="email_type" value="en"/>
                 		
@@ -265,7 +286,8 @@
 	      regional: '<?= substr($_SESSION['language'],0,2);?>',
 	      onSelect: function(dateText, inst) { window.location.href="?selectedDate="+$("#dbdate").val(); }
       });
-      $("#bookingpicker").datepicker('setDate', new Date ( "<?= $_SESSION['selectedDate']; ?>" ));
+      // month is 0 based, hence for Feb we use 1
+      $("#bookingpicker").datepicker('setDate', new Date(<?= $sy.", ".($sm-1).", ".$sd; ?>));
       $("#ui-datepicker-div").hide();
       $("#reservation_outlet_id").change(function(){
 	    window.location.href='?outletID=' + this.value;

@@ -17,11 +17,11 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		// in predefined intervall
 		list($h1,$m1)		= explode(":",$open_time);
 		list($h2,$m2)		= explode(":",$close_time);
-		$value  			= mktime($h1+0,$m1+0,0,$month,$day,$year);
-		$endtime		 	= mktime($h2+0,$m2+0,0,$month,$endday,$year);
-		$i 					= 1;
+		$value  		= mktime($h1+0,$m1+0,0,$month,$day,$year);
+		$endtime		= mktime($h2+0,$m2+0,0,$month,$endday,$year);
+		$i 			= 1;
 		
-		echo"<select name='$field' id='$field' size='1' class='required drop' title=' ' >\n";
+		echo"<select name='$field' id='$field' size='1' class='drop' title=' ' >\n";
 		echo "<option value='' ";
 		if ($select=='') {
 			echo "selected='selected'";
@@ -32,15 +32,20 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 			// Generating the time drop down menu
 				echo "<option value='".date('H:i',$value)."'";
 				if ( $select == date('H:i:s',$value) ) {
-					echo "selected='selected'";
+					echo " selected='selected' ";
 				}
+				
+				 $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
+				 $pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
+				 if ( $pax_capacity == 0 ) {
+					echo " disabled='disabled' ";
+				 }
+				
 				echo " >";
+				
 				$txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
-				
-				$tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
-				$pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
-				
 				echo $txt_value;
+				
 				if ($showtime == 1) {
 					echo " - ".$pax_capacity." Seats free";
 				}
@@ -52,7 +57,7 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 }
 
 function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'){
-	echo"<select name='".$tablename."' id='".$tablename."' class='required drop' size='1' $disabled>\n";
+	echo"<select name='".$tablename."' id='".$tablename."' class='drop' size='1' $disabled>\n";
 		
 		$outlets = querySQL('db_outlets');
 		
@@ -77,12 +82,12 @@ function titleList($title='',$disabled=''){
 	        // translation
 		GLOBAL $lang;
    
-		echo "<select name='reservation_title' id='reservation_title' class='required drop' title=' ' size='1' $disabled>\n";
+		echo "<select name='reservation_title' id='reservation_title' class='drop' title=' ' size='1' $disabled>\n";
 
 		// Empty
 		echo "<option value='' ";
 		echo ($title=="") ? "selected='selected'" : "";
-		echo ">".$lang['contact_form_title']."</option>\n";
+		echo ">--</option>\n";
 		// Sir
 		echo "<option value='M' ";
 		echo ($title=='M') ? "selected='selected'" : "";
@@ -110,7 +115,7 @@ function processBooking(){
 	 $table ='reservations';
 	 // reservation date
 	 $reservation_date = $_SESSION['selectedDate'];
-	 
+
 	// prepare POST data for storage in database:
 	// $keys
 	// $values 
@@ -122,13 +127,18 @@ function processBooking(){
 		// prepare arrays for database query
 		foreach($_POST as $key => $value) {
 			if( $key != "action"
+			      && $key != "dbdate"
+			      && $key != "reservation_date"
+			      && $key != "recurring_dbdate"
+			      && $key != "captcha"
+			      && $key != "barrier"
+			      && $key != "email_type"
 			      && $key != "captchaField1"
 			      && $key != "captchaField2"
 			      && $key != "captchaField3"){
 			      	$keys[$i] = $key;
 		     		$values[$i] = "'".$value."'";
 			}
-			
 			// remember some values
 			if( $key == "reservation_date" ){
 			   $reservation_date = strtotime($value);
@@ -139,18 +149,20 @@ function processBooking(){
 			}else if($key == 'reservation_pax'){	
 			   $_SESSION['reservation_pax'] = "'".$value."'";
 			}
+			
+			if( $key == "reservation_date" ){
+			   $keys[$i] = $key;
+		     	   $values[$i] = "'".$_SESSION['selectedDate']."'";
+			}
+			
 			$i++;
 		} // END foreach $_POST
-		
-			$_SESSION['reservation_date'] = date('Y-m-d',$reservation_date);
 
 		// =-=-=-=Store in database =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 			// clear old booking number
 			$_SESSION['booking_number'] = '';
 			// variables
 			$res_pax = ($_POST['reservation_pax']) ? (int)$_POST['reservation_pax'] : 0;
-			// memorize selected date
-			$selectedDate = $_SESSION['selectedDate'];
 			
 			// sanitize old booking numbers
 			$clr = querySQL('sanitize_unique_id');
@@ -158,6 +170,7 @@ function processBooking(){
 			// create and store booking number
 			if (!$_POST['reservation_id'] || $_POST['reservation_id']=='') {
 			    $_SESSION['booking_number'] = uniqueBookingnumber();
+			    $_SESSION['messages'][] = $lang["book_num"].":&nbsp;&nbsp;' ".$_SESSION['booking_number']." '";
 			    $keys[] = 'reservation_bookingnumber';
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}
@@ -169,10 +182,7 @@ function processBooking(){
 			// build new reservation date
 			$index = array_search('reservation_date',$keys);
 			// build for availability calculation
-			$_SESSION['selectedDate'] = date('Y-m-d',$res_dat);
-			if($index){
-				$values[$index] = "'".$_SESSION['selectedDate']."'";
-			}
+
 			$index = array_search('reservation_wait',$keys);
 			if($index){
 				$values[$index] = '1';
@@ -217,6 +227,7 @@ function processBooking(){
 			}
 			// END Availability
 
+		  if ($waitlist != 1){
 			// number of database fields
 			$max_keys = count($keys);
 			// enter into database
@@ -237,7 +248,6 @@ function processBooking(){
 			
 			// Reservation ID
 	 		$resID = mysql_insert_id();
-
 		
 			// *** send confirmation email
 			if ( $_POST['email_type'] != 'no' ) {
@@ -246,7 +256,9 @@ function processBooking(){
 			
 			// store new reservation in history
 			$result = query("INSERT INTO `res_history` (reservation_id,author) VALUES ('%d','%s')",$resID,$_SESSION['author']);
-			
+			// Reservation was done
+			$waitlist = 2;
+		  }	
 			// reservation done, handle back waitlist status
 			return $waitlist;
 	 }

@@ -91,30 +91,9 @@ $(document).ready(function(){
 		        }
 		    });
 		    
-		    //If there are no errors, send the email
+		    //If there are no errors, send the form
 		    if(errors === 0){
-		        var data = ContactForm.serialize(),
-		            URL = ContactForm.attr("action");
-				$.ajax({
-					type: 'post',
-					url: URL,
-					data: data,
-					success: function(results) {
-						loader.fadeOut(function() {
-							if(/email sent/.test(results)) {
-								result.find(".success").fadeIn();
-								ContactForm.find(".form").each(function(){
-								    $(this).val( $(this).attr("placeholder") );
-		                        });
-							} else {
-								result.find(".fail").fadeIn();
-							}
-						});
-					},
-					error: function() {
-						result.find(".fail").fadeIn();
-					}
-				});
+			$("#contactForm").submit();
 		    }else{
 		    	// else, nudge the incorrect fields
 		    	ContactForm.find(".notRight").each(function(){

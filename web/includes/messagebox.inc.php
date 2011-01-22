@@ -16,7 +16,7 @@ if ($events_advertise && $_SESSION['page'] == 2 ) {
 	";
 		// special events
 		foreach($events_advertise as $row) {
-			echo "<p style='margin-bottom:6px;'><img src='images/icon_cutlery.png' alt='error' class='middle'/>
+			echo "<p style='margin-bottom:6px;'><img src='images/icon_cutlery.png' alt='special' class='middle'/>
 			<strong>".date($general['dateformat'],strtotime($row->event_date))." ".$row->outlet_name."&nbsp;&nbsp;&nbsp;".
 			_sp_events.": ".$row->subject."</strong><div style='margin-left:36px; font-size:0.9em; line-height:1.2em;'>".
 			formatTime($row->start_time,$general['timeformat'])." - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
