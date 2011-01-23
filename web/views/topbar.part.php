@@ -4,7 +4,7 @@
 	
 	<!-- Begin logo -->
 	<div class="logo">
-		<a href="/web"><img src="images/logo.png" alt=""/></a>
+		<a href="<?= dirname($_SERVER['PHP_SELF']);?>"><img src="images/logo.png" alt=""/></a>
 	</div>
 	<!-- End logo -->
 	
