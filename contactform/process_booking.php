@@ -18,6 +18,8 @@
 	include('../web/classes/db_queries.db.php');
 // ** set configuration
 	include('../config/config.inc.php');
+// translate to selected language
+	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
 

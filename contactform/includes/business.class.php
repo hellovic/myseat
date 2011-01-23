@@ -132,6 +132,7 @@ function processBooking(){
 			      && $key != "recurring_dbdate"
 			      && $key != "captcha"
 			      && $key != "barrier"
+			      && $key != "reservation_author"
 			      && $key != "email_type"
 			      && $key != "captchaField1"
 			      && $key != "captchaField2"

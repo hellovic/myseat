@@ -2,6 +2,8 @@
 session_start();
 
 $_SESSION['role'] = 6;
+$_SESSION['language'] = 'en_EN';
+
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
@@ -20,6 +22,8 @@ $_SESSION['role'] = 6;
 	include('../web/classes/db_queries.db.php');
 // ** set configuration
 	include('../config/config.inc.php');
+// translate to selected language
+	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
 // CSRF - Secure forms with token
@@ -218,6 +222,7 @@ $_SESSION['role'] = 6;
 				<input type="hidden" name="barrier" value="<?php echo $barrier; ?>" />
 				<input type="hidden" name="reservation_hotelguest_yn" id="reservation_hotelguest_yn" value="PASS"/>
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
+				<input type="hidden" name="reservation_author" id="reservation_author" value="mySeat Team"/>
 				<input type="hidden" name="email_type" id="email_type" value="en"/>
                 		
 				<input class="button" type="submit" value="<?php lang("contact_form_send"); ?>" />
