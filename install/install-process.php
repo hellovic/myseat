@@ -306,7 +306,7 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
 echo "User Permissions have been set by default. <br /><br />";
 
 // FINISH ---------------------------------------------------
-echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="images/icon_message.png" alt="success" class="middle"/>';
+echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';
 echo '<strong>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">So wait 5 sec please... System in process</div><br /></p>';
 
 echo '<br /><center><a href="../web/properties.php?p=2"><input type="button" value="Proceed" class="button_dark"></a></center></div>';
