@@ -3,11 +3,7 @@
 	$default_lang = "en";
 	
 	// The relative path to the lang folder
-	$lang_folder = "lang";
-	
-	//Insert your email address for getting a BCC mail
-	$BCCTo = "info@myseat.us";	
-	
+	$lang_folder = "lang";	
 	
 	//Get the language used by the browser
 	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
