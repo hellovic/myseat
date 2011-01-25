@@ -16,12 +16,18 @@ session_start();
  // ** the database port (standard: 3306)
  $settings['dbPort'] = 3306;
 
-// **
 
-// ** Google map API key
-// ** Sign up for your own at: http://code.google.com/intl/en-EN/apis/maps/signup.html
-// ** Do not use mine please !!
-$settings['googlemap_key'] = "ABQIAAAA1-uY3igh_R_JiWHmwKK_UxT75Ut2Ph_t8aXAK0xXRJ_z6BkX6xTyGQK8WxAFbqP1c4QmI7AiZ-VjAQ";
+ // ** Google map API key
+ // ** Sign up for your own at: http://code.google.com/intl/en-EN/apis/maps/signup.html
+ // ** Do not use mine please !!
+ $settings['googlemap_key'] = "ABQIAAAA1-uY3igh_R_JiWHmwKK_UxT75Ut2Ph_t8aXAK0xXRJ_z6BkX6xTyGQK8WxAFbqP1c4QmI7AiZ-VjAQ";
+
+ // ** Daylight settings
+ // ** noon time
+ $daylight_noon = '14:00';
+ // ** evening time
+ $daylight_evening = '18:00';
+// **
 
 // ********************************************************************
 // Do not change anything under this line, except you know what you do.

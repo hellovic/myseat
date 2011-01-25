@@ -35,9 +35,19 @@
 				
 			echo "<tr id='res-".$id."'>";
 			echo "<td";
+			// reservation after maitre message
 			if ($row->reservation_timestamp > $maitre['maitre_timestamp'] && $maitre['maitre_comment_day']!='') {
 				echo " style='color:#FF0000;' title='"._sentence_13."' ";
 			}
+			// daylight coloring
+			if ($row->reservation_time > $daylight_evening){
+				echo " class='evening' ";
+			}else if ($row->reservation_time > $daylight_noon){
+				echo " class='afternoon' ";
+			}else if ($row->reservation_time < $daylight_noon){
+				echo " class='morning' ";
+			}
+			
 			echo "><strong>".formatTime($row->reservation_time,$general['timeformat'])."</strong></td>
 			<td>".printTitle($row->reservation_title)."</td>
 			<td>

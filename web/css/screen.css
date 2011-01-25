@@ -878,3 +878,18 @@ label.error                             { margin-left: 6px; }
 					    height: 250px;
 					    float: right;
 					} 
+/* 
+	Daylight Colors 
+*/					
+.morning				{
+					    background:#F6F4E9;
+					    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.746094);
+					}
+.afternoon				{
+					    background:#FDFFF1;
+					    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.746094);
+					}
+.evening				{
+					    background:#DBCBDE;
+					    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.746094);
+					}

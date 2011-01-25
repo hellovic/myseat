@@ -96,7 +96,8 @@ $i 					= 1;
 				echo " free ";
 			}
 			if ($value == $rounded_time) {
-				echo " active";
+				//mark actual time with a lighter colored bar
+				//echo " active";
 			}
 			echo "' style='height: ".$val_by_time."%'>(0)</span>\n</li>\n";
 	$value = mktime($h1+0,$m1+$i*$general['timeintervall'],0,date("m"),$day,date("Y")); 
