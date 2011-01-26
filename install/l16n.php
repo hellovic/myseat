@@ -3,189 +3,187 @@
 $cmd = mysql_query("SET NAMES 'utf8'");
 $cmd = mysql_query("SET CHARACTER SET 'utf8'");
 
-$cmd = query("
-INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES
-(1, '_open', 'Open:', 'Offen:', '', '', ' ', ' ', ' ', ' '),
-(2, '_till', 'till', 'bis', '', '', ' ', ' ', ' ', ' '),
-(3, '_oclock', 'o clock', 'Uhr', '', '', ' ', ' ', ' ', ' '),
-(4, '_tautologous', 'Tautologous with', 'Doppelt gebucht mit', '', '', ' ', ' ', ' ', ' '),
-(5, '_day_comment', 'Day comment', 'Kommentar zum Tag', '', '', ' ', ' ', ' ', ' '),
-(6, '_add_seats', 'Add seats', 'Sitzplätze dazu', '', '', ' ', ' ', ' ', ' '),
-(7, '_add_tables', 'Add tables', 'Tischanzahl dazu', '', '', ' ', ' ', ' ', ' '),
-(8, '_capacity', 'Capacity', 'Kapazität', '', '', ' ', ' ', ' ', ' '),
-(9, '_save', 'Save', 'speichern', '', '', ' ', ' ', ' ', ' '),
-(10, '_delete', 'Delete', 'löschen', '', '', ' ', ' ', ' ', ' '),
-(11, '_reset', 'Reset', 'reset', '', '', ' ', ' ', ' ', ' '),
-(12, '_allow', 'Allow', 'erlauben', '', '', ' ', ' ', ' ', ' '),
-(13, '_edit', 'Edit', 'ändern', '', '', ' ', ' ', ' ', ' '),
-(14, '_search', 'Search', 'Suchen', '', '', ' ', ' ', ' ', ' '),
-(15, '_edit_entry', 'Edit entry', 'Eintrag ändern', '', '', ' ', ' ', ' ', ' '),
-(16, '_edit_all_entries', 'Edit all entries', 'Alle ändern', '', '', ' ', ' ', ' ', ' '),
-(17, '_ok_', 'OK', 'OK', '', '', ' ', ' ', ' ', ' '),
-(18, '_cancel', 'Cancel', 'Abbruch', '', '', ' ', ' ', ' ', ' '),
-(19, '_overview', 'Overview', 'Überblick', '', '', ' ', ' ', ' ', ' '),
-(20, '_outlets', 'Outlets', 'Outlets', '', '', ' ', ' ', ' ', ' '),
-(21, '_navigation', 'Navigation', 'Navigation', '', '', ' ', ' ', ' ', ' '),
-(22, '_today', 'Today', 'Heute', '', '', ' ', ' ', ' ', ' '),
-(23, '_printlist', 'Print list', 'Drucken', '', '', ' ', ' ', ' ', ' '),
-(24, '_users', 'Users', 'Benutzer', '', '', ' ', ' ', ' ', ' '),
-(25, '_confirmed_reservations', 'Confirmed reservations', 'Feste Reservierungen', '', '', ' ', ' ', ' ', ' '),
-(26, '_canceled_reservations', 'Canceled reservations', 'Stornierte Reservierungen', '', '', ' ', ' ', ' ', ' '),
-(27, '_wait_list', 'Wait list', 'Warteliste', '', '', ' ', ' ', ' ', ' '),
-(28, '_search_guest', 'Search Guest', 'Gast Suche', '', '', ' ', ' ', ' ', ' '),
-(29, '_search_results', 'Search results', 'Suchergebnisse', '', '', ' ', ' ', ' ', ' '),
-(30, '_recent_reservations', 'Recent reservations', 'Letzte Reservierungen', '', '', ' ', ' ', ' ', ' '),
-(31, '_time', 'Time', 'Zeit', '', '', ' ', ' ', ' ', ' '),
-(32, '_guest_name', 'Guest name', 'Gast Name', '', '', ' ', ' ', ' ', ' '),
-(33, '_pax', 'Pax', 'Pax', '', '', ' ', ' ', ' ', ' '),
-(34, '_phone_room', 'Phone/Room', 'Telefon/Zimmer', '', '', ' ', ' ', ' ', ' '),
-(35, '_type', 'Type', 'Typ', '', '', ' ', ' ', ' ', ' '),
-(36, '_note', 'Note', 'Notiz/Info', '', '', ' ', ' ', ' ', ' '),
-(37, '_author', 'Author', 'Autor', '', '', ' ', ' ', ' ', ' '),
-(38, '_date', 'Date', 'Datum', '', '', ' ', ' ', ' ', ' '),
-(39, '_status', 'Status', 'Status', '', '', ' ', ' ', ' ', ' '),
-(40, '_booked_', 'booked ', 'buchte ', '', '', ' ', ' ', ' ', ' '),
-(41, '_people_', 'people ', 'Personen ', '', '', ' ', ' ', ' ', ' '),
-(42, '_for_', 'for ', 'für ', '', '', ' ', ' ', ' ', ' '),
-(43, '_or_', 'or ', 'oder ', '', '', ' ', ' ', ' ', ' '),
-(44, '_canceled_', 'canceled ', 'stornierte', '', '', ' ', ' ', ' ', ' '),
-(45, '_edit_reservation', 'Edit reservation', 'Ändere Reservierung', '', '', ' ', ' ', ' ', ' '),
-(46, '_add_reservation', 'Add reservation', 'Neue Reservierung', '', '', ' ', ' ', ' ', ' '),
-(47, '_visits', 'Visits', 'Besuche', '', '', ' ', ' ', ' ', ' '),
-(48, '_last_visit', 'Last visit', 'Letzter Besuch', '', '', ' ', ' ', ' ', ' '),
-(49, '_sentence_16', 'Do not book any more passants!', 'Keine Passanten mehr einbuchen!', '', '', '', '', '', ''),
-(50, '_existing_outlets', 'Existing outlets', 'Bestehende Outlets', '', '', ' ', ' ', ' ', ' '),
-(51, '_add_user', 'Add user', 'Benutzer hinzufügen', '', '', ' ', ' ', ' ', ' '),
-(52, '_add_outlet', 'Add outlet', 'Outlet hinzufügen', '', '', ' ', ' ', ' ', ' '),
-(53, '_name', 'Name', 'Name', '', '', ' ', ' ', ' ', ' '),
-(54, '_description', 'Description', 'Beschreibung', '', '', ' ', ' ', ' ', ' '),
-(55, '_seats', 'Seats', 'Maximale Plätze', '', '', ' ', ' ', ' ', ' '),
-(56, '_tables', 'Tables', 'Maximale Tische', '', '', ' ', ' ', ' ', ' '),
-(57, '_open_time', 'Open time', 'Öffnungszeit', '', '', ' ', ' ', ' ', ' '),
-(58, '_close_time', 'Close time', 'Schliesszeit', '', '', ' ', ' ', ' ', ' '),
-(59, '_season_start', 'Season start', 'Saison Start', '', '', ' ', ' ', ' ', ' '),
-(60, '_season_end', 'Season end', 'Saison Ende', '', '', ' ', ' ', ' ', ' '),
-(61, '_day_off', 'Day off', 'Ruhetag', '', '', ' ', ' ', ' ', ' '),
-(62, '_new_entry', 'New entry has been added !', 'Eintrag wurde hinzugefügt!', '', '', ' ', ' ', ' ', ' '),
-(63, '_entry_edited', 'Entry has been edited !', 'Eintrag wurde geändert!', '', '', ' ', ' ', ' ', ' '),
-(64, '_entry_deleted', 'Entry deleted!', 'Eintrag wurde gelöscht!', '', '', ' ', ' ', ' ', ' '),
-(65, '_nothing_deleted', 'Nothing deleted!', 'Eintrag wurde nicht gelöscht!', '', '', ' ', ' ', ' ', ' '),
-(66, '_sentence_2', 'Do you really want to delete?', 'Wollen Sie wirklich löschen?', '', '', ' ', ' ', ' ', ' '),
-(67, '_enter_password', 'Please enter the password', 'Bitte geben Sie das Passwort ein', '', '', ' ', ' ', ' ', ' '),
-(68, '_wrong_password', 'Wrong password !', 'Falsches Passwort !', '', '', ' ', ' ', ' ', ' '),
-(69, '_week', 'Week', 'Woche', '', '', ' ', ' ', ' ', ' '),
-(70, '_occupancy_per_week', 'Occupancy per week', 'Belegung pro Woche', '', '', ' ', ' ', ' ', ' '),
-(71, '_guest_type_per_month', 'Guest type per month', 'Gastart pro Monat', '', '', ' ', ' ', ' ', ' '),
-(72, '_occupancy_per_month', 'Occupancy per month', 'Belegung pro Monat', '', '', ' ', ' ', ' ', ' '),
-(73, '_guest_search', 'Guest Search', 'Gast Suche', '', '', ' ', ' ', ' ', ' '),
-(74, '_system', 'System', 'System', '', '', ' ', ' ', ' ', ' '),
-(75, '_cancelled', 'Cancelled', 'Storno', '', '', ' ', ' ', ' ', ' '),
-(76, '_comments', 'Comments', 'Kommentare', '', '', ' ', ' ', ' ', ' '),
-(77, '_statistics', 'Statistics', 'Statistik', '', '', ' ', ' ', ' ', ' '),
-(78, '_export', 'Export', 'Export', '', '', ' ', ' ', ' ', ' '),
-(79, '_info', 'Info', 'Info', '', '', ' ', ' ', ' ', ' '),
-(80, '_table', 'Table', 'Tisch', '', '', ' ', ' ', ' ', ' '),
-(81, '_changes', 'Changes', 'Änderungen', '', '', ' ', ' ', ' ', ' '),
-(82, '_guest_summary', 'Guest summary', 'Gesamt Gäste', '', '', ' ', ' ', ' ', ' '),
-(83, '_tables_summary', 'Tables summary', 'Gesamt Tische', '', '', ' ', ' ', ' ', ' '),
-(84, '_parties_summary', 'Parties summary', 'Gesamt Parties', '', '', ' ', ' ', ' ', ' '),
-(85, '_dollar_revenue_summary', 'Dollar Revenue summary', 'Euro Gesamt Einnahme', '', '', ' ', ' ', ' ', ' '),
-(86, '_close_window', 'Close Window', 'Fenster schliessen', '', '', ' ', ' ', ' ', ' '),
-(87, '_multi_booking', 'Multi Booking<br/>repeat till:', 'Mehrfach Reservierung<br/>Wiederhole bis:', '', '', ' ', ' ', ' ', ' '),
-(88, '_recurring', 'recurring', 'wiederkehrend', '', '', ' ', ' ', ' ', ' '),
-(89, '_information', 'Information !', 'Hinweis !', '', '', ' ', ' ', ' ', ' '),
-(90, '_move_reservation_to', 'Move reservation to', 'Verschiebe Reservierung nach', '', '', ' ', ' ', ' ', ' '),
-(91, '_sentence_5', 'Attention: This table number is already assigned!', 'Achtung: Dieser Tisch wurde schon vergeben!', '', '', ' ', ' ', ' ', ' '),
-(92, '_sentence_6', 'The restaurant has already opened. Please contact the Maitre!', 'Das Restaurant hat schon geoeffnet. Bitte kontaktieren Sie den zuständigen Maitre!', '', '', ' ', ' ', ' ', ' '),
-(93, '_sentence_8', 'Are you sure to reserve such big table? From ', 'Sind Sie sicher das Sie einen so grossen Tisch reservieren wollen? Ab ', '', '', ' ', ' ', ' ', ' '),
-(94, '_sentence_9', 'persons we recommend from a quality reason a menu!', 'Personen empfehlen wir aus Qualitätsgründen eine Menüabsprache!', '', '', ' ', ' ', ' ', ' '),
-(95, '_paid', 'Paid', 'Zahlung', '', '', ' ', ' ', ' ', ' '),
-(96, '_shipped', 'shipped', 'Versendet', '', '', ' ', ' ', ' ', ' '),
-(97, '_adress', 'Address', 'Adresse', '', '', ' ', ' ', ' ', ' '),
-(98, '_area_code', 'ZIP Code-City', 'PLZ-Ort', '', '', ' ', ' ', ' ', ' '),
-(99, '_email', 'Email', 'Email', '', '', ' ', ' ', ' ', ' '),
-(100, '_paid_by', 'Paid by', 'Bez. per', '', '', ' ', ' ', ' ', ' '),
-(101, '_parking', 'Parking', 'Parken', '', '', ' ', ' ', ' ', ' '),
-(102, '_discount', 'Discount', 'GdH', '', '', ' ', ' ', ' ', ' '),
-(103, '_password', 'Password', 'Passwort', '', '', ' ', ' ', ' ', ' '),
-(104, '_ticket_system', 'Ticket system', 'Ticketsystem', '', '', ' ', ' ', ' ', ' '),
-(105, '_ticket_price', 'Price', 'Preis', '', '', ' ', ' ', ' ', ' '),
-(106, '_payment', 'Payment', 'Bezahlt', '', '', ' ', ' ', ' ', ' '),
-(107, '_shipping', 'Shipping', 'Versand', '', '', ' ', ' ', ' ', ' '),
-(108, '_sent', 'Sent', 'Ausgang', '', '', ' ', ' ', ' ', ' '),
-(109, '_timecontrol', 'Timecontrol', 'Timecontrol', '', '', ' ', ' ', ' ', ' '),
-(110, '_webform', 'Webform', 'Webform', '', '', ' ', ' ', ' ', ' '),
-(111, '_tautologous_booking', 'Tautologous booking: This guest has a second booking on this day', 'Doppelbuchung : Dieser Gast hat noch eine andere Buchung an diesem Tag.', '', '', ' ', ' ', ' ', ' '),
-(112, '_sentence_11', 'This is an older reservation.', 'Diese Reservierung ist schon etwas älter.', '', '', ' ', ' ', ' ', ' '),
-(113, '_sentence_13', 'Reservation was done after maitre message.', 'Die Reservierung wurde nach dem Maitre Hinweis getätigt.', '', '', ' ', ' ', ' ', ' '),
-(114, '_sorry', 'Sorry, something goes wrong!', 'Uups, es ging etwas schief!', '', '', '', ' ', ' ', ' '),
-(115, '_general', 'General', 'Allgemein', '', '', ' ', ' ', ' ', ' '),
-(116, '_fill_out', 'Fill out for sending a confirmation.', 'Zum Zusenden einer Bestätigung ausfüllen.', '', '', ' ', ' ', ' ', ' '),
-(117, '_confirmation_email', 'Confirmation Email', 'Bestätigungsemail', '', '', ' ', ' ', ' ', ' '),
-(118, '_database', 'Database', 'Datenbank', '', '', ' ', ' ', ' ', ' '),
-(119, '_path', 'Path', 'Pfad', '', '', ' ', ' ', ' ', ' '),
-(120, '_language', 'Language', 'Sprache', '', '', ' ', ' ', ' ', ' '),
-(121, '_title', 'Title', 'Titel', '', '', ' ', ' ', ' ', ' '),
-(122, '_booknum', 'Booking number', 'Buchungsnummer', '', '', '', '', '', ''),
-(123, '_zip', 'ZIP', 'PLZ', '', '', '', '', '', ''),
-(124, '_english', 'English', 'Deutsch', '', '', ' ', ' ', ' ', ' '),
-(125, '_international', 'International', 'Englisch', '', '', ' ', ' ', ' ', ' '),
-(126, '_before', 'before', 'zuvor', '', '', '', '', '', ''),
-(127, '_till_', 'till', 'bis', '', '', ' ', ' ', ' ', ' '),
-(128, '_at_', 'at', 'um', '', '', ' ', ' ', ' ', ' '),
-(129, '_reserved', 'reserved', 'reserviert', '', '', ' ', ' ', ' ', ' '),
-(130, '_active', 'Active', 'Aktiv', '', '', '', '', '', ''),
-(131, '_retype', 'Retype', 'Wiederhole', '', '', '', '', '', ''),
-(132, '_cuisine_style', 'Cuisine Style', 'Küchenrichtung', '', '', '', '', '', ''),
-(133, '_sp_events', 'Special Event', 'Sonderveranstaltung', '', '', '', '', '', ''),
-(134, '_subject', 'Subject', 'Betreff', '', '', '', '', '', ''),
-(135, '_open_to', 'Open to', 'Frei für', '', '', '', '', '', ''),
-(136, '_contact', 'Contact', 'Kontakt', '', '', '', '', '', ''),
-(137, '_advertise_start', 'Start advertise', 'Werbung starten', '', '', '', '', '', ''),
-(138, '_days', 'Days', 'Tage', '', '', '', '', '', ''),
-(139, '_email_subject', 'Reservation confirmation for', 'Reservierungsbestätigung für', '', '', '', '', '', ''),
-(140, '_dear_mr', 'Dear Mr.', 'Sehr geehrter Herr', '', '', ' ', ' ', ' ', ' '),
-(141, '_dear_mrs', 'Dear Mrs.', 'Sehr geehrte Frau', '', '', ' ', ' ', ' ', ' '),
-(142, '_dear_sirs_and_madams', 'Dear Sirs and Madams', 'Sehr geehrte Damen und Herren', '', '', ' ', ' ', ' ', ' '),
-(143, '_dear_family', 'Dear Family', 'Liebe Familie', '', '', ' ', ' ', ' ', ' '),
-(144, '_property', 'Property', 'Anwesen', '', '', '', '', '', ''),
-(145, '_M_', 'Mr.', 'Herr', '', '', '', '', '', ''),
-(146, '_W_', 'Mrs.', 'Frau', '', '', '', '', '', ''),
-(147, '_F_', 'Fam.', 'Fam.', '', '', '', '', '', ''),
-(148, '_C_', 'Company', 'Firma', '', '', '', '', '', ''),
-(149, '_mail', 'Invoice', 'Rechnung', '', '', '', '', '', ''),
-(150, '_room', 'Room', 'Zimmer', '', '', '', '', '', ''),
-(151, '_HG_', 'Inhouse Guest', 'Hausgast', '', '', '', '', '', ''),
-(152, '_PASS_', 'Passer by', 'Passant', '', '', '', '', '', ''),
-(153, '_WALK_', 'Walk in', 'Walk in', '', '', '', '', '', ''),
-(154, '_create', 'Create', 'Anlegen', '', '', '', '', '', ''),
-(155, '_year', 'Year', 'Jahr', '', '', '', '', '', ''),
-(156, '_created', 'created at', 'angelegt am', '', '', '', '', '', ''),
-(157, '_back', 'Back', 'Zurück', '', '', '', '', '', ''),
-(158, '_detail', 'Detail', 'Detail', 'Detail', '', '', '', '', ''),
-(159, '_passerby', 'Passerby', 'Passanten', 'Passants', '', '', '', '', ''),
-(160, '_duration', 'Residence time', 'Verweildauer', '', '', '', '', '', ''),
-(161, '_history', 'Guest History', 'Gast Historie', '', '', '', '', '', ''),
-(162, '_no_', 'No', 'Nein', '', '', '', '', '', ''),
-(163, '_email_confirmation_1', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Liebe(r) %s %s,\r\n\r\nVielen Dank für Ihre Reservierung in unserem %s.\r\nGerne haben wir für Sie %s Person(en) am %s ', '', '', '', '', '', ''),
-(164, '_yes_', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK'),
-(165, '_statuslist', 'NYA,Arrived,Seated,Parked,Departed,No Show', 'NYA,Angekommen,Plaziert,an Bar,Gegangen,No Show', '', '', '', '', '', ''),
-(166, '_delete_all_entries', 'delete series', 'serie löschen', '', '', '', '', '', ''),
-(167, '_settings', 'Settings', 'Einstellungen', '', '', '', '', '', ''),
-(168, '_hello', 'Hello', 'Guten Tag', '', '', '', '', '', ''),
-(169, '_email_confirmation_2','at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'um %s reserviert.\r\nWir wünschen Ihnen einen angenehmen Aufenthalt in unserem Restaurant und freuen uns auf Ihren Besuch!\r\n\r\nBeste Grüße \r\n%s\r\n', '', '', '', '', '', ''),
-(170, '_city', 'City', 'Stadt', '', '', '', '', '', ''),
-(171, '_phone', 'Phone', 'Telefon', '', '', '', '', '', ''),
-(172, '_fax', 'Facsimile', 'Telefax', '', '', '', '', '', ''),
-(173, '_country', 'Country', 'Land', '', '', '', '', '', ''),
-(174, '_img', 'Image', 'Bild', '', '', '', '', '', ''),
-(175, '_free', 'free', 'frei', '', '', '', '', '', ''),
-(176, '_email_confirmation_2_en', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n'),
-(177, '_email_confirmation_1_en',', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s '),
-(178, '_email_subject_en', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ')
-;")
- or die(mysql_error());
 
-echo "The translation texts had been inserted. <br />";
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(1, '_open', 'Open:', 'Offen:', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(2, '_till', 'till', 'bis', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(3, '_oclock', 'o clock', 'Uhr', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(4, '_tautologous', 'Tautologous with', 'Doppelt gebucht mit', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(5, '_day_comment', 'Day comment', 'Kommentar zum Tag', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(6, '_add_seats', 'Add seats', 'Sitzplätze dazu', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(7, '_add_tables', 'Add tables', 'Tischanzahl dazu', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(8, '_capacity', 'Capacity', 'Kapazität', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(9, '_save', 'Save', 'speichern', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(10, '_delete', 'Delete', 'löschen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(11, '_reset', 'Reset', 'reset', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(12, '_allow', 'Allow', 'erlauben', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(13, '_edit', 'Edit', 'ändern', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(14, '_search', 'Search', 'Suchen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(15, '_edit_entry', 'Edit entry', 'Eintrag ändern', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(16, '_edit_all_entries', 'Edit all entries', 'Alle ändern', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(17, '_ok_', 'OK', 'OK', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(18, '_cancel', 'Cancel', 'Abbruch', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(19, '_overview', 'Overview', 'Überblick', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(20, '_outlets', 'Outlets', 'Outlets', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(21, '_navigation', 'Navigation', 'Navigation', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(22, '_today', 'Today', 'Heute', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(23, '_printlist', 'Print list', 'Drucken', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(24, '_users', 'Users', 'Benutzer', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(25, '_confirmed_reservations', 'Confirmed reservations', 'Feste Reservierungen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(26, '_canceled_reservations', 'Canceled reservations', 'Stornierte Reservierungen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(27, '_wait_list', 'Wait list', 'Warteliste', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(28, '_search_guest', 'Search Guest', 'Gast Suche', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(29, '_search_results', 'Search results', 'Suchergebnisse', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(30, '_recent_reservations', 'Recent reservations', 'Letzte Reservierungen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(31, '_time', 'Time', 'Zeit', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(32, '_guest_name', 'Guest name', 'Gast Name', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(33, '_pax', 'Pax', 'Pax', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(34, '_phone_room', 'Phone/Room', 'Telefon/Zimmer', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(35, '_type', 'Type', 'Typ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(36, '_note', 'Note', 'Notiz/Info', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(37, '_author', 'Author', 'Autor', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(38, '_date', 'Date', 'Datum', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(39, '_status', 'Status', 'Status', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(40, '_booked_', 'booked ', 'buchte ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(41, '_people_', 'people ', 'Personen ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(42, '_for_', 'for ', 'für ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(43, '_or_', 'or ', 'oder ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(44, '_canceled_', 'canceled ', 'stornierte', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(45, '_edit_reservation', 'Edit reservation', 'Ändere Reservierung', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(46, '_add_reservation', 'Add reservation', 'Neue Reservierung', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(47, '_visits', 'Visits', 'Besuche', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(48, '_last_visit', 'Last visit', 'Letzter Besuch', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(49, '_sentence_16', 'Do not book any more passants!', 'Keine Passanten mehr einbuchen!', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(50, '_existing_outlets', 'Existing outlets', 'Bestehende Outlets', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(51, '_add_user', 'Add user', 'Benutzer hinzufügen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(52, '_add_outlet', 'Add outlet', 'Outlet hinzufügen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(53, '_name', 'Name', 'Name', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(54, '_description', 'Description', 'Beschreibung', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(55, '_seats', 'Seats', 'Maximale Plätze', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(56, '_tables', 'Tables', 'Maximale Tische', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(57, '_open_time', 'Open time', 'Öffnungszeit', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(58, '_close_time', 'Close time', 'Schliesszeit', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(59, '_season_start', 'Season start', 'Saison Start', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(60, '_season_end', 'Season end', 'Saison Ende', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(61, '_day_off', 'Day off', 'Ruhetag', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(62, '_new_entry', 'New entry has been added !', 'Eintrag wurde hinzugefügt!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(63, '_entry_edited', 'Entry has been edited !', 'Eintrag wurde geändert!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(64, '_entry_deleted', 'Entry deleted!', 'Eintrag wurde gelöscht!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(65, '_nothing_deleted', 'Nothing deleted!', 'Eintrag wurde nicht gelöscht!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(66, '_sentence_2', 'Do you really want to delete?', 'Wollen Sie wirklich löschen?', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(67, '_enter_password', 'Please enter the password', 'Bitte geben Sie das Passwort ein', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(68, '_wrong_password', 'Wrong password !', 'Falsches Passwort !', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(69, '_week', 'Week', 'Woche', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(70, '_occupancy_per_week', 'Occupancy per week', 'Belegung pro Woche', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(71, '_guest_type_per_month', 'Guest type per month', 'Gastart pro Monat', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(72, '_occupancy_per_month', 'Occupancy per month', 'Belegung pro Monat', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(73, '_guest_search', 'Guest Search', 'Gast Suche', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(74, '_system', 'System', 'System', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(75, '_cancelled', 'Cancelled', 'Storno', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(76, '_comments', 'Comments', 'Kommentare', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(77, '_statistics', 'Statistics', 'Statistik', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(78, '_export', 'Export', 'Export', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(79, '_info', 'Info', 'Info', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(80, '_table', 'Table', 'Tisch', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(81, '_changes', 'Changes', 'Änderungen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(82, '_guest_summary', 'Guest summary', 'Gesamt Gäste', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(83, '_tables_summary', 'Tables summary', 'Gesamt Tische', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(84, '_parties_summary', 'Parties summary', 'Gesamt Parties', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(85, '_dollar_revenue_summary', 'Dollar Revenue summary', 'Euro Gesamt Einnahme', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(86, '_close_window', 'Close Window', 'Fenster schliessen', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(87, '_multi_booking', 'Multi Booking<br/>repeat till:', 'Mehrfach Reservierung<br/>Wiederhole bis:', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(88, '_recurring', 'recurring', 'wiederkehrend', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(89, '_information', 'Information !', 'Hinweis !', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(90, '_move_reservation_to', 'Move reservation to', 'Verschiebe Reservierung nach', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(91, '_sentence_5', 'Attention: This table number is already assigned!', 'Achtung: Dieser Tisch wurde schon vergeben!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(92, '_sentence_6', 'The restaurant has already opened. Please contact the Maitre!', 'Das Restaurant hat schon geoeffnet. Bitte kontaktieren Sie den zuständigen Maitre!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(93, '_sentence_8', 'Are you sure to reserve such big table? From ', 'Sind Sie sicher das Sie einen so grossen Tisch reservieren wollen? Ab ', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(94, '_sentence_9', 'persons we recommend from a quality reason a menu!', 'Personen empfehlen wir aus Qualitätsgründen eine Menüabsprache!', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(95, '_paid', 'Paid', 'Zahlung', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(96, '_shipped', 'shipped', 'Versendet', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(97, '_adress', 'Address', 'Adresse', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(98, '_area_code', 'ZIP Code-City', 'PLZ-Ort', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(99, '_email', 'Email', 'Email', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(100, '_paid_by', 'Paid by', 'Bez. per', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(101, '_parking', 'Parking', 'Parken', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(102, '_discount', 'Discount', 'GdH', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(103, '_password', 'Password', 'Passwort', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(104, '_ticket_system', 'Ticket system', 'Ticketsystem', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(105, '_ticket_price', 'Price', 'Preis', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(106, '_payment', 'Payment', 'Bezahlt', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(107, '_shipping', 'Shipping', 'Versand', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(108, '_sent', 'Sent', 'Ausgang', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(109, '_timecontrol', 'Timecontrol', 'Timecontrol', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(110, '_webform', 'Webform', 'Webform', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(111, '_tautologous_booking', 'Tautologous booking: This guest has a second booking on this day', 'Doppelbuchung : Dieser Gast hat noch eine andere Buchung an diesem Tag.', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(112, '_sentence_11', 'This is an older reservation.', 'Diese Reservierung ist schon etwas älter.', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(113, '_sentence_13', 'Reservation was done after maitre message.', 'Die Reservierung wurde nach dem Maitre Hinweis getätigt.', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(114, '_sorry', 'Sorry, something goes wrong!', 'Uups, es ging etwas schief!', '', '', '', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(115, '_general', 'General', 'Allgemein', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(116, '_fill_out', 'Fill out for sending a confirmation.', 'Zum Zusenden einer Bestätigung ausfüllen.', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(117, '_confirmation_email', 'Confirmation Email', 'Bestätigungsemail', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(118, '_database', 'Database', 'Datenbank', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(119, '_path', 'Path', 'Pfad', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(120, '_language', 'Language', 'Sprache', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(121, '_title', 'Title', 'Titel', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(122, '_booknum', 'Booking number', 'Buchungsnummer', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(123, '_zip', 'ZIP', 'PLZ', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(124, '_english', 'English', 'Deutsch', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(125, '_international', 'International', 'Englisch', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(126, '_before', 'before', 'zuvor', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(127, '_till_', 'till', 'bis', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(128, '_at_', 'at', 'um', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(129, '_reserved', 'reserved', 'reserviert', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(130, '_active', 'Active', 'Aktiv', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(131, '_retype', 'Retype', 'Wiederhole', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(132, '_cuisine_style', 'Cuisine Style', 'Küchenrichtung', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(133, '_sp_events', 'Special Event', 'Sonderveranstaltung', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(134, '_subject', 'Subject', 'Betreff', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(135, '_open_to', 'Open to', 'Frei für', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(136, '_contact', 'Contact', 'Kontakt', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(137, '_advertise_start', 'Start advertise', 'Werbung starten', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(138, '_days', 'Days', 'Tage', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(139, '_email_subject', 'Reservation confirmation for', 'Reservierungsbestätigung für', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(140, '_dear_mr', 'Dear Mr.', 'Sehr geehrter Herr', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(141, '_dear_mrs', 'Dear Mrs.', 'Sehr geehrte Frau', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(142, '_dear_sirs_and_madams', 'Dear Sirs and Madams', 'Sehr geehrte Damen und Herren', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(143, '_dear_family', 'Dear Family', 'Liebe Familie', '', '', ' ', ' ', ' ', ' ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(144, '_property', 'Property', 'Anwesen', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(145, '_M_', 'Mr.', 'Herr', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(146, '_W_', 'Mrs.', 'Frau', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(147, '_F_', 'Fam.', 'Fam.', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(148, '_C_', 'Company', 'Firma', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(149, '_mail', 'Invoice', 'Rechnung', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(150, '_room', 'Room', 'Zimmer', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(151, '_HG_', 'Inhouse Guest', 'Hausgast', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(152, '_PASS_', 'Passer by', 'Passant', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(153, '_WALK_', 'Walk in', 'Walk in', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(154, '_create', 'Create', 'Anlegen', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(155, '_year', 'Year', 'Jahr', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(156, '_created', 'created at', 'angelegt am', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(157, '_back', 'Back', 'Zurück', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(158, '_detail', 'Detail', 'Detail', 'Detail', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(159, '_passerby', 'Passerby', 'Passanten', 'Passants', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(160, '_duration', 'Residence time', 'Verweildauer', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(161, '_history', 'Guest History', 'Gast Historie', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(162, '_no_', 'No', 'Nein', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(163, '_email_confirmation_1', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', '', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(164, '_yes_', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK', 'OK')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(165, '_statuslist', 'NYA,Arrived,Seated,Parked,Departed,No Show', 'NYA,Angekommen,Plaziert,an Bar,Gegangen,No Show', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(166, '_delete_all_entries', 'delete series', 'serie löschen', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(167, '_settings', 'Settings', 'Einstellungen', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(168, '_hello', 'Hello', 'Guten Tag', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(169, '_email_confirmation_2', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', '', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(170, '_city', 'City', 'Stadt', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(171, '_phone', 'Phone', 'Telefon', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(172, '_fax', 'Facsimile', 'Telefax', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(173, '_country', 'Country', 'Land', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(174, '_img', 'Image', 'Bild', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(175, '_free', 'free', 'frei', '', '', '', '', '', '')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(176, '_email_confirmation_2_en', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n', 'at %s.\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours \r\n%s\r\n')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(177, '_email_confirmation_1_en', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ', 'Dear %s %s,\r\n\r\nThank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s ')");
+$cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`) VALUES(178, '_email_subject_en', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ', 'Reservation confirmation for ')");
+
+
+echo "<li><strong>The translation texts had been inserted.</strong></li>";
 
 ?>

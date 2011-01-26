@@ -1,3 +1,4 @@
+<ul style="margin-left:40px; font-size:1.1em;" class="global">
 <?
 // TABLES -------------------------------------------------
 
@@ -14,7 +15,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `capabilities` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error()); 
 
-echo "The Capabilities table has been created. <br />";
+echo "<li>The Capabilities table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -39,7 +40,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `events` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin ;")
  or die(mysql_error()); 
 
-echo "The Events table has been created. <br />";
+echo "<li>The Events table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -59,7 +60,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `l16n` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
  or die(mysql_error()); 
 
-echo "The Translations table has been created. <br />";
+echo "<li>The Translations table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -85,7 +86,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `maitre` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;")
  or die(mysql_error()); 
 
-echo "The Maitre table has been created. <br />";
+echo "<li>The Maitre table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -113,7 +114,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `outlets` (
  or die(mysql_error());
  
  
-echo "The Outlets table has been created. <br />";
+echo "<li>The Outlets table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -127,7 +128,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_autologin` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error());
  
-echo "The PLC-Autologins table has been created. <br />";
+echo "<li>The PLC-Autologins table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -140,7 +141,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_sessions` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
  or die(mysql_error()); 
 
-echo "The PLC-Sessions table has been created. <br />";
+echo "<li>The PLC-Sessions table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -163,7 +164,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
  or die(mysql_error());
  
- echo "The PLC-Users table has been created. <br />";
+ echo "<li>The PLC-Users table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -184,7 +185,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `properties` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error()); 
 
-echo "The Properties table has been created. <br />";
+echo "<li>The Properties table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -224,7 +225,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `reservations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;")
  or die(mysql_error()); 
 
-echo "The Reservations table has been created. <br />";
+echo "<li>The Reservations table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -239,7 +240,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `res_history` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error());
  
-echo "The Reservations History table has been created. <br />";
+echo "<li>The Reservations History table has been created. </li>";
 
 
 // --------------------------------------------------------
@@ -254,7 +255,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `res_repeat` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
  or die(mysql_error());
  
-echo "The Repeat Reservations table has been created. <br />";
+echo "<li>The Repeat Reservations table has been created. </li>";
 
 // --------------------------------------------------------
 
@@ -276,7 +277,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error());
 
-echo "The Settings table has been created. <br />";
+echo "<li>The Settings table has been created. </li>";
 
 // DATA ---------------------------------------------------
     
@@ -303,7 +304,7 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
 (13, 'Property-New', 1, 1, 1, 1, 1, 1);")
  or die(mysql_error());
  
-echo "User Permissions have been set by default. <br /><br />";
+echo "<li>User Permissions have been set by default.</li> </ul><br /><br />";
 
 // FINISH ---------------------------------------------------
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';

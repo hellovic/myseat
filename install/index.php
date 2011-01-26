@@ -87,7 +87,9 @@ session_start();
 						?>
 					</p>
 				</div>
+			<br/><br/>
 			</div>
+		<br/><br/>
                 </div>
                 <!-- End content wrapper -->
 	</div>
