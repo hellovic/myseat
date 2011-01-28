@@ -1,7 +1,7 @@
 <div class="twocolumn_wrapper" >
  <div class="twocolumn" style="height:930px;">
   <div class="content detailbig content-height">
-  <form method="post" action="?p=102&resID=<?= $_SESSION[resID];?>" id="new_reservation_form">
+  <form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 	<br/>
 	<label><?= _booknum;?></label>
 	<p><strong><?= $row->reservation_bookingnumber; ?></strong></p>
