@@ -4,42 +4,42 @@
 		<?php if ( current_user_can( 'Settings-Outlets' ) ): ?>
 		<li>
 			<a href="?p=6&q=1&btn=1" <? if ($q == 1) { echo " class='active'";}?> >
-				<?= _outlets; ?>
+				<img src='images/system-icons/home.png' class='nav-image'><?= _outlets; ?>
 			</a>
 		</li>
 		<?php endif ?>
 		<?php if ( current_user_can( 'Settings-Users' ) ): ?>
 		<li>
 			<a href="?p=6&q=2&btn=1" <? if ($q == 2) { echo " class='active'";}?> >
-				<?= _users; ?>
+				<img src='images/system-icons/customers.png' class='nav-image'><?= _users; ?>
 			</a>
 		</li>
 		<?php endif ?>
 		<?php if ( current_user_can( 'Settings-General' ) ): ?>
 			<li>
 				<a href="?p=6&q=3" <? if ($q == 3) { echo " class='active'";}?> >
-					<?= _general; ?>
+					<img src='images/system-icons/settings.png' class='nav-image'><?= _general; ?>
 				</a>
 			</li>
 		<?php endif ?>
 		<?php if ( current_user_can( 'Settings-Events' ) ): ?>
 			<li>
 				<a href="?p=6&q=4&btn=1" <? if ($q == 4) { echo " class='active'";}?> >
-					<?= _sp_events; ?>
+					<img src='images/system-icons/special-offer.png' class='nav-image'><?= _sp_events; ?>
 				</a>
 			</li>
 		<?php endif ?>
 		<?php if ( current_user_can( 'Property-New' ) ): ?>
 			<li>
 				<a href="?p=6&q=5" <? if ($q == 5) { echo " class='active'";}?> >
-					<?= _property; ?>
+					<img src='images/system-icons/bank.png' class='nav-image'><?= _property; ?>
 				</a>
 			</li>
 		<?php endif ?>
 		<?php if ( current_user_can( 'Property-Overview' ) ): ?>
 			<li>
 				<a href="?p=6&q=6" <? if ($q == 6) { echo " class='active'";}?> >
-					<?= _property." "._overview; ?>
+					<img src='images/system-icons/config.png' class='nav-image'><?= _property." "._overview; ?>
 				</a>
 			</li>
 		<?php endif ?>

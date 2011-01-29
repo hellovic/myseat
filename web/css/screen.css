@@ -877,7 +877,11 @@ label.error                             { margin-left: 6px; }
 					    width: 350px;
 					    height: 250px;
 					    float: right;
-					} 
+					}
+.nav-image				{
+					    margin-right:4px;
+					    vertical-align: middle;
+					}
 /* 
 	Daylight Colors 
 */					
