@@ -1,34 +1,5 @@
 <?php
 
-// *** Define if selected date is dayoff
-function getDayoff() {
-	$day_off = 0;
-	//read infos from database
-	$rows = querySQL('outlet_info');
-		foreach($rows as $row) {
-			$today = date('w',strtotime($_SESSION['selectedDate']));
-			$outlet_dayoff = explode (",",$row->outlet_closeday);
-		}
-	$rows = querySQL('maitre_info');
-		foreach($rows as $row) {
-			$maitre_dayoff = $row->outlet_child_dayoff;
-		}
-	// define dayoff or y/n
-	if($outlet_dayoff){
-		foreach ($outlet_dayoff as $closeday) {
-			if ($closeday == $today ){
-				$day_off = 1;
-			}
-		}
-	}
-	if ($maitre_dayoff == 'ON') {
-		$day_off = 1;
-	}else if ($maitre_dayoff == 'OFF') {
-		$day_off = 0;
-	}
-	return $day_off;
-}
-
 // calculate and print select list with intervall times
 function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$close_time='24:00:00',$showtime=0) 
 { 
