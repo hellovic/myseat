@@ -288,7 +288,7 @@ function yearDropdown($name='year', $selected=0, $start_year = FALSE, $end_year 
     $end_year = ($end_year) ? $end_year : date('Y') + 5;
 
     // the current year
-	$selected = $selected==0 ? date('Y', time()) : $selected;
+	//$selected = $selected==0 ? date('Y', time()) : $selected;
 
 	// Generate the select
     $dd = '<select name="'.$name.'" id="'.$name.'">';
