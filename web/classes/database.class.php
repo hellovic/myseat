@@ -131,7 +131,7 @@ ob_start();
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
 			}else if($key == 'outlet_closeday'){
 				$keys[$i] = $key;
-				$values[$i] = "'" . implode( ',',$_POST['outlet_closeday'] ) . "'";
+				$values[$i] = "'" . implode( ",",$_POST['outlet_closeday'] ) . "'";
 			}else if($key == 'password'){
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
