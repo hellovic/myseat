@@ -310,5 +310,6 @@ echo "<li>User Permissions have been set by default.</li> </ul><br /><br />";
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';
 echo '<strong>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">Proceed with setting up property and admin user.</div><br /></p>';
 
-echo '</div><br /><br /><center><a href="../web/properties.php?p=2"><input type="button" value="Proceed" class="button_dark"></a></center><br /><br />';
+echo '</div><br /><br /><center><input type="button" value="Proceed" onClick="location.href=\'../web/properties.php?p=2\'" 
+class="button_dark"></center><br /><br />';
 ?>
