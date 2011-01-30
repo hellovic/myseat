@@ -49,7 +49,6 @@ session_start();
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" media="screen"/>
     <link rel="stylesheet" href="css/datepicker.css" media="screen"/>
-    <link rel="shortcut icon" href="img/favicon.png"/>
 
     <!-- jQuery Library-->
     <script src="js/jQuery.min.js"></script>
