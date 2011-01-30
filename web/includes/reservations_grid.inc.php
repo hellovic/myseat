@@ -58,7 +58,7 @@
 			if ($row->repeat_id !=0)
 	            {
 	            //print out recurring symbol
-	            echo "<img src='images/icons/arrow-repeat.png' alt='"._recurring.
+	            echo "&nbsp;<img src='images/icons/arrow-repeat.png' alt='"._recurring.
 					 "' title='"._recurring."' border='0' >";
 	            }
 			echo"</td>
