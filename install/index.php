@@ -37,11 +37,11 @@ session_start();
 <link rel="stylesheet" href="../web/js/fancybox/jquery.fancybox-1.3.0.css" type="text/css" media="screen"/>
 
 <!--[if IE 7]>
-	<link href="css/ie7.css" rel="stylesheet" type="text/css" media="all">
+	<link href="../web/css/ie7.css" rel="stylesheet" type="text/css" media="all">
 <![endif]-->
 
 <!--[if IE]>
-	<script type="text/javascript" src="js/excanvas.js"></script>
+	<script type="text/javascript" src="../web/js/excanvas.js"></script>
 <![endif]-->
 
 
