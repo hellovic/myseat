@@ -3,6 +3,8 @@ session_start();
 
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
+$_SESSION['property'] = 1;
+$_SESSION['propertyID'] = 1;
 
 // PHP part of page / business logic
 // ** set configuration

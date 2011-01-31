@@ -65,19 +65,15 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 		 if ( ($row->saison_start<=$row->saison_end 
 			 && $_SESSION['selectedDate_saison']>=$row->saison_start 
 			 && $_SESSION['selectedDate_saison']<=$row->saison_end) 
-			 || ($row->saison_start>$row->saison_end && 
-				($_SESSION['selectedDate_saison']>=$row->saison_start && $_SESSION['selectedDate_saison']<='1231') 
-				|| ($_SESSION['selectedDate_saison']>='0101' && $_SESSION['selectedDate_saison']<=$row->saison_end)
-			   ) 
 			) {
 				// get day off days
 				$dayoff = getDayoff();
 				
-				if( $dayoff == 0 ){
 				 echo "<option value='".$row->outlet_id."' ";
-				 echo ($outlet_id==$row->outlet_id) ? "selected='selected'" : "";
+				 echo ($outlet_id==$row->outlet_id && $dayoff==0) ? "selected='selected'" : "";
+				 echo ($dayoff > 0) ? "disabled='disabled'" : "";
 				 echo ">".$row->outlet_name."</option>\n";
-				}
+				
 			}
 		}
 	echo "</select>\n";
