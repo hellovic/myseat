@@ -1,5 +1,4 @@
 <?
-
 // General settings per resort from database
 $general = array();
 $general = querySQL('settings_inc');

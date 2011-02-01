@@ -1,7 +1,4 @@
-<?php
-// start main session
-session_start();
-
+<?php 
 // ** Database Details Settings
 
  // ** the database that we will use
