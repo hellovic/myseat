@@ -289,7 +289,7 @@ echo "<li>The Settings table has been created. </li>";
 // --------------------------------------------------------
 
 $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
-(1, 'Settings-General', 1, 0, 0, 0, 0, 0),
+(1, 'Settings-General', 1, 1, 0, 0, 0, 0),
 (2, 'Settings-Outlets', 1, 1, 1, 1, 0, 0),
 (3, 'Settings-Users', 1, 1, 0, 0, 0, 0),
 (4, 'Page-Statistic', 1, 1, 1, 1, 0, 0),
@@ -301,7 +301,7 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
 (10, 'Daily-Outlet-Edit', 1, 1, 1, 1, 0, 0),
 (11, 'Settings-Events', 1, 1, 1, 1, 0, 0),
 (12, 'Property-Overview', 1, 0, 0, 0, 0, 0),
-(13, 'Property-New', 1, 1, 1, 1, 1, 1);")
+(13, 'Property-New', 1, 1, 1, 1, 1, 0);")
  or die(mysql_error());
  
 echo "<li>User Permissions have been set by default.</li> </ul><br /><br />";
