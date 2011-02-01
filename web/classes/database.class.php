@@ -1,5 +1,8 @@
 <?php
 ob_start();
+
+//ini_set('display_errors', 1);
+//ini_set('error_reporting', E_ALL);
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 //  Common database class
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -131,7 +134,14 @@ ob_start();
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
 			}else if($key == 'outlet_closeday'){
 				$keys[$i] = $key;
-				$values[$i] = "'" . implode( ",",$_POST['outlet_closeday'] ) . "'";
+				$db_dayoff = array();
+				$db_dayoff_txt = '';
+				$db_dayoff = $_POST['outlet_closeday'];
+				// print_r($_POST['outlet_closeday']);
+				if(isarray($db_dayoff)){
+				  $db_dayoff_txt = implode( "," , $db_dayoff );
+				}
+				$values[$i] = "'" . $db_dayoff_txt . "'";
 			}else if($key == 'password'){
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
