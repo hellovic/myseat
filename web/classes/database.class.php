@@ -134,13 +134,15 @@ ob_start();
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
 			}else if($key == 'outlet_closeday'){
 				$keys[$i] = $key;
+				
+				// prepare day offs
 				$db_dayoff = array();
-				$db_dayoff_txt = '';
-				$db_dayoff = $_POST['outlet_closeday'];
-				// print_r($_POST['outlet_closeday']);
-				if(isarray($db_dayoff)){
-				  $db_dayoff_txt = implode( "," , $db_dayoff );
+				if(isset($_POST['outlet_closeday'])) {
+				    $db_dayoff = $_POST['outlet_closeday'];
 				}
+				$db_dayoff_txt = '';
+				$db_dayoff_txt = implode( "," , $db_dayoff );
+
 				$values[$i] = "'" . $db_dayoff_txt . "'";
 			}else if($key == 'password'){
 				if($value != "EdituseR"){
