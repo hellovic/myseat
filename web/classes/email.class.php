@@ -24,35 +24,41 @@
 	//Salutation
 	switch ($_POST['reservation_title']) {
 		case 'M':
-			$salut = _M_;
+			$salut = _dear_mr." ".$_POST['reservation_guest_name'];
 			break;
 		case 'W':
-			$salut = _W_;
+			$salut = _dear_mrs." ".$_POST['reservation_guest_name'];
 			break;	
 		case 'F':
-			$salut = _F_;
+			$salut = _dear_family." ".$_POST['reservation_guest_name'];
 			break;
 		case 'C':
-			$salut = _C_;
+			$salut = _dear_sirs_and_madams." ".$_POST['reservation_guest_name'];
 			break;	
 	}
 	
-	//Text
-	if ( $_POST['email_type'] == 'en' ) {
-		$text = _email_confirmation_1_en;
-	}else{
-		$text = _email_confirmation_1;	
-	}
-	$body = sprintf( $text , $salut, $_POST['reservation_guest_name'], $_SESSION['selOutlet']['outlet_name'], $_POST['reservation_pax'], $pdate );
+	// prepare date/datespan
+		$txt_date = $pdate;
 	if ($sdate!='' && $pdate!=$sdate) {
-		$body .= " "._till." ".$sdate;
+		$txt_date = $pdate." - ".$sdate;
 	}
+
+	// prepate subject of email
+        if ( $_POST['email_type'] == 'en' ) {
+		$subject = _email_subject_en." ".$_SESSION['selOutlet']['outlet_name'];
+	}else{
+		$subject = _email_subject." ".$_SESSION['selOutlet']['outlet_name'];
+	}
+	
+	// prepare text
 	if ( $_POST['email_type'] == 'en' ) {
-		$text = _email_confirmation_2_en;
-        }else{
-		$text = _email_confirmation_2;	
+		$text = _email_confirmation_en;
+	}else{
+		$text = _email_confirmation;
 	}
-	$body .= " ".sprintf( $text, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $_POST['reservation_author'] );
+	
+	$body  = $salut.",\r\n\r\n";
+	$body .= sprintf( $text , $_SESSION['selOutlet']['outlet_name'], $_POST['reservation_pax'], $txt_date, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $_POST['reservation_author']  );
 
 
 	//***

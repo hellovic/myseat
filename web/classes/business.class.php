@@ -248,9 +248,9 @@ function getDurationList($intervall,$field='',$selected='1:00')
 // build on/off checkbox
 function printOnOff($field='',$name='',$status='disabled'){
 	if ($field == 1) {
-		return "<input type='checkbox' name='$name' value='1' checked='checked' $status/>";
+		return "<input type='checkbox' name='$name' id='$name' value='1' checked='checked' $status/>";
 	}else{
-		return "<input type='checkbox' name='$name' value='1' $status/>";
+		return "<input type='checkbox' name='$name' id='$name' value='1' $status/>";
 	}
 }
 

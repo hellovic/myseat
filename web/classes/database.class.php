@@ -184,6 +184,15 @@ ob_start();
 			$i++;
 		} // END foreach $_POST
 		
+		// build webform field on outlets
+		if($table == 'outlets') {
+			$index = array_search('webform',$keys);
+			if(!$index){
+				$keys[] = 'webform';
+				$values[] = 0;
+			}
+		}
+		
 		// img upload
 		// =-=-=-=-=-=
 		if ($_FILES['img']['error'] > 0){
