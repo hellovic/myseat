@@ -3,8 +3,6 @@ session_start();
 
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
-$_SESSION['property'] = 1;
-$_SESSION['propertyID'] = 1;
 
 //stadard outlet for contact form
 if (!$_SESSION['outletID']) {
