@@ -64,7 +64,8 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 		foreach($outlets as $row) {
 		 if ( ($row->saison_start<=$row->saison_end 
 			 && $_SESSION['selectedDate_saison']>=$row->saison_start 
-			 && $_SESSION['selectedDate_saison']<=$row->saison_end) 
+			 && $_SESSION['selectedDate_saison']<=$row->saison_end)
+			&& $row->webform == 1 
 			) {
 				// get day off days
 				$dayoff = getDayoff();

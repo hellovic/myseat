@@ -36,7 +36,7 @@ $_SESSION['propertyID'] = 1;
 // Get POST data	
    // outlet id
     if (!$_SESSION['outletID']) {
-	$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('standard_outlet');
+	$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
     }elseif ($_GET['id']) {
         $_SESSION['outletID'] = (int)$_GET['id'];
     }elseif ($_POST['id']) {
@@ -153,9 +153,13 @@ $_SESSION['propertyID'] = 1;
                     <br/><br/>
 		    <!-- END datepicker -->
 		    <div>
-			<label><?php lang("contact_form_restaurant"); ?></label><br/>
+			
 			<?php
-			  outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+			$num_outlets = querySQL('num_outlets');
+				if ($num_outlets>1) {
+					echo"<label>".lang("contact_form_restaurant")."</label><br/>";
+					outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+				} 
 			?>
 		    <br/><br/>
 		    </div>
