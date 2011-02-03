@@ -6,6 +6,11 @@ $_SESSION['language'] = 'en_EN';
 $_SESSION['property'] = 1;
 $_SESSION['propertyID'] = 1;
 
+//stadard outlet for contact form
+if (!$_SESSION['outletID']) {
+$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
+}
+
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
@@ -35,13 +40,6 @@ $_SESSION['propertyID'] = 1;
 
 // Get POST data	
    // outlet id
-    if (!$_SESSION['outletID']) {
-	$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
-    }elseif ($_GET['id']) {
-        $_SESSION['outletID'] = (int)$_GET['id'];
-    }elseif ($_POST['id']) {
-        $_SESSION['outletID'] = (int)$_POST['id'];
-    }
     // property id
     if ($_GET['prp']) {
         $_SESSION['property'] = (int)$_GET['prp'];
@@ -56,12 +54,17 @@ $_SESSION['propertyID'] = 1;
     }else if (!$_SESSION['selectedDate']){
         //$_SESSION['selectedDate'] = date('Y-m-d');
     }
+
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
-  // get Pax by timeslot
+	// get outlet maximum capacity
+	$maxC = maxCapacity(); 
+	 
+	// get Pax by timeslot
     $resbyTime = reservationsByTime('pax');
     $tblbyTime = reservationsByTime('tbl');
+
     // get availability by timeslot
     $availability = getAvailability($resbyTime,$general['timeintervall']);
     $tbl_availability = getAvailability($tblbyTime,$general['timeintervall']);
