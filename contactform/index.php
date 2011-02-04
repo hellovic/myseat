@@ -3,11 +3,8 @@ session_start();
 
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
-
-//stadard outlet for contact form
-if (!$_SESSION['outletID']) {
-$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
-}
+$_SESSION['property'] = '1';
+$_SESSION['propertyID'] = '1';
 
 // PHP part of page / business logic
 // ** set configuration
@@ -29,6 +26,10 @@ $_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL(
 	include('../config/config.inc.php');
 // translate to selected language
 	translateSite(substr($_SESSION['language'],0,2));
+//stadard outlet for contact form
+if (!$_SESSION['outletID']) {
+	$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
+}
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
 // CSRF - Secure forms with token
