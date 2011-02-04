@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+$_SESSION['role'] = 6;
+$_SESSION['language'] = 'en_EN';
 
 // PHP part of page / business logic
 // ** set configuration
