@@ -155,11 +155,10 @@ if (!$_SESSION['outletID']) {
                     <br/><br/>
 		    <!-- END datepicker -->
 		    <div>
-			
 			<?php
 			$num_outlets = querySQL('num_outlets');
 				if ($num_outlets>1) {
-					echo"<label>".lang("contact_form_restaurant")."</label><br/>";
+					echo"<label>RESTAURANT</label><br/>";
 					outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
 				} 
 			?>
