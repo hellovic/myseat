@@ -135,22 +135,11 @@ ob_start();
 			}else if($key == 'outlet_closeday'){
 				$keys[$i] = $key;
 				
-				// prepare day offs
-				$db_dayoff = array();
-				$db_dayoff_txt = '';
-				//DeBUGGING
-				//print_r($_POST['outlet_closeday']);
-				
+				// prepare day offs				
 				// prevent errors if array is not set or empty
-				/*
-				if(isset($_POST['outlet_closeday'])){
-				    $db_dayoff = $_POST['outlet_closeday'];
-				}
-				if (is_array($db_dayoff) && !empty($db_dayoff)){
-					$db_dayoff_txt = implode( "," , $db_dayoff );
-				} */
 				$dayoff_txt = "";
 				if(isset($_POST['outlet_closeday'])){
+					// convert dayoff array from form to comma separated string
 					$db_dayoff = $_POST['outlet_closeday'];
 				    foreach($db_dayoff as $item){
 						$dayoff_txt .= $item . ",";
