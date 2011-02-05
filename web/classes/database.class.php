@@ -137,13 +137,28 @@ ob_start();
 				
 				// prepare day offs
 				$db_dayoff = array();
-				if(isset($_POST['outlet_closeday'])) {
+				$db_dayoff_txt = '';
+				//DeBUGGING
+				//print_r($_POST['outlet_closeday']);
+				
+				// prevent errors if array is not set or empty
+				/*
+				if(isset($_POST['outlet_closeday'])){
 				    $db_dayoff = $_POST['outlet_closeday'];
 				}
-				$db_dayoff_txt = '';
-				$db_dayoff_txt = implode( "," , $db_dayoff );
+				if (is_array($db_dayoff) && !empty($db_dayoff)){
+					$db_dayoff_txt = implode( "," , $db_dayoff );
+				} */
+				$dayoff_txt = "";
+				if(isset($_POST['outlet_closeday'])){
+					$db_dayoff = $_POST['outlet_closeday'];
+				    foreach($db_dayoff as $item){
+						$dayoff_txt .= $item . ",";
+					}
+					$dayoff_txt = substr($dayoff_txt,0,strlen($dayoff_txt)-1);
+				}
 
-				$values[$i] = "'" . $db_dayoff_txt . "'";
+				$values[$i] = "'" . $dayoff_txt . "'";
 			}else if($key == 'password'){
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
