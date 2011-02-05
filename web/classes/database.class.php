@@ -133,7 +133,6 @@ ob_start();
 				$saison_start = $_POST['saison_start_month'].$_POST['saison_start_day'];
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
 			}else if($key == 'outlet_closeday'){
-				$keys[$i] = $key;
 				
 				// prepare day offs				
 				// prevent errors if array is not set or empty
@@ -146,8 +145,10 @@ ob_start();
 					}
 					$dayoff_txt = substr($dayoff_txt,0,strlen($dayoff_txt)-1);
 				}
-
+				//store dayoff values
+				$keys[$i] = $key;
 				$values[$i] = "'" . $dayoff_txt . "'";
+				
 			}else if($key == 'password'){
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
