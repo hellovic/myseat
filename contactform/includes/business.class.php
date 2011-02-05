@@ -173,7 +173,7 @@ function processBooking(){
 			// create and store booking number
 			if (!$_POST['reservation_id'] || $_POST['reservation_id']=='') {
 			    $_SESSION['booking_number'] = uniqueBookingnumber();
-			    $_SESSION['messages'][] = _booknum.":&nbsp;&nbsp;' ".$_SESSION['booking_number']." '";
+			    //$_SESSION['messages'][] = _booknum.":&nbsp;&nbsp;' ".$_SESSION['booking_number']." '";
 			    $keys[] = 'reservation_bookingnumber';
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}

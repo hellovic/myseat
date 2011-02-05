@@ -152,7 +152,7 @@ if (!$_SESSION['outletID']) {
       
 		    <input type="hidden" name="reservation_date" value="<?= $_SESSION['selectedDate'];?>">
 		    <input type="hidden" name="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
-                    <br/><br/>
+            <br/><br/>
 		    <!-- END datepicker -->
 		    <div>
 			<?php
@@ -161,8 +161,15 @@ if (!$_SESSION['outletID']) {
 					echo"<label>RESTAURANT</label><br/>";
 					outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
 				} 
+			//Day off error message
+			$day_off = getDayoff();
+            if ($day_off > 0) {
+				echo "<div class='alert_error'><p><img src='../web/images/icon_error.png' alt='error' class='middle'/>&nbsp;&nbsp;";
+				echo lang('error_dayoff')."<br>";
+				echo "</p></div>";
+			}
 			?>
-		    <br/><br/>
+			<br/><br/>
 		    </div>
 		    <div>
 			<label><?php lang("contact_form_time"); ?></label><br/>
@@ -230,8 +237,12 @@ if (!$_SESSION['outletID']) {
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
 				<input type="hidden" name="reservation_author" id="reservation_author" value="mySeat Team"/>
 				<input type="hidden" name="email_type" id="email_type" value="en"/>
-                		
-				<input class="button" type="submit" value="<?php lang("contact_form_send"); ?>" />
+                <?php
+				$day_off = getDayoff();
+                if ($day_off == 0) {
+                	echo"<input class='button' type='submit' value='".$lang['contact_form_send']."' />";
+                }
+                ?>	
                 	</div>
 		</form>
 				
@@ -297,7 +308,7 @@ if (!$_SESSION['outletID']) {
 	      regional: '<?= substr($_SESSION['language'],0,2);?>',
 	      onSelect: function(dateText, inst) { window.location.href="?selectedDate="+$("#dbdate").val(); }
       });
-      // month is 0 based, hence for Feb we use 1
+      // month is 0 based, hence for Feb. we use 1
       $("#bookingpicker").datepicker('setDate', new Date(<?= $sy.", ".($sm-1).", ".$sd; ?>));
       $("#ui-datepicker-div").hide();
       $("#reservation_outlet_id").change(function(){

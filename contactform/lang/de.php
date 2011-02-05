@@ -114,6 +114,9 @@
 	
 	// A subline of text II -- "at"
 	$lang["_at_"] = 'um';
+	
+	// Day off error message
+	$lang["error_dayoff"] = 'Das Restaurant kann an diesem Tag nicht gebucht werden.';
 
 	//----------------------------
 	// FOOTER

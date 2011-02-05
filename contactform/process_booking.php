@@ -163,12 +163,14 @@ $_SESSION['language'] = 'en_EN';
 			      $_SESSION['barrier'] = $barrier;
 			      
 			      if($waitlist == 2){
-				echo "<span class='success'>".$lang['contact_form_success']." ".$_SESSION['booking_number']."</span>";
+					echo "<span class='success'>".$lang['contact_form_success']." ".$_SESSION['booking_number']."</span>";
 			      }else if ($waitlist == 1){
-				echo "<span class='fail'>".$lang['contact_form_full']."</span>";
+					echo "<span class='fail'>".$lang['contact_form_full']."</span>";
 			      }else{
-				echo "<span class='fail'>".$lang['contact_form_fail']."</span>";
+					echo "<span class='fail'>".$lang['contact_form_fail']."</span>";
 			      }
+			
+					$_SESSION['messages'] = array();
 			    
 			    }
 			  

@@ -560,3 +560,18 @@ h5{
 .clear{
 	clear: both;
 }
+
+.alert_error{
+    background: #FFCECE;
+    border: 1px solid #DF8F8F;
+    margin: 20px;
+    color: #E3302C;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
+    margin: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.alert_error p{ 
+	margin: 15px 
+}
