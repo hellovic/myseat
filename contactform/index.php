@@ -160,7 +160,9 @@ if (!$_SESSION['outletID']) {
 				if ($num_outlets>1) {
 					echo"<label>RESTAURANT</label><br/>";
 					outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
-				} 
+				} else{
+					echo "<input type='hidden' name='reservation_outlet_id' value='".$_SESSION['outletID']."'>";
+				}
 			//Day off error message
 			$day_off = getDayoff();
             if ($day_off > 0) {
