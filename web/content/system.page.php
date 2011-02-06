@@ -36,13 +36,6 @@
 				</a>
 			</li>
 		<?php endif ?>
-		<?php if ( current_user_can( 'Property-Overview' ) ): ?>
-			<li>
-				<a href="?p=6&q=6" <? if ($q == 6) { echo " class='active'";}?> >
-					<img src='images/system-icons/config.png' class='nav-image'><?= _property." "._overview; ?>
-				</a>
-			</li>
-		<?php endif ?>
 	</ul>	
 	<!-- End 1st level tab -->
 	
@@ -215,10 +208,6 @@
 				case '5':
 					// property
 					include('register/detail.property.page.php');	
-				break;
-				case '6':
-					// property overview
-					header( 'Location: properties.php?p=6' ) ;
 				break;
 			}
 			?>

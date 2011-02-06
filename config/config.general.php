@@ -33,8 +33,11 @@
 $settings['dbdate'] = "Y-m-d";
 $settings['dbtime'] = "H:i:s";
 
+// ** global currency
+$settings['currency'] = "Euro";
+
 // array consists of: PHP country code, language name
- $langTrans = array(
+ /* $langTrans = array(
 		'en_EN' => 'English',
 		'de_DE' => 'Deutsch',
 		'fr_FR' => 'Français',
@@ -42,7 +45,11 @@ $settings['dbtime'] = "H:i:s";
 		'nl_NL' => 'Nederlands',
 		'dk_DK' => 'Danske',
 		'se_SE' => 'Svenska',
-		'it_IT' => 'Italia');
+		'it_IT' => 'Italia'); */
+ $langTrans = array(
+		'en_EN' => 'English',
+		'de_DE' => 'Deutsch',
+		'se_SE' => 'Svenska');
 
 // User roles
 	$roles = array(

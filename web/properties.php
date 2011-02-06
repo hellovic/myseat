@@ -91,7 +91,9 @@ echo "<body>
 
 		// property page wrapper
 		include('register/property.page.php');
-echo"</div>";	
+		
+echo"</div>";
+
 // ** modal messages
 include('ajax/modal.inc.php');
 	

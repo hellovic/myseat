@@ -116,11 +116,7 @@ if ( !(
 	($_SESSION['selOutlet']['saison_start']<=$_SESSION['selOutlet']['saison_end'] 
 	 && $_SESSION['selectedDate_saison']>=$_SESSION['selOutlet']['saison_start'] 
 	 && $_SESSION['selectedDate_saison']<=$_SESSION['selOutlet']['saison_end']) 
-	 || ($_SESSION['selOutlet']['saison_start']>$_SESSION['selOutlet']['saison_end'] && 
-		($_SESSION['selectedDate_saison']>=$_SESSION['selOutlet']['saison_start'] && $_SESSION['selectedDate_saison']<='1231') 
-		|| ($_SESSION['selectedDate_saison']>='0101' && $_SESSION['selectedDate_saison']<=$_SESSION['selOutlet']['saison_end'])
-	   )
-	) ) {
+	 )) {
 		// if not, go to standard outlet
 		$_SESSION['outletID'] = querySQL('standard_outlet');
 	}

@@ -52,9 +52,12 @@
 					</li>
 				<?php endif ?>
 				<li>
-					<a href="properties.php?p=1">
-						<?= _back;?>
-					</a>
+					<?php
+						if ($_SESSION['page'] != 1) {
+							echo "<a href='properties.php?p=6'>"._back."</a>";
+						}
+					?>
+					
 				</li>
 			</ul>
 			<!-- End 2nd level tab -->

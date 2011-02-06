@@ -9,18 +9,19 @@ function querySQL($statement){
 		case 'availability':
 			$result = query("SELECT reservation_time, SUM(reservation_pax) AS pax_total, COUNT(reservation_id) AS tbl_total
 							FROM `reservations`  
-							WHERE `reservation_hidden` = '%d' 
-							AND `reservation_wait` = '%d' 
+							WHERE `reservation_hidden` = '0' 
+							AND `reservation_wait` = '0' 
 							AND `reservation_outlet_id` = '%s' 
 							AND `reservation_date` = '%s'
-							AND `reservation_status` != '%s'
+							AND `reservation_status` != 'DEP'
 							GROUP BY `reservation_time`
 							ORDER BY `reservation_time` ASC",
-							0,0,$_SESSION['outletID'],$_SESSION['selectedDate'],'DEP'
+							$_SESSION['outletID'],$_SESSION['selectedDate']
 							);
 			return getRowList($result);
 		break;
 		case 'maxcapacity':
+			$out1 = array();
 			$result = query("SELECT outlet_max_capacity, outlet_max_tables FROM `outlets` 
 							WHERE `outlet_id`='%d'",$_SESSION['outletID']);
 			$out1 = getRowListarray($result);
@@ -28,7 +29,7 @@ function querySQL($statement){
 							WHERE `maitre_outlet_id`='%d' 
 							AND `maitre_date`='%s'",$_SESSION['outletID'],$_SESSION['selectedDate']);
 			$out2 = getRowListarray($result);
-			if (is_array($out2)) {
+			if (is_array($out1) && is_array($out2)) {
 				return array_merge($out1,$out2);
 			}else{
 				return $out1;
