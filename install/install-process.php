@@ -55,6 +55,10 @@ $sql = query("CREATE TABLE IF NOT EXISTS `l16n` (
   `dk` text NOT NULL,
   `se` text NOT NULL,
   `it` text NOT NULL,
+  `fi` text NOT NULL,
+  `no` text NOT NULL,
+  `pl` text NOT NULL,
+  `tr` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `needle` (`needle`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
