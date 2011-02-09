@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 	// The default language
 	$default_lang = "en";
 	
@@ -19,18 +21,27 @@
 		}
 	}	
 	
+
 	if( isset($_GET['lang']) && use_lang($_GET['lang']) )
 	{
 		$language = $_GET['lang'];
 	}
-	else if ( isset($browser_lang) && use_lang($browser_lang) )
+	else if ( isset($browser_lang) && use_lang($browser_lang) && $_SESSION['lang'] == '' )
 	{
 		$language = $browser_lang;
 	}
-	else 
+	else if( $_SESSION['lang'] == '' )
 	{ 
 		$language = $default_lang;
 	}
+	else if( $_SESSION['lang'] != '' )
+	{ 
+		$language = $_SESSION['lang'];
+	}
+	
+	
+	
+	$_SESSION['lang'] = $language;
 	
 	// Include the right language file	
     include($lang_folder."/".$language.".php");
