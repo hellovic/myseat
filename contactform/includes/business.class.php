@@ -96,7 +96,7 @@ function titleList($title='',$disabled=''){
 	        // translation
 		GLOBAL $lang;
    
-		echo "<select name='reservation_title' id='reservation_title' class='drop' title=' ' size='1' $disabled>\n";
+		echo "<select name='reservation_title' id='reservation_title' class='drop required' title=' ' size='1' $disabled>\n";
 
 		// Empty
 		echo "<option value='' ";
