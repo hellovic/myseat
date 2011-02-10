@@ -22,19 +22,36 @@
 	}
 	
 	//Salutation
-	switch ($_POST['reservation_title']) {
-		case 'M':
-			$salut = _dear_mr." ".$_POST['reservation_guest_name'];
-			break;
-		case 'W':
-			$salut = _dear_mrs." ".$_POST['reservation_guest_name'];
-			break;	
-		case 'F':
-			$salut = _dear_family." ".$_POST['reservation_guest_name'];
-			break;
-		case 'C':
-			$salut = _dear_sirs_and_madams." ".$_POST['reservation_guest_name'];
-			break;	
+	if ( $_POST['email_type'] == 'en' ) {
+		switch ($_POST['reservation_title']) {
+			case 'M':
+				$salut = _dear_mr_en." ".$_POST['reservation_guest_name'];
+				break;
+			case 'W':
+				$salut = _dear_mrs_en." ".$_POST['reservation_guest_name'];
+				break;	
+			case 'F':
+				$salut = _dear_family_en." ".$_POST['reservation_guest_name'];
+				break;
+			case 'C':
+				$salut = _dear_sirs_and_madams_en." ".$_POST['reservation_guest_name'];
+				break;	
+		}
+	}else{
+		switch ($_POST['reservation_title']) {
+			case 'M':
+				$salut = _dear_mr." ".$_POST['reservation_guest_name'];
+				break;
+			case 'W':
+				$salut = _dear_mrs." ".$_POST['reservation_guest_name'];
+				break;	
+			case 'F':
+				$salut = _dear_family." ".$_POST['reservation_guest_name'];
+				break;
+			case 'C':
+				$salut = _dear_sirs_and_madams." ".$_POST['reservation_guest_name'];
+				break;	
+		}
 	}
 	
 	// prepare date/datespan

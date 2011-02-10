@@ -16,7 +16,7 @@
 	<tbody>
 		<?
 
-		$reservations =	querySQL('search_reservations');
+		$reservations =	querySQL('search');
 		
 		if ($reservations) {
 			foreach($reservations as $row) {

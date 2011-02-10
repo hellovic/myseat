@@ -199,7 +199,7 @@ function querySQL($statement){
 							);
 			return getRowList($result);
 		break;
-		case 'search_reservations':
+		case 'search':
 			$result = query("SELECT * FROM `reservations` INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
 				WHERE `reservation_hidden` = '0' 
 				AND (`reservation_guest_name` LIKE '%s' OR `reservation_bookingnumber` LIKE '%s') 

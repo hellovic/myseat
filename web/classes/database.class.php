@@ -130,14 +130,16 @@ ob_start();
 		// prepare arrays for database query
 		foreach($_POST as $key => $value) {
 			if ($key == 'saison_start_month' || $key == 'saison_start_day' || $key == 'saison_end_month' || $key == 'saison_end_day') {
+				
 				$saison_start = $_POST['saison_start_month'].$_POST['saison_start_day'];
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
+			
 			}else if($key == 'outlet_closeday'){
 				
 				// prepare day offs				
 				// prevent errors if array is not set or empty
 				$dayoff_txt = "";
-				if(isset($_POST['outlet_closeday'])){
+				if ( isset($_POST['outlet_closeday']) && is_array($_POST['outlet_closeday']) ){
 					// convert dayoff array from form to comma separated string
 					$db_dayoff = $_POST['outlet_closeday'];
 				    foreach($db_dayoff as $item){
@@ -150,12 +152,14 @@ ob_start();
 				$values[$i] = "'" . $dayoff_txt . "'";
 				
 			}else if($key == 'password'){
+			
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
 					$insert = new flexibleAccess();
 					$password = $insert->hash_password($value);
 					$values[$i] = "'".$password."'";
 				}
+				
 			}else if( $key != "action"
 				 && $key != "email_type"
 				 && $key != "recurring_date"
@@ -167,8 +171,11 @@ ob_start();
 				 && $key != "propertyID"
 				 && $key != "token"
 				 && $key != "verify"){
+					
+					// all other 'normal fields'
 					$keys[$i] = $key;
 					$values[$i] = "'".$value."'";
+					
 			}
 			
 			// remember some values

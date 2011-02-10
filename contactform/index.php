@@ -9,6 +9,7 @@ $_SESSION['propertyID'] = '1';
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
+
 	include('../config/config.general.php');
 // ** business functions
 	require('includes/business.class.php');
@@ -143,7 +144,6 @@ if (!$_SESSION['outletID']) {
 				$captchaField2 = ($captchaField2%2) ? "+" : "-";
 			?>
 
-                
 		<form action="process_booking.php" method="post" id="contactForm">
 		    
 		    <!-- Datepicker -->
@@ -176,7 +176,7 @@ if (!$_SESSION['outletID']) {
 		    <div>
 			<label><?php lang("contact_form_time"); ?></label><br/>
 			<?php
-			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],1);
+			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
 			?>
 		    </div>
 		    <br/>

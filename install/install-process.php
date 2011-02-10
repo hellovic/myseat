@@ -154,7 +154,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
   `username` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(100) NOT NULL DEFAULT '',
   `email` varchar(150) NOT NULL DEFAULT '',
-  `role` smallint(2) NOT NULL DEFAULT '4',
+  `role` smallint(2) NOT NULL DEFAULT '5',
   `property_id` int(11) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
