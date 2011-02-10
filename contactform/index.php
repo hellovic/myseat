@@ -194,7 +194,10 @@ if (!$_SESSION['outletID']) {
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_pax"); ?></label><br/>
-                        <input type="text" name="reservation_pax" class="form required digits" id="reservation_pax" value="" style="width:100px;" />
+                        <?php
+							//personsList(max pax before menu , standard selected pax);
+						    personsList($general['max_menu'],2);
+						?>
                     </div>
 		    <br/>
                     <div>

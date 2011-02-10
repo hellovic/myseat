@@ -21,7 +21,7 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		$endtime		= mktime($h2+0,$m2+0,0,$month,$endday,$year);
 		$i 			= 1;
 		
-		echo"<select name='$field' id='$field' size='1' class='drop' title=' ' >\n";
+		echo"<select name='$field' id='$field' size='1' class='drop required' title=' ' >\n";
 		echo "<option value='' ";
 		if ($select=='') {
 			echo "selected='selected'";
@@ -77,6 +77,18 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 				
 			}
 		}
+	echo "</select>\n";
+}
+
+function personsList($max_pax = '12', $standard = '4',$tablename='reservation_pax'){
+	echo"<select name='".$tablename."' id='".$tablename."' class='drop required' size='1' $disabled>\n";	
+		
+		for ($i=1; $i <= $max_pax; $i++) { 
+			 echo "<option value='".$i."'";
+			echo ($i == $standard) ? "selected='selected'" : "";
+			echo ">".$i."</option>\n";
+		}
+
 	echo "</select>\n";
 }
 
