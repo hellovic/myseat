@@ -68,7 +68,7 @@ class flexibleAccess{
   * The session variable ($_SESSION[$sessionVariable]) which will hold the data while the user is logged on
   * var string
   */
- var $sessionVariable = 'PLCSess';
+ var $sessionVariable = 'XTSess';
  /**
   * The database table that holds all the information
   * var string
@@ -984,7 +984,7 @@ function login_form(){
 	  echo '<div id="stylized" class="myform">
 			  <form name="ajaxform" id="ajaxform">
 		    	<h1 style="font-size:1.5em;">Admin Zone Access</h1>
-		    	<p>Please log in to continue or <a href="">Go back</a>.</p>
+		    	<p>Please log in to proceed.</p>
 				<label>User
 			        <span class="small">Required</span>
 			    </label>
@@ -994,10 +994,12 @@ function login_form(){
 			    </label>
             <input type="password" name="token" id="token" class="textfield pass" maxlength="12"/>
 			
-            <button  type="submit" id="sbmt">Log-in</button><br/>
+            <button  type="submit" id="sbmt">Log-in</button><br/><br/>
+	    <br/>
           </form>
 			 </div>';
 }
+
   /**
   	* Login form TRUE holder 
   	* @access private

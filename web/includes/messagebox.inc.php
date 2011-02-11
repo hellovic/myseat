@@ -16,13 +16,18 @@ if ($events_advertise && $_SESSION['page'] == 2 ) {
 	";
 		// special events
 		foreach($events_advertise as $row) {
-			echo "<p style='margin-bottom:6px;'><img src='images/icon_cutlery.png' alt='special' class='middle'/>
-			<strong>".date($general['dateformat'],strtotime($row->event_date))." ".$row->outlet_name."&nbsp;&nbsp;&nbsp;".
-			_sp_events.": ".$row->subject."</strong><div style='margin-left:36px; font-size:0.9em; line-height:1.2em;'>".
-			formatTime($row->start_time,$general['timeformat'])." - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-			$row->description."<br/>".
+			echo "<p style='margin-bottom:6px;'>
+			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
+			<strong>"._sp_events.": ".$row->subject.
+			"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
+			date($general['dateformat'],strtotime($row->event_date)) 
+			." ".formatTime($row->start_time,$general['timeformat']).
+			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
+			$row->outlet_name."<br/>".
 			_open_to." ".$row->open_to."<br/>".
-			_ticket_price.": ".number_format($row->price,2)."<br/></div><br/></p>";
+			_ticket_price.": ".number_format($row->price,2).
+			"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";
 }
@@ -33,12 +38,18 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 	echo "<div class='alert_info'>";
 		// special events
 		foreach($special_events as $row) {
-			echo "<p style='margin-bottom:6px;'><img src='images/icon_info.png' alt='error' class='middle'/>
-			<strong>"._today." "._sp_events.": ".$row->subject."</strong><div style='margin-left:36px; font-size:0.9em; line-height:1.2em;'>".
-			formatTime($row->start_time,$general['timeformat'])." - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-			$row->description."<br/>".
+			echo "<p style='margin-bottom:6px;'>
+			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
+			<strong>"._today.": ".$row->subject.
+			"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
+			date($general['dateformat'],strtotime($row->event_date)) 
+			." ".formatTime($row->start_time,$general['timeformat']).
+			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
+			$row->outlet_name."<br/>".
 			_open_to." ".$row->open_to."<br/>".
-			_ticket_price.": ".number_format($row->price,2)."<br/></div><br/></p>";
+			_ticket_price.": ".number_format($row->price,2).
+			"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";
 }

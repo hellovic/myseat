@@ -99,9 +99,11 @@ function titleList($title='',$disabled=''){
 		echo "<select name='reservation_title' id='reservation_title' class='drop required' title=' ' size='1' $disabled>\n";
 
 		// Empty
+		/*
 		echo "<option value='' ";
 		echo ($title=="") ? "selected='selected'" : "";
 		echo ">--</option>\n";
+		*/
 		// Sir
 		echo "<option value='M' ";
 		echo ($title=='M') ? "selected='selected'" : "";

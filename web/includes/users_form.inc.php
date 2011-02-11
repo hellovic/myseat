@@ -23,7 +23,7 @@ if ($_SESSION['page'] == 7){
 		?>
 	</label>
 	<p>
-		<input type="text" name="username" id="username" class='required' minlength='3' title=' ' value="<?= $row['username'];?>"/>
+		<input type="text" name="username" id="username" class='required' minlength='3' maxlength='12' title=' ' value="<?= $row['username'];?>"/>
 		<div id="status"></div>
 	</p>
 		<label>
@@ -33,11 +33,11 @@ if ($_SESSION['page'] == 7){
 		?>
 	</label>
 	<p>
-		<input type="password" name="password" id="password" class="required" minlength="6" title=' ' value="<?= $row['password'];?>"/>
+		<input type="password" name="password" id="password" class="required" minlength="6" maxlength='12' title=' ' value="<?= $row['password'];?>"/>
 	</p>
 	<label><?= _retype." "._password;?></label>
 	<p>
-		<input type="password" name="password2" id="password2" class="required" minlength="6" title=' ' value="<?= $row['password'];?>"/>
+		<input type="password" name="password2" id="password2" class="required" minlength="6" maxlength='12' title=' ' value="<?= $row['password'];?>"/>
 	</p>
 	<label><?= _email;?></label>
 	<p>
