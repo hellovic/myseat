@@ -131,7 +131,7 @@
 	<p></p>';
 							
 	// The content on the third footer column
-	$lang["footer_three"] = '<h3><a href="/">Zur&uuml;ck zur Homepage</a></h3>
+	$lang["footer_three"] = '<h3><a href="'.$_SERVER['DOCUMENT_ROOT'].'">Zur&uuml;ck zur Homepage</a></h3>
 	<p></p>';
 	
 	//----------------------------

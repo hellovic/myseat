@@ -561,6 +561,7 @@ h5{
 	clear: both;
 }
 
+/* alert boxes */
 .alert_error{
     background: #FFCECE;
     border: 1px solid #DF8F8F;
@@ -588,6 +589,16 @@ h5{
     font-weight: bold;
     font-size: 1.2em;
 }
+.alert_info a{
+	color: #0888C3;
+}
+.alert_tip{	
+	color: #543551;
+}
+	
 .alert_error p, .alert_tip p, .alert_info p{ 
-	margin: 15px 
+	margin: 15px;
+}
+.alert_error a, .alert_tip a, .alert_info a{ 
+	text-decoration: none; 
 }

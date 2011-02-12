@@ -139,6 +139,7 @@ function querySQL($statement){
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
 						AND `event_date` >= CURDATE()
+						AND `webform` = '1'
 						ORDER BY advertise_start,event_date ASC
 						LIMIT 5");
 			return getRowList($result);

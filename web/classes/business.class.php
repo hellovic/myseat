@@ -258,8 +258,8 @@ function printOnOff($field='',$name='',$status='disabled'){
 function getWeekdays_select($outlet_closeday, $status=''){
 	$outlet_closeday=explode(",",$outlet_closeday);
 	$day = strtotime("next Monday");
-	for ($i=0; $i < 7; $i++) { 
-		echo"<input type='checkbox' name='outlet_closeday[]' value='".date("w",$day)."' ";
+	for ($i=1; $i <= 7; $i++) { 
+		echo"<input type='checkbox' name='outlet_closeday_".$i."' value='".date("w",$day)."' ";
 		
 		if (in_array(date("w",$day), $outlet_closeday)) {
 			echo "checked='checked'";

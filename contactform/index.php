@@ -188,14 +188,15 @@ if (!$_SESSION['outletID']) {
 					echo "<div class='alert_tip'>";
 					$advertise = $events_advertise;
 				}
+			
 					// special events
 					foreach($advertise as $row) {
 						echo "<p style='margin-bottom:6px;'>
 						<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
-						<strong>";
+						<strong><a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>";
 						echo ( $special_events ) ? _today : _sp_events;
 						echo ": ".$row->subject.
-						"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
+						"</a></strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
 						date($general['dateformat'],strtotime($row->event_date)) 
 						." ".formatTime($row->start_time,$general['timeformat']).
 						" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".

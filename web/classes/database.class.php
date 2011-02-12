@@ -126,6 +126,25 @@ ob_start();
 		$keys = array();
 		$values = array();
 		$i=1;
+
+			// prepare day offs
+			if ($table == 'outlets') {
+				$dayoffs = '';
+				for ($i=1; $i <= 7; $i++) {
+					$field = "outlet_closeday_".$i;
+
+					if ( isset($_POST[$field])){
+						$dayoffs .= $_POST[$field].",";
+					}
+
+				}
+				if($dayoffs !=''){
+					$dayoffs = substr($dayoffs,0,-1);
+					$keys[$i] = 'outlet_closeday';
+					$values[$i] = "'".$dayoffs."'";
+					$i++;
+				}
+			}
 		
 		// prepare arrays for database query
 		foreach($_POST as $key => $value) {
@@ -134,23 +153,6 @@ ob_start();
 				$saison_start = $_POST['saison_start_month'].$_POST['saison_start_day'];
 				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
 			
-			}else if($key == 'outlet_closeday'){
-				
-				// prepare day offs				
-				// prevent errors if array is not set or empty
-				$dayoff_txt = "";
-				if ( isset($_POST['outlet_closeday']) && is_array($_POST['outlet_closeday']) ){
-					// convert dayoff array from form to comma separated string
-					$db_dayoff = $_POST['outlet_closeday'];
-				    foreach($db_dayoff as $item){
-						$dayoff_txt .= $item . ",";
-					}
-					$dayoff_txt = substr($dayoff_txt,0,strlen($dayoff_txt)-1);
-				}
-				//store dayoff values
-				$keys[$i] = $key;
-				$values[$i] = "'" . $dayoff_txt . "'";
-				
 			}else if($key == 'password'){
 			
 				if($value != "EdituseR"){
@@ -170,7 +172,8 @@ ob_start();
 				 && $key != "MAX_FILE_SIZE"
 				 && $key != "propertyID"
 				 && $key != "token"
-				 && $key != "verify"){
+				 && $key != "verify"
+				 && substr($key,0,15) != "outlet_closeday"){
 					
 					// all other 'normal fields'
 					$keys[$i] = $key;

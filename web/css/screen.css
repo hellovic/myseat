@@ -722,6 +722,8 @@ input.button_red:active                 {
 					}
 .alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_tip  p, .alert_hint  p
                                         { margin: 15px }
+.alert_tip a
+										{ color: #543551; }
 .graph_wrapper                          { padding: 10px 0 5px 0 }
 #footer                                 {
                                             width: 100%;
