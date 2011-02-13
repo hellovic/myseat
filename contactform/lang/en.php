@@ -30,7 +30,8 @@
 	$lang["title"] = '<strong>Online</strong> Reservation';
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<h3><strong>Get your table. Make an instant reservation now!</strong></h3>';
+	$lang["contact_form_intro"] = '<h3><strong>Get your table. Make an instant reservation now!
+	<br/>For private parties, large bookings or all other queries please call us.</strong></h3>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Name or Company';
