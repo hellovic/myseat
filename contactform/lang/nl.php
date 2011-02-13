@@ -32,7 +32,7 @@
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
 	$lang["contact_form_intro"] = '<h3><strong>Boek nu uw tafel en reserveer nu direct!<br/>
-	Voor private partijen, grote boekingen of alle andere vragen kunt u ons bellen.</strong></h3>';
+	Voor Privé partijen, grote groepsboekingen of andere vragen kunt u ons bellen.</strong></h3>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Naam of bedrijfsnaam';
