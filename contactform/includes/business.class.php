@@ -81,7 +81,7 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 }
 
 function personsList($max_pax = '12', $standard = '4',$tablename='reservation_pax'){
-	echo"<select name='".$tablename."' id='".$tablename."' class='drop required' size='1' $disabled>\n";	
+	echo"<select name='".$tablename."' id='".$tablename."' class='drop' size='1' $disabled>\n";	
 		
 		for ($i=1; $i <= $max_pax; $i++) { 
 			 echo "<option value='".$i."'";
@@ -96,7 +96,7 @@ function titleList($title='',$disabled=''){
 	        // translation
 		GLOBAL $lang;
    
-		echo "<select name='reservation_title' id='reservation_title' class='drop required' title=' ' size='1' $disabled>\n";
+		echo "<select name='reservation_title' id='reservation_title' class='drop' title=' ' size='1' $disabled>\n";
 
 		// Empty
 		/*
