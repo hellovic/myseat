@@ -111,7 +111,7 @@
 	$lang["conf_intro"] = 'Reservation progress for';
 
 	// A subline of text -- "Directly clear your reservation."
-	$lang["cxl_intro"] = 'Directly clear your reservation.';
+	$lang["cxl_intro"] = 'To cancel your reservation, please enter your booking number and the email address the reservation was sent to.';
 
 	// A subline of text II -- "at"
 	$lang["_at_"] = 'at';
