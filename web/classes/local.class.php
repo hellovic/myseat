@@ -90,6 +90,7 @@ function dateformatDropdown( $selected='d.m.Y', $kind = 0 ){
 			'y/m/d' => '2010/12/04',
 			'm/d/y' => '12/04/2010'
 			);
+			$datefield = 'datepickerformat';
 	}else if ($kind == 0){
 		$date_formats = array(
 			'F j, Y' => 'December 4, 2010',
@@ -98,15 +99,17 @@ function dateformatDropdown( $selected='d.m.Y', $kind = 0 ){
 			'Y/m/d' => '2010/12/04',
 			'm/d/Y' => '12/04/2010'
 			);
+			$datefield = 'dateformat';
 	}else if ($kind == 2){
 		$date_formats = array(
 			'd.m.' => '04.12.',
 			'd/m' => '04/12',
 			'm/d' => '12/04'
 			);
+			$datefield = 'dateformat_short';
 	}
 		
-	echo"<select name='dateformat' id='dateformat' class='required' size='1' title=' ' >\n";
+	echo"<select name='".$datefield."' id='".$datefield."' class='required' size='1' title=' ' >\n";
 	foreach ($date_formats as $key => $value) {
 		echo"<option value='".$key."' ";
 		if ($key==$selected) {

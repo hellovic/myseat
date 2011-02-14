@@ -60,7 +60,7 @@ if ($_GET['propertyID']) {
 	$_SESSION['propertyID'] = ($_GET['propertyID']) ? (int)$_GET['propertyID'] : 1;
 }else if ($_POST['propertyID']) {
 	$_SESSION['propertyID'] = ($_POST['propertyID']) ? (int)$_POST['propertyID'] : 1;
-}else{
+}else if(!$_SESSION['propertyID']){
 	$_SESSION['propertyID'] = 1;
 }
 

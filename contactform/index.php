@@ -134,7 +134,7 @@ if (!$_SESSION['outletID']) {
 
 			<?php lang("contact_form_intro"); ?>
 			<br/>
-			<h3><?= $outlet_name." - ".buildDate($general['dateformat'],$sd,$sm,$sy); ?></h3>
+			<h3><?= $outlet_name." - ".date($general['dateformat'],strtotime($_SESSION['selectedDate'])); ?></h3>
 			
 			<?php
 				// Generate captcha fields

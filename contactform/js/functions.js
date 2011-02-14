@@ -65,9 +65,8 @@ $(document).ready(function(){
 	//---------------------------	
     
     if($("#contactForm").length){
-    
-		$("#contactForm").submit(function(){
-		    
+
+		$("#contactForm").submit(function(){ 
 		    var ContactForm = $(this),
 		    	errors = 0,
 		        loader = $("#loader"),
@@ -90,7 +89,6 @@ $(document).ready(function(){
 		            errors += $(this).validateLength(3);
 		        }
 		    });
-		    
 		    //If there are no errors, send the form
 		    if(errors === 0){
 			$("#contactForm").submit();

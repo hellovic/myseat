@@ -30,11 +30,11 @@ if ($action=="DEL"){
 		$cmd_delete = querySQL('del_outlet');
 		return $cmd_delete;
 	}else if ($type == 'events'){
-		// ****** DELETE USER ******
+		// ****** DELETE EVENT ******
 		$cmd_delete = querySQL('del_event');
 		return $cmd_delete;
 	}else if ($type == 'properties'){
-		// ****** DELETE USER ******
+		// ****** DELETE PROPERTY ******
 		$cmd_delete = querySQL('del_properties');
 		return $cmd_delete;
 	}
