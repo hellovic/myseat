@@ -8,7 +8,7 @@
 		Login to the <italic>Admin Acess Zone</italic> and begin creating your outlets<br />
 		under <tt>System > Outlets > Create</tt> .
 		<br/><br/>
-                <input type="button" value="Login" onClick="location.href='index.html'" class="button_dark">
+                <input type="button" value="Login" onClick="location.href='index.php'" class="button_dark">
             </div><br/>
         </p>
 </div>
