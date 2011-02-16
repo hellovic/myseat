@@ -176,7 +176,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `properties` (
   `id` tinyint(12) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   `street` varchar(255) COLLATE utf8_bin NOT NULL,
-  `zip` int(8) NOT NULL,
+  `zip` varchar(30) COLLATE utf8_bin NOT NULL,
   `city` varchar(255) COLLATE utf8_bin NOT NULL,
   `country` varchar(255) COLLATE utf8_bin NOT NULL,
   `contactperson` varchar(100) COLLATE utf8_bin NOT NULL,
