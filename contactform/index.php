@@ -46,14 +46,6 @@ if (!$_SESSION['outletID']) {
     }elseif ($_POST['prp']) {
         $_SESSION['property'] = (int)$_POST['prp'];
     }
-    // selected date
-    if ($_GET['selectedDate']) {
-        $_SESSION['selectedDate'] = $_GET['selectedDate'];
-    }else if ($_POST['selectedDate']) {
-        $_SESSION['selectedDate'] = $_POST['selectedDate'];
-    }else if (!$_SESSION['selectedDate']){
-        //$_SESSION['selectedDate'] = date('Y-m-d');
-    }
 
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
@@ -180,7 +172,7 @@ if (!$_SESSION['outletID']) {
 			$special_events = '';
 			$special_events = querySQL('event_data_day');
 			
-			if ( isset($events_advertise) || isset($special_events) ) {
+			if ( $events_advertise || $special_events ) {
 				if ( $special_events ) {
 					echo "<div class='alert_info'>";
 					$advertise = $special_events;
@@ -280,7 +272,7 @@ if (!$_SESSION['outletID']) {
 				<input type="hidden" name="barrier" value="<?php echo $barrier; ?>" />
 				<input type="hidden" name="reservation_hotelguest_yn" id="reservation_hotelguest_yn" value="PASS"/>
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
-				<input type="hidden" name="reservation_author" id="reservation_author" value="mySeat Team"/>
+				<input type="hidden" name="reservation_author" id="reservation_author" value="<?= querySQL('db_property');?> Team"/>
 				<input type="hidden" name="email_type" id="email_type" value="en"/>
                 <?php
 				$day_off = getDayoff();
