@@ -93,7 +93,6 @@ function dateformatDropdown( $selected='d.m.Y', $kind = 0 ){
 			$datefield = 'datepickerformat';
 	}else if ($kind == 0){
 		$date_formats = array(
-			'F j, Y' => 'December 4, 2010',
 			'd.m.Y' => '04.12.2010',
 			'd/m/Y' => '04/12/2010',
 			'Y/m/d' => '2010/12/04',
