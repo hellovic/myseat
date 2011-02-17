@@ -545,10 +545,10 @@ function getAvailability($ava_by_time, $intervall='15') {
 // *** Define if selected date is dayoff
 function getDayoff() {
 	$day_off = 0;
+	$today = date('w',strtotime($_SESSION['selectedDate']));
 	//read infos from database
 	$rows = querySQL('outlet_info');
 		foreach($rows as $row) {
-			$today = date('w',strtotime($_SESSION['selectedDate']));
 			$outlet_dayoff = explode (",",$row->outlet_closeday);
 		}
 	$rows = querySQL('maitre_info');

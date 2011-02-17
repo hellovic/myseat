@@ -138,7 +138,7 @@ function querySQL($statement){
 			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
-						AND `event_date` >= CURDATE()
+						AND `event_date` <= CURDATE()
 						AND `webform` = '1'
 						ORDER BY advertise_start,event_date ASC
 						LIMIT 5");
@@ -157,7 +157,10 @@ function querySQL($statement){
 			return getRowListarray($result);
 		break;
 		case 'maitre_info':
-			$result = query("SELECT * FROM `maitre` WHERE `maitre_outlet_id` ='%d' AND `maitre_date`='%s' LIMIT 1",$_SESSION['outletID'],$_SESSION['selectedDate']);
+			$result = query("SELECT * FROM `maitre` 
+							WHERE `maitre_outlet_id` ='%d' 
+							AND `maitre_date`='%s' 
+							LIMIT 1",$_SESSION['outletID'],$_SESSION['selectedDate']);
 			return getRowList($result);
 		break;
 		case 'db_all_users':

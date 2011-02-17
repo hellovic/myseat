@@ -105,6 +105,9 @@ if (!$_SESSION['selectedDate']) {
 }else if ($_GET['selectedDate']) {
 	$_SESSION['selectedDate'] = $_GET['selectedDate'];
 }
+else if ($_POST['selectedDate']) {
+    $_SESSION['selectedDate'] = $_POST['selectedDate'];
+}
 
 list($sj,$sm,$sd)                = explode("-",$_SESSION['selectedDate']);
 $_SESSION['selectedDate_user']   = buildDate($general['dateformat'],$sd,$sm,$sj);
