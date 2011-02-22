@@ -127,18 +127,16 @@ function querySQL($statement){
 		case 'event_advertise':
 			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
-						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
-						AND `event_date` >= CURDATE()
-						AND events.outlet_id != '%d'
-						AND events.property_id ='%d'
-						ORDER BY advertise_start ASC",$_SESSION['outletID'],$_SESSION['property']);
+						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= '%s'
+						AND `event_date` > '%s'
+						ORDER BY advertise_start ASC", $_SESSION['selectedDate'],$_SESSION['selectedDate']);
 			return getRowList($result);
 		break;
 		case 'event_advertise_web':
 			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
-						AND `event_date` <= CURDATE()
+						AND `event_date` >= CURDATE()
 						AND `webform` = '1'
 						ORDER BY advertise_start,event_date ASC
 						LIMIT 5");
