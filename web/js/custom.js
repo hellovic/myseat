@@ -205,6 +205,7 @@ $(document).ready(function() {
 			$("#datepicker").css('top', '-21px');
 			$("#s_datepicker").css('top', '-21px');
 			$("#e_datepicker").css('top', '-21px');
+			$("#ev_datepicker").css('top', '-21px');
 			//$("#recurring_date").css('top', '-21px');
 		}
 		else
@@ -214,6 +215,7 @@ $(document).ready(function() {
 				$("#datepicker").css('top', '-21px');
 				$("#s_datepicker").css('top', '-21px');
 				$("#e_datepicker").css('top', '-21px');
+				$("#ev_datepicker").css('top', '-21px');
 				$("#recurring_date").css('top', '-21px');
 			}
 			else
@@ -221,6 +223,7 @@ $(document).ready(function() {
 				$("#datepicker").css('top', '-10px');
 				$("#s_datepicker").css('top', '-10px');
 				$("#e_datepicker").css('top', '-10px');
+				$("#ev_datepicker").css('top', '-21px');
 				//$("#recurring_date").css('top', '-10px');
 			}
 		}

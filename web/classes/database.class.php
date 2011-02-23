@@ -164,6 +164,7 @@ ob_start();
 				 && $key != "email_type"
 				 && $key != "password2"
 				 && $key != "eventID"
+				 && $key != "e_datepicker"
 				 && $key != "ev_datepicker"
 				 && $key != "s_datepicker"
 				 && $key != "MAX_FILE_SIZE"
