@@ -115,12 +115,11 @@
 		<label><?= _multi_booking; ?></label>
 		<div class="date dategroup">
 			<div class="text" id="recurring_text"></div>
-			<input type="text" name="recurring_date" id="recurring_date" value="<?= $_SESSION['selectedDate_user']; ?>"/>
+			<input type="text" name="recurring_date" id="recurring_date"/>
 			<input type="hidden" name="recurring_dbdate" id="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
 		</div>
 		</p>
 	</div></div></div> <!-- end right column -->
-	<input type="hidden" name="reservation_date" value="<?= $_SESSION['selectedDate'];?>">
 	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">
 	<input type="hidden" name="reservation_timestamp" value="<?= date('Y-m-d H:i:s');?>">
 	<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>">

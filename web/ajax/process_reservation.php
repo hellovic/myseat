@@ -33,23 +33,20 @@ if ($_SESSION['token'] == $_POST['token']) {
 	// submitted forms storage
 		$reservation_date = $_SESSION['selectedDate'];
 		$recurring_date = $_SESSION['selectedDate'];
+		$keys[] = 'reservation_date';
+		$values[] = "'".$_SESSION['selectedDate']."'";
+		
 		$_SESSION['errors'] = array();
 	// prepare POST data for storage in database:
 	// $keys
 	// $values 
 		$keys = array();
 		$values = array();
-		$i=1;
+		$i=2;
 		
 		// prepare arrays for database query
 		foreach($_POST as $key => $value) {
-			if ($key == 'saison_start_month' || $key == 'saison_start_day' || $key == 'saison_end_month' || $key == 'saison_end_day') {
-				$saison_start = $_POST['saison_start_month'].$_POST['saison_start_day'];
-				$saison_end = $_POST['saison_end_month'].$_POST['saison_end_day'];
-			}else if($key == 'outlet_closeday'){
-				$keys[$i] = $key;
-				$values[$i] = "'".implode(',',$value)."'";
-			}else if($key == 'password'){
+			if($key == 'password'){
 				if($value != "EdituseR"){
 					$keys[$i] = $key;
 					$insert = new flexibleAccess();
@@ -73,10 +70,10 @@ if ($_SESSION['token'] == $_POST['token']) {
 			
 			// remember some values
 			if( $key == "reservation_date" ){
-		    	$reservation_date = strtotime($value);
+		    	$reservation_date = $value;
 				$recurring_date = $reservation_date;
-			}else if( $key == "recurring_dbdate" && $value !=''){
-		    	$recurring_date = strtotime($value);
+			}else if( $key == "recurring_dbdate" ){
+		    	$recurring_date = $value;
 			}else if($key == 'repeat_id'){	
 				$repeatid = "'".$value."'";
 			}else if($key == 'reservation_booker_name'){	
@@ -89,16 +86,12 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$i++;
 		} // END foreach $_POST
 		
-			$_SESSION['reservation_date'] = date('Y-m-d',$reservation_date);
-			$_SESSION['recurring_date'] = date('Y-m-d',$recurring_date);
-		
-		// outlets build start and enddate
-		if($saison_start!='' && $saison_end!=''){
-			$keys[] = 'saison_start';
-	    	$values[] = "'".$saison_start."'";
-			$keys[] = 'saison_end';
-	    	$values[] = "'".$saison_end."'";
-		}
+			//prepare variables
+			$_SESSION['reservation_date'] = $reservation_date;
+			$_SESSION['recurring_date'] = $recurring_date;
+			
+			list($y1,$m1,$d1)		= explode("-",$reservation_date);
+			list($y2,$m2,$d2)		= explode("-",$recurring_date);
 
 		// =-=-=-=Store in database =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		
@@ -129,15 +122,24 @@ if ($_SESSION['token'] == $_POST['token']) {
 	    	 	$values[] = "'".$repeatid."'";
 			}
 			
+			// UNIX time
+			$res_dat = mktime(0,0,0,$m1,$d1,$y1);
+			$recurring_date = mktime(0,0,0,$m2,$d2,$y2);
+			
 		 while ( $res_dat <= $recurring_date) {
 			
 			// build new reservation date
+			$index = '';
 			$index = array_search('reservation_date',$keys);
 			// build for availability calculation
 			$_SESSION['selectedDate'] = date('Y-m-d',$res_dat);
 			if($index){
 				$values[$index] = "'".$_SESSION['selectedDate']."'";
+			}else{
+				$keys[] = 'reservation_date';
+				$values[] = "'".$_SESSION['selectedDate']."'";
 			}
+			$index = '';
 			$index = array_search('reservation_wait',$keys);
 			if($index){
 				$values[$index] = '1';
@@ -203,8 +205,10 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$_SESSION['result'] = $result;
 
 			// -----
-			// increase reservation date
-			$res_dat += (60*60*24);
+			// increase reservation date one day
+			$d1 ++;
+			$res_dat = mktime(0,0,0,$m1,$d1,$y1);
+			
 		 } // end while: reservation to store
 		
 			// *** send confirmation email

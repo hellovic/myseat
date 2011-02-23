@@ -1,4 +1,5 @@
 <!-- Begin reservation table data -->
+
 <table class="global" style="margin:15px 0px 0px 0px;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
