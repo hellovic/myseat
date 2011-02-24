@@ -1,7 +1,7 @@
 <?
 		$pdate = date($general['dateformat'],strtotime($_SESSION['selectedDate']));
 		$sdate = "";
-	if ( $_POST['recurring_dbdate']!="" && $_POST['recurring_dbdate']!=$_SESSION['selectedDate'] ) {
+	if ( $_POST['recurring_dbdate']!="" && $_POST['recurring_dbdate']>$_SESSION['selectedDate'] ) {
 		$sdate = date($general['dateformat'],strtotime($_POST['recurring_dbdate']));
 	}
 	
