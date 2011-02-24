@@ -151,7 +151,7 @@ if (!$_SESSION['outletID']) {
 			$num_outlets = querySQL('num_outlets');
 				if ($num_outlets>1) {
 					echo"<label>RESTAURANT</label><br/>";
-					outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
 				} else{
 					echo "<input type='hidden' name='reservation_outlet_id' value='".$_SESSION['outletID']."'>";
 				}
@@ -159,7 +159,7 @@ if (!$_SESSION['outletID']) {
 			// MESSAGES
 			//Day off error message
 			$day_off = getDayoff();
-            if ($day_off > 0) {
+            if ($outlet_result == 1) {
 				echo "<div class='alert_error'><p><img src='../web/images/icon_error.png' alt='error' class='middle'/>&nbsp;&nbsp;";
 				echo lang('error_dayoff')."<br>";
 				echo "</p></div>";
@@ -273,7 +273,7 @@ if (!$_SESSION['outletID']) {
 				<input type="hidden" name="reservation_hotelguest_yn" id="reservation_hotelguest_yn" value="PASS"/>
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
 				<input type="hidden" name="reservation_author" id="reservation_author" value="<?= querySQL('db_property');?> Team"/>
-				<input type="hidden" name="email_type" id="email_type" value="en"/>
+				<input type="hidden" name="email_type" id="email_type" value="<?php echo $language; ?>"/>
                 <?php
 				$day_off = getDayoff();
                 if ($day_off == 0) {

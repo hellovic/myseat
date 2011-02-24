@@ -57,6 +57,11 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 }
 
 function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'){
+	//set dayoff memory for error message
+	$mem_dayoff = 1;
+	//remember outlet ID
+	$mem_outletID = $_SESSION['outletID'];
+	
 	echo"<select name='".$tablename."' id='".$tablename."' class='drop' size='1' $disabled>\n";
 		
 		$outlets = querySQL('db_outlets');
@@ -67,8 +72,15 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 			 && $_SESSION['selectedDate_saison']<=$row->saison_end)
 			&& $row->webform == 1 
 			) {
+				$_SESSION['outletID'] = $row->outlet_id;
+				
 				// get day off days
 				$dayoff = getDayoff();
+				
+				//set dayoff memory for error message
+				if ($mem_dayoff==1) {
+					$mem_dayoff = ( $dayoff==0 ) ? 0 : 1;
+				}
 				
 				 echo "<option value='".$row->outlet_id."' ";
 				 echo ($outlet_id==$row->outlet_id && $dayoff==0) ? "selected='selected'" : "";
@@ -78,6 +90,10 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 			}
 		}
 	echo "</select>\n";
+	
+	//set back remembered outlet ID
+	$_SESSION['outletID'] = $mem_outletID;
+	return $mem_dayoff;
 }
 
 function personsList($max_pax = '12', $standard = '4',$tablename='reservation_pax'){
