@@ -160,7 +160,7 @@ $_SESSION['outletID'] = '';
       
 		    <input type="hidden" name="reservation_date" value="<?= $_SESSION['selectedDate'];?>">
 		    <input type="hidden" name="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
-            <br/><br/>
+            
 		    <!-- END datepicker -->
 		    <div>
 			<?php
@@ -170,7 +170,7 @@ $_SESSION['outletID'] = '';
 			}
 			
 				if ($num_outlets>1) {
-					echo"<label>RESTAURANT</label><br/>";
+					echo"<br/><br/><label>RESTAURANT</label><br/>";
 					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
 					echo "<input type='hidden' id='single_outlet' value=''>";
 				} else{
@@ -233,6 +233,7 @@ $_SESSION['outletID'] = '';
 			?>
 		    </div>
 			<br/><br/>
+			<br/>
 			
 			<!-- facebook button-->
 		    <?php if ($me): ?>
@@ -249,7 +250,7 @@ $_SESSION['outletID'] = '';
 		    <?php endif ?>
 			<!-- facebook button end -->
 			
-			<br/><br/>
+			<br/>
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_title"); ?></label><br/>
