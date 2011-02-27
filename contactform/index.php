@@ -1,11 +1,14 @@
-<?php
-session_start();
+<?php session_start();
 
+//
+// Name: mySeat
+//
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
 $_SESSION['property'] = '1';
 $_SESSION['propertyID'] = '1';
 $_SESSION['outletID'] = '';
+
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
@@ -31,14 +34,17 @@ $_SESSION['outletID'] = '';
 //standard outlet for contact form
 	if ($_GET['outletID']) {
 		$_SESSION['outletID'] = (int)$_GET['outletID'];
-		// set single outlet indicator
-		$_SESSION['single_outlet'] = 'ON';
 	}else if (!$_SESSION['outletID']){
 		$_SESSION['outletID'] = querySQL('web_standard_outlet');
-		// reset single outlet indicator
-		$_SESSION['single_outlet'] = 'OFF';
 	}
 
+	if ($_GET['so']) {
+		// set single outlet indicator
+		$_SESSION['single_outlet'] = 'ON';	
+	}else{
+		// reset single outlet indicator
+		$_SESSION['single_outlet'] = 'OFF';	
+	}
 
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
@@ -221,26 +227,52 @@ $_SESSION['outletID'] = '';
 			<br/><br/>
 		    </div>
 		    <div>
-			<label><?php lang("contact_form_time"); ?></label><br/>
+			<label><?php lang("contact_form_time"); ?>*</label><br/>
 			<?php
 			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
 			?>
 		    </div>
+			<br/><br/>
+			
+			<!-- facebook button-->
+		    <?php if ($me): ?>
+			<img src="https://graph.facebook.com/<?php echo $uid; ?>/picture">
+		    <a href="<?php echo $logoutUrl; ?>">
+		      <img src="http://static.ak.fbcdn.net/rsrc.php/z2Y31/hash/cxrz4k7j.gif">
+		    </a>
+		    <?php else: ?>
+		    <div>
+		      <a href="<?php echo $loginUrl; ?>">
+		        <img src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif">
+		      </a>
+		    </div>
+		    <?php endif ?>
+			<!-- facebook button end -->
+			
+			<br/><br/>
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_title"); ?></label><br/>
 			<?php
-			    titleList();
+				$title = '';
+				 if ($me) {
+				 	if ( $me['gender']=='male' ) {
+						$title = 'M';
+				 	}else if ( $me['gender']=='female' ) {
+						$title = 'F';
+				 	}
+				 }
+			    titleList($title);
 			?>
 		    </div>
 		    <br/>
 		    <div>
-			<label><?php lang("contact_form_name"); ?></label><br/>
-                        <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="" />
+			<label><?php lang("contact_form_name"); ?>*</label><br/>
+               <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php echo $me['name']; ?>" />
                     </div>
 		    <br/>
 		    <div>
-			<label><?php lang("contact_form_pax"); ?></label><br/>
+			<label><?php lang("contact_form_pax"); ?>*</label><br/>
                         <?php
 							//personsList(max pax before menu , standard selected pax);
 						    personsList($general['max_menu'],2);
@@ -248,13 +280,13 @@ $_SESSION['outletID'] = '';
                     </div>
 		    <br/>
                     <div>
-			<label><?php lang("contact_form_email"); ?></label><br/>
-                        <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" value="" />
+			<label><?php lang("contact_form_email"); ?>*</label><br/>
+              <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" value="<?php echo $me['email']; ?>" />
                     </div>
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_phone"); ?></label><br/>
-                        <input type="text" name="reservation_guest_phone" class="form required" id="reservation_guest_phone" value="" />
+                        <input type="text" name="reservation_guest_phone" class="form" id="reservation_guest_phone" value="" />
                     </div>
 		    <br/>
                     <div>
