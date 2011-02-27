@@ -166,7 +166,7 @@ $_SESSION['language'] = 'en_EN';
 			      $_SESSION['barrier'] = $barrier;
 			      
 			      if($waitlist == 2){
-					echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>&nbsp;&nbsp;";
+					echo "<div class='alert_success'><p><img src='../web/images/icons/icon_accept.png' alt='success' class='middle'/>&nbsp;&nbsp;";
 					echo $lang['contact_form_success']." ".$_SESSION['booking_number']."<br>";
 					echo "</p></div>";
 			      }else if ($waitlist == 1){
