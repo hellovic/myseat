@@ -46,9 +46,15 @@ session_start();
 <head>
     <meta charset="utf-8"/>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" media="screen"/>
-    <link rel="stylesheet" href="css/datepicker.css" media="screen"/>
+	<!-- CSS - Setup -->
+	<link href="style/style.css" rel="stylesheet" type="text/css" />
+	<link href="style/base.css" rel="stylesheet" type="text/css" />
+	<link href="style/grid.css" rel="stylesheet" type="text/css" />
+	<!-- CSS - Theme -->
+	<link id="theme" href="style/themes/light.css" rel="stylesheet" type="text/css" />
+	<link id="color" href="style/themes/blue.css" rel="stylesheet" type="text/css" />
+	<!-- CSS - Datepicker -->
+	<link href="style/datepicker.css" rel="stylesheet" type="text/css" />
 
     <!-- jQuery Library-->
     <script src="js/jQuery.min.js"></script>
@@ -67,37 +73,32 @@ session_start();
     <title>Reservation</title>
 </head>
 <body>
-	<div id="headerPanel">
-		<div id="header">
-			<div class="wrap">
-				
-				<a href="index.php" class="logo"><img src="img/logo.png" alt="logo" /></a>  
-				
-				<div class="contactInfo">
-					<?php lang("contact_info"); ?>
-				</div>
-				
-				<div class="right">
-					<h5><?php lang("change_language"); ?></h5>		
-					<ul class="nav">
-						<?php language_navigation(); ?>
-					</ul>
-				</div>
-				
-				<div class="clear"></div>
-				
-			</div>
-		</div><!-- header close -->
-		<div id="togglePanel"></div>
-	</div><!-- headerPanel close -->
+	<!-- start header -->
+	<div id="wrapper"> 
+	  <header> 
+	    <!-- logo -->
+	    <h1 id="logo"><a href="index.php?p=2">mySeat</a></h1>
+	    <!-- nav -->
+	    <nav>
+	      <ul id="nav">
+	        <li><a href="index.php"><?= $lang["contact_form_back"];?></a></li>
+	        <li <? if($p == 2){echo'class="current"';} ?> ><a href="cancel.php?p=2"><?= $lang["contact_form_cxl"];?></a>
+	      </ul>
+	      <br class="cl" />
+	    </nav>
+	    <br class="cl" />
+	  </header>
+	<!-- end header -->
+	<!-- page container -->
+	  <div id="page"> 
+	    <!-- page title -->
+	    <h2 class="ribbon full"><?= $lang["cxl_title"];?> <span></span> </h2>
+	    <div class="triangle-ribbon"></div>
+	    <br class="cl" />
+	    
+	    <div id="page-content" class="container_12">
 		
-	<div class="wrap">
-		
-		<div id="title">
-			<h1><?php lang("cxl_title"); ?></h1>
-		</div>
-		
-		<div id="main">
+		<!-- page content goes here -->
 			
 
 			<h3>
@@ -110,9 +111,13 @@ session_start();
 			  <?php
                             if($_POST['action'] == 'cncl_book'){
 			      if($cancel>=1){
-				echo "<span class='success'>".$lang['cxl_form_success']."</span><br/>";
+					echo "<div class='alert_success'><p><img src='../web/images/icons/icon_accept.png' alt='success' class='middle'/>&nbsp;&nbsp;";
+					echo $lang['cxl_form_success']."<br>";
+					echo "</p></div>";
 			      }else{
-				echo "<span class='fail'>".$lang['contact_form_fail']."</span><br/>";
+					echo "<div class='alert_error'><p><img src='../web/images/icon_error.png' alt='error' class='middle'/>&nbsp;&nbsp;";
+					echo $lang['contact_form_fail']."<br>";
+					echo "</p></div>";
 			      }
                             }
 			  ?>
@@ -139,50 +144,25 @@ session_start();
                                 <div class="error"></div>
                               </form>
 			<br/><br/><br/><br/><br/>
-			<a href="index.php"><div class="button" style="line-height:32px;"><?php lang("contact_form_back");?></div></a>
+			<a href="index.php"><div class='button <?= $default_color;?>' style="line-height:32px;"><?php lang("contact_form_back");?></div></a>
 			<br/>
 			<div class="clear"></div>
 			<br/><br/><br/>
-		</div><!-- main close -->
-		<div id="mainBottom"></div>
-	
-	</div><!-- wrap close -->
-			
-	<div id="footer">
-		<div class="wrap">
-			
-			<div class="oneOfThree">
-				
-				<?php lang("footer_one"); ?>
-				
-			</div>
-			<div class="oneOfThree">
-				
-				<?php lang("footer_two"); ?>
-				
-			</div>
-			<div class="oneOfThree last">
-				
-				<?php lang("footer_three"); ?>
-			
-			</div>
-			<div class="clear"></div>
-			
-		</div>
-	</div><!-- footer close -->
-		
-		
-	<div id="miniFooter">
-		<div class="wrap">
-			
-			<div class="left">
-				<a href="#" class="footerLogo"><img src="img/footer-logo.png" alt="Footer Logo" /></a>
-				<?php lang("minifooter_copyright"); ?>
-			</div>
-			
-			<div class="clear"></div>
-		</div>
-	</div><!-- minifooter close -->
+
+	    <br class="cl" />
+	    <br class="cl" />
+
+		</div><!-- page content end -->
+	</div><!-- page container end -->
+
+  <!-- Footer Start -->
+  <footer>
+
+    <p><small>&copy; 2010 by MYSEAT under the GPL license, designed deep in the heart of Germany.</small></p>
+    <br class="cl" />
+  </footer>
+  <!-- footer end -->
+</div><!-- main close -->
 
 </body>
 </html>

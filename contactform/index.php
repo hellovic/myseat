@@ -5,7 +5,7 @@ $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
 $_SESSION['property'] = '1';
 $_SESSION['propertyID'] = '1';
-
+$_SESSION['outletID'] = '';
 // PHP part of page / business logic
 // ** set configuration
 	require("config.php");
@@ -27,10 +27,19 @@ $_SESSION['propertyID'] = '1';
 	include('../config/config.inc.php');
 // translate to selected language
 	translateSite(substr($_SESSION['language'],0,2));
-//stadard outlet for contact form
-if (!$_SESSION['outletID']) {
-	$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('web_standard_outlet');
-}
+
+//standard outlet for contact form
+	if ($_GET['outletID']) {
+		$_SESSION['outletID'] = (int)$_GET['outletID'];
+		// set single outlet indicator
+		$_SESSION['single_outlet'] = 'ON';
+	}else if (!$_SESSION['outletID']){
+		$_SESSION['outletID'] = querySQL('web_standard_outlet');
+		// reset single outlet indicator
+		$_SESSION['single_outlet'] = 'OFF';
+	}
+
+
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
 // CSRF - Secure forms with token
@@ -70,9 +79,15 @@ if (!$_SESSION['outletID']) {
 <head>
     <meta charset="utf-8"/>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" media="screen"/>
-    <link rel="stylesheet" href="css/datepicker.css" media="screen"/>
+	<!-- CSS - Setup -->
+	<link href="style/style.css" rel="stylesheet" type="text/css" />
+	<link href="style/base.css" rel="stylesheet" type="text/css" />
+	<link href="style/grid.css" rel="stylesheet" type="text/css" />
+	<!-- CSS - Theme -->
+	<link id="theme" href="style/themes/<?= $default_style;?>.css" rel="stylesheet" type="text/css" />
+	<link id="color" href="style/themes/<?= $default_color;?>.css" rel="stylesheet" type="text/css" />
+	<!-- CSS - Datepicker -->
+	<link href="style/datepicker.css" rel="stylesheet" type="text/css" />
 
     <!-- jQuery Library-->
     <script src="js/jQuery.min.js"></script>
@@ -91,38 +106,33 @@ if (!$_SESSION['outletID']) {
     <title>Reservation</title>
 </head>
 <body>
-	<div id="headerPanel">
-		<div id="header">
-			<div class="wrap">
-				
-				<a href="index.php" class="logo"><img src="img/logo.png" alt="logo" /></a>  
-				
-				<div class="contactInfo">
-					<?php lang("contact_info"); ?>
-				</div>
-				
-				<div class="right">
-					<h5><?php lang("change_language"); ?></h5>		
-					<ul class="nav">
-						<?php language_navigation(); ?>
-					</ul>
-				</div>
-				
-				<div class="clear"></div>
-				
-			</div>
-		</div><!-- header close -->
-		<div id="togglePanel"></div>
-	</div><!-- headerPanel close -->
+	<!-- start header -->
+	<div id="wrapper"> 
+	  <header> 
+	    <!-- logo -->
+	    <h1 id="logo"><a href="index.php?p=2">mySeat</a></h1>
+	    <!-- nav -->
+	    <nav>
+	      <ul id="nav">
+	        <li><a href="<?= $home_link;?>">Home</a></li>
+	        <li <? if($p == 2){echo'class="current"';} ?> ><a href="cancel.php?p=2"><?= $lang["contact_form_cxl"];?></a>
+	      </ul>
+	      <br class="cl" />
+	    </nav>
+	    <br class="cl" />
+	  </header>
+	<!-- end header -->
+	<!-- page container -->
+	  <div id="page"> 
+	    <!-- page title -->
+	    <h2 class="ribbon full"><?= $lang["conf_title"];?><span></span> </h2>
+	    <div class="triangle-ribbon"></div>
+	    <br class="cl" />
+	    
+	    <div id="page-content" class="container_12">
 		
-	<div class="wrap">
-		
-		<div id="title">
-			<h1><?php lang("title"); ?></h1>
-		</div>
-		
-		<div id="main">
-			
+		<!-- page content goes here -->	
+
 
 			<?php lang("contact_form_intro"); ?>
 			<br/>
@@ -136,7 +146,7 @@ if (!$_SESSION['outletID']) {
 				$captchaField2 = ($captchaField2%2) ? "+" : "-";
 			?>
 
-		<form action="process_booking.php" method="post" id="contactForm">
+		<form action="process_booking.php" method="post" id="contactForm" style="margin-left:30px">
 		    
 		    <!-- Datepicker -->
 		    <label> </label><div id="bookingpicker"></div>
@@ -148,12 +158,17 @@ if (!$_SESSION['outletID']) {
 		    <!-- END datepicker -->
 		    <div>
 			<?php
-			$num_outlets = querySQL('num_outlets');
+			$num_outlets = 0;
+			if ($_SESSION['single_outlet'] == 'OFF') {
+				$num_outlets = querySQL('num_outlets');
+			}
+			
 				if ($num_outlets>1) {
 					echo"<label>RESTAURANT</label><br/>";
 					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+					echo "<input type='hidden' id='single_outlet' value=''>";
 				} else{
-					echo "<input type='hidden' name='reservation_outlet_id' value='".$_SESSION['outletID']."'>";
+					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'>";
 				}
 			
 			// MESSAGES
@@ -249,20 +264,20 @@ if (!$_SESSION['outletID']) {
 		    <br/>
 		    <div class="side">
                 	<div class="captchaContainer">
-                		<label for="captcha"><?php lang("contact_form_captcha"); ?></label>
-                		<input type="text" name="captcha" class="form required captcha" id="captcha" value="" />
-                		
-                		<span class="captchaField">=</span>                    		
+                		<label for="captcha">
+		            		<span id="captchaField1" class="captchaField"><?php echo $captchaField1; ?></span>
+		            		<input type="hidden" name="captchaField1" value="<?php echo $captchaField1; ?>"/>
 
-	            		
-                		<span id="captchaField3" class="captchaField"><?php echo $captchaField3; ?></span>
-        				<input type="hidden" name="captchaField3" value="<?php echo $captchaField3; ?>"/>
-        				
-	            		<span id="captchaField2" class="captchaField"><?php echo $captchaField2; ?></span>
-	            		<input type="hidden" name="captchaField2" value="<?php echo $captchaField2; ?>"/>
-	            		
-	            		<span id="captchaField1" class="captchaField"><?php echo $captchaField1; ?></span>
-	            		<input type="hidden" name="captchaField1" value="<?php echo $captchaField1; ?>"/>
+		            		<span id="captchaField2" class="captchaField"><?php echo $captchaField2; ?></span>
+		            		<input type="hidden" name="captchaField2" value="<?php echo $captchaField2; ?>"/>
+
+							<span id="captchaField3" class="captchaField"><?php echo $captchaField3; ?></span>
+							<input type="hidden" name="captchaField3" value="<?php echo $captchaField3; ?>"/>
+							
+							<span class="captchaField">=</span>
+						</label>
+                		<input type="text" name="captcha" class="form required captcha" id="captcha" value="" />
+                  		
 	            		
                 		<div class="clear"></div>
                 	</div>
@@ -277,56 +292,25 @@ if (!$_SESSION['outletID']) {
                 <?php
 				$day_off = getDayoff();
                 if ($day_off == 0) {
-                	echo"<input class='button' type='submit' value='".$lang['contact_form_send']."' />";
+                	echo"<div style='text-align:center;'><br/><br/><input class='button ".$default_color." large' type='submit' value='".$lang['contact_form_send']."' /></div>";
                 }
                 ?>	
                 	</div>
 		</form>
-				
-			<!-- side close -->
+
+	    <br class="cl" />
+	    <br class="cl" />		
+		</div><!-- page content end -->
+	</div><!-- page container end -->
 			
-			<div class="clear"></div>
-			
-		</div><!-- main close -->
-		<div id="mainBottom"></div>
-	
-	</div><!-- wrap close -->
-			
-	<div id="footer">
-		<div class="wrap">
-			
-			<div class="oneOfThree">
-				
-				<?php lang("footer_one"); ?>
-				
-			</div>
-			<div class="oneOfThree">
-				
-				<?php lang("footer_two"); ?>
-				
-			</div>
-			<div class="oneOfThree last">
-				
-				<?php lang("footer_three"); ?>
-			
-			</div>
-			<div class="clear"></div>
-			
-		</div>
-	</div><!-- footer close -->
-		
-		
-	<div id="miniFooter">
-		<div class="wrap">
-			
-			<div class="left">
-				<a href="#" class="footerLogo"><img src="img/footer-logo.png" alt="Footer Logo" /></a>
-				<?php lang("minifooter_copyright"); ?>
-			</div>
-			
-			<div class="clear"></div>
-		</div>
-	</div><!-- minifooter close -->
+  <!-- Footer Start -->
+  <footer>
+
+    <p><small>&copy; 2010 by MYSEAT under the GPL license, designed deep in the heart of Germany.</small></p>
+    <br class="cl" />
+  </footer>
+  <!-- footer end -->
+</div><!-- main close -->
 
   <!-- Javascript at the bottom for fast page loading --> 
 <script>
@@ -337,13 +321,14 @@ if (!$_SESSION['outletID']) {
 	      prevText: '&laquo;',
 	      firstDay: 1,
 	      numberOfMonths: 2,
+		  minDate: 0,
 	      gotoCurrent: true,
 	      altField: '#dbdate',
 	      altFormat: 'yy-mm-dd',
 	      defaultDate: 0,
 	      dateFormat: '<?= $general['datepickerformat'];?>',
 	      regional: '<?= substr($_SESSION['language'],0,2);?>',
-	      onSelect: function(dateText, inst) { window.location.href="?selectedDate="+$("#dbdate").val(); }
+	      onSelect: function(dateText, inst) { window.location.href="?selectedDate=" + $("#dbdate").val() + "&outletID=" + $("#single_outlet").val(); }
       });
       // month is 0 based, hence for Feb. we use 1
       $("#bookingpicker").datepicker('setDate', new Date(<?= $sy.", ".($sm-1).", ".$sd; ?>));

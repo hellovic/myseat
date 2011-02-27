@@ -1,6 +1,6 @@
 <?php
 
-// calculate and print select list with intervall times
+// calculate and print select list with interval times
 function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$close_time='24:00:00',$showtime=0) 
 { 
 		GLOBAL $availability, $tbl_availability;
@@ -62,9 +62,12 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 	//remember outlet ID
 	$mem_outletID = $_SESSION['outletID'];
 	
-	echo"<select name='".$tablename."' id='".$tablename."' class='drop' size='1' $disabled>\n";
-		
+	echo"<select name='".$tablename."' id='".$tablename."' class='drop' title=' ' size='1' $disabled>\n";
+			
 		$outlets = querySQL('db_outlets');
+		
+
+		//echo "<option value='0' selected='selected'> -- </option>\n";
 		
 		foreach($outlets as $row) {
 		 if ( ($row->saison_start<=$row->saison_end 
@@ -86,6 +89,7 @@ function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'
 				 echo ($outlet_id==$row->outlet_id && $dayoff==0) ? "selected='selected'" : "";
 				 echo ($dayoff > 0) ? "disabled='disabled'" : "";
 				 echo ">".$row->outlet_name."</option>\n";
+				 // echo ">".$dayoff." - ".$row->outlet_name."</option>\n";
 				
 			}
 		}

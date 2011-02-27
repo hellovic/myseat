@@ -30,8 +30,8 @@
 	$lang["title"] = '<strong>Online</strong> Reservierung';
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<h3><strong>Buchen Sie sich Ihren Tisch. Mit sofort best&auml;tigter Reservierung!<br/>
-	F&uuml;r private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</strong></h3>';
+	$lang["contact_form_intro"] = '<p><strong>Buchen Sie sich Ihren Tisch. Mit sofort best&auml;tigter Reservierung!<br/>
+	F&uuml;r private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</strong></p>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Name oder Firma';
@@ -82,7 +82,7 @@
 	$lang["contact_form_fail"] = 'Ein Fehler traten w&auml;hrend des Buchungsvorgangs auf, bitte versuchen Sie es erneut.';
 	
 	// The success message -- "Thank you for your reservation. An email confirmation was sent. Your Booking number is:"
-	$lang["cxl_form_success"] = 'Ihre Reservierung wurde storniert! Wir hoffen dennoch, Sie bald bei uns begr&uuml;§en zu k&ouml;nnen.<br/>Falls Sie weitere Fragen haben z&ouml;gern Sie nicht uns zu kontaktieren.';
+	$lang["cxl_form_success"] = 'Ihre Reservierung wurde storniert! Wir hoffen dennoch, Sie bald bei uns begr&uuml;&szlig;en zu k&ouml;nnen.<br/>Falls Sie weitere Fragen haben z&ouml;gern Sie nicht uns zu kontaktieren.';
 	
 	//----------------------------
 	// CONTACT FORM
@@ -118,22 +118,6 @@
 	
 	// Day off error message
 	$lang["error_dayoff"] = 'Das Restaurant kann an diesem Tag nicht gebucht werden.';
-
-	//----------------------------
-	// FOOTER
-	//----------------------------
-	
-	// The content on the first footer column
-	$lang["footer_one"] =  '<h3><a href="index.php">Reservierung t&auml;tigen</a></h3>
-	<p></p>';
-							
-	// The content on the second footer column
-	$lang["footer_two"] =  '<h3><a href="cancel.php">Reservierung stornieren</a></h3>
-	<p></p>';
-							
-	// The content on the third footer column
-	$lang["footer_three"] = '<h3><a href="'.$_SERVER['DOCUMENT_ROOT'].'">Zur&uuml;ck zur Homepage</a></h3>
-	<p></p>';
 	
 	//----------------------------
 	// MINI-FOOTER

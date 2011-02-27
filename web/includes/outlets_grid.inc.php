@@ -2,7 +2,8 @@
 <table class="global" style="margin:0px 0px;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr>
-			<th style="width:35%"><?= _name; ?></th>
+			<th style="width:2%">ID</th>
+			<th style="width:33%"><?= _name; ?></th>
 			<th style="width:5%"><?= _seats; ?></th>
 			<th style="width:5%"><?= _tables; ?></th>
 			<th style="width:5%"><?= _open_time; ?></th>
@@ -23,7 +24,8 @@
 			foreach($outlets as $row) {
 			echo "<tr id='outlet-".$row->outlet_id."'>";
 		
-			echo"<td><strong><a href='?p=101&outletID=".$row->outlet_id."'>".utf8_encode($row->outlet_name)."</a></strong></td>
+			echo "<td>".$row->outlet_id."</td>
+			<td><strong><a href='?p=101&outletID=".$row->outlet_id."'>".utf8_encode($row->outlet_name)."</a></strong></td>
 			<td><strong>".$row->outlet_max_capacity."</strong></td>
 			<td><strong>".$row->outlet_max_tables."</strong></td>
 			<td>".formatTime($row->outlet_open_time,$general['timeformat'])."</td>

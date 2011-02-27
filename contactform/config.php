@@ -1,8 +1,25 @@
-<?php
-session_start();
+<?php session_start();
+
+// ** SETTINGS **
+
+	// The contact form color scheme
+	// light, dark
+	$default_style = "light";
+	
+	// The contact form color scheme
+	// black, blue, green, grey, purple, red
+	$default_color = "blue";
+	
+	// The link to your startpage
+	// do not forget the slash!
+	$base_link = $_SERVER['DOCUMENT_ROOT'];
+	$home_link = $base_link."/index.php";
 
 	// The default language
 	$default_lang = "en";
+	
+// ** END SETTINGS **
+	
 	
 	// The relative path to the lang folder
 	$lang_folder = "lang";	
