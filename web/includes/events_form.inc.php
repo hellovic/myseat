@@ -1,11 +1,12 @@
 <?
 if ($_SESSION['button']==2) {
-	$row = "";
+	$row = array();
 }else{
 	$row = querySQL('event_data_single');	
 }
 
-list($sj,$sm,$sd)                = explode("-",$row['event_date']);
+$row['event_date'] = ($row['event_date']) ? $row['event_date'] : date('Y-m-d');
+list($sj,$sm,$sd)    = explode("-",$row['event_date']);
 $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 ?>
 <form method="post" action="?p=6&q=4&btn=1" id="event_form">
@@ -15,7 +16,7 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 		<div class="date dategroup">
 			<div class="text" id="datetext"><?= $eventdate; ?></div>
 			<input type="text" id="ev_datepicker"/>
-			<input type="hidden" name="event_date" id="event_date" value="<?= $row['event_date']; ?>"/>
+			<input type="hidden" name="event_date" id="event_date" value=" <?= $row['event_date']; ?> "/>
 	    </div>
 	</p>	
 	<br style='clear:both'><br/>

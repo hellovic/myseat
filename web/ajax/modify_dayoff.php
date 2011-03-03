@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 /* Connection to Database */
 // ** set configuration
 include('../../config/config.general.php');
@@ -18,5 +18,4 @@ include('../classes/db_queries.db.php');
 	$sql = querySQL('update_maitre_dayoff');
 	
 	echo $sql;
-
 ?>

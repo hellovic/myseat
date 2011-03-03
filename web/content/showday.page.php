@@ -6,7 +6,7 @@
 				<?= _confirmed_reservations; ?>
 			</a>
 		</li>
-		<?php if ( $dayoff == 0 && current_user_can( 'Reservation-New' ) ): ?>
+		<?php if ( $today_date <= $_SESSION['selectedDate'] && $dayoff == 0 && current_user_can('Reservation-New') ): ?>
 		<li>
 			<a href="?q=2" <? if ($q == 2) { echo " class='active'";}?> >
 				<?= _add_reservation; ?>

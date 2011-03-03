@@ -359,6 +359,12 @@ function dayDropdown($name='day', $selected=null) {
         return $dd;
 }
 
+function stop_user() {
+echo"<br/><div id='messageBox' style='cursor:pointer;'><div class='alert_warning'>
+<p><img src='images/icon_warning.png' alt='error' class='middle' />
+<strong>Follow the white rabbit. Knock, knock ... <strong></p></div></div><br/>";
+}
+
 // Whether current user has capability or role.
 function current_user_can( $capability ) {
 	$_SESSION['capability'] = $capability;

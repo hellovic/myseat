@@ -109,11 +109,11 @@ ob_start();
 	}
 	
 	
-	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-	//     Store in database
-	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-	
-	function writeForm($table =''){
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//     Store in database
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+function writeForm($table =''){
 	// rather than recursively calling query, insert all rows with one query
 		GLOBAL $general;
 		$_SESSION['errors'] = array();
@@ -159,6 +159,18 @@ ob_start();
 					$password = $insert->hash_password($value);
 					$values[$i] = "'".$password."'";
 				}
+				
+			}else if($key == 'outlet_child_capacity'){	
+				
+				// make value always positive
+				$keys[$i] = $key;
+				$values[$i] = "'".abs($value)."'";
+				
+			}else if($key == 'outlet_child_tables'){	
+				
+				// make value always positive (abs)
+				$keys[$i] = $key;
+				$values[$i] = "'".abs($value)."'";
 				
 			}else if( $key != "action"
 				 && $key != "email_type"
@@ -256,7 +268,7 @@ ob_start();
 			// -----
 			return $new_id;
 			
-	 }
-	}
+ }
+}
 
 ?>

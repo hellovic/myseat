@@ -67,6 +67,9 @@ This file is part of mySeat.
 	include('classes/bookingrules.class.php');
 // ** html header section
 	include('views/header.html.php');
+// ** set todays date
+$today_date = date('Y-m-d');
+
 
 // ** begin page content
 echo "<body>
@@ -92,11 +95,19 @@ echo "<body>
 		break;
 		case '3':
 			// statistic
-			include('content/statistic.page.php');
+			if ( current_user_can( 'Page-Statistic' ) ){
+				include('content/statistic.page.php');
+			}else{
+				stop_user();
+			}
 		break;
 		case '4':
 			// export
-			include('content/export.page.php');
+			if ( current_user_can( 'Page-Export' ) ){
+				include('content/export.page.php');
+			}else{
+				stop_user();
+			}
 		break;
 		case '5':
 			// info
@@ -104,11 +115,19 @@ echo "<body>
 		break;
 		case '6':
 			// system
-			include('content/system.page.php');
+			if ( current_user_can( 'Page-System' ) ){
+				include('content/system.page.php');
+			}else{
+				stop_user();
+			}
 		break;
 		case '101':
 			// outlet detail
-			include('content/detail.outlet.page.php');
+			if ( current_user_can( 'Page-System' ) ){
+				include('content/detail.outlet.page.php');
+			}else{
+				stop_user();
+			}
 		break;
 		case '102':
 			// reservation detail

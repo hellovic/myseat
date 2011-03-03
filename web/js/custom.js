@@ -396,7 +396,7 @@ $(document).ready(function() {
 		type: "POST",
 		url: "ajax/modify_dayoff.php",
 		data: 'value=' + value + '&id=' + status_id,
-		success: function(){
+		success: function(result){
 			location.reload();
 		}
 		});
