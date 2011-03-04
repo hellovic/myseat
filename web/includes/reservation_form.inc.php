@@ -12,7 +12,7 @@
 	<p>
 		<div class="option_xl">
 			<div class="text"></div>
-				<? getOutletList($row->reservation_outlet_id,'enabled','reservation_outlet_id'); ?>
+				<? outletList($row->reservation_outlet_id,'enabled','reservation_outlet_id'); ?>
 		</div>
 	</p>
 	<br/>
