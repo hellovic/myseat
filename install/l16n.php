@@ -180,7 +180,10 @@ $cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, 
 (163, '_email_confirmation', 'Thank you very much for your reservation in our %s.\r\nWith pleasure we confirm your reservation for %s person(s) on %s at %s.\r\n\r\nIf you want cancel your reservation please use your booking number \'%s\' at the homepage.\r\n\r\nWe wish you an enjoyable stay at our restaurant and are looking forward to your visit!\r\n\r\nYours\r\n %s', 'Vielen Dank für Ihre Reservierung in unserem %s.\r\nGerne haben wir für Sie %s Person(en) am %s um %s reserviert.\r\n\r\nWenn Sie Ihre Reservierung stornieren möchten, können Sie dies mit der Buchungsnummer \'%s\' auf der Homepage vornehmen.\r\n\r\nWir wünschen Ihnen einen angenehmen Aufenthalt in unserem Restaurant und freuen uns auf Ihren Besuch!\r\n\r\nBeste Grüße\r\n%s', '', '', '', '', 'Tack för er reservation för %s.\r\nVi bekräftar er reservation för %s person/er den %s hos %s.\r\n\r\nVid ändring eller avbokning hänvisa till bokningsnummer: \'%s\'.', '', '', '', '', ''),
 (126, '_before', 'before', 'zuvor', '', '', '', '', 'före', '', '', '', '', ''),
 (72, '_occupancy_per_month', 'Occupancy per month', 'Belegung pro Monat', 'Occupation par mois', 'Ocupaci&oacute;n por mes', ' ', ' ', 'Beläggning per månad', ' ', '', '', '', ''),
-(71, '_guest_type_per_month', 'Guest type per month', 'Gastart pro Monat', 'Catégorie de client par mois', ' Tipo de huésped por mes', '', ' ', 'Gästtyp per månad', ' ', '', '', '', '');
+(71, '_guest_type_per_month', 'Guest type per month', 'Gastart pro Monat', 'Catégorie de client par mois', ' Tipo de huésped por mes', '', ' ', 'Gästtyp per månad', ' ', '', '', '', ''),
+(179, '_already_user_1', 'The unsername', 'Den Benutzername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername', 'The unsername'),
+(180, '_already_user_2', 'does already exist.', 'gibt es bereits.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.', 'does already exist.');
+
 ");
 
 
