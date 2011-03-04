@@ -15,7 +15,8 @@
 <?
 // Get property details
     $_SESSION['propertyID'] = ($_SESSION['propertyID']=="") ? $_SESSION['property'] : $_SESSION['propertyID'];
-    $row = querySQL('property_info');?>
+    $row = querySQL('property_info');
+?>
 
 <!-- Begin detail -->
 <div class="content">

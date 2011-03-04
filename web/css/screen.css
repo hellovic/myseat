@@ -880,6 +880,14 @@ label.error                             { margin-left: 6px; }
 					    height: 250px;
 					    float: right;
 					}
+.property-logo			{
+					    display: block;
+					    background-position:center center;
+					    background-repeat: no-repeat; 
+					    width: 250px;
+					    height: 80px;
+					    float: left;
+					}
 .nav-image				{
 					    margin-right:4px;
 					    vertical-align: middle;

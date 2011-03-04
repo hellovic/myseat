@@ -47,13 +47,14 @@ $i 					= 1;
 		$tbl_percentage = ($_SESSION['outlet_max_tables']>0) ? 100/$_SESSION['outlet_max_tables'] : 0;
 		
 		$pax_by_time = ($availability[date('H:i',$value)]) ? $percentage*$availability[date('H:i',$value)] : 2.5;
-		$pax_by_time = ( round($pax_by_time,1)>100 ) ? 100 : round($pax_by_time,1);
+		$pax_by_time = ( round($pax_by_time,1)>100 ) ? 100 : round($pax_by_time,0);
 		
 		$tbl_by_time = ($tbl_availability[date('H:i',$value)]) ? $tbl_percentage*$tbl_availability[date('H:i',$value)] : 2.5;
-		$tbl_by_time = ( round($tbl_by_time,1)>100 ) ? 100 : round($tbl_by_time,1);
+		$tbl_by_time = ( round($tbl_by_time,1)>100 ) ? 100 : round($tbl_by_time,0);
 		
 		$pax_capacity = $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)];
 		$tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
+
 		if ($pax_by_time >= $tbl_by_time){
 			$val_capacity = $pax_capacity;
 			$val_by_time = $pax_by_time;
@@ -87,20 +88,22 @@ $i 					= 1;
 			echo "<span class='count";
 			
 			if($val_by_time >= 100){
-				echo " full ";
+				echo " full";
 			}else if($val_by_time >= 60){
-				echo " high ";
+				echo " high";
 			}else if($val_by_time >= 5){
-				echo " low ";
+				echo " low";
 			}else if($val_by_time > 3){
-				echo " free ";
+				echo " free";
 			}
 			if ($value == $rounded_time) {
 				//mark actual time with a lighter colored bar
 				//echo " active";
 			}
-			echo "' style='height: ".$val_by_time."%'>(0)</span>\n</li>\n";
-	$value = mktime($h1+0,$m1+$i*$general['timeintervall'],0,date("m"),$day,date("Y")); 
+			
+			echo "' style='height: ".$val_by_time."% !important;'>(0)</span>\n</li>\n";
+	
+			$value = mktime($h1+0,$m1+$i*$general['timeintervall'],0,date("m"),$day,date("Y")); 
 	$i++;
 	}
 ?>

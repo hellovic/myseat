@@ -13,7 +13,7 @@
 	// Additional headers
 	$headers .= 'From: '.$_SESSION['selOutlet']['outlet_name'].' <'.$_SESSION['selOutlet']['confirmation_email'].'>' . "\r\n";
 	$headers .= 'Bcc: '.$_SESSION['selOutlet']['confirmation_email']. "\r\n";
-	
+
 	// Subject of email
         if ( $_POST['email_type'] == 'en' ) {
 		$subject = _email_subject_en." ".$_SESSION['selOutlet']['outlet_name'];

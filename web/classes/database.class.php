@@ -203,7 +203,7 @@ function writeForm($table =''){
 			}
 		}
 		
-		// img upload
+		// img & logo upload
 		// =-=-=-=-=-=
 		if ($_FILES['img']['error'] > 0){
 		  $_SESSION['errors'][] = _sorry;
@@ -220,7 +220,22 @@ function writeForm($table =''){
 				$values[$i] = "'".$imgName."'";
 			  }
 		}
-		
+			if ($_FILES['img_logo']['error'] > 0){
+			  $_SESSION['errors'][] = _sorry;
+			}else{
+				if (($_FILES['img_logo']["type"] == "image/gif")
+				  || ($_FILES['img_logo']["type"] == "image/jpeg")
+				  || ($_FILES['img_logo']["type"] == "image/png" )
+				  && ($_FILES['img_logo']["size"] < 100000))
+				  {
+				  $imgName 	  = $_FILES['img_logo']['name'];
+				  $uploadpath = substr(dirname(__FILE__),0,-7);
+				  $result     = move_uploaded_file($_FILES['img_logo']["tmp_name"],"../uploads/logo/".$imgName);
+					$keys[$i] = 'logo_filename';
+					$values[$i] = "'".$imgName."'";
+				  }
+			}
+			
 			$_SESSION['reservation_date'] = date('Y-m-d',$reservation_date);
 			$_SESSION['recurring_date'] = date('Y-m-d',$recurring_date);
 		

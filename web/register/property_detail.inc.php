@@ -9,10 +9,14 @@
 </script>
 
 				<h3>	 	 				 
+					<div class="property-logo" style="background-image: url(../uploads/logo/<? echo ($row['logo_filename']=='') ? 'logo.png' : $row['logo_filename'];?>);"></div>
 					<?= $row['name'];?>
 				</h3>
+				<br class="cl" />
 				<br/>
 				<div class="property-image" style="background-image: url(../uploads/img/<? echo ($row['img_filename']=='') ? 'noImage.png' : $row['img_filename'];?>);"></div>
+				<br class="cl" />
+				<br/><br/>
 				<label><?= _contact;?></label>
 				<p><strong>
 					<?= $row['contactperson'];?>

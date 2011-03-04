@@ -56,6 +56,11 @@ if ($p == 2 || $_SESSION['page'] == 2){
 		<input type="file" name="img" id="img" value=""/>
 		<br/><small>best 350x250px | .gif .jpg .png</small>
 	</p>
+	<label>Logo</label>	
+	<p>	 	 	 	 	 	 	
+		<input type="file" name="img_logo" id="img" value=""/>
+		<br/><small>best 250x80px | .gif .jpg .png</small>
+	</p>
 			<input type="hidden" name="created" value="<?= date('Y-m-d H:i:s');?>">
 			<input type="hidden" name="id" value="<?= ($row['id']) ? $row['id'] : 0;?>">
 			<input type="hidden" name="propertyID" value="<?= $_SESSION['propertyID'];?>">
