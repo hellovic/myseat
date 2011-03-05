@@ -13,7 +13,7 @@
 		<div class="detail">
 			<?
 			if($this_page != "property"){
-				echo "<img src='images/icon_user.png' alt='User:' class='middle'/><a href=''><strong> ".$_SESSION['u_name']."</strong></a>, ".$roles[$_SESSION['role']]." - ".querySQL('db_property');
+				echo "<img src='images/icon_user.png' alt='User:' class='middle'/><a href=''><span class='bold'> ".$_SESSION['u_name']."</span></a>, ".$roles[$_SESSION['role']]." - ".querySQL('db_property');
 			}
 			?>
 		</div>

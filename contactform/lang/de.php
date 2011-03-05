@@ -27,11 +27,11 @@
 	//----------------------------
 	
 	// The page title -- "Select your prefered restaurant"
-	$lang["title"] = '<strong>Online</strong> Reservierung';
+	$lang["title"] = 'Online Reservierung';
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<p><strong>Buchen Sie sich Ihren Tisch. Mit sofort best&auml;tigter Reservierung!<br/>
-	F&uuml;r private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</strong></p>';
+	$lang["contact_form_intro"] = '<p>Buchen Sie sich Ihren Tisch. Mit sofort best&auml;tigter Reservierung!<br/>
+	F&uuml;r private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</p>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Name oder Firma';
@@ -101,11 +101,11 @@
 	// The emails subject -- "Reservation confirmation for"
 	$lang["email_subject"] = 'Reservierungsbest&auml;tigung f&uuml;r';
 	
-	// The page title -- "Reservation</strong> Process"
-	$lang["conf_title"] = '<strong>Reservierung</strong> t&auml;tigen';
+	// The page title -- "Reservation Process"
+	$lang["conf_title"] = 'Reservierung t&auml;tigen';
 	
-	// The page title -- "Storno</strong> Cancel your reservation"
-	$lang["cxl_title"] = '<strong>Reservierung</strong> stornieren';
+	// The page title -- "Storno Cancel your reservation"
+	$lang["cxl_title"] = 'Reservierung stornieren';
 	
 	// A subline of text I -- "Reservation progress for"
 	$lang["conf_intro"] = 'Reservierung in Bearbeitung f&uuml;r';

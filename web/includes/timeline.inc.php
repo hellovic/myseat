@@ -62,7 +62,7 @@ $i 					= 1;
 		}else{
 			$val_capacity = $tbl_capacity;
 			$val_by_time = $tbl_by_time;
-			$txt_capacity = "<div style='font-weight:normal;'>".$val_capacity."</div>";
+			$txt_capacity = "<div style='color: #BFABC9;'>".$val_capacity."</div>";
 		}
 		
 		$txt_time = ($general['timeformat'] == 24) ? date('H:i',$value) : date("g:i a", $value);

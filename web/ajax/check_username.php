@@ -24,7 +24,7 @@ if(isSet($_POST['username'])){
     $sql_check = querySQL('check_username');
 
     if(mysql_num_rows($sql_check)){
-        echo '<span style="color: red;">'. _already_user_1 .' <strong>'.$value.'</strong> '. _already_user_2 .'</span>';
+        echo '<span style="color: red;">'. _already_user_1 .' <span class='bold'>'.$value.'</strong> '. _already_user_2 .'</span>';
     }else{
         echo "OK";
     }

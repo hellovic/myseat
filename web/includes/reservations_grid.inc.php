@@ -49,10 +49,10 @@
 				echo " class='morning' ";
 			}
 			
-			echo "><strong>".formatTime($row->reservation_time,$general['timeformat'])."</strong></td>
+			echo "><span class='bold'>".formatTime($row->reservation_time,$general['timeformat'])."</strong></td>
 			<td>".printTitle($row->reservation_title)."</td>
 			<td>
-			<strong><a href='?p=102&resID=".$id."'"; 
+			<span class='bold'><a href='?p=102&resID=".$id."'"; 
 			// color guest name if tautologous
 			if($tautologous>1){echo" style='color: #936;' title='"._tautologous_booking."'";}
 			echo ">".utf8_encode($row->reservation_guest_name)."</a></strong>";
@@ -63,7 +63,7 @@
 					 "' title='"._recurring."' border='0' >";
 	            }
 			echo"</td>
-			<td><strong>".$row->reservation_pax."</strong></td>
+			<td><span class='bold'>".$row->reservation_pax."</strong></td>
 			<td>".$row->reservation_guest_phone."</td>
 			<td>".$row->reservation_hotelguest_yn."</td>
 			<td>".$row->reservation_notes."</td>

@@ -173,19 +173,21 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
 // --------------------------------------------------------
 
 $sql = query("CREATE TABLE IF NOT EXISTS `properties` (
-  `id` tinyint(12) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_bin NOT NULL,
-  `street` varchar(255) COLLATE utf8_bin NOT NULL,
-  `zip` varchar(30) COLLATE utf8_bin NOT NULL,
-  `city` varchar(255) COLLATE utf8_bin NOT NULL,
-  `country` varchar(255) COLLATE utf8_bin NOT NULL,
-  `contactperson` varchar(100) COLLATE utf8_bin NOT NULL,
-  `phone` varchar(50) COLLATE utf8_bin NOT NULL,
-  `fax` varchar(50) COLLATE utf8_bin NOT NULL,
-  `email` varchar(100) COLLATE utf8_bin NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `img_filename` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
+`id` tinyint(12) NOT NULL AUTO_INCREMENT,
+`name` varchar(255) COLLATE utf8_bin NOT NULL,
+`street` varchar(255) COLLATE utf8_bin NOT NULL,
+`zip` varchar(30) COLLATE utf8_bin NOT NULL,
+`city` varchar(255) COLLATE utf8_bin NOT NULL,
+`country` varchar(255) COLLATE utf8_bin NOT NULL,
+`contactperson` varchar(100) COLLATE utf8_bin NOT NULL,
+`phone` varchar(50) COLLATE utf8_bin NOT NULL,
+`fax` varchar(50) COLLATE utf8_bin NOT NULL,
+`email` varchar(100) COLLATE utf8_bin NOT NULL,
+`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`img_filename` varchar(255) COLLATE utf8_bin NOT NULL,
+`logo_filename` varchar(255) COLLATE utf8_bin NOT NULL,
+`status` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT 'active',
+ PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error()); 
 
@@ -312,7 +314,7 @@ echo "<li>User Permissions have been set by default.</li> </ul><br /><br />";
 
 // FINISH ---------------------------------------------------
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';
-echo '<strong>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">Proceed with setting up property and admin user.</div><br /></p>';
+echo '<span class='bold'>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">Proceed with setting up property and admin user.</div><br /></p>';
 
 echo '</div><br /><br /><center><input type="button" value="Proceed" onClick="location.href=\'../web/properties.php?p=2\'" 
 class="button_dark"></center><br /><br />';

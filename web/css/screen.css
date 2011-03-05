@@ -9,7 +9,6 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                                             font-weight: inherit;
                                             font-style: inherit;
                                             font-size: 100%;
-                                            font-family: inherit;
                                             vertical-align: baseline;
                                         }
 body                                    { line-height: 1.5 }
@@ -17,18 +16,57 @@ blockquote:before, blockquote:after, q:before, q:after
                                         { content: "" }
 blockquote, q                           { quotes: "" "" }
 a img                                   { border: none }
+
+/* 
+	LOAD CUSTOM FONT 
+*/
+
+@font-face                              {
+										    font-family: 'GraublauWebRegular';
+										    src: url('font/graublauweb-webfont.eot');
+										    src: url('font/graublauweb-webfont.eot?iefix') format('eot'),
+										         url('font/graublauweb-webfont.woff') format('woff'),
+										         url('font/graublauweb-webfont.ttf') format('truetype'),
+										         url('font/graublauweb-webfont.svg#webfontIjCphdx8') format('svg');
+										    font-weight: normal;
+										    font-style: normal;
+
+										}
+@font-face								{
+										    font-family: 'DroidSansRegular';
+										    src: url('font/droidsans-webfont.eot');
+										    src: url('font/droidsans-webfont.eot?iefix') format('eot'),
+										         url('font/droidsans-webfont.woff') format('woff'),
+										         url('font/droidsans-webfont.ttf') format('truetype'),
+										         url('font/droidsans-webfont.svg#webfontzjU3WeCs') format('svg');
+										    font-weight: normal;
+										    font-style: normal;
+
+										}
+
+@font-face								{
+										    font-family: 'DroidSansBold';
+										    src: url('font/droidsans-bold-webfont.eot');
+										    src: url('font/droidsans-bold-webfont.eot?iefix') format('eot'),
+										         url('font/droidsans-bold-webfont.woff') format('woff'),
+										         url('font/droidsans-bold-webfont.ttf') format('truetype'),
+										         url('font/droidsans-bold-webfont.svg#webfontwkojXOq7') format('svg');
+										    font-weight: bold;
+										    font-style: normal;
+
+										}
 /*
 	Global layout
 */
 body                                    {
                                             background: #e8e8e8;
                                             font-size: 12px;
-                                            font-family: Arial;
+											font-family: 'DroidSansRegular', Arial;
                                             padding: 0;
                                             margin: 0;
                                             color: #666666;
                                         }
-.print 					{   display:none; }
+.print 									{   display:none; }
 body.login                              {   text-align: left }
 #login_top                              {
                                             width: 100%;
@@ -47,8 +85,8 @@ body.login                              {   text-align: left }
                                             left: 0;
                                             z-index: 2;
                                         }
-a                                       {
-                                            color: #336699;
+a                                       {                                            
+											color: #336699;
                                             text-decoration: none;
                                         }
 a:hover                                 {
@@ -59,7 +97,7 @@ a:active                                {
                                             color: #cccccc;
                                             text-decoration: none;
                                         }
-label                                   { font-weight: bold }
+label                                   { font-family: 'DroidSansBold', Arial; }
 .clear                                  {
                                             clear: both;
                                             margin: 0;
@@ -90,18 +128,21 @@ h3                                      {
                                         }
 h4                                      {
                                             font-size: 20px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             color: #000000;
                                             font-weight: normal;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
                                         }
 h5                                      {
                                             font-size: 16px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             color: #000000;
                                             font-weight: normal;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
                                         }
+.bold									{
+										font-family: 'DroidSansBold', Arial;	
+										}
 ul.global                               {
                                             margin-left: 20px;
                                             list-style-image: url("../images/arrow_li.png");
@@ -112,7 +153,7 @@ ol.global li                            { line-height: 2em }
 table.global tr                         { background: #fff }
 table.global tr td, table.global tr th  { font-size: 1.2em }
 table.global thead tr                   {
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             background: #ebebeb;
                                             text-align: left;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
@@ -120,7 +161,7 @@ table.global thead tr                   {
 table.global tr th, table.global tr td  { padding: 7px 15px 7px 15px }
 table.global tr td.big                  {
                                             font-size: 1.5em;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 .center                                 {
                                             margin: auto;
@@ -128,7 +169,7 @@ table.global tr td.big                  {
                                         }
 .big                                    {
                                             font-size: 1.5em;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 .detailbig                              { font-size: 1.2em }
 .line                                   {
@@ -149,13 +190,13 @@ input[type=text], input[type=password], select
                                             margin: 0;
                                             border: 0;
                                             border: 1px solid #ccc;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             width: 180px; /* important */
                                         }
 input.search                            {
                                             background: transparent;
                                             border: 0;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             width: 180px; /* important */
                                             color: #ffffff;
                                         }
@@ -164,7 +205,7 @@ textarea                                {
                                             padding: 3px 5px 3px 5px;
                                             font-size: 12px;
                                             color: #000000;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             margin: 0;
                                             border: 0;
                                             border: 1px solid #ccc;
@@ -176,7 +217,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus
 input[type=text].blur, input[type=password].blur, textarea.blur
                                         {
                                             color: #999;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-style: italic;
                                         }
 input.search:hover, input.search:focus  {
@@ -188,7 +229,7 @@ input.button_dark                       {
                                             height: 30px;
                                             background: transparent url('../images/bg_button_dark.png') no-repeat center;
                                             border: 0;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
                                             text-shadow: 1px -1px 0px rgba(0, 0, 0, 0.746094);
                                             text-transform: uppercase;
@@ -204,7 +245,7 @@ input.button_light                      {
                                             height: 32px;
                                             background: transparent url('../images/bg_button_light.png') no-repeat center;
                                             border: 0;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
                                             text-transform: uppercase;
@@ -220,7 +261,7 @@ input.button_red                        {
                                             height: 32px;
                                             background: transparent url('../images/bg_button_red.png') no-repeat center;
                                             border: 0;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
                                             text-transform: uppercase;
@@ -246,13 +287,13 @@ input.button_red:active                 {
 .option .text                           {
                                             margin: 7px 0 0 10px;
                                             padding-top: 7px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             color: #000;
                                         }
 .option_xl .text                        {
                                             margin: 7px 0 0 10px;
                                             padding-top: 7px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             color: #000;
                                         }
 .option select                          {
@@ -379,14 +420,13 @@ input.button_red:active                 {
                                             margin: 0 20px 0 20px;
                                         }
 .nav li a                               {
-                                            font-family: Helvetica, Arial, sans-serif;
                                             color: #b2b2b2;
                                             display: block;
                                             width: 100%;
                                             padding: 20px 0 20px 0;
                                             text-transform: uppercase;
                                             text-align: center;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             text-shadow: 1px -1px 0px rgba(0, 0, 0, 0.746094);
                                             filter: progid:DXImageTransform.Microsoft.Shadow(color='#1a1a1a', Direction=22, Strength=2);
                                             zoom: 1;
@@ -427,6 +467,7 @@ input.button_red:active                 {
                                         }
 .submenu li                             {
                                             display: block;
+											font-size: 1.2em;
                                             width: 100%;
                                             margin: 0;
                                         }
@@ -466,7 +507,7 @@ input.button_red:active                 {
                                             color: #fff;
                                             font-size: 13px;
                                             margin: 0 0 15px 14px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 .shortcut .content .items               {
                                             list-style: none;
@@ -502,7 +543,7 @@ input.button_red:active                 {
                                         }
 .onecolumn .header h2                   {
                                             font-size: 16px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             margin-top: 4px;
                                             display: block;
                                             float: left;
@@ -557,7 +598,7 @@ input.button_red:active                 {
                                             display: block;
                                             padding: 10px 20px 10px 20px;
                                             background: #fff;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             border: 1px solid #ccc;
                                             border-bottom: 0;
                                             border-left: 1px solid #ccc;
@@ -593,7 +634,7 @@ input.button_red:active                 {
                                             padding-top: 8px;
                                             text-align: center;
                                             color: #000;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
                                             text-transform: uppercase;
@@ -607,7 +648,7 @@ input.button_red:active                 {
                                             padding-top: 5px;
                                             text-align: center;
                                             color: #fff;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
                                             text-shadow: white 0px 0px 0px;
                                             text-transform: uppercase;
@@ -629,7 +670,7 @@ input.button_red:active                 {
                                             float: left;
                                             padding: 10px 20px 10px 20px;
                                             background: #f1f2f2;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             position: relative;
                                             color: #959595;
                                         }
@@ -639,7 +680,7 @@ input.button_red:active                 {
                                             float: left;
                                             padding: 10px 20px 10px 20px;
                                             background: #fff;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             border-left: 1px solid #ccc;
                                             border-right: 1px solid #ccc;
                                             position: relative;
@@ -673,10 +714,10 @@ input.button_red:active                 {
                                         }
 .media_photos li .action img            { border: 0 }
 .media_photos li a                      { text-align: center }
-.alert_warning, .alert_info, .alert_success, .alert_error, .alert_tip, .alert_hint 
+.alert_warning, .alert_info, .alert_success, .alert_error, .alert_tip, .alert_hint, .alert_pos 
                                         {
                                             margin: 20px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             font-size: 1.2em;
                                         }
 .alert_warning                          {
@@ -713,6 +754,7 @@ input.button_red:active                 {
                                             color: #69610A;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
 					}
+
 .alert_tip				{
                                             background: #EBD9F1;
                                             border: 1px solid #A7A1B6;
@@ -720,7 +762,7 @@ input.button_red:active                 {
                                             color: #543551;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
 					}
-.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_tip  p, .alert_hint  p
+.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_pos  p, .alert_tip  p, .alert_hint  p
                                         { margin: 15px }
 .alert_tip a
 										{ color: #543551; }
@@ -751,7 +793,7 @@ input.button_red:active                 {
                                         }
 .dategroup_name                         {
                                             font-size: 18px;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                             float: left;
                                             margin-top: 8px;
                                             margin-left: 30px;
@@ -788,9 +830,9 @@ input.button_red:active                 {
                                             height: 2em;
                                             line-height: 2em;
                                             text-align: center;
-                                            color: #999;
+                                            color: #706482;
                                             text-decoration: none;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 .timeline li .label2                    {
                                             display: block;
@@ -804,7 +846,7 @@ input.button_red:active                 {
                                             text-align: center;
                                             color: #4D7BCA;
                                             text-decoration: none;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 .timeline li .count                     {
                                             display: block;
@@ -852,7 +894,7 @@ label.error                             { margin-left: 6px; }
 .big .inlineedit input                  {
                                             font-size: 18px;
                                             font-style: normal;
-                                            font-weight: bold;
+                                            font-family: 'DroidSansBold', Arial;
                                         }
 /* 
 	Google Map 

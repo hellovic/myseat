@@ -86,7 +86,8 @@ echo "<body>
 	switch($_SESSION['page']){
 		case '1':
 			// facility
-			include('properties.php?p=6');
+			redeclare_access();
+			//include('properties.php?p=6');
 		break;
 		case '2':
 			// outlet
@@ -98,7 +99,7 @@ echo "<body>
 			if ( current_user_can( 'Page-Statistic' ) ){
 				include('content/statistic.page.php');
 			}else{
-				stop_user();
+				redeclare_access();
 			}
 		break;
 		case '4':
@@ -106,19 +107,20 @@ echo "<body>
 			if ( current_user_can( 'Page-Export' ) ){
 				include('content/export.page.php');
 			}else{
-				stop_user();
+				redeclare_access();
 			}
 		break;
 		case '5':
 			// info
-			include('content/info.page.php');
+			redeclare_access();
+			//include('content/info.page.php');
 		break;
 		case '6':
 			// system
 			if ( current_user_can( 'Page-System' ) ){
 				include('content/system.page.php');
 			}else{
-				stop_user();
+				redeclare_access();
 			}
 		break;
 		case '101':
@@ -126,7 +128,7 @@ echo "<body>
 			if ( current_user_can( 'Page-System' ) ){
 				include('content/detail.outlet.page.php');
 			}else{
-				stop_user();
+				redeclare_access();
 			}
 		break;
 		case '102':

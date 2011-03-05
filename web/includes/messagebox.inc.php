@@ -18,7 +18,7 @@ if ($events_advertise && $_SESSION['page'] == 2 ) {
 		foreach($events_advertise as $row) {
 			echo "<p style='margin-bottom:6px;'>
 			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
-			<strong>
+			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
 			_sp_events.": ".$row->subject.
 			"</a></strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
@@ -42,7 +42,7 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 		foreach($special_events as $row) {
 			echo "<p style='margin-bottom:6px;'>
 			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
-			<strong>"._today.": ".$row->subject.
+			<span class='bold'>"._today.": ".$row->subject.
 			"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
 			date($general['dateformat'],strtotime($row->event_date)) 
 			." ".formatTime($row->start_time,$general['timeformat']).

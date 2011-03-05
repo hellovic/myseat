@@ -3,7 +3,7 @@
   <div class="content detailbig content-height">
 	<br/>
 	<label><?= _booknum;?></label>
-	<p><strong><?= $row->reservation_bookingnumber; ?></strong></p>
+	<p><span class='bold'><?= $row->reservation_bookingnumber; ?></strong></p>
 	<br/>
 	<label><?= _outlets;?></label>
 	<p><?= $row->outlet_name; ?></p>
@@ -22,7 +22,7 @@
 			</p>
 			<label><?= _guest_name; ?></label>
 			<p>
-				<strong><?
+				<span class='bold'><?
 				$_SESSION['reservation_guest_name'] = $row->reservation_guest_name;
 				echo $_SESSION['reservation_guest_name']; 
 				?></strong>

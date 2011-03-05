@@ -187,6 +187,6 @@ $cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, 
 ");
 
 
-echo "<li><strong>The translation texts had been inserted.</strong></li>";
+echo "<li><span class='bold'>The translation texts had been inserted.</strong></li>";
 
 ?>

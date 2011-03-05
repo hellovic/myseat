@@ -1,7 +1,7 @@
 <div class='alert_info'>
 	<p style='margin-bottom:6px; text-align:center;'>
             <img src='images/icon_message.png' alt='message' class='middle'/>
-            <strong>Success!</strong>
+            <span class='bold'>Success!</strong>
             <div style='margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;'>
                 You have successfully created your account.<br/>
 		Please <tt>delete</tt> or <tt>rename</tt> your install folder!<br/><br/>

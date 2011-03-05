@@ -6,7 +6,6 @@
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
 $_SESSION['property'] = '1';
-$_SESSION['propertyID'] = '1';
 $_SESSION['outletID'] = '';
 
 // PHP part of page / business logic
@@ -61,6 +60,9 @@ $_SESSION['outletID'] = '';
     }elseif ($_POST['prp']) {
         $_SESSION['property'] = (int)$_POST['prp'];
     }
+	// get property info for logo path
+	$_SESSION['propertyID'] = $_SESSION['property'];
+	$prp_info = querySQL('property_info');
 
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
@@ -116,7 +118,9 @@ $_SESSION['outletID'] = '';
 	<div id="wrapper"> 
 	  <header> 
 	    <!-- logo -->
-	    <h1 id="logo"><a href="index.php?p=2">mySeat</a></h1>
+	    <h1 id="logo" style="background-image: url(../uploads/logo/<? echo ($prp_info['logo_filename']=='') ? 'logo.png' : $prp_info['logo_filename'];?>);">
+		<a href="index.php?p=2">mySeat</a>
+		</h1>
 	    <!-- nav -->
 	    <nav>
 	      <ul id="nav">
@@ -206,7 +210,7 @@ $_SESSION['outletID'] = '';
 					foreach($advertise as $row) {
 						echo "<p style='margin-bottom:6px;'>
 						<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
-						<strong><a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>";
+						<span class='bold'><a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>";
 						echo ( $special_events ) ? _today : _sp_events;
 						echo ": ".$row->subject.
 						"</a></strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
