@@ -157,7 +157,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
   `role` smallint(2) NOT NULL DEFAULT '5',
   `property_id` int(11) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NULL,
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
