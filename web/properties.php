@@ -2,7 +2,7 @@
 session_start();
 
 $this_page = "property";
-$_SESSION['role'] = ($_SESSION['role']!="") ? $_SESSION['role'] : 6;
+$_SESSION['role'] = ($_SESSION['role']!="1") ? $_SESSION['role'] : 6;
 
 /** Login Class**/
 require_once '../PLC/plc.class.php';
@@ -19,17 +19,19 @@ if($_GET['p'] == 6 || $_GET['p'] == 5 || $_GET['logout']==1){
 		header("Location: ../PLC/index.php");
 		exit; //To ensure security
 	}else{
-		$cookie 		= $user->read_cookie();
-		$_SESSION['u_id'] 	= $user->userData[$user->tbFields['userID']];
+		$cookie 				= $user->read_cookie();
+		$_SESSION['u_id'] 		= $user->userData[$user->tbFields['userID']];
 		$_SESSION['u_name'] 	= $user->userData[$user->tbFields['login']];
 		$_SESSION['u_email'] 	= $user->userData[$user->tbFields['email']];
-		$_SESSION['role'] 	= $user->userData['role'];
+		$_SESSION['role'] 		= $user->userData['role'];
 		$_SESSION['property'] 	= $user->userData['property_id'];
 		$_SESSION['u_time'] 	= date("Y-m-d H:i:s", time());
 		$_SESSION['u_lang'] 	= $user->userData['lang_id'];
 		$_SESSION["valid_user"] = TRUE;
 	}
 }
+
+$_SESSION['role'] = ( $_SESSION['role']!='1' ) ? $_SESSION['role'] : 6;
 
 // ** set configuration
 	include('../config/config.general.php');
@@ -77,7 +79,18 @@ echo "<body>
 ?>
 	<!-- Begin empty main menu -->
 	<div id="menu_wrapper">
-	
+		<ul class="nav" style='margin-left:40px;'>
+			<li>
+				<a href="#" <?if($_GET['p']=='2'){echo "class='active'";} ?> >
+					Sign up Property	
+				</a>
+			</li>
+			<li>
+				<a href="#" <?if($_GET['p']=='7'){echo "class='active'";} ?> >
+					Create Admin user	
+				</a>
+			</li>
+		</ul>
 	</div>
 	<!-- End main menu -->
 

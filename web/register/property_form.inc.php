@@ -1,6 +1,6 @@
 <?
 if ($p == 2 || $_SESSION['page'] == 2){
-	$link = '?p=7';	
+	$link = '?p=7';
 }elseif ($_SESSION['page'] == 6){
 	$link = '?p=6&q=5';	
 }else{

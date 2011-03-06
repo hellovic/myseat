@@ -5,7 +5,6 @@
 //
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
-$_SESSION['property'] = '1';
 $_SESSION['outletID'] = '';
 
 // PHP part of page / business logic
@@ -59,16 +58,19 @@ $_SESSION['outletID'] = '';
         $_SESSION['property'] = (int)$_GET['prp'];
     }elseif ($_POST['prp']) {
         $_SESSION['property'] = (int)$_POST['prp'];
-    }
-	// get property info for logo path
+    }elseif (!$_SESSION['property']){
+		$_SESSION['property'] = '1';
+	}
 	$_SESSION['propertyID'] = $_SESSION['property'];
+	
+	// get property info for logo path
 	$prp_info = querySQL('property_info');
 
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
 	// get outlet maximum capacity
-	$maxC = maxCapacity(); 
+	$maxC = maxCapacity();
 	 
 	// get Pax by timeslot
     $resbyTime = reservationsByTime('pax');

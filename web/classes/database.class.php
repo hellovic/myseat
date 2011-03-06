@@ -274,9 +274,12 @@ function writeForm($table =''){
 			$new_id = mysql_insert_id();
 			
 			// Set STANDARD general settings for new outlet
-			if ($table == 'properties' && $_POST['id']=='') {
-			  $query = "INSERT INTO `settings` VALUES (NULL, $new_id, 'en_EN', 'Europe/Berlin', 24, 15, 'd.m.y', 'd.m.', 'dd.mm.yy', 'mySeat XT', 8, 120, 5)";
+			if ($table == 'properties' && $_POST['id'] == 0) {
+			  $query = "INSERT INTO `settings` (`property_id`, `language`, `timezone`, `timeformat`, `timeintervall`, `dateformat`, `dateformat_short`, `datepickerformat`, `app_name`, `max_menu`, `old_days`, `manual_lines`) VALUES
+				(".$new_id.", 'en_EN', 'Europe/Berlin', 24, 15, 'd.m.Y', 'd/m', 'd/m/y', 'mySeat XT', 8, 120, 5);";
 			  $result = query($query);
+			$query = "INSERT INTO `client_order` (`property_id`, `package_code`, `order_date`, `close_date`, `created_at`, `updated_at`) VALUES (".$new_id.", 'BS1', ".date('Y-m-d').", '0000-00-00', '2011-02-06 13:20:56', '0000-00-00 00:00:00')";
+			$result = query($query);
 			}
 			
 			

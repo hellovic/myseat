@@ -29,12 +29,13 @@ This file is part of mySeat.
 		header("Location: ../PLC/index.php");
 		exit; //To ensure security
 	}else{
-		$cookie 		= $user->read_cookie();
-		$_SESSION['u_id'] 	= $user->userData[$user->tbFields['userID']];
+		$cookie 				= $user->read_cookie();
+		$_SESSION['u_id'] 		= $user->userData[$user->tbFields['userID']];
 		$_SESSION['u_name'] 	= $user->userData[$user->tbFields['login']];
 		$_SESSION['u_email'] 	= $user->userData[$user->tbFields['email']];
-		$_SESSION['role'] 	= $user->userData['role'];
+		$_SESSION['role'] 		= $user->userData['role'];
 		$_SESSION['property'] 	= $user->userData['property_id'];
+		$_SESSION['propertyID'] = $user->userData['property_id'];
 		$_SESSION['u_time'] 	= date("Y-m-d H:i:s", time());
 		$_SESSION['u_lang'] 	= $user->userData['lang_id'];
 		$_SESSION["valid_user"] = TRUE;

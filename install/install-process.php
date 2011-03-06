@@ -157,7 +157,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
   `role` smallint(2) NOT NULL DEFAULT '5',
   `property_id` int(11) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NULL,
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -285,6 +285,59 @@ $sql = query("CREATE TABLE IF NOT EXISTS `settings` (
 
 echo "<li>The Settings table has been created. </li>";
 
+// --------------------------------------------------------
+
+$sql = query("CREATE TABLE IF NOT EXISTS `client_order` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `property_id` int(12) NOT NULL,
+  `package_code` varchar(12) COLLATE utf8_bin NOT NULL,
+  `order_date` date NOT NULL,
+  `close_date` date NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
+ or die(mysql_error());
+
+echo "<li>The Client Order table has been created. </li>";
+
+// --------------------------------------------------------
+
+$sql = query("CREATE TABLE IF NOT EXISTS `packages` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `code` varchar(12) COLLATE utf8_bin NOT NULL,
+  `name` varchar(145) COLLATE utf8_bin NOT NULL,
+  `rate` decimal(10,2) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code` (`code`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
+or die(mysql_error());
+
+echo "<li>The Packages table has been created. </li>";
+
+// --------------------------------------------------------
+
+$sql = query("CREATE TABLE IF NOT EXISTS `ledger` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `property_id` int(12) NOT NULL,
+  `type` varchar(6) COLLATE utf8_bin NOT NULL,
+  `order_date` date NOT NULL,
+  `description` varchar(145) COLLATE utf8_bin NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `property_id` (`property_id`),
+  KEY `order_date` (`order_date`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=89 ;")
+ or die(mysql_error());
+
+echo "<li>The Ledger table has been created. </li>";
+
 // DATA ---------------------------------------------------
     
     //translations
@@ -309,12 +362,21 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
 (12, 'Property-Overview', 1, 0, 0, 0, 0, 0),
 (13, 'Property-New', 1, 1, 1, 1, 1, 0);")
  or die(mysql_error());
- 
-echo "<li>User Permissions have been set by default.</li> </ul><br /><br />";
+
+echo "<li>User Permissions have been set by default.</li>";
+
+// Data for `packages`
+
+$sql = query("INSERT INTO `packages` (`id`, `code`, `name`, `rate`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
+(1, 'BS1', 'Basic 2011', 10.00, '2011-01-01', '0000-00-00', '2011-02-06 13:24:11', '2011-02-06 13:49:07'),
+(2, 'BS2', 'Basic 1', 15.00, '2011-01-01', '0000-00-00', '2011-02-06 13:24:11', '2011-02-06 13:49:07');")
+ or die(mysql_error());
+
+echo "<li>Packages have been set by default.</li> </ul><br /><br />";
 
 // FINISH ---------------------------------------------------
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';
-echo '<span class='bold'>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">Proceed with setting up property and admin user.</div><br /></p>';
+echo '<strong>The Database has been created!</strong><div style="margin-left:36px; font-size:0.9em; line-height:1.2em; text-align:center;">Proceed with setting up property and admin user.</div><br /></p>';
 
 echo '</div><br /><br /><center><input type="button" value="Proceed" onClick="location.href=\'../web/properties.php?p=2\'" 
 class="button_dark"></center><br /><br />';

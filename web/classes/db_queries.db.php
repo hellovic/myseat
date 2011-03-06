@@ -135,7 +135,8 @@ function querySQL($statement){
 		case 'event_advertise_web':
 			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
-						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
+						WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `events` ) 
+						and DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
 						AND `event_date` >= CURDATE()
 						AND `webform` = '1'
 						ORDER BY advertise_start,event_date ASC
@@ -363,7 +364,7 @@ function querySQL($statement){
 		case 'property_info':
 			$result = query("SELECT * FROM `properties` 
 					WHERE `id` ='%d'
-                                        LIMIT 1",$_SESSION['propertyID']);
+                    LIMIT 1",$_SESSION['propertyID']);
 			return getRowListarray($result);
 		break;
 		case 'property_countries':

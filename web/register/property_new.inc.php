@@ -7,8 +7,8 @@
 			  <div class="content" >
 		
 			<?
-			$row = '';
-			include('includes/messagebox.inc.php');
+			$row = array();
+			//include('includes/messagebox.inc.php');
 			include('register/property_form.inc.php'); 
 			?>
 			
