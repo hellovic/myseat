@@ -18,4 +18,6 @@ INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `i
 /* ------------------------------------------------- */
 
 ALTER TABLE `properties` ADD `logo_filename` VARCHAR( 255 ) NOT NULL ,
-ADD `status` VARCHAR( 10 ) NOT NULL DEFAULT 'active'
+ADD `status` VARCHAR( 10 ) NOT NULL DEFAULT 'active';
+ALTER TABLE `settings` ADD `contactform_color_scheme` VARCHAR( 12 ) NOT NULL DEFAULT 'grey',
+ADD `contactform_background` VARCHAR( 7 ) NOT NULL DEFAULT 'E0ECDB';
