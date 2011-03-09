@@ -1,5 +1,6 @@
 <?php
 $_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
+
 // Check for a unique username
 // ** set configuration
     include('../../config/config.general.php');

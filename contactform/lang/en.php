@@ -27,10 +27,10 @@
 	//----------------------------
 
 	// The page title -- "Select your prefered restaurant"
-	$lang["title"] = '<span class='bold'>Online</strong> Reservation';
+	$lang["title"] = '<strong>Online</strong> Reservation';
 
 	// A line of text before the contact form -- "<h3>Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<p><span class='bold'>Make an instant reservation now!
+	$lang["contact_form_intro"] = '<p><strong>Make an instant reservation now!
 	<br/>For private parties, large bookings or all other queries please call us.</strong></p>';
 
 	// Default text of the contact form -- "Name or Group Name"
@@ -102,10 +102,10 @@
 	$lang["email_subject"] = 'Reservation confirmation for';
 
 	// The page title -- "Reservation</strong> Process"
-	$lang["conf_title"] = '<span class='bold'>Reservation</strong> Process';
+	$lang["conf_title"] = '<strong>Reservation</strong> Process';
 
 	// The page title -- "Storno</strong> Cancel your reservation"
-	$lang["cxl_title"] = '<span class='bold'>Cancel</strong> your reservation';
+	$lang["cxl_title"] = '<strong>Cancel</strong> your reservation';
 
 	// A subline of text I -- "Reservation progress for"
 	$lang["conf_intro"] = 'Reservation progress for';

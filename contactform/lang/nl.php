@@ -28,10 +28,10 @@
 	//----------------------------
 	
 	// The page title -- "Select your prefered restaurant"
-	$lang["title"] = '<span class='bold'>Online</strong> Reservering';
+	$lang["title"] = '<strong>Online</strong> Reservering';
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<p><span class='bold'>Boek nu uw tafel en reserveer nu direct!<br/>
+	$lang["contact_form_intro"] = '<p><strong>Boek nu uw tafel en reserveer nu direct!<br/>
 	Voor Privé partijen, grote groepsboekingen of andere vragen kunt u ons bellen.</strong></p>';
 	
 	// Default text of the contact form -- "Name or Company"
@@ -103,10 +103,10 @@
 	$lang["email_subject"] = 'Reserverings bevestiging voor';
 	
 	// The page title -- "Reservation</strong> Process"
-	$lang["conf_title"] = '<span class='bold'>Reserverings voortgang</strong>';
+	$lang["conf_title"] = '<strong>Reserverings voortgang</strong>';
 	
 	// The page title -- "Storno</strong> Cancel your reservation"
-	$lang["cxl_title"] = '<span class='bold'>Annuleer</strong> uw reservering';
+	$lang["cxl_title"] = '<strong>Annuleer</strong> uw reservering';
 	
 	// A subline of text I -- "Reservation progress for"
 	$lang["conf_intro"] = 'Reserverings voortgang voor';
