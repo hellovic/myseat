@@ -205,21 +205,27 @@ function writeForm($table =''){
 		
 		// img & logo upload
 		// =-=-=-=-=-=
-		if ($_FILES['img']['error'] > 0){
-		  $_SESSION['errors'][] = _sorry;
-		}else{
-			if (($_FILES['img']["type"] == "image/gif")
-			  || ($_FILES['img']["type"] == "image/jpeg")
-			  || ($_FILES['img']["type"] == "image/png" )
-			  && ($_FILES['img']["size"] < 100000))
-			  {
-			  $imgName 	  = $_FILES['img']['name'];
-			  $uploadpath = substr(dirname(__FILE__),0,-7);
-			  $result     = move_uploaded_file($_FILES['img']["tmp_name"],"../uploads/img/".$imgName);
-				$keys[$i] = 'img_filename';
-				$values[$i] = "'".$imgName."'";
-			  }
-		}
+		
+		// img upload
+			if ($_FILES['img']['error'] > 0){
+			  $_SESSION['errors'][] = _sorry;
+			}else{
+				if (($_FILES['img']["type"] == "image/gif")
+				  || ($_FILES['img']["type"] == "image/jpeg")
+				  || ($_FILES['img']["type"] == "image/png" )
+				  && ($_FILES['img']["size"] < 100000))
+				  {
+				  //$imgName 	  = $_FILES['img_logo']['name'];
+				  $img_type   = ".".substr($_FILES['img']["type"],6);
+				  $imgName 	  = randomPassword(24, true, true, false).$img_type;
+				
+				  $uploadpath = substr(dirname(__FILE__),0,-7);
+				  $result     = move_uploaded_file($_FILES['img']["tmp_name"],"../uploads/img/".$imgName);
+					$keys[$i] = 'img_filename';
+					$values[$i] = "'".$imgName."'";
+				  }
+			}
+		// logo upload
 			if ($_FILES['img_logo']['error'] > 0){
 			  $_SESSION['errors'][] = _sorry;
 			}else{
@@ -228,7 +234,10 @@ function writeForm($table =''){
 				  || ($_FILES['img_logo']["type"] == "image/png" )
 				  && ($_FILES['img_logo']["size"] < 100000))
 				  {
-				  $imgName 	  = $_FILES['img_logo']['name'];
+				  //$imgName 	  = $_FILES['img_logo']['name'];
+				  $img_type   = ".".substr($_FILES['img_logo']["type"],6);
+				  $imgName 	  = randomPassword(24, true, true, false).$img_type;
+				
 				  $uploadpath = substr(dirname(__FILE__),0,-7);
 				  $result     = move_uploaded_file($_FILES['img_logo']["tmp_name"],"../uploads/logo/".$imgName);
 					$keys[$i] = 'logo_filename';
