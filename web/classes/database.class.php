@@ -210,15 +210,16 @@ function writeForm($table =''){
 			if ($_FILES['img']['error'] > 0){
 			  $_SESSION['errors'][] = _sorry;
 			}else{
-				if (($_FILES['img']["type"] == "image/gif")
-				  || ($_FILES['img']["type"] == "image/jpeg")
-				  || ($_FILES['img']["type"] == "image/png" )
-				  && ($_FILES['img']["size"] < 100000))
+				if ( ($_FILES['img']["type"] == "image/gif"
+				  || $_FILES['img']["type"] == "image/jpeg"
+				  || $_FILES['img']["type"] == "image/png" )
+				  && $_FILES['img']["size"] < 1000000 )
 				  {
+					echo "HERE";
 				  //$imgName 	  = $_FILES['img_logo']['name'];
-				  $img_type   = ".".substr($_FILES['img']["type"],6);
-				  $imgName 	  = randomPassword(24, true, true, false).$img_type;
-				
+				  $img_type   = substr($_FILES['img']["type"],6);
+				  $imgName 	  = randomPassword(24, true, true, false).".".$img_type;
+				echo $imgName;
 				  $uploadpath = substr(dirname(__FILE__),0,-7);
 				  $result     = move_uploaded_file($_FILES['img']["tmp_name"],"../uploads/img/".$imgName);
 					$keys[$i] = 'img_filename';
@@ -229,14 +230,14 @@ function writeForm($table =''){
 			if ($_FILES['img_logo']['error'] > 0){
 			  $_SESSION['errors'][] = _sorry;
 			}else{
-				if (($_FILES['img_logo']["type"] == "image/gif")
-				  || ($_FILES['img_logo']["type"] == "image/jpeg")
-				  || ($_FILES['img_logo']["type"] == "image/png" )
-				  && ($_FILES['img_logo']["size"] < 100000))
+				if (($_FILES['img_logo']["type"] == "image/gif"
+				  || $_FILES['img_logo']["type"] == "image/jpeg"
+				  || $_FILES['img_logo']["type"] == "image/png")
+				  && $_FILES['img_logo']["size"] < 1000000)
 				  {
 				  //$imgName 	  = $_FILES['img_logo']['name'];
-				  $img_type   = ".".substr($_FILES['img_logo']["type"],6);
-				  $imgName 	  = randomPassword(24, true, true, false).$img_type;
+				  $img_type   = substr($_FILES['img_logo']["type"],6);
+				  $imgName 	  = randomPassword(24, true, true, false).".".$img_type;
 				
 				  $uploadpath = substr(dirname(__FILE__),0,-7);
 				  $result     = move_uploaded_file($_FILES['img_logo']["tmp_name"],"../uploads/logo/".$imgName);
