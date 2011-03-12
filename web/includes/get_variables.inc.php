@@ -30,7 +30,10 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$sql_check = querySQL('check_username');
 		}
 		if(mysql_num_rows($sql_check) < 1 || $_POST['userID'] != ''){
-			$resultQuery = writeForm('plc_users');
+			$id = writeForm('plc_users');
+			if($_POST['userID'] == ''){
+				include('classes/confirmation.class.php');
+			}
 		}
 	}
 }
@@ -126,10 +129,25 @@ if ( !(
 
 // memorize selected outlet details
 $rows = querySQL('db_outlet_info');
-	if($rows){
+if($rows){
 	foreach ($rows as $key => $value) {
 		$_SESSION['selOutlet'][$key] = $value;
 	}
+	
+	// Set daily outlet open/close time
+	// overwrite the standard times with the daily ones
+	$weekday = date("w",strtotime($_SESSION['selectedDate']));
+	$field_open = $weekday.'_open_time';
+	$field_close = $weekday.'_close_time';
+	if ( $_SESSION['selOutlet'][$field_open] != '00:00:00' && $_SESSION['selOutlet'][$field_close] != '00:00:00' 
+	&& $_SESSION['selOutlet'][$field_open] != NULL && $_SESSION['selOutlet'][$field_close] != NULL ) 
+	{	
+		$_SESSION['selOutlet']['outlet_open_time'] = $_SESSION['selOutlet'][$field_open];
+		$_SESSION['selOutlet']['outlet_close_time'] = $_SESSION['selOutlet'][$field_close];		
+	}
+
+	
+	
 }
 $rows = querySQL('maitre_info');
 foreach($rows as $row) {

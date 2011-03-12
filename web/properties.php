@@ -32,6 +32,7 @@ if($_GET['p'] == 6 || $_GET['p'] == 5 || $_GET['logout']==1){
 }
 
 $_SESSION['role'] = ( $_SESSION['role']!='1' ) ? $_SESSION['role'] : 6;
+$_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
 
 // ** set configuration
 	include('../config/config.general.php');
@@ -52,7 +53,7 @@ $_SESSION['role'] = ( $_SESSION['role']!='1' ) ? $_SESSION['role'] : 6;
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	translateSite('en');
+	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	// special setup for properties
 	if ( current_user_can( 'Property-Overview' )){

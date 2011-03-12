@@ -38,6 +38,12 @@
 
 	// Default text of the contact form -- "E-mail address"
 	$lang["contact_form_email"] = 'E-mail address';
+	
+	// Default text of the contact form -- "Security question"
+	$lang["security_question"] = 'Security question';
+	
+	// Default text of the contact form -- "Advertise"
+	$lang["contact_form_advertise"] = 'I would like to receive informations by email.';
 
 	// Default text of the contact form -- "Notes"
 	$lang["contact_form_notes"] = 'Reservation notes';
@@ -90,7 +96,7 @@
 
 	// The titles
 	$lang["_M_"] = 'Mr.'; // Mr.
-	$lang["_W_"] = 'Mrs.'; // Mrs.
+	$lang["_W_"] = 'Ms.'; // Mrs.
 	$lang["_F_"] = 'Family'; // Family
 	$lang["_C_"] = 'Group'; // Group
 

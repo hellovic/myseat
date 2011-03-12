@@ -113,8 +113,22 @@ $sql = query("CREATE TABLE IF NOT EXISTS `outlets` (
   `confirmation_email` varchar(255) NOT NULL,
   `passerby_max_pax` int(12) NOT NULL,
   `avg_duration` varchar(5) NOT NULL,
+  `1_open_time` time DEFAULT NULL,
+  `1_close_time` time DEFAULT NULL,
+  `2_open_time` time DEFAULT NULL,
+  `2_close_time` time DEFAULT NULL,
+  `3_open_time` time DEFAULT NULL,
+  `3_close_time` time DEFAULT NULL,
+  `4_open_time` time DEFAULT NULL,
+  `4_close_time` time DEFAULT NULL,
+  `5_open_time` time DEFAULT NULL,
+  `5_close_time` time DEFAULT NULL,
+  `6_open_time` time DEFAULT NULL,
+  `6_close_time` time DEFAULT NULL,
+  `0_open_time` time DEFAULT NULL,
+  `0_close_time` time DEFAULT NULL,
   PRIMARY KEY (`outlet_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;")
  or die(mysql_error());
  
  
@@ -156,8 +170,9 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
   `email` varchar(150) NOT NULL DEFAULT '',
   `role` smallint(2) NOT NULL DEFAULT '5',
   `property_id` int(11) NOT NULL DEFAULT '0',
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `confirm_code` varchar(255) NOT NULL,
+  `last_ip` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -165,7 +180,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
   UNIQUE KEY `password` (`password`),
   KEY `active` (`active`),
   KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;")
  or die(mysql_error());
  
  echo "<li>The PLC-Users table has been created. </li>";
@@ -173,21 +188,21 @@ $sql = query("CREATE TABLE IF NOT EXISTS `plc_users` (
 // --------------------------------------------------------
 
 $sql = query("CREATE TABLE IF NOT EXISTS `properties` (
-`id` tinyint(12) NOT NULL AUTO_INCREMENT,
-`name` varchar(255) COLLATE utf8_bin NOT NULL,
-`street` varchar(255) COLLATE utf8_bin NOT NULL,
-`zip` varchar(30) COLLATE utf8_bin NOT NULL,
-`city` varchar(255) COLLATE utf8_bin NOT NULL,
-`country` varchar(255) COLLATE utf8_bin NOT NULL,
-`contactperson` varchar(100) COLLATE utf8_bin NOT NULL,
-`phone` varchar(50) COLLATE utf8_bin NOT NULL,
-`fax` varchar(50) COLLATE utf8_bin NOT NULL,
-`email` varchar(100) COLLATE utf8_bin NOT NULL,
-`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`img_filename` varchar(255) COLLATE utf8_bin NOT NULL,
-`logo_filename` varchar(255) COLLATE utf8_bin NOT NULL,
-`status` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT 'active',
- PRIMARY KEY (`id`)
+  `id` tinyint(12) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `street` varchar(255) COLLATE utf8_bin NOT NULL,
+  `zip` varchar(12) COLLATE utf8_bin NOT NULL,
+  `city` varchar(255) COLLATE utf8_bin NOT NULL,
+  `country` varchar(255) COLLATE utf8_bin NOT NULL,
+  `contactperson` varchar(100) COLLATE utf8_bin NOT NULL,
+  `phone` varchar(50) COLLATE utf8_bin NOT NULL,
+  `fax` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(100) COLLATE utf8_bin NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `img_filename` varchar(255) COLLATE utf8_bin NOT NULL,
+  `logo_filename` varchar(255) COLLATE utf8_bin NOT NULL,
+  `status` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error()); 
 
@@ -222,7 +237,8 @@ $sql = query("CREATE TABLE IF NOT EXISTS `reservations` (
   `reservation_billet_sent` varchar(10) NOT NULL DEFAULT '',
   `reservation_parkticket` int(3) DEFAULT NULL,
   `reservation_table` int(3) DEFAULT NULL,
-  `reservation_status` varchar(255) DEFAULT 'NYA',
+  `reservation_status` varchar(25) DEFAULT 'NYA',
+  `reservation_advertise` varchar(5) NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`reservation_id`),
   KEY `reservation_outlet_id` (`reservation_outlet_id`),
   KEY `reservation_date` (`reservation_date`),
@@ -279,6 +295,8 @@ $sql = query("CREATE TABLE IF NOT EXISTS `settings` (
   `max_menu` int(3) NOT NULL,
   `old_days` int(2) NOT NULL,
   `manual_lines` int(2) NOT NULL,
+  `contactform_color_scheme` varchar(12) COLLATE utf8_bin NOT NULL DEFAULT 'grey',
+  `contactform_background` varchar(7) COLLATE utf8_bin NOT NULL DEFAULT 'E0ECDB',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
  or die(mysql_error());
@@ -300,43 +318,6 @@ $sql = query("CREATE TABLE IF NOT EXISTS `client_order` (
  or die(mysql_error());
 
 echo "<li>The Client Order table has been created. </li>";
-
-// --------------------------------------------------------
-
-$sql = query("CREATE TABLE IF NOT EXISTS `packages` (
-  `id` int(12) NOT NULL AUTO_INCREMENT,
-  `code` varchar(12) COLLATE utf8_bin NOT NULL,
-  `name` varchar(145) COLLATE utf8_bin NOT NULL,
-  `rate` decimal(10,2) NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`code`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;")
-or die(mysql_error());
-
-echo "<li>The Packages table has been created. </li>";
-
-// --------------------------------------------------------
-
-$sql = query("CREATE TABLE IF NOT EXISTS `ledger` (
-  `id` int(12) NOT NULL AUTO_INCREMENT,
-  `property_id` int(12) NOT NULL,
-  `type` varchar(6) COLLATE utf8_bin NOT NULL,
-  `order_date` date NOT NULL,
-  `description` varchar(145) COLLATE utf8_bin NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `property_id` (`property_id`),
-  KEY `order_date` (`order_date`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=89 ;")
- or die(mysql_error());
-
-echo "<li>The Ledger table has been created. </li>";
 
 // DATA ---------------------------------------------------
     
@@ -364,15 +345,6 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
  or die(mysql_error());
 
 echo "<li>User Permissions have been set by default.</li>";
-
-// Data for `packages`
-
-$sql = query("INSERT INTO `packages` (`id`, `code`, `name`, `rate`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
-(1, 'BS1', 'Basic 2011', 10.00, '2011-01-01', '0000-00-00', '2011-02-06 13:24:11', '2011-02-06 13:49:07'),
-(2, 'BS2', 'Basic 1', 15.00, '2011-01-01', '0000-00-00', '2011-02-06 13:24:11', '2011-02-06 13:49:07');")
- or die(mysql_error());
-
-echo "<li>Packages have been set by default.</li> </ul><br /><br />";
 
 // FINISH ---------------------------------------------------
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';

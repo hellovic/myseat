@@ -61,21 +61,45 @@
 			<p>		
 				<?= $row->saison_year;?>
 			</p>
-			<label><?= _day_off;?></label>
-			<p>		
-				<? echo getWeekdays_select($row->outlet_closeday,'disabled'); ?>
-			</p>
-			<!--
-			<label><?= _password;?></label>
-			<p>		
-				<?= ($row->password) ? $row->password : "&nbsp;";?>
-			</p>
-			-->			 	 	 	 	 	 	 		 	 	 	 	 	 	 
 			<label><?= _webform;?></label>
 			<p>		
 				<?= printOnOff($row->webform);?>
 			</p>	 	 	 	 	 	 	 
-			<br/><br/>	 	 	 	 	 	 	 
+			<br/>
+			<label><?= _day_off;?></label>
+			<p>		
+				<? echo getWeekdays_select($row->outlet_closeday,'disabled'); ?>
+			</p>		 	 	 	 	 	 	 		 	 	 	 	 	 	 
+			<br/>
+				<br/>
+				<label><?= _open_time." & "._close_time;?></label>
+				<p>	
+				<table>
+ 	 	 	 	 <?
+					$day = strtotime("next Monday");
+					for ($i=1; $i <= 7; $i++) { 
+						$weekday = date("w",$day);
+						$field_open = $weekday.'_open_time';
+						$field_close = $weekday.'_close_time';
+						echo "<tr><td><div class='bold'>".date("l",$day)."</div></td><td style='padding-left:20px;'>".
+						date('H:i',strtotime($row->$field_open))." - ".date('H:i',strtotime($row->$field_close)).
+						"<br/></td></tr>";
+						$day = $day + 86400;
+					}
+ 	 	 	 	 ?>	
+				</table>
+			</p>	 	 	 	 	 	 	 	 	 	 	 	 	 	 		 	 	 	 	 	 	 	
+			<br/><br/>
+			<label>Booking Link</label>
+			<p>		
+				<?
+				echo "<br/><span class='bold'>".$row->outlet_name." :</span><br/>";
+				echo "<code>http://www.openmyseat.com/contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."</code>";
+				echo "<br/><span class='bold'>"._property." :</span><br/>";
+				echo "<code>http://www.openmyseat.com/contactform/index.php?prp=".$row->property_id."</code>";
+				?>
+			</p>	 	 	 	 	 	 	 
+			<br/><br/>
 			<small>				
 				<?= _created." ".humanize($row->outlet_timestamp);?>
 			</small>

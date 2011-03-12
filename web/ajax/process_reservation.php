@@ -62,6 +62,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 				 && $key != "MAX_FILE_SIZE"
 				 && $key != "propertyID"
 				 && $key != "token"
+				 && $key != "reservation_bookingnumber"
 				 && $key != "verify"){
 					$keys[$i] = $key;
 					$values[$i] = "'".$value."'";
@@ -95,7 +96,8 @@ if ($_SESSION['token'] == $_POST['token']) {
 		// =-=-=-=Store in database =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		
 			// clear old booking number
-			$_SESSION['booking_number'] = '';
+			$_SESSION['booking_number'] = ($_POST['reservation_bookingnumber']=='') ? '' : $_POST['reservation_bookingnumber'];
+			
 			// variables
 			$res_pax = ($_POST['reservation_pax']) ? (int)$_POST['reservation_pax'] : 0;
 			// memorize selected date

@@ -1,6 +1,11 @@
 <?
+		// Initiate dates
 		$pdate = date($general['dateformat'],strtotime($_SESSION['selectedDate']));
 		$sdate = "";
+		
+		// Get property name
+		$prop_name = querySQL('db_property');
+		
 	if ( $_POST['recurring_dbdate']!="" && $_POST['recurring_dbdate']>$_SESSION['selectedDate'] ) {
 		$sdate = date($general['dateformat'],strtotime($_POST['recurring_dbdate']));
 	}
@@ -11,14 +16,14 @@
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 	// Additional headers
-	$headers .= 'From: '.$_SESSION['selOutlet']['outlet_name'].' <'.$_SESSION['selOutlet']['confirmation_email'].'>' . "\r\n";
+	$headers .= 'From: '.$prop_name.' <'.$_SESSION['selOutlet']['confirmation_email'].'>' . "\r\n";
 	$headers .= 'Bcc: '.$_SESSION['selOutlet']['confirmation_email']. "\r\n";
 
 	// Subject of email
         if ( $_POST['email_type'] == 'en' ) {
-		$subject = _email_subject_en." ".$_SESSION['selOutlet']['outlet_name'];
+		$subject = _email_subject_en." ".$prop_name;
 	}else{
-		$subject = _email_subject." ".$_SESSION['selOutlet']['outlet_name'];
+		$subject = _email_subject." ".$prop_name;
 	}
 	
 	//Salutation
@@ -75,7 +80,7 @@
 	}
 	
 	$body  = $salut.",\r\n\r\n";
-	$body .= sprintf( $text , $_SESSION['selOutlet']['outlet_name'], $_POST['reservation_pax'], $txt_date, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $_POST['reservation_author']  );
+	$body .= sprintf( $text , $_SESSION['selOutlet']['outlet_name'], $_POST['reservation_pax'], $txt_date, formatTime($_POST['reservation_time'],$general['timeformat']), $_SESSION['booking_number'], $prop_name." Team"  );
 
 
 	//***

@@ -38,6 +38,12 @@
 	
 	// Default text of the contact form -- "E-mail address"
 	$lang["contact_form_email"] = 'E-mail Adresse';
+
+	// Default text of the contact form -- "Security question"
+	$lang["security_question"] = 'Sicherheits-Frage';	
+	
+	// Default text of the contact form -- "Advertise"
+	$lang["contact_form_advertise"] = 'Ich m&ouml;chte in Zukunft Informationen per Email erhalten.';
 	
 	// Default text of the contact form -- "Notes"	
 	$lang["contact_form_notes"] = 'Ihre Notizen';

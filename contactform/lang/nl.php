@@ -40,6 +40,12 @@
 	// Default text of the contact form -- "E-mail address"
 	$lang["contact_form_email"] = 'E-mail adres';
 	
+	// Default text of the contact form -- "Security question"
+	$lang["security_question"] = 'Beveiligingsvraag';
+	
+	// Default text of the contact form -- "Advertise"
+	$lang["contact_form_advertise"] = 'Ik wil graag informatie ontvangen per e-mail.';
+	
 	// Default text of the contact form -- "Notes"	
 	$lang["contact_form_notes"] = 'Opmerkingen of iets te vieren? Laat het ons weten!';
 	

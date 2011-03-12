@@ -20,11 +20,10 @@
 <link rel="stylesheet" href="css/print.css" type="text/css" media="print" >
 <link rel="stylesheet" href="css/datepicker.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/tipsy.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="js/jquery.autocomplete.css" type="text/css" media="screen"/>
 <link rel="stylesheet" href="js/visualize/visualize.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.0.css" type="text/css" media="screen"/>
-
+<link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="all"/>
+<!-- <link type="text/css" href="css/smoothness/jquery-ui-1.8.10.custom.css" rel="stylesheet" /> -->
 <!--[if IE 7]>
 	<link href="css/ie7.css" rel="stylesheet" type="text/css" media="all">
 <![endif]-->
@@ -34,19 +33,19 @@
 <![endif]-->
 
 <!-- Jquery and plugins -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/jquery.img.preload.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+
+<!-- <script type="text/javascript" src="js/jquery.img.preload.js"></script> -->
 <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.0.js"></script>
-<script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
 <script type="text/javascript" src="js/hint.js"></script>
 <script type="text/javascript" src="js/visualize/jquery.visualize.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="js/browser.js"></script>
-<script type="text/javascript" src="js/jquery.autocomplete.pack.js"></script>
 <script type="text/javascript" src="js/jquery.jeditable.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/mColorPicker.js"></script>
 
 <?
 list($y,$m,$d)	= explode("-",$_SESSION['selectedDate']);

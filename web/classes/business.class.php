@@ -37,7 +37,7 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		
 		//echo $value."/".$endtime."/".date('H:i',$endtime)."//"; // error reporting
 		
-		echo"<select name='$field' id='$field' size='1' class='required' title=' ' >\n";
+		echo"<select name='$field' id='$field' size='1' title=' ' >\n";
 		echo "<option value='' ";
 		if ($select=='') {
 			echo "selected='selected'";
@@ -308,7 +308,7 @@ function getWeekdays_select($outlet_closeday, $status=''){
 		if (in_array(date("w",$day), $outlet_closeday)) {
 			echo "checked='checked'";
 		}
-		echo $status." >&nbsp;".date("l",$day)."&nbsp;&nbsp;";
+		echo $status." >&nbsp;".date("D",$day)."&nbsp;&nbsp;";
 		$day = $day + 86400;
 	}
 }
@@ -467,6 +467,7 @@ function randomPassword($pw_length = 6, $use_caps = false, $use_numeric = true, 
 
 	return implode('', $compl);
 }
+
 // compare a random password with the database to create a unique booking number
 function uniqueBookingnumber(){
 	do {
@@ -475,6 +476,29 @@ function uniqueBookingnumber(){
 	} while( $num>=1 );
 	return 	$_SESSION['PWD'];
 }
+
+function randomString()
+{
+  $length = 8;
+
+  //string of all possible characters to go into the new password
+  $passwordRandomString = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+  
+  //initialize the new password string
+  $newPW = "";
+  
+  //seed the random function
+  srand();
+  
+  //go through to generate a random password.
+  for($x=0; $x < $length; $x++)
+  {
+    $newPW .= substr($passwordRandomString,rand(0,62),1);
+  }
+  
+  return $newPW;
+}
+
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=               THE CORE              =-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

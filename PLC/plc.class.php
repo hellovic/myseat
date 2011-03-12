@@ -241,7 +241,7 @@ var $tbTrans = array(
   * page to redirect after login
   * var char
   */
- $_SESSION['forwardPage'] = "../web/main_page.php?p=2";
+ //$_SESSION['forwardPage'] = "../web/main_page.php?p=2";
 
  }
  
@@ -282,7 +282,7 @@ function login($uname,$password,$newpassword)
 	  	$password = "'$password'";
 	}
 	// check password
-	$sql = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$uname' AND `{$this->tbFields['pass']}` = $password LIMIT 1";
+	$sql = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$uname' AND `{$this->tbFields['pass']}` = $password AND `{$this->tbFields['active']}` = '1' LIMIT 1";
 	$res = $this->query($sql,__LINE__);
 	if ( @mysql_num_rows($res) == 0 ){
 		// FALSE - store false attempt in session table

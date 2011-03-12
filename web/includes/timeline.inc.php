@@ -107,5 +107,5 @@ $i 					= 1;
 	$i++;
 	}
 ?>
-<li><span class="label"></span><span class="label2" style='font-weight:normal; color:#bbb;'>&copy;timecontrol</span><span class="count"></span></li>
+<li><span class="label"></span><span class="label2" style='font-family:DroidSansRegular; color:#bbb;'>&copy;timecontrol</span><span class="count"></span></li>
 </ul>

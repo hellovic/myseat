@@ -3,7 +3,7 @@ if ($_SESSION['button']==2) {
 	$row = "";
 }
 ?>
-<div class="content" style="height:740px;">
+<div class="content" style="height:760px;">
 <form method="post" action="?p=6" id="edit_outlet_form">
 	<label><?= _property;?></label>
 	<p><span class='bold'>	 	 				 
@@ -59,12 +59,13 @@ if ($_SESSION['button']==2) {
 <!-- Beginn right column -->	
 <div class="twocolumn_wrapper right">
 	<div class="twocolumn" >
-		<div class="content" style="height:740px;">
+		<div class="content" style="height:760px;">
 			<label><?= _season_start;?></label>
 			<p>		
 				<?
 				// buildDate($general['dateformat_short'],substr($row->saison_start,2,2),substr($row->saison_start,0,2));
-				echo monthDropdown('saison_start_month',substr($row->saison_start,0,2)); 
+				echo monthDropdown('saison_start_month',substr($row->saison_start,0,2));
+				echo " "; 
 				echo dayDropdown('saison_start_day',substr($row->saison_start,2,2));
 				?>
 			</p>			 	 	 	 	 	 	 
@@ -73,6 +74,7 @@ if ($_SESSION['button']==2) {
 				<?
 				// buildDate($general['dateformat_short'],substr($row->saison_end,2,2),substr($row->saison_end,0,2));
 				echo monthDropdown('saison_end_month',substr($row->saison_end,0,2));
+				echo " ";
 				echo dayDropdown('saison_end_day',substr($row->saison_end,2,2));
 				?>
 			</p>
@@ -84,20 +86,35 @@ if ($_SESSION['button']==2) {
 				</div>
 			</p>
 			<br/>
+			<label><?= _webform;?></label>
+			<p>		
+				<?= printOnOff($row->webform,'webform','');?>
+			</p>
+			<br/>
 			<label><?= _day_off;?></label>
 			<p>	
 				<? echo getWeekdays_select($row->outlet_closeday); ?>	
 			</p>
-			<!--
-			<label><?= _password;?></label>
-			<p>		
-				<input type="text" name="password" id="password" class="digits" title=' ' value="<?= $row->password;?>"/>
-			</p>
-			-->			 	 	 	 	 	 	 		 	 	 	 	 	 	 
-			<label><?= _webform;?></label>
-			<p>		
-				<?= printOnOff($row->webform,'webform','');?>
-			</p>	 	 	 	 	 	 	 		 	 	 	 	 	 	 
+			<br/>
+			<label><?= _open_time." & "._close_time;?></label>
+			<p>	
+				<table>
+ 	 	 	 	 <?
+					$day = strtotime("next Monday");
+					for ($i=1; $i <= 7; $i++) { 
+						$weekday = date("w",$day);
+						$field_open = $weekday.'_open_time';
+						$field_close = $weekday.'_close_time';
+						echo "<tr><td>".date("l",$day)."</td><td>";
+						getTimeList($general['timeformat'], $general['timeintervall'],$field_open,$row->$field_open);
+						echo " ";
+						getTimeList($general['timeformat'], $general['timeintervall'],$field_close,$row->$field_close);
+						echo "<br/></td></tr>";
+						$day = $day + 86400;
+					}
+ 	 	 	 	 ?>	
+				</table>
+			</p>	 	 	 	 	 	 	 	 	 	 	 	 	 	 		 	 	 	 	 	 	 	
 			<br/><br/>
 			<?php if ($_SESSION['button']!=2): ?> 	 	 	 	 	 	 
 				<small>				

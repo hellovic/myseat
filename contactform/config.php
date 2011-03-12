@@ -2,13 +2,8 @@
 
 // ** SETTINGS **
 
-	// The contact form color scheme:
-	// light, dark
+	// default theme
 	$default_style = "light";
-	
-	// The contact form color scheme:
-	// black, blue, green, grey, purple, red
-	$default_color = "grey";
 	
 	// The link to your startpage
 	$base_link = $_SERVER['DOCUMENT_ROOT'];

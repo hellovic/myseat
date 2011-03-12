@@ -42,11 +42,11 @@ include("convert_plc.php");
 	<h2>Sample Page for PLC single sign on</h2>
 
 		<?
-			echo "<strong>User ID: </strong>".$user_id."<br/>";
-			echo "<strong>User Name: </strong>".$user_name."<br/>";
-			echo "<strong>Real Name: </strong>".$user_fullname."<br/>";
-			echo "<strong>Email: </strong>".$user_email."<br/>";
-			echo "<strong>Hotel, Department, Role: </strong>".$hot_id.", ".$dept_id.", ".$role."<br/>";
+			echo "<span class='bold'>User ID: </strong>".$user_id."<br/>";
+			echo "<span class='bold'>User Name: </strong>".$user_name."<br/>";
+			echo "<span class='bold'>Real Name: </strong>".$user_fullname."<br/>";
+			echo "<span class='bold'>Email: </strong>".$user_email."<br/>";
+			echo "<span class='bold'>Hotel, Department, Role: </strong>".$hot_id.", ".$dept_id.", ".$role."<br/>";
 			echo "<br/>";
 		?>	
 

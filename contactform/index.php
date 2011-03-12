@@ -1,11 +1,9 @@
 <?php session_start();
+//error_reporting(E_ALL & ~E_NOTICE);
+//ini_set("display_errors", 1);
 
-//
-// Name: mySeat
-//
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
-$_SESSION['property'] = '1';
 $_SESSION['outletID'] = '';
 
 // PHP part of page / business logic
@@ -33,7 +31,7 @@ $_SESSION['outletID'] = '';
 //standard outlet for contact form
 	if ($_GET['outletID']) {
 		$_SESSION['outletID'] = (int)$_GET['outletID'];
-	}else if (!$_SESSION['outletID']){
+	}else if ($_SESSION['outletID'] !='' ){
 		$_SESSION['outletID'] = querySQL('web_standard_outlet');
 	}
 
@@ -59,16 +57,19 @@ $_SESSION['outletID'] = '';
         $_SESSION['property'] = (int)$_GET['prp'];
     }elseif ($_POST['prp']) {
         $_SESSION['property'] = (int)$_POST['prp'];
-    }
-	// get property info for logo path
+    }elseif (!$_SESSION['property']){
+		$_SESSION['property'] = '1';
+	}
 	$_SESSION['propertyID'] = $_SESSION['property'];
+	
+	// get property info for logo path
 	$prp_info = querySQL('property_info');
 
   //prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
 	// get outlet maximum capacity
-	$maxC = maxCapacity(); 
+	$maxC = maxCapacity();
 	 
 	// get Pax by timeslot
     $resbyTime = reservationsByTime('pax');
@@ -93,7 +94,13 @@ $_SESSION['outletID'] = '';
 	<link href="style/grid.css" rel="stylesheet" type="text/css" />
 	<!-- CSS - Theme -->
 	<link id="theme" href="style/themes/<?= $default_style;?>.css" rel="stylesheet" type="text/css" />
-	<link id="color" href="style/themes/<?= $default_color;?>.css" rel="stylesheet" type="text/css" />
+	<link id="color" href="style/themes/<?= $general['contactform_color_scheme'];?>.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body {
+			background: <?= $general['contactform_background'];?>;
+		}
+	</style>
+	
 	<!-- CSS - Datepicker -->
 	<link href="style/datepicker.css" rel="stylesheet" type="text/css" />
 
@@ -168,18 +175,6 @@ $_SESSION['outletID'] = '';
 		    <!-- END datepicker -->
 		    <div>
 			<?php
-			$num_outlets = 0;
-			if ($_SESSION['single_outlet'] == 'OFF') {
-				$num_outlets = querySQL('num_outlets');
-			}
-			
-				if ($num_outlets>1) {
-					echo"<br/><br/><label>RESTAURANT</label><br/>";
-					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
-					echo "<input type='hidden' id='single_outlet' value=''>";
-				} else{
-					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'>";
-				}
 			
 			// MESSAGES
 			//Day off error message
@@ -213,31 +208,18 @@ $_SESSION['outletID'] = '';
 						<span class='bold'><a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>";
 						echo ( $special_events ) ? _today : _sp_events;
 						echo ": ".$row->subject.
-						"</a></strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
+						"</a> | ".$row->outlet_name."</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
 						date($general['dateformat'],strtotime($row->event_date)) 
 						." ".formatTime($row->start_time,$general['timeformat']).
 						" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-						$row->outlet_name."<br/>".
-						_open_to." ".$row->open_to."<br/>".
+						_open_to." ".$row->open_to." | ".
 						_ticket_price.": ".number_format($row->price,2).
 						"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
-						$row->description."<br/></div><br/></p>";
+						$row->description."<br/></div></p>";
 					}
 				echo "</div>";
 			}
-			
-			?>
-			
-			<br/><br/>
-		    </div>
-		    <div>
-			<label><?php lang("contact_form_time"); ?>*</label><br/>
-			<?php
-			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
-			?>
-		    </div>
-			<br/><br/>
-			<br/>
+?>
 			
 			<!-- facebook button-->
 		    <?php if ($me): ?>
@@ -256,6 +238,35 @@ $_SESSION['outletID'] = '';
 			
 			<br/>
 		    <br/>
+		
+<?			
+			// Restaurant dropdown
+			$num_outlets = 0;
+			if ($_SESSION['single_outlet'] == 'OFF') {
+				$num_outlets = querySQL('num_outlets');
+			}
+			
+				if ($num_outlets>1) {
+					echo"<br/><br/><label>RESTAURANT</label><br/>";
+					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
+				} else{
+					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'>";
+				}
+			
+			?>
+			
+			<br/><br/>
+		    </div>
+
+		    <div>
+			<label><?php lang("contact_form_time"); ?>*</label><br/>
+			<?php
+			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
+			?>
+		    </div>
+			<br/><br/>
+			<br/>
 		    <div>
 			<label><?php lang("contact_form_title"); ?></label><br/>
 			<?php
@@ -289,6 +300,11 @@ $_SESSION['outletID'] = '';
               <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" value="<?php echo $me['email']; ?>" />
                     </div>
 		    <br/>
+		<div>
+			<label></label>
+			<input type="checkbox" name="reservation_advertise" style="width:15px;" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<?php lang("contact_form_advertise"); ?>
+                    </div>
+		    <br/>
 		    <div>
 			<label><?php lang("contact_form_phone"); ?></label><br/>
                         <input type="text" name="reservation_guest_phone" class="form" id="reservation_guest_phone" value="" />
@@ -299,6 +315,7 @@ $_SESSION['outletID'] = '';
                 	<textarea cols="50" rows="10" name="reservation_notes" class="form" id="reservation_notes" ></textarea>
                     </div>
 		    <br/>
+			<?php lang("security_question"); ?>
 		    <div class="side">
                 	<div class="captchaContainer">
                 		<label for="captcha">

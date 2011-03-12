@@ -20,15 +20,11 @@ if ($events_advertise && $_SESSION['page'] == 2 ) {
 			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
 			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
-			_sp_events.": ".$row->subject.
-			"</a></strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
-			date($general['dateformat'],strtotime($row->event_date)) 
-			." ".formatTime($row->start_time,$general['timeformat']).
+			_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."<br/></span><div style='margin-left:38px; font-size:0.8em; line-height:1.2em;'>".date($general['dateformat'],strtotime($row->event_date))." ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-			$row->outlet_name."<br/>".
-			_open_to." ".$row->open_to."<br/>".
+			_open_to." ".$row->open_to." | ".
 			_ticket_price.": ".number_format($row->price,2).
-			"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+			"<br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
 			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";

@@ -129,7 +129,8 @@ function querySQL($statement){
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= '%s'
 						AND `event_date` > '%s'
-						ORDER BY advertise_start ASC", $_SESSION['selectedDate'],$_SESSION['selectedDate']);
+						AND outlets.property_id ='%d' 
+						ORDER BY advertise_start ASC", $_SESSION['selectedDate'],$_SESSION['selectedDate'],$_SESSION['property']);
 			return getRowList($result);
 		break;
 		case 'event_advertise_web':
@@ -155,6 +156,20 @@ function querySQL($statement){
 			$result = query("SELECT * FROM `plc_users` WHERE `userID` ='%d' LIMIT 1",$_SESSION['userID']);
 			return getRowListarray($result);
 		break;
+		case 'user_confirm_code':
+			$result = query("UPDATE `plc_users` SET confirm_code = '%s', active = '0' 
+								WHERE `userID` ='%d' LIMIT 1",$_SESSION['confHash'],$id);
+			return $result;
+		break;
+		case 'check_confirm_code':
+			$result = query("SELECT active,confirm_code FROM `plc_users` WHERE confirm_code='%s'",$_SESSION['confHash']);
+			return getRowListarray($result);
+		break;
+		case 'user_confirm_activate':
+			$result = query("UPDATE `plc_users` SET confirm_code = '', active = '1' 
+								WHERE confirm_code='%s'",$_SESSION['confHash']);
+			return $result;
+		break;
 		case 'maitre_info':
 			$result = query("SELECT * FROM `maitre` 
 							WHERE `maitre_outlet_id` ='%d' 
@@ -167,11 +182,11 @@ function querySQL($statement){
 			return getRowList($result);
 		break;
 		case 'recent':
-			$result = query("SELECT * FROM reservations WHERE reservation_outlet_id='%d' ORDER BY reservation_timestamp DESC LIMIT 0,4",$_SESSION['outletID']);
+			$result = query("SELECT * FROM `reservations` WHERE reservation_outlet_id='%d' ORDER BY reservation_timestamp DESC LIMIT 0,4",$_SESSION['outletID']);
 			return getRowList($result);
 		break;
 		case 'tautologous':
-			$result = query("SELECT count(*) FROM reservations WHERE reservation_date='%s' AND reservation_hidden=0 AND reservation_wait=0 AND reservation_guest_name='%s' ",$_SESSION['selectedDate'],$_SESSION['reservation_guest_name']);
+			$result = query("SELECT count(*) FROM `reservations` WHERE reservation_date='%s' AND reservation_hidden=0 AND reservation_wait=0 AND reservation_guest_name='%s' ",$_SESSION['selectedDate'],$_SESSION['reservation_guest_name']);
 			return getResult($result);
 		break;
 		case 'capability':
