@@ -219,7 +219,7 @@ function writeForm($table =''){
 				  //$imgName 	  = $_FILES['img_logo']['name'];
 				  $img_type   = substr($_FILES['img']["type"],6);
 				  $imgName 	  = randomPassword(24, true, true, false).".".$img_type;
-				echo $imgName;
+				  
 				  $uploadpath = substr(dirname(__FILE__),0,-7);
 				  $result     = move_uploaded_file($_FILES['img']["tmp_name"],"../uploads/img/".$imgName);
 					$keys[$i] = 'img_filename';
