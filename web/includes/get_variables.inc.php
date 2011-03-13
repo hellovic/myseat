@@ -59,12 +59,14 @@ if ($_GET['eventID']) {
 }
 
 // id of property
-if ($_GET['propertyID']) {
-	$_SESSION['propertyID'] = ($_GET['propertyID']) ? (int)$_GET['propertyID'] : 1;
-}else if ($_POST['propertyID']) {
-	$_SESSION['propertyID'] = ($_POST['propertyID']) ? (int)$_POST['propertyID'] : 1;
-}else if(!$_SESSION['propertyID']){
-	$_SESSION['propertyID'] = 1;
+if (!$_SESSION['propertyID']) {
+	if ($_GET['propertyID']) {
+		$_SESSION['propertyID'] = ($_GET['propertyID']) ? (int)$_GET['propertyID'] : 0;
+	}else if ($_POST['propertyID']) {
+		$_SESSION['propertyID'] = ($_POST['propertyID']) ? (int)$_POST['propertyID'] : 0;
+	}else {
+		$_SESSION['propertyID'] = 0;
+	}
 }
 
 // id of user
