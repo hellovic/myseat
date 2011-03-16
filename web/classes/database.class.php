@@ -215,7 +215,6 @@ function writeForm($table =''){
 				  || $_FILES['img']["type"] == "image/png" )
 				  && $_FILES['img']["size"] < 1000000 )
 				  {
-					echo "HERE";
 				  //$imgName 	  = $_FILES['img_logo']['name'];
 				  $img_type   = substr($_FILES['img']["type"],6);
 				  $imgName 	  = randomPassword(24, true, true, false).".".$img_type;
@@ -288,9 +287,19 @@ function writeForm($table =''){
 			  $query = "INSERT INTO `settings` (`property_id`, `language`, `timezone`, `timeformat`, `timeintervall`, `dateformat`, `dateformat_short`, `datepickerformat`, `app_name`, `max_menu`, `old_days`, `manual_lines`) VALUES
 				(".$new_id.", 'en_EN', 'Europe/Berlin', 24, 15, 'd.m.Y', 'd/m', 'd/m/y', 'mySeat XT', 8, 120, 5);";
 			  $result = query($query);
+			
+				// package code
+				$_GET['pk'] = ( $_GET['pk'] ) ? $_GET['pk'] : "'CXL'";
+				// insert date/time
+				$datetime = "'".date('Y-m-d H:i:s')."'";
+			
 			  $query = "INSERT INTO `client_order` (`property_id`, `package_code`, `order_date`, `close_date`, `created_at`) VALUES (%d, %s, %s, '0000-00-00', %s)";
-			  $result = query($query, $new_id, $_GET['pk'], date('Y-m-d'), date('Y-m-d H:i:s'));
+			  $result = query($query, $new_id, $_GET['pk'], date('Y-m-d'), $datetime);
+			
+			  //Clear errors after inserting
+			  $_SESSION['errors'] = array();
 			}
+
 			
 			// -----
 			return $new_id;
