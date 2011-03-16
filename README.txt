@@ -3,8 +3,14 @@
 =-=           mySeat README               =-=
 =-=                                       =-=
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+=-= Version: 0.1742                       =-= 
+=-= Date:    16.3.2011                    =-= 
+=-= Time:    19:40 GMT                    =-= 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 
 mySeat - Beautifully simple restaurant reservations.
+
 
 Collaborate effortlessly on reservations.
 Whether you are a restaurant team of 5 or a Grand-Hotel,
