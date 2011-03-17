@@ -284,7 +284,7 @@ $_SESSION['outletID'] = '';
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_name"); ?>*</label><br/>
-               <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php echo $me['name']; ?>" />
+               <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php echo $me['last_name'].", ".$me['first_name']; ?>" />
                     </div>
 		    <br/>
 		    <div>
