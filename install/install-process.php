@@ -31,7 +31,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `events` (
   `open_to` varchar(255) COLLATE utf8_bin NOT NULL,
   `contact` varchar(255) COLLATE utf8_bin NOT NULL,
   `advertise_start` int(10) NOT NULL,
-  `price` int(10) NOT NULL,
+  `price` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `outlet_id` (`outlet_id`,`event_date`),
