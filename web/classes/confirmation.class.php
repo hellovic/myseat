@@ -33,4 +33,13 @@
 	//SEND OUT MAIL
 		mail( $_POST['email'], $subject, nl2br($body), $headers); 
 	//***
+	
+	/* Email text:
+	Hello %s,<br/><br/>
+	You just signed up for mySeat. Please follow this link to confirm that this is your e-mail address:<br/><br/>
+	<a title=\"Confirm Account\" href=\"http://%s/myseat/web/confirm.php?c=%s\"> http://%s/web/confirm.php?c=%s</a>
+	<br/><br/>Cheers,<br/><br/>
+	The mySeat Team
+	*/
+	
 ?>
