@@ -62,6 +62,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 				 && $key != "MAX_FILE_SIZE"
 				 && $key != "propertyID"
 				 && $key != "token"
+				 && $key != "recurring_span"
 				 && $key != "reservation_bookingnumber"
 				 && $key != "verify"){
 					$keys[$i] = $key;
@@ -126,6 +127,9 @@ if ($_SESSION['token'] == $_POST['token']) {
 			// UNIX time
 			$res_dat = mktime(0,0,0,$m1,$d1,$y1);
 			$recurring_date = mktime(0,0,0,$m2,$d2,$y2);
+			
+			// daily or weekly recurring?
+			$recurring_span = ($_POST['recurring_span']) ? $_POST['recurring_span'] : 1;
 			
 		 while ( $res_dat <= $recurring_date) {
 			
@@ -206,8 +210,8 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$_SESSION['result'] = $result;
 
 			// -----
-			// increase reservation date one day
-			$d1 ++;
+			// increase reservation date one day or week
+			$d1 += $recurring_span;
 			$res_dat = mktime(0,0,0,$m1,$d1,$y1);
 			
 		 } // end while: reservation to store

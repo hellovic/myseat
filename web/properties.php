@@ -52,8 +52,8 @@ $_SESSION['role'] = ( $_SESSION['role']!='1' ) ? $_SESSION['role'] : 6;
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	$_SESSION['language'] = ( strlen($_SESSION['language']) > 2 ) ? $_SESSION['language'] : 'en_EN';
-	translateSite( substr( $_SESSION['language'],0,2) );
+	$_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en_EN';
+	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	// special setup for properties
 	if ( current_user_can( 'Property-Overview' )){
