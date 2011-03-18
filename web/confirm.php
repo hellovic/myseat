@@ -27,7 +27,7 @@ $_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
 
     //check confirmation hash with the database
     $result = querySQL('check_confirm_code');
-print_r($result);
+	//print_r($result);
 	//$validCount = mysql_num_rows($result);
 
 	if($result['active'] == 1){ $errorMessage .= _errorMessage_all; }
