@@ -205,25 +205,25 @@
         TOOLBAR : {
             bold          : { visible : true, tags : ['b', 'strong'], css : { fontWeight : 'bold' }, tooltip : "Bold" },
             italic        : { visible : true, tags : ['i', 'em'], css : { fontStyle : 'italic' }, tooltip : "Italic" },
-            strikeThrough : { visible : true, tags : ['s', 'strike'], css : { textDecoration : 'line-through' }, tooltip : "Strike-through" },
-            underline     : { visible : true, tags : ['u'], css : { textDecoration : 'underline' }, tooltip : "Underline" },
+            strikeThrough : { visible : false, tags : ['s', 'strike'], css : { textDecoration : 'line-through' }, tooltip : "Strike-through" },
+            underline     : { visible : false, tags : ['u'], css : { textDecoration : 'underline' }, tooltip : "Underline" },
 
             separator00 : { visible : true, separator : true },
 
             justifyLeft   : { visible : true, css : { textAlign : 'left' }, tooltip : "Justify Left" },
             justifyCenter : { visible : true, tags : ['center'], css : { textAlign : 'center' }, tooltip : "Justify Center" },
             justifyRight  : { visible : true, css : { textAlign : 'right' }, tooltip : "Justify Right" },
-            justifyFull   : { visible : true, css : { textAlign : 'justify' }, tooltip : "Justify Full" },
+            justifyFull   : { visible : false, css : { textAlign : 'justify' }, tooltip : "Justify Full" },
 
             separator01 : { visible : true, separator : true },
 
-            indent  : { visible : true, tooltip : "Indent" },
-            outdent : { visible : true, tooltip : "Outdent" },
+            indent  : { visible : false, tooltip : "Indent" },
+            outdent : { visible : false, tooltip : "Outdent" },
 
             separator02 : { visible : false, separator : true },
 
-            subscript   : { visible : true, tags : ['sub'], tooltip : "Subscript" },
-            superscript : { visible : true, tags : ['sup'], tooltip : "Superscript" },
+            subscript   : { visible : false, tags : ['sub'], tooltip : "Subscript" },
+            superscript : { visible : false, tags : ['sup'], tooltip : "Superscript" },
 
             separator03 : { visible : true, separator : true },
 
@@ -232,9 +232,9 @@
 
             separator04 : { visible : true, separator : true },
 
-            insertOrderedList    : { visible : true, tags : ['ol'], tooltip : "Insert Ordered List" },
-            insertUnorderedList  : { visible : true, tags : ['ul'], tooltip : "Insert Unordered List" },
-            insertHorizontalRule : { visible : true, tags : ['hr'], tooltip : "Insert Horizontal Rule" },
+            insertOrderedList    : { visible : false, tags : ['ol'], tooltip : "Insert Ordered List" },
+            insertUnorderedList  : { visible : false, tags : ['ul'], tooltip : "Insert Unordered List" },
+            insertHorizontalRule : { visible : false, tags : ['hr'], tooltip : "Insert Horizontal Rule" },
 
             separator05 : { separator : true },
 
@@ -271,7 +271,7 @@
             },
 
             insertImage : {
-                visible : true,
+                visible : false,
                 exec    : function()
                 {
                     if ( $.browser.msie )

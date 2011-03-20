@@ -3,7 +3,7 @@ if ($_SESSION['button']==2) {
 	$row = "";
 }
 ?>
-<div class="content" style="height:760px;">
+<div class="content" style="height:960px;">
 <form method="post" action="?p=6" id="edit_outlet_form">
 	<label><?= _property;?></label>
 	<p><span class='bold'>	 	 				 
@@ -41,25 +41,22 @@ if ($_SESSION['button']==2) {
 	<p>	 	 	 	 	 	 	
 		<input type="text" name="passerby_max_pax" id="passerby_max_pax" class="digits" title=' ' value="<?= $row->passerby_max_pax;?>"/>
 	</p>
-	<label><?= _open_time;?></label>
-	<p>		 	 	 	 	 	 	
-			<? getTimeList($general['timeformat'], $general['timeintervall'],'outlet_open_time',$row->outlet_open_time);?>
-	</p>
-	<label><?= _close_time;?></label>	
-	<p>	 	 	 	 	 	 			
-			<? getTimeList($general['timeformat'], $general['timeintervall'],'outlet_close_time',$row->outlet_close_time);?>
-	</p>
 	<label><?= _duration;?></label>	
 	<p>	 	 	 	 	 	 			
 			<? getDurationList($general['timeintervall'],'avg_duration',$row->avg_duration);?>
-	</p>		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
+	</p>
+	<label><?= _webform;?></label>
+	<p>		
+		<?= printOnOff($row->webform,'webform','');?>
+	</p>
+	<br/><br/>		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
 	<br class="clear">
 		<input type="submit" class="button_dark" value="<?= _save;?>"/>		 	 	 	 	 	 	 			 	 	 	 	 	 	
 </div></div></div> <!-- end left column -->
 <!-- Beginn right column -->	
 <div class="twocolumn_wrapper right">
 	<div class="twocolumn" >
-		<div class="content" style="height:760px;">
+		<div class="content" style="height:960px;">
 			<label><?= _season_start;?></label>
 			<p>		
 				<?
@@ -86,17 +83,20 @@ if ($_SESSION['button']==2) {
 				</div>
 			</p>
 			<br/>
-			<label><?= _webform;?></label>
-			<p>		
-				<?= printOnOff($row->webform,'webform','');?>
-			</p>
-			<br/>
 			<label><?= _day_off;?></label>
 			<p>	
 				<? echo getWeekdays_select($row->outlet_closeday); ?>	
 			</p>
 			<br/>
-			<label><?= _open_time." & "._close_time;?></label>
+			<label><?= _general." "._open_time." & "._close_time;?></label>
+			<p>		 	 	 	 	 	 	
+				<? getTimeList($general['timeformat'], $general['timeintervall'],'outlet_open_time',$row->outlet_open_time);
+				   echo " ";
+	 	 	 	   getTimeList($general['timeformat'], $general['timeintervall'],'outlet_close_time',$row->outlet_close_time);
+				?>
+			</p>
+			<br/>
+			<label><?= _specific." "._open_time." & "._close_time;?></label>
 			<p>	
 				<table>
  	 	 	 	 <?
@@ -105,7 +105,27 @@ if ($_SESSION['button']==2) {
 						$weekday = date("w",$day);
 						$field_open = $weekday.'_open_time';
 						$field_close = $weekday.'_close_time';
-						echo "<tr><td>".date("l",$day)."</td><td>";
+						echo "<tr><td>".date("l",$day)."&nbsp;</td><td>";
+						getTimeList($general['timeformat'], $general['timeintervall'],$field_open,$row->$field_open);
+						echo " ";
+						getTimeList($general['timeformat'], $general['timeintervall'],$field_close,$row->$field_close);
+						echo "<br/></td></tr>";
+						$day = $day + 86400;
+					}
+ 	 	 	 	 ?>	
+				</table>
+			</p>
+			<br/>
+			<label><?= _break;?></label>
+			<p>	
+				<table>
+ 	 	 	 	 <?
+					$day = strtotime("next Monday");
+					for ($i=1; $i <= 7; $i++) { 
+						$weekday = date("w",$day);
+						$field_open = $weekday.'_open_break';
+						$field_close = $weekday.'_close_break';
+						echo "<tr><td>".date("l",$day)."&nbsp;</td><td>";
 						getTimeList($general['timeformat'], $general['timeintervall'],$field_open,$row->$field_open);
 						echo " ";
 						getTimeList($general['timeformat'], $general['timeintervall'],$field_close,$row->$field_close);

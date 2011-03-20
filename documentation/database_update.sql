@@ -45,4 +45,21 @@ ALTER TABLE `outlets` ADD `6_close_time` time DEFAULT NULL;
 ALTER TABLE `outlets` ADD `0_open_time` time DEFAULT NULL;
 ALTER TABLE `outlets` ADD `0_close_time` time DEFAULT NULL;
 
+/* Update the database from XT 0.174 to > XT 0.1744 */
+/* ------------------------------------------------- */
+ALTER TABLE `outlets` ADD `1_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `1_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `2_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `2_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `3_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `3_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `4_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `4_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `5_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `5_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `6_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `6_close_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `0_open_break` time DEFAULT NULL;
+ALTER TABLE `outlets` ADD `0_close_break` time DEFAULT NULL;
+
 

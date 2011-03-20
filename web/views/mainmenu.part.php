@@ -32,6 +32,11 @@
 			</a>
 		</li>
 		<?php endif ?>
+		<li>
+			<a href="http://<?= $_SERVER['HTTP_HOST'].substr(dirname($_SERVER['PHP_SELF']),0,-4);?>/contactform/index.php?so=ON&prp=<?= $_SESSION['propertyID'];?>&outletID=<?= $_SESSION['outletID'];?>">Contact Form
+			</a>
+
+		</li>
 		<!--
 		<li>
 			<a href="?p=5" <?if($_SESSION['page']=='5'){echo "class='active'";} ?> >

@@ -127,6 +127,20 @@ $sql = query("CREATE TABLE IF NOT EXISTS `outlets` (
   `6_close_time` time DEFAULT NULL,
   `0_open_time` time DEFAULT NULL,
   `0_close_time` time DEFAULT NULL,
+  `1_open_break` time DEFAULT NULL,
+  `1_close_break` time DEFAULT NULL,
+  `2_open_break` time DEFAULT NULL,
+  `2_close_break` time DEFAULT NULL,
+  `3_open_break` time DEFAULT NULL,
+  `3_close_break` time DEFAULT NULL,
+  `4_open_break` time DEFAULT NULL,
+  `4_close_break` time DEFAULT NULL,
+  `5_open_break` time DEFAULT NULL,
+  `5_close_break` time DEFAULT NULL,
+  `6_open_break` time DEFAULT NULL,
+  `6_close_break` time DEFAULT NULL,
+  `0_open_break` time DEFAULT NULL,
+  `0_close_break` time DEFAULT NULL,
   PRIMARY KEY (`outlet_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;")
  or die(mysql_error());

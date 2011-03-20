@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/datepicker.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/tipsy.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="js/visualize/visualize.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.0.css" type="text/css" media="screen"/>
 <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="all"/>
 <!-- <link type="text/css" href="css/smoothness/jquery-ui-1.8.10.custom.css" rel="stylesheet" /> -->
@@ -40,6 +41,7 @@
 <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.0.js"></script>
 <script type="text/javascript" src="js/hint.js"></script>
 <script type="text/javascript" src="js/visualize/jquery.visualize.js"></script>
+<script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="js/browser.js"></script>

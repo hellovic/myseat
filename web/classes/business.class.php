@@ -31,8 +31,12 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		// in predefined intervall
 		list($h1,$m1)		= explode(":",$open_time);
 		list($h2,$m2)		= explode(":",$close_time);
+		list($h3,$m3)		= explode(":",$_SESSION['selOutlet']['outlet_open_break']);
+		list($h4,$m4)		= explode(":",$_SESSION['selOutlet']['outlet_close_break']);
 		$value  			= mktime($h1+0,$m1+0,0,$month,$day,$year);
 		$endtime		 	= mktime($h2+0,$m2+0,0,$month,$endday,$year);
+		$open_break  		= mktime($h3+0,$m3+0,0,$month,$day,$year);
+		$close_break  		= mktime($h4+0,$m4+0,0,$month,$day,$year);
 		$i 					= 1;
 		
 		//echo $value."/".$endtime."/".date('H:i',$endtime)."//"; // error reporting
@@ -45,6 +49,7 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		echo ">--</option>\n";
 		while( $value <= $endtime )
 		{ 
+			if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			// Generating the time drop down menu
 			      echo "<option value='".date('H:i',$value)."'";
 			      if ( $select == date('H:i:s',$value) ) {
@@ -63,6 +68,8 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 			      }
 			      
 			      echo"</option>\n";
+			}
+			
 			$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
 			$i++;
 		} 

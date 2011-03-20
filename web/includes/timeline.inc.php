@@ -34,11 +34,17 @@ $close_time = ($_SESSION['selOutlet']['outlet_close_time']!="") ? $_SESSION['sel
 $day    = date("d");
 $endday = ($open_time < $close_time) ? date("d") : date("d")+1;
 
+// build time values
 list($h1,$m1)		= explode(":",$open_time);
 list($h2,$m2)		= explode(":",$close_time);
 $value  			= mktime($h1+0,$m1+0,0,date("m"),$day,date("Y"));
 $endtime		 	= mktime($h2+0,$m2+0,0,date("m"),$endday,date("Y"));
 $i 					= 1;
+// build break times UNIX time
+list($h3,$m3)		= explode(":",$_SESSION['selOutlet']['outlet_open_break']);
+list($h4,$m4)		= explode(":",$_SESSION['selOutlet']['outlet_close_break']);
+$open_break  		= mktime($h3+0,$m3+0,0,date("m"),$day,date("Y"));
+$close_break  		= mktime($h4+0,$m4+0,0,date("m"),$day,date("Y"));
 
 	while( $value <= $endtime )
 	{ 
@@ -73,6 +79,7 @@ $i 					= 1;
 		}
 		
 		// Generating the timeline graph
+		if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			echo"<li>\n";
 			echo "<span class='label";
 			if ($value == $rounded_time) {
@@ -102,9 +109,10 @@ $i 					= 1;
 			}
 			
 			echo "' style='height: ".$val_by_time."% !important;'>(0)</span>\n</li>\n";
-	
-			$value = mktime($h1+0,$m1+$i*$general['timeintervall'],0,date("m"),$day,date("Y")); 
-	$i++;
+		}	
+		// increase time
+		$value = mktime($h1+0,$m1+$i*$general['timeintervall'],0,date("m"),$day,date("Y")); 
+		$i++;
 	}
 ?>
 <li><span class="label"></span><span class="label2" style='font-family:DroidSansRegular; color:#bbb;'>&copy;timecontrol</span><span class="count"></span></li>

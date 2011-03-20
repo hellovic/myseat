@@ -1,4 +1,4 @@
-$(function(){ 
+$(function(){
 	
 	$('.nav li a').each(function()
 		{
@@ -256,6 +256,9 @@ $(document).ready(function() {
 	
 	//fade out message box
 	$('#messageBox').fadeTo(3500,1).fadeOut(1000);
+	
+	// JWYSIWYG Editor for description textarea
+	$('#wysiwyg').wysiwyg();
 	
 	
 	// outlet detail slider

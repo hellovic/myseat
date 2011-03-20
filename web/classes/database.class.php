@@ -17,7 +17,15 @@ ob_start();
 	// ** secure all POST and GET data
 	function secureSuperGlobals() {
 	        	// Escape POST data for SQL Injection
-				foreach($_POST AS $key => $value) { $_POST[$key] = escapeInput($value); }
+				foreach($_POST AS $key => $value) { 
+					if ( $key != 'description' ) {
+						$_POST[$key] = escapeInput($value);
+					}else{
+						$value = get_magic_quotes_gpc()?stripslashes($value):$value;
+						$value = (is_array($value)) ? $value : mysql_real_escape_string($value);
+						$_POST[$key] = $value;
+					}
+				}
 				// Escape GET data for SQL Injection
 				foreach($_GET AS $key => $value) { $_GET[$key] = escapeInput($value); }
 	}

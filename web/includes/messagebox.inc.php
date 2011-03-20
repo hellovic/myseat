@@ -22,9 +22,8 @@ if ($events_advertise && $_SESSION['page'] == 2 ) {
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
 			_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."<br/></span><div style='margin-left:38px; font-size:0.8em; line-height:1.2em;'>".date($general['dateformat'],strtotime($row->event_date))." ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-			_open_to." ".$row->open_to." | ".
 			_ticket_price.": ".number_format($row->price,2).
-			"<br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+			"<br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
 			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";
@@ -44,9 +43,8 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 			." ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
 			$row->outlet_name."<br/>".
-			_open_to." ".$row->open_to."<br/>".
 			_ticket_price.": ".number_format($row->price,2).
-			"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+			"<br/><br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
 			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";

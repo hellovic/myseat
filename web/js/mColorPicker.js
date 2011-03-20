@@ -74,7 +74,7 @@
     allowTransparency: true,
   	checkRedraw: 'DOMUpdated', // Change to 'ajaxSuccess' for ajax only or false if not needed
   	liveEvents: false,
-    showLogo: true
+    showLogo: false
   };
 
   $.fn.mColorPicker.defaults = {

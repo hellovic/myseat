@@ -55,8 +55,11 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 	</p>
 	<label><?= _description;?></label>
 	<p>
-		<textarea name="description" id="description" style="width: 97%;" cols="35" rows="5" class="required" minlength="6" title=' '><?= $row['description'];?></textarea>
+		<div class="onecolumn">
+		<textarea name="description" id="wysiwyg" style="width: 97%;" cols="35" rows="5" class="wysiwyg required" minlength="6" title=' '><?= $row['description'];?></textarea>
+		</div>
 	</p>
+	<!--
 	<label><?= _contact;?></label>
 	<p>
 		<input type="text" name="contact" id="contact" class="required" title=' ' style='width: 57%;' value="<?= $row['contact'];?>"/>
@@ -65,6 +68,7 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 	<p>
 		<input type="text" name="open_to" id="open_to" class="required" title=' ' value="<?= $row['open_to'];?>"/>
 	</p>
+	-->
 	<label><?= _ticket_price;?></label>
 	<p>
 		<input type="text" name="price" id="price" class="required" title=' ' value="<?= $row['price'];?>"/>
