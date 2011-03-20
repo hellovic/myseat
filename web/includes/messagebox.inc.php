@@ -11,8 +11,8 @@ if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
 
 // Special event advertise
 $events_advertise = querySQL('event_advertise');
-if ($events_advertise && $_SESSION['page'] == 2 ) {
-	echo "<div class='alert_tip' style='cursor:pointer;'>
+if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
+	echo "<div class='alert_info' style='cursor:pointer;'>
 	";
 		// special events
 		foreach($events_advertise as $row) {

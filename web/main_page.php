@@ -86,9 +86,8 @@ echo "<body>
 	// ** content
 	switch($_SESSION['page']){
 		case '1':
-			// facility
-			redeclare_access();
-			//include('properties.php?p=6');
+			// dashboard
+			include('content/dashboard.page.php');
 		break;
 		case '2':
 			// outlet

@@ -3,6 +3,11 @@
 
 	<ul class="nav" style='margin-left:40px;'>
 		<li>
+			<a href="?p=1" <?if($_SESSION['page']=='1'){echo "class='active'";} ?> >
+				<?= _dashboard; ?>	
+			</a>
+		</li>
+		<li>
 			<a href="?p=2" <?if($_SESSION['page']=='2'){echo "class='active'";} ?> >
 				<?= _outlets; ?>	
 			</a>
