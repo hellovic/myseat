@@ -19,7 +19,6 @@
 		
 		if ($key == 'id' || $key == 'property_id') {
 			echo "<input type='hidden' name='".$key."' value='".$value."'>";
-		
 		}else if ($key == 'timezone'){
 			echo "<p><label>".$formtext."</label><br/><div class='option_xl'><div class='text'></div>";
 				timezoneDropdown($value);	
@@ -96,7 +95,7 @@
 		}
 	}
 	?>
-		<input type="hidden" name="property_id" value="<?= $row->property_id;?>">
+		<!-- <input type="hidden" name="property_id" value="<?= $row->property_id;?>"> -->
 		<input type="hidden" name="token" value="<?php echo $token; ?>" />
 		<div style="text-align:center;">
 			<input type="submit" class="button_dark" value="<?= _save;?>">
