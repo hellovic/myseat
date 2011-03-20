@@ -113,14 +113,14 @@
 		<br/><br/>
 		<p>
 		<label><?= _multi_booking; ?></label>
-		<br/>
-		<input type="radio" class="radio" name="recurring_span" value="1" checked="checked"><img src='images/icons/calendar-select-days-span.png' alt='daily' title='Daily'>&nbsp;
-		<input type="radio" class="radio" name="recurring_span" value="7"><img src='images/icons/calendar-select-days.png' alt='weekly' title='Weekly'>
 		<div class="date dategroup">
 			<div class="text" id="recurring_text"></div>
 			<input type="text" name="recurring_date" id="recurring_date"/>
 			<input type="hidden" name="recurring_dbdate" id="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
 		</div>
+		<br/>
+		<input type="radio" class="radio" name="recurring_span" value="1" checked="checked"><img src='images/icons/calendar-select-days-span.png' alt='daily' title='Daily'>&nbsp;
+		<input type="radio" class="radio" name="recurring_span" value="7"><img src='images/icons/calendar-select-days.png' alt='weekly' title='Weekly'>
 		</p>
 	</div></div></div> <!-- end right column -->
 	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">

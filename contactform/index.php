@@ -220,8 +220,11 @@ $_SESSION['outletID'] = '';
 				echo "</div>";
 			}
 ?>
+
+			<br/>
+		    <br/>
 			
-			<!-- facebook button-->
+			<!-- facebook button-->		
 		    <?php if ($me): ?>
 			<img src="https://graph.facebook.com/<?php echo $uid; ?>/picture">
 		    <a href="<?php echo $logoutUrl; ?>">
@@ -251,12 +254,11 @@ $_SESSION['outletID'] = '';
 					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
 					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
 				} else{
-					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'>";
+					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'><br/><br/>";
 				}
 			
 			?>
 			
-			<br/><br/>
 		    </div>
 
 		    <div>
@@ -284,7 +286,7 @@ $_SESSION['outletID'] = '';
 		    <br/>
 		    <div>
 			<label><?php lang("contact_form_name"); ?>*</label><br/>
-               <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php echo $me['last_name'].", ".$me['first_name']; ?>" />
+               <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php if($me['last_name']){echo $me['last_name'].", ".$me['first_name'];} ?>" />
                     </div>
 		    <br/>
 		    <div>

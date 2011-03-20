@@ -49,6 +49,7 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		echo ">--</option>\n";
 		while( $value <= $endtime )
 		{ 
+			// get loose of break
 			if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			// Generating the time drop down menu
 			      echo "<option value='".date('H:i',$value)."'";
@@ -69,7 +70,7 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 			      
 			      echo"</option>\n";
 			}
-			
+			// calculate new time
 			$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
 			$i++;
 		} 

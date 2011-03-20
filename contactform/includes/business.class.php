@@ -17,8 +17,12 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		// in predefined intervall
 		list($h1,$m1)		= explode(":",$open_time);
 		list($h2,$m2)		= explode(":",$close_time);
+		list($h3,$m3)		= explode(":",$_SESSION['selOutlet']['outlet_open_break']);
+		list($h4,$m4)		= explode(":",$_SESSION['selOutlet']['outlet_close_break']);
 		$value  		= mktime($h1+0,$m1+0,0,$month,$day,$year);
 		$endtime		= mktime($h2+0,$m2+0,0,$month,$endday,$year);
+		$open_break  		= mktime($h3+0,$m3+0,0,$month,$day,$year);
+		$close_break  		= mktime($h4+0,$m4+0,0,$month,$day,$year);
 		$i 			= 1;
 		
 		echo"<select name='$field' id='$field' size='1' class='drop required' title=' ' >\n";
@@ -29,6 +33,8 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		echo ">--</option>\n";
 		while( $value <= $endtime )
 		{ 
+			// get loose of break
+			if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			// Generating the time drop down menu
 				echo "<option value='".date('H:i',$value)."'";
 				if ( $select == date('H:i:s',$value) ) {
@@ -50,6 +56,8 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 					echo " - ".$pax_capacity." Seats free";
 				}
 				echo"</option>\n";
+			}
+			// calculate new time
 			$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
 			$i++;
 		} 
