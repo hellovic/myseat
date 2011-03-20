@@ -204,18 +204,16 @@ $_SESSION['outletID'] = '';
 					// special events
 					foreach($advertise as $row) {
 						echo "<p style='margin-bottom:6px;'>
-						<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
-						<span class='bold'><a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>";
-						echo ( $special_events ) ? _today : _sp_events;
-						echo ": ".$row->subject.
-						"</a> | ".$row->outlet_name."</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
+						<img src='images/icon_cutlery.png' alt='special' class='middle'/>
+						<span class='bold'>"._today.": ".$row->subject.
+						"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
 						date($general['dateformat'],strtotime($row->event_date)) 
 						." ".formatTime($row->start_time,$general['timeformat']).
 						" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-						_open_to." ".$row->open_to." | ".
+						$row->outlet_name."<br/>".
 						_ticket_price.": ".number_format($row->price,2).
-						"<br/><br/></div><div style='margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
-						$row->description."<br/></div></p>";
+						"<br/><br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
+						$row->description."<br/></div><br/></p>";
 					}
 				echo "</div>";
 			}
