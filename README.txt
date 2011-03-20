@@ -29,6 +29,12 @@ Open <config/config.general.php> and <PLC/plc.class.php> in a text editor and fi
 Browse to your new mySeat site to the directory /install.
 This will take you to the mySeat installer, which starts with a small explanation.
 
+DATABASE UPDATE
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+See documentation/database_update.sql for database updates.
+You will find there the designated SQL queries to copy/paste 
+into the phpmyAdmin SQL box.
+
 
 MAIN FEATURES
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
