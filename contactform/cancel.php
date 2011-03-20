@@ -20,7 +20,9 @@ session_start();
 // ** set configuration
 	include('../config/config.inc.php');
 // ** get superglobal variables
-	include('../web/includes/get_variables.inc.php');
+	include('../web/includes/get_variables.inc.php');	
+// ** get property info for logo path
+$prp_info = querySQL('property_info');
 
   if ($_POST['action']=='cncl_book'){
 
@@ -51,8 +53,14 @@ session_start();
 	<link href="style/base.css" rel="stylesheet" type="text/css" />
 	<link href="style/grid.css" rel="stylesheet" type="text/css" />
 	<!-- CSS - Theme -->
-	<link id="theme" href="style/themes/light.css" rel="stylesheet" type="text/css" />
-	<link id="color" href="style/themes/blue.css" rel="stylesheet" type="text/css" />
+	<link id="theme" href="style/themes/<?= $default_style;?>.css" rel="stylesheet" type="text/css" />
+	<link id="color" href="style/themes/<?= $general['contactform_color_scheme'];?>.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body {
+			background: <?= $general['contactform_background'];?>;
+		}
+	</style>
+	
 	<!-- CSS - Datepicker -->
 	<link href="style/datepicker.css" rel="stylesheet" type="text/css" />
 
@@ -76,8 +84,10 @@ session_start();
 	<!-- start header -->
 	<div id="wrapper"> 
 	  <header> 
-	    <!-- logo -->
-	    <h1 id="logo"><a href="index.php?p=2">mySeat</a></h1>
+	     <!-- logo -->
+		    <h1 id="logo" style="background-image: url(../uploads/logo/<? echo ($prp_info['logo_filename']=='') ? 'logo.png' : $prp_info['logo_filename'];?>);">
+			<a href="index.php?p=2">mySeat</a>
+			</h1>
 	    <!-- nav -->
 	    <nav>
 	      <ul id="nav">

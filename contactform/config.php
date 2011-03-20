@@ -5,9 +5,15 @@
 	// default theme
 	$default_style = "light";
 	
-	// The link to your startpage
-	$base_link = $_SERVER['DOCUMENT_ROOT'];
-	$home_link = "/web/";
+	// The link to your startpage:
+	//$base_link = $_SERVER['DOCUMENT_ROOT'];
+	// or
+	//$home_link = "/web/";
+	// or
+	//$home_link = "http://www.mysite.com";
+	// best:
+	$base_link = "http://".$_SERVER['HTTP_HOST'].substr(dirname($_SERVER['PHP_SELF']),0,-11);
+	$home_link = $base_link;
 
 	// The default language
 	$default_lang = "en";
