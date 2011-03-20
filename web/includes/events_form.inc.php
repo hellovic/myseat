@@ -69,6 +69,7 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 		<input type="text" name="open_to" id="open_to" class="required" title=' ' value="<?= $row['open_to'];?>"/>
 	</p>
 	-->
+	<br/>
 	<label><?= _ticket_price;?></label>
 	<p>
 		<input type="text" name="price" id="price" class="required" title=' ' value="<?= $row['price'];?>"/>
