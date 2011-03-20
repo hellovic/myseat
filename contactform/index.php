@@ -347,9 +347,12 @@ $_SESSION['outletID'] = '';
 				$day_off = getDayoff();
                 if ($day_off == 0) {
                 	echo"<div style='text-align:center;'><br/><br/><input class='button ".$default_color." large' type='submit' value='".$lang['contact_form_send']."' /></div>";
-                }
+                }else{
+					echo "<div id='messageBox' style='margin-left:120px; width:500px;'><div class='alert_error'>
+					<p><img src='../web/images/icon_error.png' alt='error' class='middle' />&nbsp;&nbsp;"._day_off."</p></div></div>";
+				}
                 ?>	
-                	</div>
+                </div>
 		</form>
 
 	    <br class="cl" />
