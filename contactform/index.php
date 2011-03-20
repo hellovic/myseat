@@ -197,7 +197,7 @@ $_SESSION['outletID'] = '';
 					echo "<div class='alert_info'>";
 					$advertise = $special_events;
 				}else{
-					echo "<div class='alert_tip'>";
+					echo "<div class='alert_info'>";
 					$advertise = $events_advertise;
 				}
 			

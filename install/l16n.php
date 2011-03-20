@@ -193,7 +193,8 @@ $cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, 
 (188, '_errorMessage_no', 'You are trying to confirm an invalid email address.', 'Sie versuchten eine ungültige Email Adresse zu bestätigen.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.', 'You are trying to confirm an invalid comment.'),
 (189, '_errorMessage_yes', 'Your user account has been confirmed!', 'Ihr Benutzer Konto wurde aktiviert!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!'),
 (190, '_break', 'Break', 'Pause', 'Pause', 'Pausa', 'Pauze', 'Pause', 'Paus', 'Pausa', '', '', '', ''),
-(191, '_specific', 'Specific', 'Spezielle', 'Précis', 'Específico', 'Specifieke', 'Specifikke', 'Specifik', 'Specifico', '', '', '', '');
+(191, '_specific', 'Specific', 'Spezielle', 'Précis', 'Específico', 'Specifieke', 'Specifikke', 'Specifik', 'Specifico', '', '', '', ''),
+(192, '_dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard');
 ");
 
 

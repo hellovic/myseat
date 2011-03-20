@@ -42,7 +42,7 @@ class flexibleAccess{
   * The database that we will use
   * var string
   */
- var $dbName = 'myseat';
+ var $dbName = 'myseatXT';
  /**
   * The database host
   * mostly 'localhost' fits
