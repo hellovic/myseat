@@ -61,5 +61,13 @@ ALTER TABLE `outlets` ADD `6_open_break` time DEFAULT NULL;
 ALTER TABLE `outlets` ADD `6_close_break` time DEFAULT NULL;
 ALTER TABLE `outlets` ADD `0_open_break` time DEFAULT NULL;
 ALTER TABLE `outlets` ADD `0_close_break` time DEFAULT NULL;
+INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`, `fi`, `no`, `pl`, `tr`) VALUES
+(190, '_break', 'Break', 'Pause', 'Pause', 'Pausa', 'Pauze', 'Pause', 'Paus', 'Pausa', '', '', '', ''),
+(191, '_specific', 'Specific', 'Spezielle', 'Précis', 'Específico', 'Specifieke', 'Specifikke', 'Specifik', 'Specifico', '', '', '', ''),
+(192, '_dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard');
 
+/* Update the database from XT 0.1744 to > XT 0.1745 */
+/* ------------------------------------------------- */
+INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`, `fi`, `no`, `pl`, `tr`) VALUES 
+(193, '_reservation_advertise', 'I would like to receive informations by email.', 'Ich m&ouml;chte in Zukunft Informationen per Email erhalten.', 'Je voudrais recevoir des informations par e-mail.', 'Me gustaría recibir información por correo electrónico.', 'Ik wil graag informatie ontvangen per e-mail.', 'Jeg vil gerne modtage information via e-mail.', 'Jag vill få information via e-post.', 'Desidero ricevere informazioni via email.', '', '', '', '');
 
