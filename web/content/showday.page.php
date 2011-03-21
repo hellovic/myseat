@@ -53,6 +53,13 @@
 						<?= _detail;?>
 					</a>
 				</li>
+				<? if ($q == 1){ ?>
+				<li>
+					<a href="javascript:window.print()">
+						<img src="images/system-icons/print.png" alt="Print">
+					</a>
+				</li>
+				<? } ?>
 			</ul>
 			<!-- End 2nd level tab -->
 			<? }else{ ?>

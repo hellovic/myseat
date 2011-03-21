@@ -412,7 +412,7 @@ function dayDropdown($name='day', $selected=null) {
 }
 
 function redeclare_access() {
-echo"<br/><div class='alert_tip' style='cursor:pointer;'>
+echo"<br/><div class='alert_info' style='cursor:pointer;'>
 <p><span class='bold'> &#70;&#111;&#108;&#108;&#111;&#119;&#32;&#116;&#104;&#101;&#32;&#119;&#104;&#105;&#116;&#101;&#32;&#114;&#97;&#98;&#98;&#105;&#116;&#46;&#32;&#75;&#110;&#111;&#99;&#107;,&#32;&#107;&#110;&#111;&#99;&#107;&#32;&#46;&#46;&#46;&#32;
 </span></p></div><br/>";
 }

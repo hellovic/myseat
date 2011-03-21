@@ -22,6 +22,7 @@ if($fetch){
 		$row_array['reservation_guest_city'] = $row['reservation_guest_city'];
 		$row_array['reservation_guest_email'] = $row['reservation_guest_email'];
 		$row_array['reservation_guest_phone'] = $row['reservation_guest_phone'];
+		$row_array['reservation_advertise'] = $row['reservation_advertise'];
 
 	    array_push($return_arr,$row_array);
 	}

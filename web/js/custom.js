@@ -278,6 +278,10 @@ $(document).ready(function() {
 			$('#reservation_guest_city').val(ui.item.reservation_guest_city);
 			$('#reservation_guest_email').val(ui.item.reservation_guest_email);
 			$('#reservation_guest_phone').val(ui.item.reservation_guest_phone);
+			if(ui.item.reservation_advertise == "YES"){
+				$('#reservation_advertise').attr('checked', true);
+			}
+			
 		}
 	  });
 	 $("#reservation_booker_name").autocomplete({

@@ -74,11 +74,13 @@
 				<input type="text" name="reservation_guest_email" id="reservation_guest_email" />
 				<small>&nbsp;<?= _fill_out; ?></small><br>
 				<small>
-					<?= _language; ?>
+					<?= _confirmation_email.": "; ?>
 					<input type="radio" name="email_type" checked="checked" value="no" style="width:20px;"><?= _no_; ?>
 					<input type="radio" name="email_type" value="loc" style="width:20px;"><?= _english; ?>
 					<input type="radio" name="email_type" value="en" style="width:20px;"><?= _international; ?>
+					<input type="hidden" name="reservation_advertise" value="">
 				</small><br>
+				<input type="checkbox" name="reservation_advertise" style="width:15px;" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<small><?= _reservation_advertise; ?></small>
 		</p>
 		<br/>		
 		<p>
@@ -123,6 +125,7 @@
 		<input type="radio" class="radio" name="recurring_span" value="7"><img src='images/icons/calendar-select-days.png' alt='weekly' title='Weekly'>
 		</p>
 	</div></div></div> <!-- end right column -->
+
 	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">
 	<input type="hidden" name="reservation_timestamp" value="<?= date('Y-m-d H:i:s');?>">
 	<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>">

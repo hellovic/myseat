@@ -308,7 +308,6 @@ function writeForm($table =''){
 			  $_SESSION['errors'] = array();
 			}
 
-			
 			// -----
 			return $new_id;
 			

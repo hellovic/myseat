@@ -1,5 +1,5 @@
 <div class="twocolumn_wrapper">
- <div class="twocolumn">
+ <div class="twocolumn"  style="height:930px;">
   <div class="content detailbig content-height">
 	<br/>
 	<label><?= _booknum;?></label>
@@ -52,7 +52,7 @@
 
 	<!-- Beginn right column -->	
 		<div class="twocolumn_wrapper right">
-		 <div class="twocolumn" >
+		 <div class="twocolumn"  style="height:930px;">
 		  <div class="content detailbig content-height">
 			<br/>
 			<label><?= _adress; ?></label>
@@ -65,7 +65,14 @@
 			</p>
 			<label><?= _email; ?></label>
 			<p>
-				<?= $row->reservation_guest_email; ?>
+				<?
+					echo $row->reservation_guest_email; 
+					if ( $row->reservation_advertise =='YES' ) {
+						echo"<img src='images/icons/mail_yes.png' style='margin-left:11px; vertical-align:middle;' title='Advertise allowed'/>";
+					}else{
+						echo"<img src='images/icons/mail_no.png'  style='margin-left:11px; vertical-align:middle;' title='No advertise'/>";	
+					}
+				?>
 			</p>
 			<label><?= _discount; ?></label>
 			<p>
