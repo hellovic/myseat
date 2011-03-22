@@ -119,7 +119,7 @@ $("#nButton").click(function(){
 	<div id="wrapper">
 
 		<div id="login_top">
-			<img src="../web/images/logo.png" alt=""/>
+			<img src="../web/images/logo_big.png" alt=""/>
 		</div>
 		
 		<br class="clear"/><br/>
