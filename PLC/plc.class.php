@@ -42,7 +42,7 @@ class flexibleAccess{
   * The database that we will use
   * var string
   */
- var $dbName = 'myseatXT';
+ var $dbName = 'myseat';
  /**
   * The database host
   * mostly 'localhost' fits
@@ -241,7 +241,7 @@ var $tbTrans = array(
   * page to redirect after login
   * var char
   */
- $_SESSION['forwardPage'] = "../web/main_page.php?p=2";
+ //$_SESSION['forwardPage'] = "../web/main_page.php?p=2";
 
  }
  
@@ -261,7 +261,7 @@ function login($uname,$password,$newpassword)
    	$password = $originalPassword = $this->escape($password);
 
 	// Get password from database for redux auth encoding
-	$sql = "SELECT `{$this->tbFields['pass']}` FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$uname' LIMIT 1";
+	$sql = sprintf("SELECT `{$this->tbFields['pass']}` FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '%s' LIMIT 1",$uname);
 	$res = $this->query($sql,__LINE__);
 	if ( @mysql_num_rows($res) == 0 ){
 		// FALSE - store false attempt in session table
@@ -282,7 +282,8 @@ function login($uname,$password,$newpassword)
 	  	$password = "'$password'";
 	}
 	// check password
-	$sql = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$uname' AND `{$this->tbFields['pass']}` = $password AND `{$this->tbFields['active']}` = '1' LIMIT 1";
+	$sql = sprintf("SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '%s' AND `{$this->tbFields['pass']}` = %s AND `{$this->tbFields['active']}` = '1' LIMIT 1",$uname,$password);
+
 	$res = $this->query($sql,__LINE__);
 	if ( @mysql_num_rows($res) == 0 ){
 		// FALSE - store false attempt in session table
@@ -305,7 +306,7 @@ function login($uname,$password,$newpassword)
 
 			if ($newpassword!="") {
 				// check password
-				$sql = "SELECT * FROM `plc_brutforce` WHERE `text` = '$newpassword'";
+				$sql = sprintf("SELECT * FROM `plc_brutforce` WHERE `text` = '%s'",$newpassword);
 				$res = $this->query($sql,__LINE__);
 				if ( @mysql_num_rows($res) > 0 ){
 					return 4;
@@ -937,9 +938,10 @@ function loadUserDetailNew($appID, $userID)
   	* @return string
   */  
   function escape($str) {
-    $str = get_magic_quotes_gpc()?stripslashes($str):$str;
-    $str = mysql_real_escape_string($str, $this->dbConn);
-    return $str;
+	  $str = (is_array($str)) ? $str : htmlentities($str, ENT_QUOTES, 'UTF-8');
+	  $str = get_magic_quotes_gpc()?stripslashes($str):$str;
+	  $str = (is_array($str)) ? $str : mysql_real_escape_string($str);
+	  return $str;
   }
   /**
   	* Produces a dropdown menu for the roles
@@ -983,7 +985,7 @@ function loadUserDetailNew($appID, $userID)
 function login_form(){
 	  echo '<div id="stylized" class="myform">
 			  <form name="ajaxform" id="ajaxform">
-		    	<h1 style="font-size:1.5em;">Admin Zone Access</h1>
+		    	<h1 style="font-size:1.5em;">Admin HEADQUARTERS</h1>
 		    	<p>Please log in to proceed.</p>
 				<label>User
 			        <span class="small">Required</span>

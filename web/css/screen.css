@@ -47,7 +47,7 @@ a img                                   { border: none }
 	Global layout
 */
 body                                    {
-                                            background: #e8e8e8;
+                                            background: url("../images/gray_noise.jpg") repeat scroll left top rgb(255, 255, 255); margin: 0pt;
                                             font-size: 12px;
 											font-family: 'DroidSansRegular', Arial;
                                             padding: 0;
@@ -515,7 +515,7 @@ input.button_red:active                 {
                                         }
 .onecolumn                              {
                                             border: 1px solid #ccc;
-                                            background: #fff;
+										    background-color: #fff;
                                             margin-right: 30px;
                                             margin-top: -2px;
                                         }
