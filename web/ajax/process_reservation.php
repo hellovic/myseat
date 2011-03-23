@@ -207,7 +207,17 @@ if ($_SESSION['token'] == $_POST['token']) {
 			// run sql query 				
 			$query = substr($query,0,-1);				   
 			$result = query($query);
+			$new_id = mysql_insert_id();
 			$_SESSION['result'] = $result;
+			
+			// setup the right ID
+			if( isset($new_id) || $new_id != $_POST['reservation_id']){
+				$history_id = $new_id;
+			}else{
+				$history_id = $_POST['reservation_id'];
+			}
+			// store changes in history
+			$result = query("INSERT INTO `res_history` (reservation_id,author) VALUES ('%d','%s')",$history_id,$_POST['reservation_booker_name']);
 
 			// -----
 			// increase reservation date one day or week
@@ -220,9 +230,6 @@ if ($_SESSION['token'] == $_POST['token']) {
 			if ( $_POST['email_type'] != 'no' ) {
 				include('../classes/email.class.php');
 			}
-			
-			// store changes in history
-			$result = query("INSERT INTO `res_history` (reservation_id,author) VALUES ('%d','%s')",$_POST['reservation_id'],$_POST['reservation_booker_name']);
 			
 			// set back selected date
 			$_SESSION['selectedDate'] = $selectedDate;
