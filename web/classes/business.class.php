@@ -93,6 +93,14 @@ function getTitleList($title='',$disabled=''){
 		echo "<option value='W' ";
 		echo ($title=='W') ? "selected='selected'" : "";
 		echo ">"._W_."</option>\n";
+		// Doctor
+		echo "<option value='D' ";
+		echo ($title=='D') ? "selected='selected'" : "";
+		echo ">"._DR_."</option>\n";
+		// Professor
+		echo "<option value='P' ";
+		echo ($title=='P') ? "selected='selected'" : "";
+		echo ">"._PROF_."</option>\n";
 		// Family
 		echo "<option value='F' ";
 		echo ($title=='F') ? "selected='selected'" : "";
@@ -121,9 +129,21 @@ function printTitle($title){
 			// Madam
 			return _W_;
 		break;
+		case 'D':
+			// Doctor
+			return _DR_;
+		break;
+		case 'P':
+			// Professor
+			return _PROF_;
+		break;
 		case 'F':
 			// Family
 			return _F_;
+		break;
+		case 'C':
+			// Company
+			return _C_;
 		break;
 		case 'C':
 			// Company

@@ -128,8 +128,8 @@ $cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, 
 (121, '_title', 'Title', 'Titel', 'Titre', 'Título', 'Titel', ' ', 'Titel', ' Titolo', '', '', '', ''),
 (122, '_booknum', 'Booking number', 'Buchungsnummer', '', '', 'Reserveringsnummer', '', 'Bokningsnummer', 'Referenza', '', '', '', ''),
 (123, '_zip', 'ZIP', 'PLZ', '', '', 'Postcode', '', 'Postnr', 'Codice postale', '', '', '', ''),
-(124, '_english', 'English', 'Deutsch', 'Français', '', 'Nederlands', ' ', 'Svenska', ' Italiano', '', '', '', ''),
-(125, '_international', 'International', 'Englisch', 'Anglais', '', 'Engels', ' ', 'Engelska', 'Inglese', '', '', '', ''),
+(124, '_english', 'English', 'Deutsch', 'Français', 'Español', 'Nederlands', 'Danske', 'Svenska', ' Italiano','','','',''),
+(125, '_international', 'US-English', 'Englisch', 'Anglais', 'Inglés', 'Engels', 'Engelsk', 'Engelska', 'Inglese','','','',''),
 (127, '_till_', 'till', 'bis', '', '', 'tot', ' ', 'till', ' fino a ', '', '', '', ''),
 (128, '_at_', 'at', 'um', '', '', 'om', ' ', 'till?', ' alle', '', '', '', ''),
 (129, '_reserved', 'reserved', 'reserviert', '', '', 'gereserveerd', ' ', 'reserverat', ' riservato', '', '', '', ''),
@@ -194,7 +194,10 @@ $cmd = mysql_query("INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, 
 (189, '_errorMessage_yes', 'Your user account has been confirmed!', 'Ihr Benutzer Konto wurde aktiviert!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!', 'Your user account has been confirmed!'),
 (190, '_break', 'Break', 'Pause', 'Pause', 'Pausa', 'Pauze', 'Pause', 'Paus', 'Pausa', '', '', '', ''),
 (191, '_specific', 'Specific', 'Spezielle', 'Précis', 'Específico', 'Specifieke', 'Specifikke', 'Specifik', 'Specifico', '', '', '', ''),
-(192, '_dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard');
+(192, '_dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard', 'Dashboard'),
+(193, '_reservation_advertise', 'I would like to receive informations by email.', 'Ich möchte in Zukunft Informationen per Email erhalten.', 'Je voudrais recevoir des informations par e-mail.', 'Me gustaría recibir información por correo electrónico.', 'Ik wil graag informatie ontvangen per e-mail.', 'Jeg vil gerne modtage information via e-mail.', 'Jag vill få information via e-post.', 'Desidero ricevere informazioni via email.', '', '', '', ''),
+(194, '_DR_', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.'),
+(195, '_PROF_', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.');
 ");
 
 

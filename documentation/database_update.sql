@@ -69,5 +69,7 @@ INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `i
 /* Update the database from XT 0.1744 to > XT 0.1745 */
 /* ------------------------------------------------- */
 INSERT INTO `l16n` (`id`, `needle`, `en`, `de`, `fr`, `es`, `nl`, `dk`, `se`, `it`, `fi`, `no`, `pl`, `tr`) VALUES 
-(193, '_reservation_advertise', 'I would like to receive informations by email.', 'Ich m&ouml;chte in Zukunft Informationen per Email erhalten.', 'Je voudrais recevoir des informations par e-mail.', 'Me gustaría recibir información por correo electrónico.', 'Ik wil graag informatie ontvangen per e-mail.', 'Jeg vil gerne modtage information via e-mail.', 'Jag vill få information via e-post.', 'Desidero ricevere informazioni via email.', '', '', '', '');
+(193, '_reservation_advertise', 'I would like to receive informations by email.', 'Ich m&ouml;chte in Zukunft Informationen per Email erhalten.', 'Je voudrais recevoir des informations par e-mail.', 'Me gustaría recibir información por correo electrónico.', 'Ik wil graag informatie ontvangen per e-mail.', 'Jeg vil gerne modtage information via e-mail.', 'Jag vill få information via e-post.', 'Desidero ricevere informazioni via email.', '', '', '', ''),
+(194, '_DR_', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.', 'Dr.'),
+(195, '_PROF_', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.', 'Prof.');
 
