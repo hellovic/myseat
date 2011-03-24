@@ -114,7 +114,6 @@ $(function(){
 	$('.alert_success').click(function(){
 		$(this).fadeOut('fast');
 	});
-	
 	$('.alert_error').click(function(){
 		$(this).fadeOut('fast');
 	});
@@ -387,9 +386,7 @@ $(document).ready(function() {
 		$.ajax({
 		type: "POST",
 		url: "ajax/modify_status.php",
-		data: 'value=' + selected + '&id=' + status_id,
-		success: function(){
-		}
+		data: 'value=' + selected + '&id=' + status_id
 		});
 		return true;
 	}); // Reservation Status dropdownbox END
@@ -461,7 +458,7 @@ $(document).ready(function() {
 			type: 'pie',
 			width: '760px',
 			height: '240px',
-			colors: ['#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed','#f45a90','#e9e744'],
+			colors: ['#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed','#f45a90','#e9e744']
 		}).appendTo('#graph_wrapper3');
 		
 		$('.visualize').trigger('visualizeRefresh');

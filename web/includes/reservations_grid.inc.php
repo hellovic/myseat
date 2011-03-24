@@ -3,13 +3,13 @@
 <table class="global" style="margin:15px 0px 0px 0px;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
-	    	<th style="width:5%"><?= _time; ?></th>
-			<th style="width:2%"></th>
-			<th style="width:15%"><?= _guest_name; ?></th>
-			<th style="width:2%"><?= _pax; ?></th>
-			<th style="width:10%"><?= _phone_room; ?></th>
-			<th style="width:2%"><?= _type; ?></th>
-			<th style="width:35%">
+	    	<th style="width:5%;"><?= _time; ?></th>
+			<th style="width:2%;"></th>
+			<th style="width:15%;"><?= _guest_name; ?></th>
+			<th style="width:2%;"><?= _pax; ?></th>
+			<th style="width:10%;"><?= _phone_room; ?></th>
+			<th style="width:2%;"><?= _type; ?></th>
+			<th style="width:35%;">
 			<?
 			 	if ($_SESSION['page'] == 1) {
 			 		echo _outlets;
@@ -29,6 +29,7 @@
 			<th style="width:2%" class='noprint'><?= _edit; ?></th>
 	    </tr>
 	</thead>
+	<tfoot></tfoot>
 	<tbody>
 		<?
 		if ($_SESSION['page'] == 1) {

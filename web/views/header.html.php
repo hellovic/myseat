@@ -5,6 +5,7 @@
 <meta http-equiv=pragma content=no-cache/>
 <meta http-equiv=cache-control content=no-cache/> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
  
 <!-- Website Title --> 
 <title><?= $general['app_name'];?></title>
