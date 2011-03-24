@@ -31,6 +31,7 @@
 </div>
 <br class='cl' />
 			<?
+			// ** print out the timelines of all outlets **
 			// memorize actual selected outlet
 			$rem_outlet = $_SESSION['outletID'];
 			
@@ -57,6 +58,7 @@
 
 					//make each outlet a timeline
 					include('includes/timeline.inc.php');
+					
 					echo"<br class='cl' /><br/>\n</div></div><br/>";
 				}
 			}
@@ -69,6 +71,19 @@
 					$_SESSION['selOutlet'][$key] = $value;
 				}
 			}
+			
+			// ** print out all reservations **
+			echo"<div class='onecolumn'><div class='header'>\n";
+			echo"<div class='dategroup_name'>"._confirmed_reservations."</div>
+			</div>\n
+			<div id='content_wrapper'>\n";
+			
+			// no waitlist
+			$_SESSION['wait'] = 0;
+			include('includes/reservations_grid.inc.php');
+			
+			echo"<br class='cl' /><br/>\n</div></div><br/>";
+			
 			?>
 
 <br class="clear"/><br/>

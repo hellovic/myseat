@@ -210,10 +210,22 @@ function querySQL($statement){
 							INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
 							WHERE `reservation_hidden` = '%d' 
 							AND `reservation_wait` = '%d' 
-							AND `reservation_outlet_id` = '%s' 
+							AND `reservation_outlet_id` = '%d' 
 							AND `reservation_date` = '%s' 
 							ORDER BY `reservation_time` ASC",
 							$_SESSION['storno'],$_SESSION['wait'],$_SESSION['outletID'],$_SESSION['selectedDate']
+							);
+			return getRowList($result);
+		break;
+		case 'all_reservations':
+			$result = query("SELECT * FROM `reservations` 
+							INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
+							WHERE `reservation_hidden` = '0' 
+							AND `reservation_wait` = '%d' 
+							AND `property_id` = '%d' 
+							AND `reservation_date` = '%s' 
+							ORDER BY `reservation_time` ASC",
+							$_SESSION['wait'],$_SESSION['propertyID'],$_SESSION['selectedDate']
 							);
 			return getRowList($result);
 		break;

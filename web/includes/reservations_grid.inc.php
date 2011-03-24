@@ -9,7 +9,15 @@
 			<th style="width:2%"><?= _pax; ?></th>
 			<th style="width:10%"><?= _phone_room; ?></th>
 			<th style="width:2%"><?= _type; ?></th>
-			<th style="width:35%"><?= _note; ?></th>
+			<th style="width:35%">
+			<?
+			 	if ($_SESSION['page'] == 1) {
+			 		echo _outlets;
+			 	}else{
+					echo _note;
+				} 
+			?>
+			</th>
 			<th style="width:10%" class='noprint'><?= _author; ?></th>
 			<?
 			if($_SESSION['wait'] == 0){
@@ -23,8 +31,11 @@
 	</thead>
 	<tbody>
 		<?
-
-		$reservations =	querySQL('reservations');
+		if ($_SESSION['page'] == 1) {
+			$reservations =	querySQL('all_reservations');
+		}else{
+			$reservations =	querySQL('reservations');
+		}
 		
 		if ($reservations) {
 			foreach($reservations as $row) {
@@ -66,7 +77,13 @@
 			<td><span class='bold'>".$row->reservation_pax."</strong></td>
 			<td>".$row->reservation_guest_phone."</td>
 			<td>".$row->reservation_hotelguest_yn."</td>
-			<td>".$row->reservation_notes."</td>
+			<td>";
+				if ($_SESSION['page'] == 1) {
+			 		echo $row->outlet_name;
+			 	}else{
+					echo $row->reservation_notes;
+				}
+			echo "</td>
 			<td class='noprint'>".$row->reservation_booker_name."</td>";
 			//<td><small>".humanize($row->reservation_timestamp)."</small></td>
 			if($_SESSION['wait'] == 0){
