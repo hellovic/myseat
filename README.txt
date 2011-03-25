@@ -3,9 +3,9 @@
 =-=           mySeat README               =-=
 =-=                                       =-=
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-=-= Version: 0.1748                       =-= 
-=-= Date:    25.3.2011                    =-= 
-=-= Time:    21:24 GMT                    =-= 
+=-= Version: 0.1747                       =-= 
+=-= Date:    24.3.2011                    =-= 
+=-= Time:    19:40 GMT                    =-= 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
@@ -59,11 +59,12 @@ MULTILINGUAL
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Till now mySeat is translated into
 
-'en_EN' => 'English',
-'de_DE' => 'Deutsch',
-'nl_NL' => 'Nederlands',
-'se_SE' => 'Svenska',
-'it_IT' => 'Italia',
+'en_EN' => 'English'
+'de_DE' => 'Deutsch'
+'es_ES' => 'Español'
+'nl_NL' => 'Nederlands'
+'se_SE' => 'Svenska'
+'it_IT' => 'Italia'
 'cn_CN' => 'Chinese'
 
 
