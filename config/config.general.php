@@ -2,7 +2,7 @@
 // ** Database Details Settings
 
  // ** the database that we will use
- $settings['dbName'] = 'myseatXT';
+ $settings['dbName'] = 'myseat';
  // ** the database host
  // ** mostly 'localhost' fits
  $settings['dbHost'] = 'localhost';
@@ -51,7 +51,8 @@ $settings['currency'] = "Euro";
 		'de_DE' => 'Deutsch',
 		'nl_NL' => 'Nederlands',
 		'se_SE' => 'Svenska',
-		'it_IT' => 'Italia');
+		'it_IT' => 'Italia',
+		'cn_CN' => 'Chinese');
 
 // User roles
 	$roles = array(

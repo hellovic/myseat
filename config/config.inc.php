@@ -12,6 +12,8 @@ if($_SESSION['valid_user']==TRUE){
 if ( function_exists( 'date_default_timezone_set' ) ){
 	date_default_timezone_set( $general['timezone'] );
 }
+/* Set locale to Dutch */
+setlocale(LC_ALL, $general['language']);
 
 ?>
 

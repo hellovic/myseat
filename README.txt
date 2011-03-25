@@ -3,9 +3,9 @@
 =-=           mySeat README               =-=
 =-=                                       =-=
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-=-= Version: 0.1745                       =-= 
-=-= Date:    20.3.2011                    =-= 
-=-= Time:    19:23 GMT                    =-= 
+=-= Version: 0.1747                       =-= 
+=-= Date:    24.3.2011                    =-= 
+=-= Time:    19:40 GMT                    =-= 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
@@ -29,12 +29,6 @@ Open <config/config.general.php> and <PLC/plc.class.php> in a text editor and fi
 Browse to your new mySeat site to the directory /install.
 This will take you to the mySeat installer, which starts with a small explanation.
 
-DATABASE UPDATE
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-See documentation/database_update.sql for database updates.
-You will find there the designated SQL queries to copy/paste 
-into the phpmyAdmin SQL box.
-
 
 MAIN FEATURES
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -51,7 +45,7 @@ TIME CONTROL
 mySeat shows instanlty the occupany by time in a well-arranged bargraph.
 You see clearly the next timeslot to book, to prevent all guest coming at the same time.
 MULTILINGUAL
-mySeat is designed to be multilingual and is translated in English, German, French, Spain and Swedish.
+mySeat is designed to be multilingual. 
 STATISTIC
 The most significant key data is displayed as statistics to give you an overview over your outlets.
 HISTORY
@@ -59,6 +53,18 @@ Every time you edit a reservation detail, mySeat remembers the authors name and 
 mySeat summarizes and show you a history about the guests preferences.
 INFORMATION
 Publish info messages and special events. Gain maximum flexibility with in- and decreasing the capacity for every single day.
+
+
+MULTILINGUAL
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Till now mySeat is translated into
+
+'en_EN' => 'English',
+'de_DE' => 'Deutsch',
+'nl_NL' => 'Nederlands',
+'se_SE' => 'Svenska',
+'it_IT' => 'Italia',
+'cn_CN' => 'Chinese'
 
 
 LICENSE
