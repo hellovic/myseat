@@ -12,8 +12,8 @@ h1, h2, p, form                      {
 h1, h2, h3, h4                       { color: #181800 }
 img                                  { border: 0px }
 a:visited, a:active, a:link, a:focus {
-                                         color: #793141;
-                                         text-decoration: none;
+                                         /* color: #793141;
+                                         text-decoration: none; */
                                          font-weight: bold;
                                      }
 a:hover                              {

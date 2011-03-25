@@ -85,18 +85,18 @@ function dateformatDropdown( $selected='d.m.Y', $kind = 0 ){
 	**/	
 	if ($kind == 1) {
 		$date_formats = array(
-			'd.m.y' => '04.12.2010',
-			'd/m/y' => '04/12/2010',
-			'y/m/d' => '2010/12/04',
-			'm/d/y' => '12/04/2010'
+			'd.m.y' => '31.12.2010',
+			'd/m/y' => '31/12/2010',
+			'y/m/d' => '2010/12/31',
+			'm/d/y' => '12/31/2010'
 			);
 			$datefield = 'datepickerformat';
 	}else if ($kind == 0){
 		$date_formats = array(
-			'd.m.Y' => '04.12.2010',
-			'd/m/Y' => '04/12/2010',
-			'Y/m/d' => '2010/12/04',
-			'm/d/Y' => '12/04/2010'
+			'd.m.Y' => '31.12.2010',
+			'd/m/Y' => '31/12/2010',
+			'Y/m/d' => '2010/12/31',
+			'm/d/Y' => '12/31/2010'
 			);
 			$datefield = 'dateformat';
 	}else if ($kind == 2){

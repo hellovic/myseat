@@ -91,7 +91,16 @@ function querySQL($statement){
 		case 'db_all_outlets':
 			$result = query("SELECT * FROM `outlets` 
 							WHERE `property_id` ='%d' 
-							ORDER BY outlet_name",$_SESSION['property']);
+							AND ( `saison_year` = 0 OR `saison_year` = '%d' )
+							ORDER BY saison_year ASC, outlet_name ASC",$_SESSION['property'], $_SESSION['selectedDate_year']);
+			return getRowList($result);
+		break;
+		case 'db_all_outlets_old':
+			$result = query("SELECT * FROM `outlets` 
+							WHERE `property_id` ='%d' 
+							AND `saison_year` < '%d'
+							AND `saison_year` != 0
+							ORDER BY saison_year ASC, outlet_name ASC",$_SESSION['property'], $_SESSION['selectedDate_year']);
 			return getRowList($result);
 		break;
 		case 'db_outlet_info':

@@ -72,7 +72,12 @@
 			<ul class="second_level_tab">
 				<li>
 					<a href="?p=6&q=1&btn=1" <? if ($_SESSION['button'] == 1) { echo " class='active'";}?> >
-						<?= _outlets;?>
+						<?= _active;?>
+					</a>
+				</li>
+				<li>
+					<a href="?p=6&q=1&btn=3" <? if ($_SESSION['button'] == 3) { echo " class='active'";}?> >
+						<?= 'In'._active;?>
 					</a>
 				</li>
 				<li>
@@ -175,7 +180,7 @@
 			switch($q){
 				case '1':
 					// outlets
-					if($_SESSION['button'] == 1){
+					if($_SESSION['button'] == 1 || $_SESSION['button'] == 3){
 						include('includes/outlets_grid.inc.php');
 					}else if($_SESSION['button'] == 2){
 						include('includes/outlets_new.inc.php');

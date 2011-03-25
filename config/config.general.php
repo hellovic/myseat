@@ -49,6 +49,7 @@ $settings['currency'] = "Euro";
  $langTrans = array(
 		'en_EN' => 'English',
 		'de_DE' => 'Deutsch',
+		'es_ES' => 'Español',
 		'nl_NL' => 'Nederlands',
 		'se_SE' => 'Svenska',
 		'it_IT' => 'Italia',

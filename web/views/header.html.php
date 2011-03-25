@@ -46,6 +46,7 @@
 <script type="text/javascript" src="js/hint.js"></script>
 <script type="text/javascript" src="js/visualize/jquery.visualize.js"></script>
 <script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="js/jquery.img.preload.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="js/browser.js"></script>

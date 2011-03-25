@@ -1,5 +1,5 @@
 <?php
-$_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
+//$_SESSION['language'] = ($_SESSION['language']!='') ? $_SESSION['language'] : 'en_EN';
 
 // Check for a unique username
 // ** set configuration
@@ -15,7 +15,7 @@ $_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
 // ** set configuration
     include('../config/config.inc.php');
 // translate to selected language
-    translateSite(substr($_SESSION['language'],0,2));
+    translateSite();
 
 // prevent dangerous input
 	secureSuperGlobals();

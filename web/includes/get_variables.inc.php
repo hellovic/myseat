@@ -126,7 +126,9 @@ if ( !(
 	 && $_SESSION['selectedDate_saison']<=$_SESSION['selOutlet']['saison_end']) 
 	 )) {
 		// if not, go to standard outlet
+		if(	$_SESSION['page'] == 2){
 		$_SESSION['outletID'] = querySQL('standard_outlet');
+		}
 	}
 
 // +++ memorize selected outlet details +++

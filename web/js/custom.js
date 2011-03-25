@@ -1,5 +1,8 @@
 $(function(){
 	
+	// Preload images
+	$.preloadCssImages();
+	
 	$('.nav li a').each(function()
 		{
 			$(this).click(function(){
