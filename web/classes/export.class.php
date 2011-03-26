@@ -13,7 +13,7 @@ include('../../config/config.inc.php');
 include('../classes/local.class.php');
 
 // translate to selected language
-translateSite(substr($_SESSION['language'],0,2));
+translateSite(substr($_SESSION['language'],0,2),'../');
 
 // prevent dangerous input
 secureSuperGlobals();

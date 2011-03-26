@@ -15,7 +15,7 @@ $_SESSION['language'] = ($_SESSION['language']) ? $_SESSION['language'] : 'en';
 // ** set configuration
     include('../../config/config.inc.php');
 // translate to selected language
-    translateSite(substr($_SESSION['language'],0,2));
+    translateSite(substr($_SESSION['language'],0,2),'../');
 
 // prevent dangerous input
 secureSuperGlobals();

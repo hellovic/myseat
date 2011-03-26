@@ -13,7 +13,7 @@ include('../classes/database.class.php');
 // ** localization functions
 include('../classes/local.class.php');
 // translate to selected language
-translateSite(substr($_SESSION['language'],0,2));
+translateSite(substr($_SESSION['language'],0,2),'../');
 // ** business functions
 include('../classes/business.class.php');
 // ** all database queries

@@ -21,7 +21,7 @@ session_start();
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	translateSite(substr($_SESSION['language'],0,2));
+	translateSite(substr($_SESSION['language'],0,2),'../');
 // ** get superglobal variables
 	include('includes/get_variables.inc.php');
 // ** check booking
