@@ -56,12 +56,15 @@ function formatTime($tm, $format){
 }
 
 // read translation text from database
-function translateSite($selected_lang='en'){
+function translateSite($lang='en'){
+	require_once('lang/'.$lang.".php");
+	/* old version with dtabase use
 	$sql = "SELECT * FROM `l16n`";
 	$result = mysql_query($sql);
 	while($row = mysql_fetch_array($result)){ 
-		define ( $row['needle'],$row[$selected_lang]);
+		define ( $row['needle'],$row[$lang]);
 	}
+	*/
 }
 
 // calculate the difference between two dates

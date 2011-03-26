@@ -44,30 +44,6 @@ echo "<li>The Events table has been created. </li>";
 
 // --------------------------------------------------------
 
-$sql = query("CREATE TABLE IF NOT EXISTS `l16n` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `needle` varchar(255) NOT NULL,
-  `en` text NOT NULL,
-  `de` text NOT NULL,
-  `fr` text NOT NULL,
-  `es` text NOT NULL,
-  `nl` text NOT NULL,
-  `dk` text NOT NULL,
-  `se` text NOT NULL,
-  `it` text NOT NULL,
-  `fi` text NOT NULL,
-  `no` text NOT NULL,
-  `pl` text NOT NULL,
-  `tr` text NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `needle` (`needle`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;")
- or die(mysql_error()); 
-
-echo "<li>The Translations table has been created. </li>";
-
-// --------------------------------------------------------
-
 $sql = query("CREATE TABLE IF NOT EXISTS `maitre` (
   `maitre_id` int(11) NOT NULL AUTO_INCREMENT,
   `maitre_outlet_id` int(11) DEFAULT NULL,
@@ -334,13 +310,6 @@ $sql = query("CREATE TABLE IF NOT EXISTS `client_order` (
 echo "<li>The Client Order table has been created. </li>";
 
 // DATA ---------------------------------------------------
-    
-    //translations
-    //$sql = query("set names 'utf-8';");
-
-    include('l16n.php');
-
-// --------------------------------------------------------
 
 $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
 (1, 'Settings-General', 1, 1, 0, 0, 0, 0),
@@ -358,7 +327,7 @@ $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`
 (13, 'Property-New', 1, 1, 1, 1, 1, 0);")
  or die(mysql_error());
 
-echo "<li>User Permissions have been set by default.</li>";
+echo "<li>User Permissions have been set to default.</li>";
 
 // FINISH ---------------------------------------------------
 echo '<div id="login_info" class="alert_info" style="margin:auto;padding:auto;"><p style="margin-bottom:6px; text-align:center;"><img src="../web/images/icon_message.png" alt="success" class="middle"/>';

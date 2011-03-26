@@ -38,7 +38,8 @@
 		</li>
 		<?php endif ?>
 		<li>
-			<a href="http://<?= $_SERVER['HTTP_HOST'].substr(dirname($_SERVER['PHP_SELF']),0,-4);?>/contactform/index.php?so=ON&prp=<?= $_SESSION['propertyID'];?>&outletID=<?= $_SESSION['outletID'];?>" target="blank"><?= _guest;?>
+			<a href="http://<?= $_SERVER['HTTP_HOST'].substr(dirname($_SERVER['PHP_SELF']),0,-4);?>/contactform/index.php?so=ON&prp=<?= $_SESSION['propertyID'];?>&outletID=<?= $_SESSION['outletID'];?>" target="blank">
+			<?= _online;?>
 			</a>
 
 		</li>
