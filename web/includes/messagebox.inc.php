@@ -27,7 +27,34 @@ if (isset($passbyTime)) {
 	}
 }
 
+// Messages
+if (count($_SESSION['messages']) > 0) {
+	echo "<div class='alert_error'>
+	<p><img src='images/icon_warning.png' alt='error' class='middle'/>";
+	foreach ($_SESSION['messages'] as $key => $value) {
+		echo $value."<br/>";
+	}
+	echo "</p></div>";
+	//Clear messages after printing
+	$_SESSION['messages'] = array();
+}
 
+// Error & success messages
+if ( !empty($_SESSION['errors']) ) {
+	echo "<div id='messageBox' style='cursor:pointer;'>";
+	echo "<div class='alert_error'>
+	<p><img src='images/icon_error.png' alt='error' class='middle' />";
+	foreach ($_SESSION['errors'] as $key => $value) {
+		echo $value."<br/>";
+	}
+	echo "</p></div></div>";
+	//Clear errors after printing
+	$_SESSION['errors'] = array();
+}else if ( $_SESSION['result'] ) {
+	echo "<div id='messageBox'>";
+	echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>". _new_entry ."</p></div></div>";
+	$_SESSION['result'] = '';
+}
 
 // Special event advertise
 $events_advertise = querySQL('event_advertise');
@@ -73,35 +100,6 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 			$row->description."<br/></div><br/></p>";
 		}
 	echo "</div>";
-}
-
-// Error & success messages
-if ( !empty($_SESSION['errors']) ) {
-	echo "<div id='messageBox' style='cursor:pointer;'>";
-	echo "<div class='alert_error'>
-	<p><img src='images/icon_error.png' alt='error' class='middle' />";
-	foreach ($_SESSION['errors'] as $key => $value) {
-		echo $value."<br>";
-	}
-	echo "</p></div></div>";
-	//Clear errors after printing
-	$_SESSION['errors'] = array();
-}else if ( $_SESSION['result'] ) {
-	echo "<div id='messageBox'>";
-	echo "<div class='alert_success'><p><img src='images/icons/icon_accept.png' alt='success' class='middle'/>". _new_entry ."</p></div></div>";
-	$_SESSION['result'] = '';
-}
-
-// Messages
-if (count($_SESSION['messages']) >= 1) {
-	echo "<div class='alert_warning'>
-	<p><img src='images/icon_warning.png' alt='error' class='middle'/>";
-	foreach ($_SESSION['messages'] as $key => $value) {
-		echo $value."<br>";
-	}
-	echo "</p></div>";
-	//Clear messages after printing
-	$_SESSION['messages'] = array();
 }
 
 ?>

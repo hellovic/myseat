@@ -64,8 +64,6 @@ This file is part of mySeat.
 	translateSite(substr($_SESSION['language'],0,2));
 // ** get superglobal variables
 	include('includes/get_variables.inc.php');
-// ** check booking
-	include('classes/bookingrules.class.php');
 // ** html header section
 	include('views/header.html.php');
 // ** set todays date

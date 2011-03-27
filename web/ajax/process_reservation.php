@@ -24,6 +24,9 @@ include('../../config/config.inc.php');
 // prevent dangerous input
 secureSuperGlobals();
 
+// ** check booking rules
+include('../classes/bookingrules.class.php');
+
 // set sql table
 $table = 'reservations';
 

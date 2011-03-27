@@ -1,9 +1,8 @@
 <?
-if ($_POST['action']=='save_res') {
-	
+if ($_POST['action']=='save_res') {	
 	// group reservation needs a common menu?
 	if ( (int)$_POST['reservation_pax'] >= $general['max_menu']){ 
-		$_SESSION['messages'] [] = _sentence_8." ".$general['max_menu']." "._sentence_9 ;
+		$_SESSION['messages'][] = _sentence_8." ".$general['max_menu']." "._sentence_9 ;
 	}
 	
 	// outlet has already opened?
@@ -11,7 +10,7 @@ if ($_POST['action']=='save_res') {
 	list($d,$m,$y) = explode("-",$_SESSION['selectedDate']);
 	
 	if (date('H:i:s',time()) > $_SESSION['selOutlet']['outlet_open_time'] && $m == date('m') && $d == date('d') && $y == date('Y')){ 
-		$_SESSION['messages'] [] = _sentence_6 ;
+		$_SESSION['messages'][] = _sentence_6 ;
 	}		
 	
 }

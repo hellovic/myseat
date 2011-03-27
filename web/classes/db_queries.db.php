@@ -11,12 +11,13 @@ function querySQL($statement){
 							FROM `reservations`  
 							WHERE `reservation_hidden` = '0' 
 							AND `reservation_wait` = '0' 
-							AND `reservation_outlet_id` = '%s' 
+							AND `reservation_outlet_id` = '%d' 
 							AND `reservation_date` = '%s'
 							AND `reservation_status` != 'DEP'
+							AND `reservation_id` != '%d'
 							GROUP BY `reservation_time`
 							ORDER BY `reservation_time` ASC",
-							$_SESSION['outletID'],$_SESSION['selectedDate']
+							$_SESSION['outletID'],$_SESSION['selectedDate'],$_SESSION['resID']
 							);
 			return getRowList($result);
 		break;
