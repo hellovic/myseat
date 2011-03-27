@@ -20,12 +20,27 @@ function querySQL($statement){
 							);
 			return getRowList($result);
 		break;
+		case 'passerby_availability':
+			$result = query("SELECT reservation_time, SUM(reservation_pax) AS passerby_total
+							FROM `reservations`  
+							WHERE `reservation_hidden` = '0' 
+							AND `reservation_wait` = '0' 
+							AND `reservation_outlet_id` = '%s' 
+							AND `reservation_date` = '%s'
+							AND `reservation_status` != 'DEP'
+							AND `reservation_hotelguest_yn` = 'PASS'
+							GROUP BY `reservation_time`
+							ORDER BY `reservation_time` ASC",
+							$_SESSION['outletID'],$_SESSION['selectedDate']
+							);
+			return getRowList($result);
+		break;
 		case 'maxcapacity':
 			$out1 = array();
-			$result = query("SELECT outlet_max_capacity, outlet_max_tables FROM `outlets` 
+			$result = query("SELECT outlet_max_capacity, outlet_max_tables, passerby_max_pax FROM `outlets` 
 							WHERE `outlet_id`='%d'",$_SESSION['outletID']);
 			$out1 = getRowListarray($result);
-			$result = query("SELECT outlet_child_tables, outlet_child_capacity FROM `maitre` 
+			$result = query("SELECT outlet_child_tables, outlet_child_capacity, outlet_child_passer_max_pax FROM `maitre` 
 							WHERE `maitre_outlet_id`='%d' 
 							AND `maitre_date`='%s'",$_SESSION['outletID'],$_SESSION['selectedDate']);
 			$out2 = getRowListarray($result);
@@ -146,11 +161,12 @@ function querySQL($statement){
 			$result = query("SELECT events.*,outlets.outlet_name FROM `events`
 						LEFT JOIN `outlets` ON events.outlet_id = outlets.outlet_id
 						WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `events` ) 
-						and DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
+						AND DATE_SUB(`event_date`,INTERVAL `advertise_start` DAY) <= CURDATE()
 						AND `event_date` >= CURDATE()
+						AND `event_date` >= '%s'
 						AND `webform` = '1'
 						ORDER BY advertise_start,event_date ASC
-						LIMIT 5");
+						LIMIT 5",$_SESSION['selectedDate']);
 			return getRowList($result);
 		break;
 		case 'event_data_day':

@@ -1,4 +1,9 @@
 <?
+// get outlet maximum capacity
+$maxC = maxCapacity();
+// get Pax by timeslot
+$passbyTime = reservationsByTime('pass');
+
 // Maitre day comment
 if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
 	echo "<div class='alert_warning'>
@@ -9,22 +14,42 @@ if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
 	$maitre['maitre_comment_day'] = '';	
 }
 
+// Max passerby warning
+if (isset($passbyTime)) {
+	$i=1;
+	foreach ($passbyTime as $key => $value) {
+		if ( $_SESSION['passerby_max_pax']-$value <= 0 && $_SESSION['page'] == 2 ) {
+			if($i<=1){echo "<div class='alert_warning'><p>";}
+			echo "<img src='images/icon_warning.png' alt='error' class='middle'/>".formatTime($key,$general['timeformat']).": "._sentence_16."<br>";
+			if($i==count($passbyTime)){echo "</p></div>";}
+			$i++;
+		}
+	}
+}
+
+
+
 // Special event advertise
 $events_advertise = querySQL('event_advertise');
 if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
-	echo "<div class='alert_info' style='cursor:pointer;'>
-	";
+	echo "<div class='alert_ads'>
+	<div class='ads'>"._ads."</div>";
 		// special events
 		foreach($events_advertise as $row) {
-			echo "<p style='margin-bottom:6px;'>
+			echo "
 			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
 			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
-			_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."<br/></span><div style='margin-left:38px; font-size:0.8em; line-height:1.2em;'>".date($general['dateformat'],strtotime($row->event_date))." ".formatTime($row->start_time,$general['timeformat']).
-			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
+			_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."</span>
+			<p>".$row->description."<br/><cite><span class='bold'>
+			".date($general['dateformat'],strtotime($row->event_date)).
+			"</span> ".formatTime($row->start_time,$general['timeformat']).
+			" - ".formatTime($row->end_time,$general['timeformat'])." | ".
 			_ticket_price.": ".number_format($row->price,2).
-			"<br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
-			$row->description."<br/></div><br/></p>";
+			"</cite></p>";
+			if( key($row) != count($events_advertise)-1 ) {
+				echo"<br/>";
+			} 
 		}
 	echo "</div>";
 }

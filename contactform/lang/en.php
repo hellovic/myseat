@@ -96,6 +96,8 @@
 
 	// The titles
 	$lang["_M_"] = 'Mr.'; // Mr.
+	$lang["_DR_"] = 'Dr.'; // Dr.
+	$lang["_PROF_"] = 'Prof.'; // Prof.
 	$lang["_W_"] = 'Ms.'; // Mrs.
 	$lang["_F_"] = 'Family'; // Family
 	$lang["_C_"] = 'Group'; // Group

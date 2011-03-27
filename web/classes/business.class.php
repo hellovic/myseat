@@ -199,7 +199,7 @@ function getOutletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_
 	echo "</select>\n";
 }
 
-function outletList($outlet_id = 1, $disabled = 'enabled',$tablename='outlet_id'){
+function outletList($outlet_id = '1', $disabled = 'enabled',$tablename='outlet_id'){
 	//set dayoff memory for error message
 	$mem_dayoff = 1;
 	//remember outlet ID
@@ -537,11 +537,12 @@ function maxCapacity(){
 		
 	$_SESSION['outlet_max_capacity'] = $capacity['outlet_max_capacity'] + $capacity['outlet_child_capacity'];
 	$_SESSION['outlet_max_tables'] = $capacity['outlet_max_tables'] + $capacity['outlet_child_tables'];
+	$_SESSION['passerby_max_pax'] = ($capacity['outlet_child_passer_max_pax'] > 0 ) ?  $capacity['outlet_child_passer_max_pax'] : $capacity['passerby_max_pax'];
 	return TRUE;
 }
 
 // get reservations of day/outlet, grouped by time
-// $kind = 'pax' or 'tbl'
+// $kind = 'pax' (persons) or 'tbl' (tables) or 'pass' (passerby)
 function reservationsByTime($kind='pax') {
 	
 	$availability_by_time = array();
@@ -552,10 +553,20 @@ function reservationsByTime($kind='pax') {
 			$tbl_by_time[$row->reservation_time] = $row->tbl_total;
 		}
 	}
+	$pass_availability = querySQL('passerby_availability');
+	if ($pass_availability) {
+		foreach($pass_availability as $row) {
+			$pass_by_time[$row->reservation_time] = $row->passerby_total;
+		}
+	}
+	
+	//returen values
 	if( $kind=='pax' ){
 	    return $pax_by_time;
 	}else if( $kind=='tbl' ){
 	    return $tbl_by_time;
+	}else if( $kind=='pass' ){
+		return $pass_by_time;
 	}
 }
 

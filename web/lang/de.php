@@ -432,7 +432,7 @@ define ( '_dear_sirs_and_madams', 'Sehr geehrte Damen und Herren' );
 define ( '_dear_family', 'Liebe Familie' );
 
 //original text: "Property"
-define ( '_property', 'Anwesen' );
+define ( '_property', 'Objekt' );
 
 //original text: "Mr."
 define ( '_M_', 'Herr' );
@@ -589,4 +589,6 @@ define ( '_PROF_', 'Prof.' );
 //original text: "Online"
 define ( '_online', 'Online' );
 
+//original text: "Ad"
+define ( '_ads', 'Anzeige' );
 ?>

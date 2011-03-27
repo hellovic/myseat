@@ -97,6 +97,8 @@
 	
 	// The titles
 	$lang["_M_"] = 'Hr.'; // Mr.
+	$lang["_DR_"] = 'Dr.'; // Dr.
+	$lang["_PROF_"] = 'Prof.'; // Prof.
 	$lang["_W_"] = 'Mevr.'; // Mrs.
 	$lang["_F_"] = 'Familie'; // Family
 	$lang["_C_"] = 'Bedrijfsnaam'; // Company

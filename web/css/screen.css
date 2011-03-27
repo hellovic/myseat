@@ -749,10 +749,44 @@ input.button_red:active                 {
                                             color: #543551;
                                             text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
 										}
-.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_pos  p, .alert_tip  p, .alert_hint  p
-                                        { margin: 10px }
 .alert_tip a
 										{ color: #543551; }
+.alert_ads								{
+                                            background: #FDF6E5;
+                                            border: 1px solid #FDF6E5;
+                                            margin: 8px;
+											padding: 2px 7px 1px 8px;
+                                            color: #543551;
+											cursor:pointer;
+                                            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.49);
+										}
+.alert_ads a							{
+											color: #2200C1;
+										}
+			
+.alert_ads cite, cite a:link, cite a:visited {
+    										color: #0E774A;
+    										font-style: normal;
+}
+.alert_ads .ads							{
+											float: right; 
+											font-weight: normal; 
+											color: #767676;
+											padding: 1px 0pt 1px 1px; 
+											font-size:0.8em;
+											margin: 3px 0pt 0pt;
+											text-shadow: none;										
+										}
+.alert_warning p, .alert_info p, .alert_success p, .alert_error p, .alert_pos  p, .alert_tip  p, .alert_hint  p, .alert_ads p
+                                        { 
+										margin-top:10px; 
+										margin-left:34px; 
+										font-size:0.9em; 
+										line-height:1.2em; 
+										width:80% 
+										}
+
+										
 .graph_wrapper                          { padding: 10px 0 5px 0 }
 #footer                                 {
                                             width: 100%;

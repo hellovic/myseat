@@ -589,5 +589,7 @@ define ( '_PROF_', 'Prof.' );
 //original text: "Online"
 define ( '_online', '在線' );
 
+//original text: "Ad"
+define ( '_ads', '广告' );
 
 ?>

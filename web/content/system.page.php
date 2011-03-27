@@ -155,17 +155,18 @@
 			<?php endif ?>
 			<?php if ( $q == 5 ): ?>
 			<ul class="second_level_tab" style="line-height:1.4em">
+				<?php if ( current_user_can( 'Settings-Outlets' ) ): ?>
 				<li>
 					<a http://localhost/XT/06-code/web/main_page.php?q=1 id="editToggle" onclick="return false;">
 						<?= _edit;?>
 					</a>
 				</li>
-
 				<li>
 					<a href="?p=6&q=1&btn=1">
 						<?= _back;?>
 					</a>
 				</li>
+				<?php endif ?>
 			</ul>
 			<?php endif ?>
 			<!-- End 2nd level tab -->

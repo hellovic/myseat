@@ -26,7 +26,7 @@ $_SESSION['outletID'] = '';
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	translateSite(substr($_SESSION['language'],0,2));
+	translateSite(substr($_SESSION['language'],0,2),'../web/');
 
 //standard outlet for contact form
 	if ($_GET['outletID']) {
@@ -74,6 +74,7 @@ $_SESSION['outletID'] = '';
 	// get Pax by timeslot
     $resbyTime = reservationsByTime('pax');
     $tblbyTime = reservationsByTime('tbl');
+	$_SESSION['passbyTime'] = reservationsByTime('pass');
 
     // get availability by timeslot
     $availability = getAvailability($resbyTime,$general['timeintervall']);
@@ -83,10 +84,22 @@ $_SESSION['outletID'] = '';
     $outlet_name = querySQL('db_outlet');
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html lang="<?php echo $language; ?>">
 <head>
-    <meta charset="utf-8"/>
+	<meta http-equiv=pragma content=no-cache/>
+	<meta http-equiv=cache-control content=no-cache/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<!-- Meta data for SEO -->
+	<meta id="htmlTagMetaDescription" name="Description" content="Make online reservationsfor lunch and dinners. mySeat is a OpenSource online reservation system for restaurants." />
+	<meta id="htmlTagMetaKeyword" name="Keyword" content="restaurant reservations, online restaurant reservations, restaurant management software, mySeat, free tables" />
+	<meta name="robots" content="all,follow" />
+	<meta name="author" lang="en" content="Bernd Orttenburger [www.myseat.us]" />
+	<meta name="copyright" lang="en" content="mySeat [www.myseat.us]" />
+	<meta name="keywords" content="mySeat, table reservation system, Bookings Diary, Reservation Diary, Restaurant Reservations, restaurant reservation system, open source, software, reservation management software, restaurant table management, table planner, restaurant table planner, table management, hotel" />
 
 	<!-- CSS - Setup -->
 	<link href="style/style.css" rel="stylesheet" type="text/css" />
@@ -173,7 +186,7 @@ $_SESSION['outletID'] = '';
 		    <input type="hidden" name="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
             
 		    <!-- END datepicker -->
-		    <div>
+		    <div><br/>
 			<?php
 			
 			// MESSAGES
@@ -196,31 +209,87 @@ $_SESSION['outletID'] = '';
 				if ( $special_events ) {
 					echo "<div class='alert_info'>";
 					$advertise = $special_events;
+					// special events today at outlet
+							echo "<div class='ads'>"._ads."</div>";
+								// special events
+								foreach($advertise as $row) {
+									echo "
+									<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
+									<span class='bold'>
+									<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
+									_today.": ".$row->subject."</a></span>
+									<p>".$row->description."<br/><cite><span class='bold'>
+									".date($general['dateformat'],strtotime($row->event_date)).
+									"</span> ".formatTime($row->start_time,$general['timeformat']).
+									" - ".formatTime($row->end_time,$general['timeformat'])." | ".
+									_ticket_price.": ".number_format($row->price,2).
+									"</cite></p>";
+									if( key($row) != count($events_advertise)-1 ) {
+										echo"<br/>";
+									} 
+								}
+							echo "</div>";
 				}else{
-					echo "<div class='alert_info'>";
+					echo "<div class='alert_ads'>";
 					$advertise = $events_advertise;
+					// special events advertisement
+							echo "<div class='ads'>"._ads."</div>";
+								// special events
+								foreach($advertise as $row) {
+									echo "
+									<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
+									<span class='bold'>
+									<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
+									_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."</span>
+									<p>".$row->description."<br/><cite><span class='bold'>
+									".date($general['dateformat'],strtotime($row->event_date)).
+									"</span> ".formatTime($row->start_time,$general['timeformat']).
+									" - ".formatTime($row->end_time,$general['timeformat'])." | ".
+									_ticket_price.": ".number_format($row->price,2).
+									"</cite></p>";
+									if( key($row) != count($events_advertise)-1 ) {
+										echo"<br/>";
+									} 
+								}
+							echo "</div>";
 				}
-			
-					// special events
-					foreach($advertise as $row) {
-						echo "<p style='margin-bottom:6px;'>
-						<img src='images/icon_cutlery.png' alt='special' class='middle'/>
-						<span class='bold'>"._today.": ".$row->subject.
-						"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
-						date($general['dateformat'],strtotime($row->event_date)) 
-						." ".formatTime($row->start_time,$general['timeformat']).
-						" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-						$row->outlet_name."<br/>".
-						_ticket_price.": ".number_format($row->price,2).
-						"<br/><br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
-						$row->description."<br/></div><br/></p>";
-					}
-				echo "</div>";
+					
 			}
 ?>
-
-			<br/>
-		    <br/>
+			<br/><br/>	
+<?			
+			// Restaurant dropdown
+			$num_outlets = 0;
+			if ($_SESSION['single_outlet'] == 'OFF') {
+				$num_outlets = querySQL('num_outlets');
+			}
+			
+				if ($num_outlets>1) {
+					echo"<label>RESTAURANT</label><br/><div style='font-size:1.4em'>";
+					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
+				} else{
+					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'></div><br/><br/>";
+				}
+			
+			?>
+			
+		    </div>
+		    <div>
+			<label><?php lang("contact_form_time"); ?>*</label><br/>
+			<?php
+			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
+			?>
+		    </div>
+		  	<br/>
+		    <div>
+			<label><?php lang("contact_form_pax"); ?>*</label><br/>
+                        <?php
+							//personsList(max pax before menu , standard selected pax);
+						    personsList($general['max_menu'],2);
+						?>
+                    </div>
+			<br/><br/>
 			
 			<!-- facebook button-->		
 		    <?php if ($me): ?>
@@ -238,34 +307,6 @@ $_SESSION['outletID'] = '';
 			<!-- facebook button end -->
 			
 			<br/>
-		    <br/>
-		
-<?			
-			// Restaurant dropdown
-			$num_outlets = 0;
-			if ($_SESSION['single_outlet'] == 'OFF') {
-				$num_outlets = querySQL('num_outlets');
-			}
-			
-				if ($num_outlets>1) {
-					echo"<br/><br/><label>RESTAURANT</label><br/>";
-					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
-					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
-				} else{
-					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'><br/><br/>";
-				}
-			
-			?>
-			
-		    </div>
-
-		    <div>
-			<label><?php lang("contact_form_time"); ?>*</label><br/>
-			<?php
-			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
-			?>
-		    </div>
-			<br/><br/>
 			<br/>
 		    <div>
 			<label><?php lang("contact_form_title"); ?></label><br/>
@@ -287,18 +328,10 @@ $_SESSION['outletID'] = '';
                <input type="text" name="reservation_guest_name" class="form required" id="reservation_guest_name" value="<?php if($me['last_name']){echo $me['last_name'].", ".$me['first_name'];} ?>" />
                     </div>
 		    <br/>
-		    <div>
-			<label><?php lang("contact_form_pax"); ?>*</label><br/>
-                        <?php
-							//personsList(max pax before menu , standard selected pax);
-						    personsList($general['max_menu'],2);
-						?>
-                    </div>
-		    <br/>
-                    <div>
+            <div>
 			<label><?php lang("contact_form_email"); ?>*</label><br/>
               <input type="text" name="reservation_guest_email" class="form required email" id="reservation_guest_email" value="<?php echo $me['email']; ?>" />
-                    </div>
+            </div>
 		    <br/>
 		<div>
 			<label></label>
@@ -358,12 +391,12 @@ $_SESSION['outletID'] = '';
 	    <br class="cl" />
 	    <br class="cl" />		
 		</div><!-- page content end -->
-	</div><!-- page container end -->
+	</div></div><!-- page container end -->
 			
   <!-- Footer Start -->
   <footer>
 
-    <p><small>&copy; 2010 by MYSEAT under the GPL license, designed deep in the heart of Germany.</small></p>
+    <p><small>&copy; 2010 by <a href="http://www.myseat.us" target="_blank">mySeat</a> under the GPL license, designed for easy  & free restaurant reservations.</small></p>
     <br class="cl" />
   </footer>
   <!-- footer end -->

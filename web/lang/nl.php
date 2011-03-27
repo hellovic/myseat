@@ -590,4 +590,7 @@ define ( '_PROF_', 'Prof.' );
 //original text: "Online"
 define ( '_online', 'Online' );
 
+//original text: "Ad"
+define ( '_ads', 'advertentie' );
+
 ?>

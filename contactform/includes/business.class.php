@@ -12,7 +12,6 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		
 		// init timeslots array
 		$timeslots = array();
-		
 		// build list of timeslots from starttime to endtime
 		// in predefined intervall
 		list($h1,$m1)		= explode(":",$open_time);
@@ -36,26 +35,30 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 			// get loose of break
 			if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			// Generating the time drop down menu
-				echo "<option value='".date('H:i',$value)."'";
-				if ( $select == date('H:i:s',$value) ) {
-					echo " selected='selected' ";
+			//check for maximum passerby
+			$ava_passerby = $_SESSION['passerby_max_pax']-$_SESSION['passbyTime'][date('H:i:s',$value)];
+				if($ava_passerby>0){
+					echo "<option value='".date('H:i',$value)."'";
+					if ( $select == date('H:i:s',$value) ) {
+						echo " selected='selected' ";
+					}
+				
+					 $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
+					 $pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
+					 if ( $pax_capacity == 0 ) {
+						echo " disabled='disabled' ";
+					 }
+				
+					echo " >";
+				
+					$txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
+					echo $txt_value;
+					//$ava_passerby = (!$ava_passerby) ? $_SESSION['outlet_max_capacity'] : $ava_passerby;
+					if ($showtime == 1) {
+						echo " - ".$ava_passerby." Seats free";
+					}
+					echo"</option>\n";
 				}
-				
-				 $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
-				 $pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
-				 if ( $pax_capacity == 0 ) {
-					echo " disabled='disabled' ";
-				 }
-				
-				echo " >";
-				
-				$txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
-				echo $txt_value;
-				
-				if ($showtime == 1) {
-					echo " - ".$pax_capacity." Seats free";
-				}
-				echo"</option>\n";
 			}
 			// calculate new time
 			$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
@@ -96,6 +99,14 @@ function titleList($title='',$disabled=''){
 		echo "<option value='W' ";
 		echo ($title=='W') ? "selected='selected'" : "";
 		echo ">".$lang['_W_']."</option>\n";
+		// Dr.
+		echo "<option value='D' ";
+		echo ($title=='D') ? "selected='selected'" : "";
+		echo ">".$lang["_DR_"]."</option>\n";
+		// Prof.
+		echo "<option value='P' ";
+		echo ($title=='P') ? "selected='selected'" : "";
+		echo ">".$lang["_PROF_"]."</option>\n";
 		// Family
 		echo "<option value='F' ";
 		echo ($title=='F') ? "selected='selected'" : "";

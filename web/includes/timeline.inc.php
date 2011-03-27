@@ -1,11 +1,10 @@
 <ul class="timeline">
 
 <?
-// get outlet maximum capacity
-$maxC = maxCapacity();
 // get Pax by timeslot
 $resbyTime = reservationsByTime('pax');
 $tblbyTime = reservationsByTime('tbl');
+
 // get availability by timeslot
 $availability = getAvailability($resbyTime,$general['timeintervall']);
 $tbl_availability = getAvailability($tblbyTime,$general['timeintervall']);

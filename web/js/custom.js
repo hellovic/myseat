@@ -120,6 +120,9 @@ $(function(){
 	$('.alert_error').click(function(){
 		$(this).fadeOut('fast');
 	});
+	$('.alert_ads').click(function(){
+		$(this).fadeOut('fast');
+	});
 	
 	// Setup modal window for all photos
 	$('.media_photos li a[rel=slide]').fancybox({

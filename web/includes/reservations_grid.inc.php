@@ -100,7 +100,7 @@
 			echo "</td>";
 			echo "<td style='padding:7px 0px;' class='noprint'>";
 			// DELETE BUTTON
-			if ( current_user_can( 'Reservation-Delete' ) ){
+			if ( current_user_can( 'Reservation-Delete' ) && $q!=3 ){
 		    	echo"<a href='#modalsecurity' name='".$row->repeat_id."' id='".$id."' class='delbtn'>
 					<img src='images/icons/delete_cross.png' alt='"._cancelled."' class='help' title='"._delete."'/></a>";
 			}
