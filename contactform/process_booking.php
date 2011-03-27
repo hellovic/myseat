@@ -25,7 +25,7 @@ $_SESSION['language'] = 'en_EN';
 // ** set configuration
 	include('../config/config.inc.php');
 // translate to selected language
-	translateSite($_POST['email_type']);
+	translateSite($_POST['email_type'],'../web/');
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
 
