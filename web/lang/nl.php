@@ -524,28 +524,32 @@ define ( '_free', 'Vrij' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
-define ( '_email_confirmation_en', 'Hartelijk dank voor uw reservering in ons %s. Graag bevestigen wij uw reservering voor %s personen op %s om %s Indien u uw boeking wilt annuleren, gebruik dan a.u.b.uw reserveringsnummer \'%s\' Wij wensen u een prettige avond toe in ons restaurant en bedanken u voor uw bezoek. Met vriendelijke groeten, %s' );
+define ( '_email_confirmation_en', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s.<br/>If you want cancel your reservation please use your booking number \'%s\' at the homepage.<br/>We wish you an enjoyable stay at our restaurant and are looking forward to your visit!<br/><br/>Yours<br/>%s' );
 
 //original text: "Reservation confirmation for "
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_email_subject_en', 'Reservering bevestiging voor:' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
-define ( '_email_confirmation', 'Hartelijk dank voor uw reservering in ons %s. Graag bevestigen wij uw reservering voor %s personen op %s om %s Indien u uw boeking wilt annuleren, gebruik dan a.u.b.uw reserveringsnummer \'%s\' Wij wensen u een prettige avond toe in ons restaurant en bedanken u voor uw bezoek. Met vriendelijke groeten, %s' );
+define ( '_email_confirmation', 'Hartelijk dank voor uw reservering in ons %s. Graag bevestigen wij uw reservering voor %s personen op %s om %s Indien u uw boeking wilt annuleren, gebruik dan a.u.b.uw reserveringsnummer \'%s\'.<br/>Wij wensen u een prettige avond toe in ons restaurant en bedanken u voor uw bezoek.<br/><br/>Met vriendelijke groeten,<br/>%s' );
 
 //original text: "before"
 define ( '_before', 'Voorheen' );
 
 //original text: "Dear Mr."
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_mr_en', 'Dear Mr.' );
 
 //original text: "Dear Mrs."
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_mrs_en', 'Dear Mrs.' );
 
 //original text: "Dear Sirs and Madams"
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_sirs_and_madams_en', 'Dear Sirs and Madams' );
 
 //original text: "Dear family"
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_family_en', 'Dear Family' );
 
 //original text: "The username"

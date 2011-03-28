@@ -536,16 +536,20 @@ define ( '_email_confirmation', 'Thank you very much for your reservation in our
 define ( '_before', 'before' );
 
 //original text: "Dear Mr."
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_mr_en', 'Dear Mr.' );
 
 //original text: "Dear Mrs."
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_mrs_en', 'Dear Mrs.' );
 
 //original text: "Dear Sirs and Madams"
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_dear_sirs_and_madams_en', 'Dear Sirs and Madams' );
 
 //original text: "Dear family"
-define ( '_dear_family_en', 'Dear family' );
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
+define ( '_dear_family_en', 'Dear Family' );
 
 //original text: "The username"
 define ( '_already_user_1', 'The username' );

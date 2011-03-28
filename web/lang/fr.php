@@ -523,30 +523,34 @@ define ( '_free', 'libre' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
-define ( '_email_confirmation', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
+define ( '_email_confirmation_en', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s.<br/>If you want cancel your reservation please use your booking number \'%s\' at the homepage.<br/>We wish you an enjoyable stay at our restaurant and are looking forward to your visit!<br/><br/>Yours<br/>%s' );
 
 //original text: "Reservation confirmation for "
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
 define ( '_email_subject_en', 'Reservation confirmée pour ' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
-define ( '_email_confirmation_en', 'Nous vous remercions vivement pour la réservation %s. C´est avec plaisir que nous confirmons la réservation de %s person(s) le %s à %s. Si vous annulez, merci d´utiliser votre numéro de réservation \'%s\' sur la page d´accueil. Nous vous souhaitons un agréable moment dans notre restaurant et à très bientôt ! Sincerement %s' );
+define ( '_email_confirmation', 'Nous vous remercions vivement pour la réservation %s. C´est avec plaisir que nous confirmons la réservation de %s person(s) le %s à %s.<br/>Si vous annulez, merci d´utiliser votre numéro de réservation \'%s\' sur la page d´accueil.<br/>Nous vous souhaitons un agréable moment dans notre restaurant et à très bientôt!<br/><br/>vSincerement<br/>%s' );
 
 
 //original text: "before"
 define ( '_before', 'après' );
 
 //original text: "Dear Mr."
-define ( '_dear_mr_en', 'Cher Monsieur' );
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
+define ( '_dear_mr_en', 'Dear Mr.' );
 
 //original text: "Dear Mrs."
-define ( '_dear_mrs_en', 'Chère Madame' );
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
+define ( '_dear_mrs_en', 'Dear Mrs.' );
 
 //original text: "Dear Sirs and Madams"
-define ( '_dear_sirs_and_madams_en', 'Chers Mesdames et Messieurs' );
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
+define ( '_dear_sirs_and_madams_en', 'Dear Sirs and Madams' );
 
 //original text: "Dear family"
-define ( '_dear_family_en', 'Chère famille' );
+// LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
+define ( '_dear_family_en', 'Dear Family' );
 
 //original text: "The username"
 define ( '_already_user_1', 'le nom d´utilisateur' );
