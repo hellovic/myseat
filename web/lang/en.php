@@ -530,7 +530,7 @@ define ( '_email_confirmation_en', 'Thank you very much for your reservation in 
 define ( '_email_subject_en', 'Reservation confirmation for ' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
-define ( '_email_confirmation', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
+define ( '_email_confirmation', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want to cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
 
 //original text: "before"
 define ( '_before', 'before' );
