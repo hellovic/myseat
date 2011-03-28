@@ -9,7 +9,7 @@
 define ( '_open', 'Ouvert: de' );
 
 //original text: "till"
-define ( '_till', 'jusqu´à' );
+define ( '_till', 'jusqu´a ' );
 
 //original text: "o clock"
 define ( '_oclock', 'o clock' );
@@ -21,13 +21,13 @@ define ( '_tautologous', 'double reservation avec' );
 define ( '_day_comment', 'Commentaire du jour' );
 
 //original text: "Add seats"
-define ( '_add_seats', 'Ajouter sièges' );
+define ( '_add_seats', 'Ajouter siéges' );
 
 //original text: "Add tables"
 define ( '_add_tables', 'Ajouter tables' );
 
 //original text: "Capacity"
-define ( '_capacity', 'Capacité' );
+define ( '_capacity', 'CapacitÃ©' );
 
 //original text: "Save"
 define ( '_save', 'sauvegarder' );
@@ -48,7 +48,7 @@ define ( '_edit', 'modifier' );
 define ( '_search', 'Chercher' );
 
 //original text: "Edit entry"
-define ( '_edit_entry', 'Modifier entré' );
+define ( '_edit_entry', 'Modifier entrée' );
 
 //original text: "Edit all entries"
 define ( '_edit_all_entries', 'Modifier toutes les entrées' );
@@ -120,7 +120,7 @@ define ( '_author', 'Auteur' );
 define ( '_date', 'Date' );
 
 //original text: "Status"
-define ( '_status', 'Stauts' );
+define ( '_status', 'Statuts' );
 
 //original text: "booked "
 define ( '_booked_', 'réservé' );
@@ -150,7 +150,7 @@ define ( '_visits', 'Visites' );
 define ( '_last_visit', 'Dernière visite' );
 
 //original text: "Do not book any more passants!"
-define ( '_sentence_16', 'Désolé, quelque chose c`est mal passé !' );
+define ( '_sentence_16', 'Désolé, quelque chose c`est mal passé!' );
 
 //original text: "Existing outlets"
 define ( '_existing_outlets', 'Points de ventes existants' );
@@ -192,7 +192,7 @@ define ( '_day_off', 'Jour de fermeture' );
 define ( '_new_entry', 'Une nouvelle entrée a été ajoutée !' );
 
 //original text: "Entry has been edited !"
-define ( '_entry_edited', 'L’entrée a été mofidiée.' );
+define ( '_entry_edited', 'L´entrée a été modifiée.' );
 
 //original text: "Entry deleted!"
 define ( '_entry_deleted', 'Entrée effacée!' );
@@ -201,7 +201,7 @@ define ( '_entry_deleted', 'Entrée effacée!' );
 define ( '_nothing_deleted', 'Rien est effacé!' );
 
 //original text: "Do you really want to delete?"
-define ( '_sentence_2', 'Êtes-vous sure de vouloir effacer cet utilisateur?' );
+define ( '_sentence_2', 'Etes-vous sure de vouloir effacer cet utilisateur?' );
 
 //original text: "Please enter the password"
 define ( '_enter_password', 'Svp entrez le mot de passe' );
@@ -225,7 +225,7 @@ define ( '_occupancy_per_month', 'Occupation par mois' );
 define ( '_guest_search', 'Recherche de client' );
 
 //original text: "System"
-define ( '_system', 'Système' );
+define ( '_system', 'System' );
 
 //original text: "Cancelled"
 define ( '_cancelled', 'Annulé' );
@@ -249,19 +249,19 @@ define ( '_table', 'Table' );
 define ( '_changes', 'Changements' );
 
 //original text: "Guest summary"
-define ( '_guest_summary', 'Synthèse des clients' );
+define ( '_guest_summary', 'Synthése des clients' );
 
 //original text: "Tables summary"
-define ( '_tables_summary', 'Synthèse des tables' );
+define ( '_tables_summary', 'Synthése des tables' );
 
 //original text: "Parties summary"
-define ( '_parties_summary', 'Synthèses des parties' );
+define ( '_parties_summary', 'Synthéses des parties' );
 
 //original text: "Dollar Revenue summary"
-define ( '_dollar_revenue_summary', 'Synthèses des recettes en euro' );
+define ( '_dollar_revenue_summary', 'Synthéses des recettes en euro' );
 
 //original text: "Close Window"
-define ( '_close_window', 'Fermer la fenêtre' );
+define ( '_close_window', 'Fermer la fenÃªtre' );
 
 //original text: "Multi Booking<br/>repeat till:"
 define ( '_multi_booking', 'Répéter<br/> jusqu´à:' );
@@ -279,10 +279,10 @@ define ( '_move_reservation_to', 'Déplacer la reservation a' );
 define ( '_sentence_5', 'Attention: This table number is already assigned!' );
 
 //original text: "The restaurant has already opened. Please contact the Maitre!"
-define ( '_sentence_6', 'Le service a déjà commencé. Svp contactez le Maitre d´hôtel!' );
+define ( '_sentence_6', 'Le service a déja commencé. Svp contactez le Maitre d´hôtel!' );
 
 //original text: "Are you sure to reserve such big table? From "
-define ( '_sentence_8', 'Couverts : êtes vous sûre de vouloir réserver une table aussi nombreuse? à partir de ' );
+define ( '_sentence_8', 'Couverts : etes vous sure de vouloir réserver une table aussi nombreuse? Ã partir de ' );
 
 //original text: "persons we recommend from a quality reason a menu!"
 define ( '_sentence_9', ' pour des raisons de qualité nous recommandons un menu !' );
@@ -330,22 +330,22 @@ define ( '_shipping', 'Expédition' );
 define ( '_sent', 'Envoyé' );
 
 //original text: "Timecontrol"
-define ( '_timecontrol', 'Contrôle du temps' );
+define ( '_timecontrol', 'Control du temps' );
 
 //original text: "Online booking"
 define ( '_webform', 'Online booking' );
 
 //original text: "Tautologous booking: This guest has a second booking on this day"
-define ( '_tautologous_booking', 'Double reservation : ce client a une seconde reservation le même jour.' );
+define ( '_tautologous_booking', 'Double reservation : ce client a une seconde reservation le meme jour.' );
 
 //original text: "This is an older reservation."
 define ( '_sentence_11', 'Ceci est une ancienne réservation.' );
 
 //original text: "Reservation was done after maitre message."
-define ( '_sentence_13', 'La reservation a été faite après le message du Maitre d’hôtel.' );
+define ( '_sentence_13', 'La reservation a ete faite apres le message du Maitre d´hôtel.' );
 
 //original text: "Sorry, something goes wrong!"
-define ( '_sorry', 'Désolé, quelque chose c`est mal passé !' );
+define ( '_sorry', 'Désolé, quelque chose c`est mal passée !' );
 
 //original text: "General"
 define ( '_general', 'Général' );
@@ -369,7 +369,7 @@ define ( '_language', 'Langue' );
 define ( '_title', 'Titre' );
 
 //original text: "Booking number"
-define ( '_booknum', 'Booking number' );
+define ( '_booknum', 'numéro de réservation' );
 
 //original text: "ZIP"
 define ( '_zip', 'ZIP' );
@@ -381,58 +381,58 @@ define ( '_english', 'Français' );
 define ( '_international', 'Anglais' );
 
 //original text: "till"
-define ( '_till_', 'till' );
+define ( '_till_', 'jusqu´à' );
 
 //original text: "at"
-define ( '_at_', 'at' );
+define ( '_at_', 'à' );
 
 //original text: "reserved"
-define ( '_reserved', 'reserved' );
+define ( '_reserved', 'réservé' );
 
 //original text: "Active"
-define ( '_active', 'Active' );
+define ( '_active', 'ouverte' );
 
 //original text: "Retype"
-define ( '_retype', 'Retype' );
+define ( '_retype', 'entrez de nouveau' );
 
 //original text: "Cuisine Style"
-define ( '_cuisine_style', 'Cuisine Style' );
+define ( '_cuisine_style', 'style de cuisine' );
 
 //original text: "Special Event"
-define ( '_sp_events', 'Special Event' );
+define ( '_sp_events', 'événement spécial' );
 
 //original text: "Subject"
-define ( '_subject', 'Subject' );
+define ( '_subject', 'objet' );
 
 //original text: "Open to"
-define ( '_open_to', 'Open to' );
+define ( '_open_to', 'ouvert de' );
 
 //original text: "Contact"
 define ( '_contact', 'Contact' );
 
 //original text: "Start advertise"
-define ( '_advertise_start', 'Start advertise' );
+define ( '_advertise_start', 'commencez à faire de la publicité' );
 
 //original text: "Days"
-define ( '_days', 'Days' );
+define ( '_days', 'jours' );
 
 //original text: "Reservation confirmation for"
-define ( '_email_subject', 'Reservation confirmation for' );
+define ( '_email_subject', 'Reservation confirmée pour' );
 
 //original text: "Dear Mr."
 define ( '_dear_mr', 'Cher Monsieur' );
 
 //original text: "Dear Mrs."
-define ( '_dear_mrs', 'Cher Madame' );
+define ( '_dear_mrs', 'Chère Madame' );
 
 //original text: "Dear Sirs and Madams"
-define ( '_dear_sirs_and_madams', 'Chers Messieurs et Madames' );
+define ( '_dear_sirs_and_madams', 'Chers Messieurs et Mesdames' );
 
 //original text: "Dear Family"
 define ( '_dear_family', 'Chère famille' );
 
 //original text: "Property"
-define ( '_property', 'Property' );
+define ( '_property', 'Propriété' );
 
 //original text: "Mr."
 define ( '_M_', 'Monsieur' );
@@ -447,13 +447,13 @@ define ( '_F_', 'Famille' );
 define ( '_C_', 'Société' );
 
 //original text: "Invoice"
-define ( '_mail', 'Invoice' );
+define ( '_mail', 'Envoi' );
 
 //original text: "Room"
 define ( '_room', 'Chambre' );
 
 //original text: "Inhouse Guest"
-define ( '_HG_', 'Inhouse Guest' );
+define ( '_HG_', 'Résident' );
 
 //original text: "Passer by"
 define ( '_PASS_', 'Passants' );
@@ -462,120 +462,121 @@ define ( '_PASS_', 'Passants' );
 define ( '_WALK_', 'Walk in' );
 
 //original text: "Create"
-define ( '_create', 'Create' );
+define ( '_create', 'Créer' );
 
 //original text: "Year"
-define ( '_year', 'Year' );
+define ( '_year', 'Année' );
 
 //original text: "created at"
-define ( '_created', 'created at' );
+define ( '_created', 'Créer le' );
 
 //original text: "Back"
-define ( '_back', 'Back' );
+define ( '_back', 'arrière' );
 
 //original text: "Detail"
-define ( '_detail', 'Detail' );
+define ( '_detail', 'Détail' );
 
 //original text: "Passerby"
 define ( '_passerby', 'Passants' );
 
 //original text: "Residence time"
-define ( '_duration', 'Residence time' );
+define ( '_duration', 'durée du séjour' );
 
 //original text: "Guest History"
 define ( '_history', 'Guest History' );
 
 //original text: "No"
-define ( '_no_', 'No' );
+define ( '_no_', 'Non' );
 
 //original text: "OK"
-define ( '_yes_', 'OK' );
+define ( '_yes_', 'Oui' );
 
 //original text: "NYA,Arrived,Seated,Parked,Departed,No Show"
-define ( '_statuslist', 'NYA,Arrived,Seated,Parked,Departed,No Show' );
+define ( '_statuslist', 'Pas encore arrivé,Arrivé,Assis,Garé,En départ,No show' );
 
 //original text: "delete series"
-define ( '_delete_all_entries', 'delete series' );
+define ( '_delete_all_entries', 'effacer les entrées' );
 
 //original text: "Settings"
-define ( '_settings', 'Settings' );
+define ( '_settings', 'réglages' );
 
 //original text: "Hello"
-define ( '_hello', 'Hello' );
+define ( '_hello', 'Bonjour' );
 
 //original text: "City"
-define ( '_city', 'City' );
+define ( '_city', 'Ville' );
 
 //original text: "Phone"
-define ( '_phone', 'Phone' );
+define ( '_phone', 'Téléphone' );
 
 //original text: "Facsimile"
-define ( '_fax', 'Facsimile' );
+define ( '_fax', 'Fax' );
 
 //original text: "Country"
-define ( '_country', 'Country' );
+define ( '_country', 'Pays' );
 
 //original text: "Image"
 define ( '_img', 'Image' );
 
 //original text: "free"
-define ( '_free', 'free' );
+define ( '_free', 'libre' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
-define ( '_email_confirmation_en', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
+define ( '_email_confirmation', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
 
 //original text: "Reservation confirmation for "
 // LEAVE THIS TEXT AS IS ! DO NOT TRANSLATE!
-define ( '_email_subject_en', 'Reservation confirmation for ' );
+define ( '_email_subject_en', 'Reservation confirmée pour ' );
 
 //original text: "Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s"
-define ( '_email_confirmation', 'Thank you very much for your reservation in our %s. With pleasure we confirm your reservation for %s person(s) on %s at %s. If you want cancel your reservation please use your booking number \'%s\' at the homepage. We wish you an enjoyable stay at our restaurant and are looking forward to your visit! Yours %s' );
+define ( '_email_confirmation_en', 'Nous vous remercions vivement pour la réservation %s. C´est avec plaisir que nous confirmons la réservation de %s person(s) le %s à %s. Si vous annulez, merci d´utiliser votre numéro de réservation \'%s\' sur la page d´accueil. Nous vous souhaitons un agréable moment dans notre restaurant et à très bientôt ! Sincerement %s' );
+
 
 //original text: "before"
-define ( '_before', 'before' );
+define ( '_before', 'après' );
 
 //original text: "Dear Mr."
-define ( '_dear_mr_en', 'Dear Mr.' );
+define ( '_dear_mr_en', 'Cher Monsieur' );
 
 //original text: "Dear Mrs."
-define ( '_dear_mrs_en', 'Dear Mrs.' );
+define ( '_dear_mrs_en', 'Chère Madame' );
 
 //original text: "Dear Sirs and Madams"
-define ( '_dear_sirs_and_madams_en', 'Dear Sirs and Madams' );
+define ( '_dear_sirs_and_madams_en', 'Chers Mesdames et Messieurs' );
 
 //original text: "Dear family"
-define ( '_dear_family_en', 'Dear Family' );
+define ( '_dear_family_en', 'Chère famille' );
 
 //original text: "The username"
-define ( '_already_user_1', 'The username' );
+define ( '_already_user_1', 'le nom d´utilisateur' );
 
 //original text: "does already exist."
-define ( '_already_user_2', 'does already exist.' );
+define ( '_already_user_2', 'existe deja' );
 
 //original text: "Dear %s, Thank you for registering at mySeat! Your username is %s . Your password is %s . Your email address is set to %s . Follow us on Twitter, Facebook, and more here: http://www.openmyseat.com All the best, The mySeat Team "
-define ( '_user_email_confirmation', 'Dear %s, Thank you for registering at mySeat! Your username is %s . Your password is %s . Your email address is set to %s . Follow us on Twitter, Facebook, and more here: http://www.openmyseat.com All the best, The mySeat Team ' );
+define ( '_user_email_confirmation', 'Cher %s, Nous vous remercions pour votre enregistrement sur mySeat! Votre nom d´utilisateur est %s . Votre mot de passe est %s . Votre adresse email est indiquée %s . Suivez nous sur Twitter, Facebook, et plus encore sur : http://www.openmyseat.com Cordialement, L´équipe mySeat ' );
 
 //original text: "Hello %s,<br/><br/>You just signed up for mySeat. Please follow this link to confirm that this is your e-mail address:<br/><br/><a title="Confirm Account" href="http://%s/mySeat/web/confirm.php?c=%s">http://%s/mySeat/web/confirm.php?c=%s</a><br/><br/>Thank you,<br/><br/>The mySeat Team"
-define ( '_user_activation_email', 'Hello %s,<br/><br/>You just signed up for mySeat. Please follow this link to confirm that this is your e-mail address:<br/><br/><a title="Confirm Account" href="http://%s/mySeat/web/confirm.php?c=%s">http://%s/mySeat/web/confirm.php?c=%s</a><br/><br/>Cheers,<br/><br/>The mySeat Team' );
+define ( '_user_activation_email', 'Hello %s,<br/><br/>Vous venez de souscrire à mySeat. Svp cliquez sur ce lien pour confirmer votre adresse email:<br/><br/><a title="Confirmer le compte" href="http://%s/mySeat/web/confirm.php?c=%s">http://%s/mySeat/web/confirm.php?c=%s</a><br/><br/>Merci,<br/><br/>L´équipe mySeat' );
 
 //original text: "You have already confirmed this email address."
-define ( '_errorMessage_all', 'You have already confirmed this email address.' );
+define ( '_errorMessage_all', 'Vous avez deja confirmé cette adresse.' );
 
-//original text: "You are trying to confirm an invalid email address."
-define ( '_errorMessage_no', 'You are trying to confirm an invalid comment.' );
+//original text: "."You are trying to confirm an invalid comment"
+define ( '_errorMessage_no', 'Vous essayez de confirmer une adresse invalide.' );
 
 //original text: "Your user account has been confirmed!"
-define ( '_errorMessage_yes', 'Your user account has been confirmed!' );
+define ( '_errorMessage_yes', 'Votre de nom d´utilisateur a été confirmé!' );
 
 //original text: "Break"
 define ( '_break', 'Pause' );
 
 //original text: "Specific"
-define ( '_specific', 'Précis' );
+define ( '_specific', 'Spécifique' );
 
 //original text: "Dashboard"
-define ( '_dashboard', 'Dashboard' );
+define ( '_dashboard', 'Tableau de bord' );
 
 //original text: "I would like to receive informations by email."
 define ( '_reservation_advertise', 'Je voudrais recevoir des informations par e-mail.' );
@@ -587,8 +588,12 @@ define ( '_DR_', 'Dr.' );
 define ( '_PROF_', 'Prof.' );
 
 //original text: "Online"
-define ( '_online', 'Online' );
+define ( '_online', 'En ligne' );
 
 //original text: "Ad"
 define ( '_ads', 'Annonce' );
+
+//original text: "Print"
+define ( '_print', 'Imprimer' );
+
 ?>

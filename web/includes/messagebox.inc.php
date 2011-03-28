@@ -84,20 +84,20 @@ if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
 // Special event of the day and outlet
 $special_events = querySQL('event_data_day');
 if ($special_events && $_SESSION['page'] == 2 ) {
-	echo "<div class='alert_info'>";
+	echo "<div class='alert_info' style='padding:6px;'>";
 		// special events
 		foreach($special_events as $row) {
-			echo "<p style='margin-bottom:6px;'>
-			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
-			<span class='bold'>"._today.": ".$row->subject.
-			"</strong><br/><div style='margin-left:36px; font-size:0.8em; line-height:1.2em;'>".
-			date($general['dateformat'],strtotime($row->event_date)) 
-			." ".formatTime($row->start_time,$general['timeformat']).
-			" - ".formatTime($row->end_time,$general['timeformat'])."<br/>".
-			$row->outlet_name."<br/>".
+			echo "
+			<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
+			<span class='bold'>
+			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
+			_today.": ".$row->subject."</a></span>
+			<p style='margin-bottom:13px;'>".$row->description."<br/><cite>
+			".date($general['dateformat'],strtotime($row->event_date)).
+			" ".formatTime($row->start_time,$general['timeformat']).
+			" - ".formatTime($row->end_time,$general['timeformat'])." | ".
 			_ticket_price.": ".number_format($row->price,2).
-			"<br/><br/></div><div style='margin-top:13px; margin-left:36px; font-size:0.9em; line-height:1.2em; width:80%'>".
-			$row->description."<br/></div><br/></p>";
+			"</cite></p>";
 		}
 	echo "</div>";
 }

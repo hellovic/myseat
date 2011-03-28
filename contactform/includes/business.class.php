@@ -36,7 +36,8 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 			if( $value <= $open_break || ($value >= $close_break && $value<=$endtime) ){
 			// Generating the time drop down menu
 			//check for maximum passerby
-			$ava_passerby = $_SESSION['passerby_max_pax']-$_SESSION['passbyTime'][date('H:i:s',$value)];
+			$max_passerby = ($_SESSION['passerby_max_pax'] == 0) ? $_SESSION['selOutlet']['outlet_max_capacity'] : $_SESSION['passerby_max_pax'];
+			$ava_passerby = $max_passerby - $_SESSION['passbyTime'][date('H:i:s',$value)];
 				if($ava_passerby>0){
 					echo "<option value='".date('H:i',$value)."'";
 					if ( $select == date('H:i:s',$value) ) {
@@ -53,7 +54,6 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 				
 					$txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
 					echo $txt_value;
-					//$ava_passerby = (!$ava_passerby) ? $_SESSION['outlet_max_capacity'] : $ava_passerby;
 					if ($showtime == 1) {
 						echo " - ".$ava_passerby." Seats free";
 					}

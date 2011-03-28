@@ -593,4 +593,7 @@ define ( '_online', 'Online' );
 //original text: "Ad"
 define ( '_ads', 'advertentie' );
 
+//original text: "Print"
+define ( '_print', 'Print' );
+
 ?>

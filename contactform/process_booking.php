@@ -28,6 +28,8 @@ $_SESSION['language'] = 'en_EN';
 	translateSite($_POST['email_type'],'../web/');
 // ** get superglobal variables
 	include('../web/includes/get_variables.inc.php');
+// ** get property info for logo path
+$prp_info = querySQL('property_info');
 
 // Get POST data	
    // outlet id
@@ -84,8 +86,8 @@ $_SESSION['language'] = 'en_EN';
 	<link href="style/base.css" rel="stylesheet" type="text/css" />
 	<link href="style/grid.css" rel="stylesheet" type="text/css" />
 	<!-- CSS - Theme -->
-	<link id="theme" href="style/themes/light.css" rel="stylesheet" type="text/css" />
-	<link id="color" href="style/themes/blue.css" rel="stylesheet" type="text/css" />
+	<link id="theme" href="style/themes/<?= $default_style;?>.css" rel="stylesheet" type="text/css" />
+	<link id="color" href="style/themes/<?= $general['contactform_color_scheme'];?>.css" rel="stylesheet" type="text/css" />
 	<!-- CSS - Datepicker -->
 	<link href="style/datepicker.css" rel="stylesheet" type="text/css" />
 
@@ -110,7 +112,10 @@ $_SESSION['language'] = 'en_EN';
 	<div id="wrapper"> 
 	  <header> 
 	    <!-- logo -->
-	    <h1 id="logo"><a href="index.php?p=2">mySeat</a></h1>
+	    <!-- logo -->
+		    <h1 id="logo" style="background-image: url(../uploads/logo/<? echo ($prp_info['logo_filename']=='') ? 'logo.png' : $prp_info['logo_filename'];?>);">
+			<a href="index.php?p=2">mySeat</a>
+			</h1>
 	    <!-- nav -->
 	    <nav>
 	      <ul id="nav">
@@ -198,7 +203,7 @@ $_SESSION['language'] = 'en_EN';
   <!-- Footer Start -->
   <footer>
 
-    <p><small>&copy; 2010 by MYSEAT under the GPL license, designed deep in the heart of Germany.</small></p>
+    <p><small>&copy; 2010 by <a href="http://www.myseat.us" target="_blank">mySeat</a> under the GPL license, designed for easy  & free restaurant reservations.</small></p>
     <br class="cl" />
   </footer>
   <!-- footer end -->

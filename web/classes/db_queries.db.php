@@ -63,11 +63,18 @@ function querySQL($statement){
 			return getResult($result);
 		break;
 		case 'standard_outlet':
-			$result = query("SELECT outlet_id FROM `outlets` WHERE `property_id` ='%d' ORDER BY outlet_name LIMIT 1",$_SESSION['property']);
+			$result = query("SELECT outlet_id FROM `outlets` 
+							WHERE `property_id` ='%d' 
+							AND `saison_year` = 0
+							ORDER BY outlet_id LIMIT 1",$_SESSION['property']);
 			return getResult($result);
 		break;
 		case 'web_standard_outlet':
-			$result = query("SELECT outlet_id FROM `outlets` WHERE `property_id` ='%d' AND `webform` ='1' ORDER BY outlet_name LIMIT 1",$_SESSION['property']);
+			$result = query("SELECT outlet_id FROM `outlets` 
+							WHERE `property_id` ='%d' 
+							AND `webform` ='1' 
+							AND ( `saison_year` = 0 OR `saison_year` = YEAR(NOW()) )
+							ORDER BY outlet_name LIMIT 1",$_SESSION['property']);
 			return getResult($result);
 		break;
 		case 'num_outlets':

@@ -168,7 +168,7 @@ $prp_info = querySQL('property_info');
   <!-- Footer Start -->
   <footer>
 
-    <p><small>&copy; 2010 by MYSEAT under the GPL license, designed deep in the heart of Germany.</small></p>
+    <p><small>&copy; 2010 by <a href="http://www.myseat.us" target="_blank">mySeat</a> under the GPL license, designed for easy  & free restaurant reservations.</small></p>
     <br class="cl" />
   </footer>
   <!-- footer end -->

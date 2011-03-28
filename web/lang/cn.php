@@ -592,4 +592,7 @@ define ( '_online', '在線' );
 //original text: "Ad"
 define ( '_ads', '广告' );
 
+//original text: "Print"
+define ( '_print', '打印' );
+
 ?>

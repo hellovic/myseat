@@ -56,7 +56,8 @@
 				<? if ($q == 1){ ?>
 				<li>
 					<a href="javascript:window.print()">
-						<img src="images/system-icons/print.png" alt="Print">
+						<!-- <img src="images/menu-icons/printer.png" alt="Print"> -->
+						<?= _print;?>
 					</a>
 				</li>
 				<? } ?>
