@@ -1,4 +1,17 @@
-
+<?
+		// check what startpage
+		if ($q==1) {
+			if ( current_user_can( 'Settings-Outlets' ) ){
+				$q=1;
+			}else if ( current_user_can( 'Settings-Users' ) ){
+				$q=2;
+			}else if ( current_user_can( 'Settings-General' ) ){
+				$q=3;
+			}else if ( current_user_can( 'Settings-Events' ) ){	
+				$q=4;
+			}
+		}
+?>
 	<!-- Begin 1st level tab -->
 	<ul class="first_level_tab">
 		<?php if ( current_user_can( 'Settings-Outlets' ) ): ?>
@@ -177,17 +190,23 @@
 		<div class="content nomargin">
 			
 			<?
-			// ** content
+			// ** content of pages **
+			
 			switch($q){
 				case '1':
+				if ( current_user_can( 'Settings-Outlets' ) ){
 					// outlets
 					if($_SESSION['button'] == 1 || $_SESSION['button'] == 3){
 						include('includes/outlets_grid.inc.php');
 					}else if($_SESSION['button'] == 2){
 						include('includes/outlets_new.inc.php');
 					}
+				}else{
+					redeclare_access();
+				}
 				break;
 				case '2':
+				if ( current_user_can( 'Settings-Users' ) ){
 					// user
 					if($_SESSION['button'] == 1){
 						include('includes/users_grid.inc.php');
@@ -196,12 +215,20 @@
 					}else if($_SESSION['button'] == 3){
 						include('includes/users_new.inc.php');
 					}
+				}else{
+					redeclare_access();
+				}	
 				break;
 				case '3':
+				if ( current_user_can( 'Settings-General' ) ){
 					// general
-					include('includes/generalsettings.inc.php');	
+					include('includes/generalsettings.inc.php');
+				}else{
+					redeclare_access();
+				}		
 				break;
 				case '4':
+				if ( current_user_can( 'Settings-Events' ) ){
 					// event
 					if($_SESSION['button'] == 1){
 						include('includes/events_grid.inc.php');
@@ -209,11 +236,18 @@
 						include('includes/events_new.inc.php');
 					}else if($_SESSION['button'] == 3){
 						include('includes/events_new.inc.php');
-					}	
+					}
+				}else{
+					redeclare_access();
+				}	
 				break;
 				case '5':
+				if ( current_user_can( 'Property-New' ) ){
 					// property
-					include('register/detail.property.page.php');	
+					include('register/detail.property.page.php');
+				}else{
+					redeclare_access();
+				}	
 				break;
 			}
 			?>

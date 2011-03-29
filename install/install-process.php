@@ -313,18 +313,19 @@ echo "<li>The Client Order table has been created. </li>";
 
 $sql = query("INSERT INTO `capabilities` (`id`, `capability`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
 (1, 'Settings-General', 1, 1, 0, 0, 0, 0),
-(2, 'Settings-Outlets', 1, 1, 1, 1, 0, 0),
+(2, 'Settings-Outlets', 1, 1, 1, 0, 0, 0),
 (3, 'Settings-Users', 1, 1, 0, 0, 0, 0),
 (4, 'Page-Statistic', 1, 1, 1, 1, 0, 0),
-(5, 'Page-Export', 1, 1, 0, 0, 0, 0),
-(6, 'Page-System', 1, 1, 0, 0, 0, 0),
+(5, 'Page-Export', 1, 1, 1, 0, 0, 0),
+(6, 'Page-System', 1, 1, 1, 1, 0, 0),
 (7, 'Reservation-New', 1, 1, 1, 1, 1, 0),
 (8, 'Reservation-Delete', 1, 1, 1, 1, 1, 0),
 (9, 'Reservation-Edit', 1, 1, 1, 1, 1, 0),
 (10, 'Daily-Outlet-Edit', 1, 1, 1, 1, 0, 0),
 (11, 'Settings-Events', 1, 1, 1, 1, 0, 0),
 (12, 'Property-Overview', 1, 0, 0, 0, 0, 0),
-(13, 'Property-New', 1, 1, 1, 1, 1, 0);")
+(13, 'Property-New', 1, 1, 1, 0, 0, 0);
+")
  or die(mysql_error());
 
 echo "<li>User Permissions have been set to default.</li>";
