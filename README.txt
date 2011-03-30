@@ -57,11 +57,12 @@ Publish info messages and special events. Gain maximum flexibility with in- and 
 
 MULTILINGUAL
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Till now mySeat is translated into
+Actual mySeat is translated into
 
 'en_EN' => 'English'
 'de_DE' => 'Deutsch'
-'es_ES' => 'EspaÃ±ol'
+'es_ES' => 'Espa–ol'
+'fr_FR' => 'Franais'
 'nl_NL' => 'Nederlands'
 'se_SE' => 'Svenska'
 'it_IT' => 'Italia'
