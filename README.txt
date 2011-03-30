@@ -60,12 +60,12 @@ MULTILINGUAL
 Actual mySeat is translated into
 
 'en_EN' => 'English'
-'de_DE' => 'Deutsch'
-'es_ES' => 'Espa–ol'
-'fr_FR' => 'Franais'
-'nl_NL' => 'Nederlands'
-'se_SE' => 'Svenska'
-'it_IT' => 'Italia'
+'de_DE' => 'German'
+'es_ES' => 'Spanish'
+'fr_FR' => 'French'
+'nl_NL' => 'Dutch'
+'se_SE' => 'Swedish'
+'it_IT' => 'Italian'
 'cn_CN' => 'Chinese'
 
 
