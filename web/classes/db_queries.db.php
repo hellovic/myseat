@@ -265,8 +265,10 @@ function querySQL($statement){
 		case 'search':
 			$result = query("SELECT * FROM `reservations` INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
 				WHERE `reservation_hidden` = '0' 
-				AND (`reservation_guest_name` LIKE '%s' OR `reservation_bookingnumber` LIKE '%s') 
-				ORDER BY reservation_guest_name ASC",$searchquery,$searchquery);
+				AND (`reservation_guest_name` LIKE '%s' 
+					OR `reservation_bookingnumber` LIKE '%s' 
+					OR `reservation_guest_phone` LIKE '%s') 
+				ORDER BY reservation_guest_name ASC",$searchquery,$searchquery,$searchquery);
 			return getRowList($result);
 		break;
 		case 'reservation_visits':		
