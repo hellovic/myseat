@@ -117,6 +117,7 @@
 			<input type="hidden" name="reservation_id" value="<?= $_SESSION['resID'];?>">
 			<input type="hidden" name="reservation_bookingnumber" value="<?= $row->reservation_bookingnumber;?>">
 			<input type="hidden" name="repeat_id" value="<?= $row->repeat_id;?>">
+			<input type="hidden" name="email_type" value="no">
 			<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>">
 			<input type="hidden" name="token" value="<?php echo $token; ?>" />
 			<input type="hidden" name="action" value="save_res">

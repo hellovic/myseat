@@ -1,8 +1,8 @@
 <?php session_start();
-
  // Error reporting
- //error_reporting(E_ALL & ~E_NOTICE);
- //ini_set("display_errors", 1);
+ error_reporting(E_ALL & ~E_NOTICE);
+ ini_set("display_errors", 1);
+ //print_r($_POST);
  
 // ** set configuration
 include('../../config/config.general.php');
@@ -120,16 +120,18 @@ if ($_SESSION['token'] == $_POST['token']) {
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}
 		    
+			
 			//store recurring reservation
-			if ($recurring_date != $reservation_date){
+			if ($recurring_date > $reservation_date){
 				$repeatid = querySQL('res_repeat');
 			 	$keys[] = 'repeat_id';
 	    	 	$values[] = "'".$repeatid."'";
 			}
 			
 			// UNIX time
-			$res_dat = mktime(0,0,0,$m1,$d1,$y1);
-			$recurring_date = mktime(0,0,0,$m2,$d2,$y2);
+			$res_dat = mktime(0,0,0,(int)$m1,(int)$d1,(int)$y1);
+			$recurring_date = mktime(0,0,0,(int)$m2,(int)$d2,(int)$y2);
+			$recurring_date = ($recurring_date<$res_dat) ? $res_dat : $recurring_date;
 			
 			// daily or weekly recurring?
 			$recurring_span = ($_POST['recurring_span']) ? $_POST['recurring_span'] : 1;
@@ -207,7 +209,8 @@ if ($_SESSION['token'] == $_POST['token']) {
 					$max_keys++;
 				}
 			}
-			// run sql query 				
+			// run sql query 
+			//echo "Query: ".$query;				
 			$query = substr($query,0,-1);				   
 			$result = query($query);
 			$new_id = mysql_insert_id();
@@ -242,7 +245,7 @@ $token = md5(uniqid(rand(), true));
 $_SESSION['token'] = $token;
 
 // after processing reservation, redirect to main page
-header("Location: ../main_page.php?q=1");
+//header("Location: ../main_page.php?q=1");
 
 exit;
 

@@ -106,17 +106,17 @@ $(document).ready(function(){
 	$("#recurring_date").datepicker({
 		nextText: '&raquo;',
 		prevText: '&laquo;',
-		showAnim: 'slideDown',
 		firstDay: 1,
 		numberOfMonths: 1,
 		gotoCurrent: true,
 		defaultDate: 0,
 		altField: '#recurring_dbdate',
 		altFormat: 'yy-mm-dd',
+		defaultDate: 0,
 		dateFormat: '<?= $general['datepickerformat'];?>',
 		regional: '<?= substr($_SESSION['language'],0,2);?>'
 	});
-	$("#recurring_date").datepicker('setDate', new Date ( "<?= $_SESSION['selectedDate']; ?>" ));
+	//$("#recurring_date").datepicker('setDate', new Date ( "<?= $_SESSION['selectedDate']; ?>" ));
 	// Setup event datepicker
 	$("#ev_datepicker").datepicker({
 		nextText: '&raquo;',

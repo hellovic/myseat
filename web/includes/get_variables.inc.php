@@ -106,7 +106,7 @@ $_SESSION['selOutlet']['outlet_max_capacity'] = ($_SESSION['selOutlet']['outlet_
 
 // selected date
 if (!$_SESSION['selectedDate']) {
-	$_SESSION['selectedDate'] = ($_GET['selectedDate']) ? $_GET['selectedDate'] : buildDate($settings['dbdate']);
+	$_SESSION['selectedDate'] = ($_GET['selectedDate']) ? $_GET['selectedDate'] : buildDate($settings['dbdate'],date('d'),date('m'),date('Y'));
 }else if ($_GET['selectedDate']) {
 	$_SESSION['selectedDate'] = $_GET['selectedDate'];
 }

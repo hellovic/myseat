@@ -1,15 +1,15 @@
 <!-- Begin reservation table data -->
 
-<table class="global" style="margin:15px 0px 0px 0px;" cellpadding="0" cellspacing="0">
+<table class="global" style="margin:15px 0px 0px 0px; font-size:0.9em;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
-	    	<th style="width:5%;"><?= _time; ?></th>
-			<th style="width:2%;"></th>
-			<th style="width:15%;"><?= _guest_name; ?></th>
-			<th style="width:2%;"><?= _pax; ?></th>
-			<th style="width:10%;"><?= _phone_room; ?></th>
-			<th style="width:2%;"><?= _type; ?></th>
-			<th style="width:35%;">
+	    	<th ><?= _time; ?></th>
+			<th ></th>
+			<th ><?= _guest_name; ?></th>
+			<th ><?= _pax; ?></th>
+			<th ><?= _phone_room; ?></th>
+			<th ><?= _type; ?></th>
+			<th > 
 			<?
 			 	if ($_SESSION['page'] == 1) {
 			 		echo _outlets;
@@ -18,15 +18,15 @@
 				} 
 			?>
 			</th>
-			<th style="width:10%" class='noprint'><?= _author; ?></th>
+			<th class='noprint'><?= _author; ?></th>
 			<?
 			if($_SESSION['wait'] == 0){
 				echo "<th style='width:2%'>"._table."</th>";
 			}
 			?>
-	    	<th style="width:2%"><?= _status; ?></th>
+	    	<th ><?= _status; ?></th>
 			<th></th>
-			<th style="width:2%" class='noprint'><?= _edit; ?></th>
+			<th class='noprint'><?= _edit; ?></th>
 	    </tr>
 	</thead>
 	<tfoot></tfoot>
@@ -67,7 +67,7 @@
 			<span class='bold'><a href='?p=102&resID=".$id."'"; 
 			// color guest name if tautologous
 			if($tautologous>1){echo" style='color: #936;' title='"._tautologous_booking."'";}
-			echo ">".utf8_encode($row->reservation_guest_name)."</a></strong>";
+			echo ">".$row->reservation_guest_name."</a></strong>";
 			if ($row->repeat_id !=0)
 	            {
 	            //print out recurring symbol

@@ -213,7 +213,7 @@ $(document).ready(function() {
 				$("#s_datepicker").css('top', '-21px');
 				$("#e_datepicker").css('top', '-21px');
 				$("#ev_datepicker").css('top', '-21px');
-				$("#recurring_date").css('top', '-21px');
+				//$("#recurring_date").css('top', '-21px');
 			}
 			else
 			{
@@ -221,7 +221,7 @@ $(document).ready(function() {
 				$("#s_datepicker").css('top', '-10px');
 				$("#e_datepicker").css('top', '-10px');
 				$("#ev_datepicker").css('top', '-10px');
-				//$("#recurring_date").css('top', '-10px');
+				$("#recurring_date").css('top', '-10px');
 			}
 		}
 		
@@ -433,7 +433,8 @@ $(document).ready(function() {
 		   		if( $(this).text() == original_element ){
 					i = i + 1;
 					if( i == 2 ){
-						$("#modaltabletrigger").trigger('click');
+						/* Deactivated double Table number warning */
+						/* $("#modaltabletrigger").trigger('click'); */
 						return false;
 					}
 				}

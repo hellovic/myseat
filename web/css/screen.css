@@ -510,13 +510,13 @@ input.button_red:active                 {
                                         }
 #content_wrapper                        {
                                             min-width: 890px;
-                                            margin-left: 20px;
+                                            margin-left: 10px;
                                             margin-top: 5px;
                                         }
 .onecolumn                              {
                                             border: 1px solid #ccc;
 										    background-color: #fff;
-                                            margin-right: 30px;
+                                            margin-right: 10px;
                                             margin-top: -2px;
                                         }
 .onecolumn.center                       {

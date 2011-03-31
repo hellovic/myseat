@@ -15,7 +15,7 @@ if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
 }
 
 // Max passerby warning
-if (isset($passbyTime)) {
+if (isset($passbyTime) && $_SESSION['passerby_max_pax'] > 0) {
 	$i=1;
 	foreach ($passbyTime as $key => $value) {
 		if ( $_SESSION['passerby_max_pax']-$value <= 0 && $_SESSION['page'] == 2 ) {
