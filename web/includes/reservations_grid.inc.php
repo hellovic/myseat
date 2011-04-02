@@ -1,6 +1,6 @@
 <!-- Begin reservation table data -->
 
-<table class="global" style="margin:15px 0px 0px 0px; font-size:0.9em;" cellpadding="0" cellspacing="0">
+<table class="global" style="margin:15px 0px 0px 0px; font-size:0.9em; width:100%;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
 	    	<th ><?= _time; ?></th>
@@ -26,7 +26,7 @@
 			?>
 	    	<th ><?= _status; ?></th>
 			<th></th>
-			<th class='noprint'><?= _edit; ?></th>
+			<th class='noprint'></th>
 	    </tr>
 	</thead>
 	<tfoot></tfoot>
@@ -66,13 +66,13 @@
 			<td>
 			<span class='bold'><a href='?p=102&resID=".$id."'"; 
 			// color guest name if tautologous
-			if($tautologous>1){echo" style='color: #936;' title='"._tautologous_booking."'";}
+			if($tautologous>1){echo" style='color: #936;' class='tipsy' title='"._tautologous_booking."'";}
 			echo ">".$row->reservation_guest_name."</a></strong>";
 			if ($row->repeat_id !=0)
 	            {
 	            //print out recurring symbol
 	            echo "&nbsp;<img src='images/icons/arrow-repeat.png' alt='"._recurring.
-					 "' title='"._recurring."' border='0' >";
+					 "' title='"._recurring."' class='tipsy' border='0' >";
 	            }
 			echo"</td>
 			<td><span class='bold'>".$row->reservation_pax."</strong></td>
@@ -88,14 +88,15 @@
 			<td class='noprint'>".$row->reservation_booker_name."</td>";
 			//<td><small>".humanize($row->reservation_timestamp)."</small></td>
 			if($_SESSION['wait'] == 0){
-				echo "<td class='big tb_nr'><div id='reservation_table-".$id."' class='inlineedit noprint'>".$row->reservation_table."</div></td>";
+				echo "<td class='big tb_nr'><div id='reservation_table-".$id."' class='inlineedit'>".$row->reservation_table."</div></td>";
 			}
 			echo "<td><div class='noprint'>";
 				getStatusList($id, $row->reservation_status);
 			echo "</div></td>";
 			echo "<td class='noprint'>";
+				// old reservations symbol
 				if( (strtotime($row->reservation_timestamp) + $general['old_days']*86400) <= time() ){
-					echo "<img src='images/icons/clock-ex.png' class='help' title='"._sentence_11."' style='float:right;'/>";
+					echo "<img src='images/icons/clock-ex.png' class='help tipsy' title='"._sentence_11."' style='float:right;'/>";
 				}
 			echo "</td>";
 			echo "<td style='padding:7px 0px;' class='noprint'>";

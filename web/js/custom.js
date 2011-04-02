@@ -31,7 +31,8 @@ $(function(){
 		}
 	);
 	
-//	$('#shortcut_item li a').tipsy({gravity: 'w'});
+	// $('#shortcut_item li a').tipsy({gravity: 'w'});
+	$('.tipsy').tipsy();
 	
 	$(document).click(function(){
 		$('.popup').css('display', 'none');
@@ -260,14 +261,11 @@ $(document).ready(function() {
 			}
 	
 	//fade out message box
-	$('#messageBox').fadeTo(3500,1).fadeOut(1000);
-	
-	// JWYSIWYG Editor for description textarea
-	$('#wysiwyg').wysiwyg();
+	$('#messageBox').fadeTo(2500,1).fadeOut(1000);
 	
 	
 	// outlet detail slider
-	$("#outlet_detail_slider").hide();
+	//$("#outlet_detail_slider").hide();
 	    $('#outlet_detail_button').click(function() {
 	    $('#outlet_detail_slider').slideToggle(500);
 	    return false;
@@ -442,36 +440,7 @@ $(document).ready(function() {
 			}
 	});
 	
-	/* Data Graph */
-	setTimeout(function(){ 
-		
-		// Setup graph 1
-    	$('#graph_week').visualize({
-			width: '760px',
-			height: '240px',
-			colors: ['#26ADE4', '#D1E751']
-		}).appendTo('#graph_wrapper1');
-		
-		// Setup graph 2
-    	$('#graph_month').visualize({
-			type: 'area',
-			width: '760px',
-			height: '240px',
-			colors: ['#26ADE4', '#D1E751']
-		}).appendTo('#graph_wrapper2');
-		
-		// Setup graph 3
-    	$('#graph_type').visualize({
-			type: 'pie',
-			width: '760px',
-			height: '240px',
-			colors: ['#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed','#f45a90','#e9e744']
-		}).appendTo('#graph_wrapper3');
-		
-		$('.visualize').trigger('visualizeRefresh');
-		
-	}, 200);
-	
+
 	$('.wysiwyg').css('width', '100%');
     
 });

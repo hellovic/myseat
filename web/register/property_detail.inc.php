@@ -7,7 +7,6 @@
 			      zoom: 16 });
 	});
 </script>
-
 				<h3>	 	 				 
 					<div class="property-logo" style="background-image: url(../uploads/logo/<? echo ($row['logo_filename']=='') ? 'logo.png' : $row['logo_filename'];?>);"></div>
 					<?= $row['name'];?>

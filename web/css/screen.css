@@ -540,8 +540,8 @@ input.button_red:active                 {
                                             margin: 7px 0 0 0;
                                             float: left;
                                         }
-.onecolumn .content                     { margin: 20px }
-.onecolumn .content.nomargin            { margin: 0 }
+.onecolumn .content                     { margin: 10px; }
+.onecolumn .content.nomargin            { margin: 0; }
 .twocolumn_wrapper                      {
                                             float: left;
                                             width: 47%;
@@ -617,21 +617,21 @@ input.button_red:active                 {
                                         }
 .second_level_tab li a                  {
                                             display: block;
-                                            width: 102px;
+                                            width: 132px;
                                             height: 26px;
                                             padding-top: 8px;
                                             text-align: center;
                                             color: #000;
                                             font-family: 'DroidSansBold', Arial;
                                             font-size: 11px;
-                                            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.746094);
+                                            text-shadow: 1px 1px 0px white;
                                             text-transform: uppercase;
                                             background: transparent url('../images/bg_2nd_tab.png') no-repeat center;
                                             margin-top: 1px;
                                         }
 .second_level_tab li a.active           {
                                             display: block;
-                                            width: 100px;
+                                            width: 130px;
                                             height: 21px;
                                             padding-top: 5px;
                                             text-align: center;

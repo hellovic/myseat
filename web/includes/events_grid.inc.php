@@ -26,7 +26,10 @@
 			$_SESSION['outletID'] = $row->outlet_id;
 			echo "<tr id='events-".$row->id."'>";
 			echo "<td><span class='bold'>".date($general['dateformat'],strtotime($row->event_date))."</strong></td>
-			<td><span class='bold'><a href='?p=6&q=4&btn=3&eventID=".$row->id."'>".$row->subject."</a></strong></td>
+			<td><span class='bold'><a href='?p=6&q=4&btn=3&eventID=".$row->id."'>".$row->subject."</a></strong>
+			<a href='main_page.php?p=2&outletID=".$row->outlet_id."&selectedDate=".$row->event_date."' style='margin-left:12px;'>
+			<img src='images/icons/arrow.png'/></a>
+			</td>
 			<td>".querySQL('db_outlet')."</td>
 			<td>".formatTime($row->start_time,$general['timeformat'])."</td>
 			<td>".formatTime($row->end_time,$general['timeformat'])."</td>";

@@ -6,8 +6,8 @@ $passbyTime = reservationsByTime('pass');
 
 // Maitre day comment
 if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
-	echo "<div class='alert_warning'>
-	<p><img src='images/icon_info.png' alt='error' class='middle'/>";
+	echo "<div class='alert_error'>
+	<p style='text-align:center;margin-bottom:10px;'><img src='images/icon_info.png' alt='error' class='middle'/>";
 		// maitre comment
 		echo $maitre['maitre_comment_day']."<br>";
 	echo "</p></div>";
@@ -67,7 +67,8 @@ if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
 			<img src='images/icon_cutlery.png' alt='special' class='middle'/>
 			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
-			_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."</span>
+			_sp_events.": ".date($general['dateformat'],strtotime($row->event_date))." ".
+			$row->subject."</a> | ".$row->outlet_name."</span>
 			<p>".$row->description."<br/><cite><span class='bold'>
 			".date($general['dateformat'],strtotime($row->event_date)).
 			"</span> ".formatTime($row->start_time,$general['timeformat']).

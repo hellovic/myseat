@@ -202,6 +202,13 @@ if ($_GET['btn']) {
 	$_SESSION['button'] = 1;
 }
 
+// reservation detail edit
+if ($_GET['resedit']==1) {
+	$resedit = 'ON';
+}else{
+	$resedit = 'OFF';
+}
+
 // searchquery
 $searchquery = '';
 if($_POST['searchquery']){

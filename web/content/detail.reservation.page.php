@@ -1,11 +1,3 @@
-<script type="text/javascript">
-      $(function() {
-        $('#editToggle').click(function() {
-          $('#show').toggle();
-          $('#edit').toggle();
-        });
-      })
-</script>
 <!-- Begin one column box -->
 <div class="onecolumn">
 	
@@ -39,10 +31,20 @@ $rows = querySQL('reservation_info');
 	<div id="content_wrapper">
 	<br/>
 	<!-- Begin detail -->
-		<div id="show">
+		<div id="show"
+		<?php if ($resedit == 'ON'){
+			echo' style="display:none;"';
+		}
+		?>
+		>
 					<? include('includes/reservation_detail.inc.php'); ?>
 		</div>
-		<div id="edit" style="display:none;">
+		<div id="edit"
+		<?php if ($resedit == 'OFF'){
+				echo' style="display:none;"';
+		}
+		?>
+		>
 					<? include('includes/reservation_form.inc.php'); ?>
 		</div>
 		<br class="clear">

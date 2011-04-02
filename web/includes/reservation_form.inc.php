@@ -1,3 +1,4 @@
+
 <div class="twocolumn_wrapper" >
  <div class="twocolumn" style="height:930px;">
   <div class="content detailbig content-height">
@@ -12,7 +13,7 @@
 	<p>
 		<div class="option_xl">
 			<div class="text"></div>
-				<? outletList($row->reservation_outlet_id,'enabled','reservation_outlet_id'); ?>
+				<? outletList($_SESSION['outletID'],'enabled','reservation_outlet_id'); ?>
 		</div>
 	</p>
 	<br/>
@@ -123,3 +124,10 @@
 			<input type="hidden" name="action" value="save_res">
 			</form><!-- end form -->
 		</div></div></div> <!-- end right column -->
+<script type="text/javascript" charset="utf-8">
+jQuery(document).ready(function($) {
+	$("#reservation_outlet_id").change(function(){
+	    window.location.href='?resedit=1&outletID=' + this.value;
+	  });
+});
+</script>

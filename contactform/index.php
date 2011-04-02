@@ -200,7 +200,7 @@ $_SESSION['outletID'] = '';
 
 			// Special event advertise
 			$events_advertise = '';
-			$events_advertise = querySQL('event_advertise_web');
+			$events_advertise = querySQL('event_advertise');
 			// Special event of the day and outlet
 			$special_events = '';
 			$special_events = querySQL('event_data_day');
@@ -210,7 +210,7 @@ $_SESSION['outletID'] = '';
 					echo "<div class='alert_info'>";
 					$advertise = $special_events;
 					// special events today at outlet
-							echo "<div class='ads'>"._ads."</div>";
+							//echo "<div class='ads'>"._ads."</div>";
 								// special events
 								foreach($advertise as $row) {
 									echo "
@@ -240,7 +240,8 @@ $_SESSION['outletID'] = '';
 									<img src='../web/images/icon_cutlery.png' alt='special' class='middle'/>
 									<span class='bold'>
 									<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
-									_sp_events.": ".$row->subject."</a> | ".$row->outlet_name."</span>
+									_sp_events.": ".date($general['dateformat'],strtotime($row->event_date))." ".
+									$row->subject."</a> | ".$row->outlet_name."</span>
 									<p>".$row->description."<br/><cite><span class='bold'>
 									".date($general['dateformat'],strtotime($row->event_date)).
 									"</span> ".formatTime($row->start_time,$general['timeformat']).

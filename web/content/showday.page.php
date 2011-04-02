@@ -2,7 +2,7 @@
 	<!-- Begin 1st level tab -->
 	<ul class="first_level_tab">
 		<li>
-			<a href="main_page.php?q=1" <? if ($q == 1 || $q == 4) { echo " class='active'";}?> >
+			<a href="main_page.php?q=1" <? if ($q == 1 || $q == 4) { echo " class='active'";}?> class='active'>
 				<?= _confirmed_reservations; ?>
 			</a>
 		</li>
@@ -11,11 +11,11 @@
 			echo'<li>
 				<a href="main_page.php?q=2"';
 				if ($q == 2) { echo " class='active'";}
-				echo' >'._add_reservation.'</a></li>';
+				echo'class="active" >'._add_reservation.'</a></li>';
 		} 
 		?>
 		<li>
-			<a href="main_page.php?q=3&s=1" <? if ($q == 3) { echo " class='active'";}?> >
+			<a href="main_page.php?q=3&s=1" <? if ($q == 3) { echo " class='active'";}?> class='active'>
 				<?= _canceled_reservations; ?>
 			</a>
 		</li>
@@ -44,8 +44,8 @@
 			<div class="dategroup_name">
 				<a href="?selectedDate=<?= buildDate($settings['dbdate']); ?>">
 					<?= querySQL('db_outlet'); ?>
+				</div>
 				</a>
-			</div>
 			
 			<!-- Begin 2nd level tab -->
 			<ul class="second_level_tab noprint">
@@ -105,7 +105,7 @@
 		?>
 		
 		<!-- Begin nomargin -->
-		<div class="content nomargin">
+		<div class="content">
 			
 			<?
 			// ** content
@@ -119,8 +119,7 @@
 					$_SESSION['wait'] = 1;
 					$waitlist =	querySQL('reservations');
 					if($waitlist){
-						echo "<br/><div class='dategroup_name' ";
-						echo" >"._wait_list."</div><br class='clear'>";
+						echo "<br/><br/><h3>"._wait_list."</h3>";
 						include('includes/reservations_grid.inc.php');
 					}
 				 }else{

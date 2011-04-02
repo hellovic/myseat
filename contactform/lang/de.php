@@ -31,7 +31,7 @@
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
 	$lang["contact_form_intro"] = '<p>Buchen Sie sich Ihren Tisch. Mit sofort best&auml;tigter Reservierung!<br/>
-	F&uuml;r private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</p>';
+	F&uuml;r Ad-Hoc Reservierungen, private Feiern, gro&szlig;en Buchungen oder allen anderen Fragen rufen Sie uns bitte an.</p>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Name oder Firma';

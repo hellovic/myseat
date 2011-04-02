@@ -141,7 +141,7 @@ define ( '_canceled_', 'stornierte' );
 define ( '_edit_reservation', 'Ändere Reservierung' );
 
 //original text: "Add reservation"
-define ( '_add_reservation', 'Neue Reservierung' );
+define ( '_add_reservation', '&nbsp;Neu&nbsp;' );
 
 //original text: "Visits"
 define ( '_visits', 'Besuche' );
@@ -168,10 +168,10 @@ define ( '_name', 'Name' );
 define ( '_description', 'Beschreibung' );
 
 //original text: "Seats"
-define ( '_seats', 'Maximale Plätze' );
+define ( '_seats', 'Plätze' );
 
 //original text: "Tables"
-define ( '_tables', 'Maximale Tische' );
+define ( '_tables', 'Tische' );
 
 //original text: "Open time"
 define ( '_open_time', 'Öffnungszeit' );

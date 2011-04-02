@@ -1,5 +1,5 @@
 <!-- Begin one column box -->
-	<div class="onecolumn" style="margin:4px;" id="outlet_detail_slider" >
+	<div class="onecolumn" style="margin:4px; display:none;" id="outlet_detail_slider" >
 		
 		<div class="header"><h2><?= _detail;?></h2></div>
 
