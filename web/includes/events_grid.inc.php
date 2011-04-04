@@ -25,8 +25,8 @@
 			foreach($events as $row) {
 			$_SESSION['outletID'] = $row->outlet_id;
 			echo "<tr id='events-".$row->id."'>";
-			echo "<td><span class='bold'>".date($general['dateformat'],strtotime($row->event_date))."</strong></td>
-			<td><span class='bold'><a href='?p=6&q=4&btn=3&eventID=".$row->id."'>".$row->subject."</a></strong>
+			echo "<td><strong>".date($general['dateformat'],strtotime($row->event_date))."</strong></td>
+			<td><strong><a href='?p=6&q=4&btn=3&eventID=".$row->id."'>".$row->subject."</a></strong>
 			<a href='main_page.php?p=2&outletID=".$row->outlet_id."&selectedDate=".$row->event_date."' style='margin-left:12px;'>
 			<img src='images/icons/arrow.png'/></a>
 			</td>

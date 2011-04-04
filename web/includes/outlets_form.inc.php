@@ -6,7 +6,7 @@ if ($_SESSION['button']==2) {
 <div class="content" style="height:960px;">
 <form method="post" action="?p=6" id="edit_outlet_form">
 	<label><?= _property;?></label>
-	<p><span class='bold'>	 	 				 
+	<p><strong>	 	 				 
 		<?= querySQL('db_property');?>
 	</strong></p>
 	<label><?= _name;?></label>

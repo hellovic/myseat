@@ -31,7 +31,7 @@
 			<td>".formatTime($row->reservation_time,$general['timeformat'])."</td>
 			<td>".printTitle($row->reservation_title)."</td>
 			<td>
-			<span class='bold'><a href='?p=102&resID=".$id."' >".utf8_encode($row->reservation_guest_name)."</a></strong>";
+			<strong><a href='?p=102&resID=".$id."' >".utf8_encode($row->reservation_guest_name)."</a></strong>";
 			if ($row->repeat_id !=0)
 	            {
 	            //print out recurring symbol
@@ -39,7 +39,7 @@
 					 "' title='"._recurring."' border='0' >";
 	            }
 			echo"</td>
-			<td><span class='bold'>".$row->reservation_pax."</strong></td>
+			<td><strong>".$row->reservation_pax."</strong></td>
 			<td>".$row->reservation_guest_phone."</td>
 			<td>".$row->reservation_hotelguest_yn."</td>
 			<td>".$row->outlet_name."</td>

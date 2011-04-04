@@ -61,10 +61,10 @@
 				echo " class='morning' ";
 			}
 			
-			echo "><span class='bold'>".formatTime($row->reservation_time,$general['timeformat'])."</strong></td>
+			echo "><strong>".formatTime($row->reservation_time,$general['timeformat'])."</strong></td>
 			<td>".printTitle($row->reservation_title)."</td>
 			<td>
-			<span class='bold'><a href='?p=102&resID=".$id."'"; 
+			<strong><a href='?p=102&resID=".$id."'"; 
 			// color guest name if tautologous
 			if($tautologous>1){echo" style='color: #936;' class='tipsy' title='"._tautologous_booking."'";}
 			echo ">".$row->reservation_guest_name."</a></strong>";
@@ -75,7 +75,7 @@
 					 "' title='"._recurring."' class='tipsy' border='0' >";
 	            }
 			echo"</td>
-			<td><span class='bold'>".$row->reservation_pax."</strong></td>
+			<td><strong>".$row->reservation_pax."</strong></td>
 			<td>".$row->reservation_guest_phone."</td>
 			<td>".$row->reservation_hotelguest_yn."</td>
 			<td>";
@@ -112,7 +112,7 @@
 			if($_SESSION['wait'] == 1){
 				$leftspace = leftSpace(substr($row->reservation_time,0,5), $availability);
 				if($leftspace >= $row->reservation_pax && $_SESSION['outlet_max_tables']-$tbl_availability[substr($row->reservation_time,0,5)] >= 1){	    
-					echo"&nbsp;<a href='' name='".$id."' class='alwbtn'><img src='images/icons/icon_accept.png' name='".$id."' alt='"._allow."' class='help' title='"._allow."'/></a>";
+					echo"&nbsp;<a href='#' name='".$id."' class='alwbtn'><img src='images/icons/icon_accept.png' name='".$id."' alt='"._allow."' class='help' title='"._allow."'/></a>";
 				}
 			}
 		echo"</td></tr>";

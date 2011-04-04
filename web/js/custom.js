@@ -377,7 +377,7 @@ $(document).ready(function() {
 					cache: false,
 					dataType: 'html',
 					success: function(original_element){
-						//window.location.reload();
+						window.location.reload();
 					}
 				}); 
 	});// Modal message send form END

@@ -29,7 +29,7 @@
 <div id="modaltable" style='background:#FFF;' width='400px;'>
 	<h2><?= _information; ?></h2>
 	<br/>
-	<p class='center'><span class='bold'>
+	<p class='center'><strong>
 		<?= _sentence_5; ?>
 	</strong></p>
 	<br/><br/>

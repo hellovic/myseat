@@ -1,11 +1,11 @@
 
 <div class="content" style="height:700px;">
 	<label><?= _property;?></label>
-	<p><span class='bold'>	 	 				 
+	<p><strong>	 	 				 
 		<?= $row->name;?>
 	</strong></p>
 	<label><?= _name;?></label>
-	<p><span class='bold'>
+	<p><strong>
 		<?= $row->outlet_name;?>
 	</strong></p>
 	<label><?= _cuisine_style;?></label>

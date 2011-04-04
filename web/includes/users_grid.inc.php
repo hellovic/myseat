@@ -21,7 +21,7 @@
 			echo "<tr id='user-".$row->userID."'>";
 					
 			echo"<td>".$row->userID."</td>
-			<td><span class='bold'><a href='?p=6&q=2&btn=3&userID=".$row->userID."'>".$row->username."</a></strong></td>
+			<td><strong><a href='?p=6&q=2&btn=3&userID=".$row->userID."'>".$row->username."</a></strong></td>
 			<td>".$row->email."</td>
 			<td>".$roles[$row->role]."</td>
 			<td><small>".$row->last_ip."</small></td>

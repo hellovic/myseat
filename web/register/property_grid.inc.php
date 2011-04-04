@@ -23,7 +23,7 @@
 			foreach($properties as $row) {
 			echo "<tr id='property-".$row->id."'>";
 		
-			echo"<td><span class='bold'><a href='?p=5&propertyID=".$row->id."'>".$row->name."</a></strong></td>
+			echo"<td><strong><a href='?p=5&propertyID=".$row->id."'>".$row->name."</a></strong></td>
 			<td>".$row->street."</td>
 			<td>".$row->city."</td>
 			<td>".$row->contactperson."</td>
