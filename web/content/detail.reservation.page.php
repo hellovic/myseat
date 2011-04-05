@@ -77,7 +77,7 @@ echo "<ul style='margin-left:40px'>";
 if(count($history)>0){
 	foreach ($history as $row) {
 		if (trim($row->reservation_notes)!=''){
-			echo "<li>".utf8_encode($row->reservation_notes)."</li>";
+			echo "<li>".$row->reservation_notes."</li>";
 		}
 	}
 }
