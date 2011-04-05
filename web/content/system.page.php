@@ -170,7 +170,7 @@
 			<ul class="second_level_tab" style="line-height:1.4em">
 				<?php if ( current_user_can( 'Settings-Outlets' ) ): ?>
 				<li>
-					<a http://localhost/XT/06-code/web/main_page.php?q=1 id="editToggle" onclick="return false;">
+					<a href="#" id="editToggle" onclick="return false;">
 						<?= _edit;?>
 					</a>
 				</li>
