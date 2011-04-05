@@ -920,6 +920,12 @@ label.error                             { margin-left: 6px; }
                                             font-family: 'DroidSansBold', Arial;
                                         }
 /* 
+	Inline Edit 
+*/
+.opentime-table	select					{
+										margin-left: 8px;	
+										}
+/* 
 	Google Map 
 */					
 .google_map				{

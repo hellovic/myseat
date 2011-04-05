@@ -41,7 +41,7 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		
 		//echo $value."/".$endtime."/".date('H:i',$endtime)."//"; // error reporting
 		
-		echo"<select name='$field' id='$field' size='1' title=' ' style='width:168px;'>\n";
+		echo"<select name='$field' id='$field' size='1' title=' ' >\n";
 		echo "<option value='' ";
 		if ($select=='') {
 			echo "selected='selected'";

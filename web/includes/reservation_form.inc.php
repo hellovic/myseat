@@ -5,7 +5,7 @@
   <form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 	<br/>
 	<label><?= _booknum;?></label>
-	<p><strong><?= $row->reservation_bookingnumber; ?></strong></p>
+	<p><span class='bold'><?= $row->reservation_bookingnumber; ?></strong></p>
 	<br/>
 	<label><?= _outlets;?></label>
 	<p><?= $row->outlet_name; ?></p>
@@ -31,9 +31,9 @@
 			</p>
 			<label><?= _guest_name; ?></label>
 			<p>
-				<strong>
+				<span class='bold'>
 				<input type="text" name="reservation_guest_name" id="reservation_guest_name" class="required" title=' ' minlength="3" style="width:280px;" value="<?= $_SESSION[reservation_guest_name];?>"/>
-				</strong>
+</strong>
 			</p>
 			<label><?= _pax; ?></label>
 			<p>

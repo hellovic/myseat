@@ -6,7 +6,7 @@ if ($_SESSION['button']==2) {
 <div class="content" style="height:960px;">
 <form method="post" action="?p=6" id="edit_outlet_form">
 	<label><?= _property;?></label>
-	<p><strong>	 	 				 
+	<p><span class='bold'>	 	 				 
 		<?= querySQL('db_property');?>
 	</strong></p>
 	<label><?= _name;?></label>
@@ -15,10 +15,7 @@ if ($_SESSION['button']==2) {
 	</p>
 	<label><?= _cuisine_style;?></label>
 	<p>
-		<div class="option">
-			<div class="text"></div>
-			<?= cuisineDropdown($cuisines,$row->cuisine_style);?>
-		</div>
+  		<?= cuisineDropdown($cuisines,$row->cuisine_style);?>
 	</p>
 	<br/>
 	<label><?= _description;?></label>
@@ -77,10 +74,7 @@ if ($_SESSION['button']==2) {
 			</p>
 			<label><?= _year;?></label>	
 			<p>
-				<div class="option">
-					<div class="text"></div>
 					<?= yearDropdown('saison_year',$row->saison_year); ?>
-				</div>
 			</p>
 			<br/>
 			<label><?= _day_off;?></label>
@@ -98,7 +92,7 @@ if ($_SESSION['button']==2) {
 			<br/>
 			<label><?= _specific." "._open_time." & "._close_time;?></label>
 			<p>	
-				<table>
+				<table class='opentime-table'>
  	 	 	 	 <?
 					$day = strtotime("next Monday");
 					for ($i=1; $i <= 7; $i++) { 
@@ -118,7 +112,7 @@ if ($_SESSION['button']==2) {
 			<br/>
 			<label><?= _break;?></label>
 			<p>	
-				<table>
+				<table class='opentime-table'>
  	 	 	 	 <?
 					$day = strtotime("next Monday");
 					for ($i=1; $i <= 7; $i++) { 

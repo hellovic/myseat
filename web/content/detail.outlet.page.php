@@ -1,3 +1,11 @@
+<script type="text/javascript">
+      $(function() {
+        $('#editToggle').click(function() {
+          $('#show').toggle();
+          $('#edit').toggle();
+        });
+      })
+</script>
 <!-- Begin one column box -->
 <div class="onecolumn">
 	

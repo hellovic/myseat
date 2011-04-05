@@ -46,21 +46,15 @@
 				</td>
 			</tr>
 			<tr>
-				<th><strong><?= _outlets; ?></strong></th>
+				<th><span class='bold'><?= _outlets; ?></strong></th>
 				<td>
-					<div class="option">
-						<div class="text" style='font-weight:normal;' ></div>
 							<? getOutletList(1,'enabled'); ?>
-					</div>
 				</td>
 			</tr>
 			<tr>
-				<th><strong><?= _type; ?></strong></th>
+				<th><span class='bold'><?= _type; ?></strong></th>
 				<td>
-					<div class="option">
-						<div class="text"></div>
 							<? getTypeList();?>
-				    </div>
 				</td>
 			</tr>
 			<tr>

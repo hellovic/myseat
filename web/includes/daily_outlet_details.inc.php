@@ -15,7 +15,7 @@
 					echo "<h4 style='margin-left:5px;'>"._description."</h4> 	
 							<p>".$_SESSION['selOutlet']['outlet_description']."</p>";
 					echo "<h4 style='margin-left:5px;'>"._cuisine_style."</h4> 	
-							<p><strong>".$cuisines[($_SESSION['selOutlet']['cuisine_style']-1)]."</strong></p>";
+							<p><span class='bold'>".$cuisines[($_SESSION['selOutlet']['cuisine_style']-1)]."</strong></p>";
 					echo "</div><div style='width:35%; float:left; margin-left:40px;'>";
 					echo "<h4 style='margin-left:5px;'>"._settings."</h4>";
 					echo "<p>";

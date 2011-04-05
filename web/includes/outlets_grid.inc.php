@@ -29,9 +29,9 @@
 			
 			echo "<tr id='outlet-".$row->outlet_id."'>";
 			echo "<td>".$row->outlet_id."</td>
-			<td><strong><a href='?p=101&outletID=".$row->outlet_id."'>".utf8_encode($row->outlet_name)."</a></strong></td>
-			<td><strong>".$row->outlet_max_capacity."</strong></td>
-			<td><strong>".$row->outlet_max_tables."</strong></td>
+			<td><span class='bold'><a href='?p=101&outletID=".$row->outlet_id."'>".utf8_encode($row->outlet_name)."</a></strong></td>
+			<td><span class='bold'>".$row->outlet_max_capacity."</strong></td>
+			<td><span class='bold'>".$row->outlet_max_tables."</strong></td>
 			<td>".formatTime($row->outlet_open_time,$general['timeformat'])." - ".
 			formatTime($row->outlet_close_time,$general['timeformat'])."</td>
 			<td>".$row->avg_duration."</td>

@@ -33,11 +33,7 @@ if ($p == 2 || $_SESSION['page'] == 2){
 	</p>
 	<label><?= _country;?></label>
 	<p>
-		<div class="option">
-			<div class="text"></div>
 		<? countryDropdown($countries,$row['country']); ?>
-		</div>
-		<!-- <input type="text" name="country" id="country" class="required" minlength="4" title=' ' value="<?= $row['country'];?>"/> -->
 	</p>
 	<label><?= _email;?></label>
 	<p>

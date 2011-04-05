@@ -6,17 +6,15 @@
 <!-- Beginn left column -->	
 <form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 		<br/>
+		<p>
 		<label><?= _time; ?>*</label><br/>
-			<div class="option">
-				<div class="text"></div>
 				<? getTimeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],1);?>
-			</div>
+		</p>
 		<br/>
-			<label><?= _title; ?>*</label><br/>
-			<div class="option">
-				<div class="text"></div>
+		<p>
+		<label><?= _title; ?>*</label><br/>
 				<? getTitleList();?>
-			</div>
+		</p>
 		<br/>
 		<p>
 		<label><?= _guest_name; ?>&deg;*</label><br/>
@@ -28,12 +26,11 @@
 			<input type="text" name="reservation_pax" id="reservation_pax" class="required digits" title=' ' />
 		</p>
 		<br/>
+		<p>
 	    <label><?= _type; ?>*</label><br/>
-		<div class="option">
-			<div class="text"></div>
 				<? getTypeList();?>
-	    </div>
-	    <br/>
+		</p>
+		<br/>
 		<p>
 		<label><?= _phone_room; ?></label><br/>
 			<input type="text" name="reservation_guest_phone" id="reservation_guest_phone"/>
@@ -107,12 +104,11 @@
 			</span>
 		</p>
 		<br/>
+		<p>
 		<label><?= _paid_by; ?></label><br/>
-				<div class="option">
-					<div class="text"></div>
 					<? getPaidList();?>
-				</div>
-		<br/><br/>
+		</p>
+		<br/>
 		<p>
 		<label><?= _multi_booking; ?></label>
 		<div class="date dategroup">

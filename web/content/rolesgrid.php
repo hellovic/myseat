@@ -18,7 +18,7 @@ while( $row = mysql_fetch_array($cap) ){
     foreach($row  as $key => $value){
         if($key!='0'){
             if($key=='capability'){
-                echo "<td><strong>".str_replace('-',' ',$value)."</strong></td>";
+                echo "<td><span class='bold'>".str_replace('-',' ',$value)."</strong></td>";
             }else{
                 echo "<td>".printOnOff($value)."</td>";
             }
