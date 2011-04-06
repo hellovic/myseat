@@ -23,6 +23,10 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
+		
+		// Preload images
+		$.preloadCssImages();
+		
 		// edit toogle buttons
 		$('#editToggle').click(function() {
           $('#show').toggle();
