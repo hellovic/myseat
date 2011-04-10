@@ -42,7 +42,11 @@ function buildDate($format='',$d='',$m='',$y='',$days=0,$special=''){
 
 // make database date human readable
 function humanize($date) {
-	$pattern = (strlen($date) == 10 ? 'd/m/Y' : 'd/m/Y h:i');
+	GLOBAL $general;
+	$datef =  $general['dateformat_short'];
+	$timef = ($general['timeformat'] == 24) ? "H:i" : "g:i a";
+	$datetime = $datef." ".$timef;
+	$pattern = (strlen($date) == 10) ? $datef : $datetime;
 	return date($pattern, strtotime($date));
 }
 

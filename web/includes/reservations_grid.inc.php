@@ -3,13 +3,13 @@
 <table class="global" style="margin:15px 0px 0px 0px; font-size:0.9em; width:100%;" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
-	    	<th ><?= _time; ?></th>
-			<th ></th>
-			<th ><?= _guest_name; ?></th>
-			<th ><?= _pax; ?></th>
-			<th ><?= _phone_room; ?></th>
-			<th ><?= _type; ?></th>
-			<th > 
+	    	<th><?= _time; ?></th>
+			<th></th>
+			<th><?= _guest_name; ?></th>
+			<th><?= _pax; ?></th>
+			<th><?= _phone_room; ?></th>
+			<th><?= _type; ?></th>
+			<th> 
 			<?
 			 	if ($_SESSION['page'] == 1) {
 			 		echo _outlets;
@@ -24,12 +24,11 @@
 				echo "<th style='width:2%'>"._table."</th>";
 			}
 			?>
-	    	<th ><?= _status; ?></th>
-			<th></th>
+	    	<th style='width:3%'><?= _status; ?></th>
 			<th class='noprint'></th>
+			<th class='noprint' style='width:2%'></th>
 	    </tr>
 	</thead>
-	<tfoot></tfoot>
 	<tbody>
 		<?
 		if ($_SESSION['page'] == 1) {
@@ -39,6 +38,12 @@
 		}
 		
 		if ($reservations) {
+			
+			// reset total counters
+			$tablesum = 0;
+			$guestsum = 0;
+			
+			//start printing out reservation grid
 			foreach($reservations as $row) {
 				// reservation ID
 				$id = $row->reservation_id;
@@ -74,6 +79,10 @@
 	            echo "&nbsp;<img src='images/icons/arrow-repeat.png' alt='"._recurring.
 					 "' title='"._recurring."' class='tipsy' border='0' >";
 	            }
+				// old reservations symbol
+				if( (strtotime($row->reservation_timestamp) + $general['old_days']*86400) <= time() ){
+					echo "<img src='images/icons/clock-ex.png' class='help tipsy' title='"._sentence_11."' style='float:right;'/>";
+				}
 			echo"</td>
 			<td><strong>".$row->reservation_pax."</strong></td>
 			<td>".$row->reservation_guest_phone."</td>
@@ -86,7 +95,6 @@
 				}
 			echo "</td>
 			<td class='noprint'>".$row->reservation_booker_name."</td>";
-			//<td><small>".humanize($row->reservation_timestamp)."</small></td>
 			if($_SESSION['wait'] == 0){
 				echo "<td class='big tb_nr'><div id='reservation_table-".$id."' class='inlineedit'>".$row->reservation_table."</div></td>";
 			}
@@ -94,10 +102,7 @@
 				getStatusList($id, $row->reservation_status);
 			echo "</div></td>";
 			echo "<td class='noprint'>";
-				// old reservations symbol
-				if( (strtotime($row->reservation_timestamp) + $general['old_days']*86400) <= time() ){
-					echo "<img src='images/icons/clock-ex.png' class='help tipsy' title='"._sentence_11."' style='float:right;'/>";
-				}
+			echo "<small>".humanize($row->reservation_timestamp)."</small>";
 			echo "</td>";
 			echo "<td style='padding:7px 0px;' class='noprint'>";
 			// DELETE BUTTON
@@ -116,9 +121,29 @@
 				}
 			}
 		echo"</td></tr>";
+		$tablesum ++;
+		$guestsum += $row->reservation_pax;
 			}
 		}
 		?>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" style="text-align:right;" class="bold"><?= _guest_summary;?></td>
+			<td class="bold"><?= $guestsum;?></td>
+			<td style="text-align:right;" class="bold"><?= _tables_summary;?></td>
+			<td class="bold"><?= $tablesum;?></td>
+			<td></td>
+			<td></td>
+			<?
+			if($_SESSION['wait'] == 0){
+				echo "<td></td>";
+			}
+			?>
+			<td class="noprint"></td>
+			<td class="noprint"></td>
+			<td class="noprint"></td>	
+		</tr>
+	</tfoot>
 </table>
 <!-- End reservation table data -->

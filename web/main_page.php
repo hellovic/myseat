@@ -91,6 +91,7 @@ echo "<body>
 		case '2':
 			// outlet
 			$dayoff = getDayoff();
+			$_SESSION['resID'] = '';
 			include('content/showday.page.php');
 		break;
 		case '3':

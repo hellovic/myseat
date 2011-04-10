@@ -20,15 +20,28 @@ include('../classes/business.class.php');
 include('../classes/db_queries.db.php');
 // ** set configuration
 include('../../config/config.inc.php');
-
 // prevent dangerous input
 secureSuperGlobals();
+
+// +++ memorize selected outlet details; maybe moved reservation +++
+echo $_SESSION['outletID']."<br/>";
+$rows = querySQL('db_outlet_info');
+if($rows){
+	foreach ($rows as $key => $value) {
+		$_SESSION['selOutlet'][$key] = $value;
+	}
+}
+// get outlet maximum capacity; maybe moved reservation
+$maxC = maxCapacity();
 
 // ** check booking rules
 include('../classes/bookingrules.class.php');
 
 // set sql table
 $table = 'reservations';
+
+// initiate variables
+$_SESSION['reservation_pax'] = 0;
 
 // CSRF - Secure forms with token
 if ($_SESSION['token'] == $_POST['token']) {
@@ -102,8 +115,6 @@ if ($_SESSION['token'] == $_POST['token']) {
 			// clear old booking number
 			$_SESSION['booking_number'] = ($_POST['reservation_bookingnumber']=='') ? '' : $_POST['reservation_bookingnumber'];
 			
-			// variables
-			$res_pax = ($_POST['reservation_pax']) ? (int)$_POST['reservation_pax'] : 0;
 			// memorize selected date
 			$selectedDate = $_SESSION['selectedDate'];
 			// res_dat is the beginning of circling through recurring dates 
@@ -120,7 +131,6 @@ if ($_SESSION['token'] == $_POST['token']) {
 			    $values[] = "'".$_SESSION['booking_number']."'";
 			}
 		    
-			
 			//store recurring reservation
 			if ($recurring_date > $reservation_date){
 				$repeatid = querySQL('res_repeat');
@@ -136,6 +146,15 @@ if ($_SESSION['token'] == $_POST['token']) {
 			// daily or weekly recurring?
 			$recurring_span = ($_POST['recurring_span']) ? $_POST['recurring_span'] : 1;
 			
+			//cut both " ' " from reservation_pax
+			$res_pax = substr($_SESSION['reservation_pax'], 0, -1);
+			$res_pax = substr($_SESSION['reservation_pax'], 1);
+			//cut both " ' " from reservation_time
+			$startvalue = $_SESSION['reservation_time'];
+			$startvalue = substr($startvalue, 0, -1);
+			$startvalue = substr($startvalue, 1);
+			
+		// main loop to store all reservations ( one or recurring)	
 		 while ( $res_dat <= $recurring_date) {
 			
 			// build new reservation date
@@ -153,8 +172,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$index = array_search('reservation_wait',$keys);
 			if($index){
 				$values[$index] = '1';
-			}
-			
+			}		
 			
 			//Check Availability
 			// =-=-=-=-=-=-=-=-=
@@ -164,21 +182,16 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$tblbyTime = reservationsByTime('tbl');
 			// get availability by timeslot
 			$occupancy = getAvailability($resbyTime,$general['timeintervall']);
-			$tbl_occupancy = getAvailability($tblbyTime,$general['timeintervall']);
+			$tbl_occupancy = getAvailability($tblbyTime,$general['timeintervall']);				  
 			
-			//cut both " ' " from reservation_pax
-			$res_pax = substr($_SESSION['reservation_pax'], 0, -1);
-			$res_pax = substr($_SESSION['reservation_pax'], 1);
-			
-			$startvalue = $_SESSION['reservation_time'];
-			//cut both " ' " from reservation_time
-			$startvalue = substr($startvalue, 0, -1);
-			$startvalue = substr($startvalue, 1);
-			
-			  $val_capacity = $_SESSION['outlet_max_capacity']-$occupancy[$startvalue];
-			  $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_occupancy[$startvalue]; 
+			$val_capacity = $_SESSION['outlet_max_capacity']-$occupancy[$startvalue];
+			$tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_occupancy[$startvalue]; 
 
-			if( (int)$res_pax > $val_capacity || $tbl_capacity < 1 ){
+			// do not subtract pax and table when reservation is moved
+			$res_pax = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? $res_pax : $res_pax*2;
+			$res_tbl = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? 1 : 2;
+			echo $res_pax." > ".$val_capacity." && ".$tbl_capacity." < ".$res_tbl;
+			if( $res_pax > $val_capacity || $tbl_capacity < $res_tbl ){
 				//prevent double entry 	
 				$index = array_search('reservation_wait',$keys);
 				if($index>0){
@@ -245,7 +258,7 @@ $token = md5(uniqid(rand(), true));
 $_SESSION['token'] = $token;
 
 // after processing reservation, redirect to main page
-header("Location: ../main_page.php?q=1");
+//header("Location: ../main_page.php?q=1");
 
 exit;
 

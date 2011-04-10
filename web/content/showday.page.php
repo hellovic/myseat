@@ -43,7 +43,11 @@
 			</a>
 			<div class="dategroup_name">
 				<a href="?selectedDate=<?= buildDate($settings['dbdate']); ?>">
-					<?= querySQL('db_outlet'); ?>
+					<? 
+					echo querySQL('db_outlet').
+					" - ".strftime("%A",strtotime($_SESSION['selectedDate'])).
+					" , ".date($general['dateformat'],strtotime($_SESSION['selectedDate'])); 
+					?>
 				</div>
 				</a>
 			
@@ -87,8 +91,10 @@
 
 		<!-- ALERT & MESSAGE boxes goes here -->
 			<? 
-			if($searchquery == '' && $_SESSION['storno'] == 0){ 
-				include('includes/messagebox.inc.php'); 
+			if($searchquery == '' && $_SESSION['storno'] == 0){
+				echo "<div class='noprint'>"; 
+					include('includes/messagebox.inc.php'); 
+				echo "</div>";
 			} 
 			$_SESSION['errors'] = array();
 			$_SESSION['messages'] = array();

@@ -535,6 +535,10 @@ function randomString()
 function maxCapacity(){
 	$capacity =	querySQL('maxcapacity');
 		
+	$_SESSION['outlet_max_capacity'] = 0;
+	$_SESSION['outlet_max_tables'] = 0;	
+	$_SESSION['passerby_max_pax'] = 0;
+	
 	$_SESSION['outlet_max_capacity'] = $capacity['outlet_max_capacity'] + $capacity['outlet_child_capacity'];
 	$_SESSION['outlet_max_tables'] = $capacity['outlet_max_tables'] + $capacity['outlet_child_tables'];
 	$_SESSION['passerby_max_pax'] = ($capacity['outlet_child_passer_max_pax'] > 0 ) ?  $capacity['outlet_child_passer_max_pax'] : $capacity['passerby_max_pax'];
@@ -560,7 +564,7 @@ function reservationsByTime($kind='pax') {
 		}
 	}
 	
-	//returen values
+	//return values
 	if( $kind=='pax' ){
 	    return $pax_by_time;
 	}else if( $kind=='tbl' ){

@@ -13,7 +13,6 @@ function querySQL($statement){
 							AND `reservation_wait` = '0' 
 							AND `reservation_outlet_id` = '%d' 
 							AND `reservation_date` = '%s'
-							AND `reservation_status` != 'DEP'
 							AND `reservation_id` != '%d'
 							GROUP BY `reservation_time`
 							ORDER BY `reservation_time` ASC",

@@ -15,23 +15,7 @@ body {
 		  display:none;
 		 }
 
-#top_bar {
-		  display:none;
-		 }
-		
-#menu_wrapper {
-		  display:none;
-		 }
-		
-#first_level_tab {
-		  display:none;
-		 }
-
-#most_recent {
-		  display:none;
-		 }
-
-#timeline {
+#top_bar, #menu_wrapper, #first_level_tab, #most_recent, #timeline   {
 		  display:none;
 		 }
 
@@ -41,9 +25,22 @@ body {
 
 #datetext {
 		  font-weight:bold;
-                  font-size: 1.5em;
+                  font-size: 1.4em;
 		 }
 
+#footer {
+		background: white;
+		color: black;
+		}
+		
+.onecolumn .header {
+		background: white;
+		}
+		
+.date {
+		background: white;
+		}
+		
 .dategroup_name a {
 		 color: #000;
 		 }
@@ -53,9 +50,20 @@ body {
 		 }
                  
 .onecolumn {
-                  border: 0px;
-}
+          border: 0px;
+		}
 
 .global td{
-                  border: 1px solid #999;
-}
+          border: 1px solid #999;
+			}
+
+.morning, .afternoon, .evening			{
+			background: white;
+			text-shadow: none;
+			}
+					
+table.global thead tr {
+	    	background: white !important;
+	    	text-shadow: none;
+			font-weight: bold;
+			}

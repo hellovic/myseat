@@ -11,10 +11,7 @@
 	<p><?= $row->outlet_name; ?></p>
 	<label><?= _move_reservation_to;?></label>
 	<p>
-		<div class="option_xl">
-			<div class="text"></div>
 				<? outletList($_SESSION['outletID'],'enabled','reservation_outlet_id'); ?>
-		</div>
 	</p>
 	<br/>
 	<label><?= _date;?></label>
@@ -117,6 +114,7 @@
 			<br/>
 			<input type="hidden" name="reservation_id" value="<?= $_SESSION['resID'];?>">
 			<input type="hidden" name="reservation_date" value="<?= $row->reservation_date;?>">
+			<input type="hidden" name="old_outlet_id" value="<?= $row->reservation_outlet_id;?>">
 			<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">
 			<input type="hidden" name="reservation_bookingnumber" value="<?= $row->reservation_bookingnumber;?>">
 			<input type="hidden" name="repeat_id" value="<?= $row->repeat_id;?>">
