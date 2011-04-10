@@ -256,7 +256,7 @@ $token = md5(uniqid(rand(), true));
 $_SESSION['token'] = $token;
 
 // after processing reservation, redirect to main page
-//header("Location: ../main_page.php?q=1");
+header("Location: ../main_page.php?q=1");
 
 exit;
 
