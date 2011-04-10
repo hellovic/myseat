@@ -3,18 +3,25 @@
 =-=           mySeat README               =-=
 =-=                                       =-=
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-=-= Version: 0.1771                       =-= 
-=-= Date:    06.04.2011                   =-= 
-=-= Time:    04:50 GMT                    =-= 
+=-= Version: 0.178                        =-= 
+=-= Date:    10.04.2011                   =-= 
+=-= Time:    05:08 GMT                    =-= 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
-mySeat - Beautifully simple restaurant reservations.
+mySeat - Anti-frustration reservation software.
 
-
+Beautifully simple restaurant reservations.
 Collaborate effortlessly on reservations.
 Whether you are a restaurant team of 5 or a Grand-Hotel,
 mySeat will help you keep track of your reservations with ease.
+
+LAST CHANGES in 0.178
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Major bugfix in Session variables which causes occasionally unusual behavior
+on editing and moving reservations.
+There was no database change.
+It is highly recommended to update to this version.
 
 
 INSTALLATION
