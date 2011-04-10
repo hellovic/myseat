@@ -24,7 +24,6 @@ include('../../config/config.inc.php');
 secureSuperGlobals();
 
 // +++ memorize selected outlet details; maybe moved reservation +++
-echo $_SESSION['outletID']."<br/>";
 $rows = querySQL('db_outlet_info');
 if($rows){
 	foreach ($rows as $key => $value) {
@@ -190,7 +189,6 @@ if ($_SESSION['token'] == $_POST['token']) {
 			// do not subtract pax and table when reservation is moved
 			$res_pax = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? $res_pax : $res_pax*2;
 			$res_tbl = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? 1 : 2;
-			echo $res_pax." > ".$val_capacity." && ".$tbl_capacity." < ".$res_tbl;
 			if( $res_pax > $val_capacity || $tbl_capacity < $res_tbl ){
 				//prevent double entry 	
 				$index = array_search('reservation_wait',$keys);

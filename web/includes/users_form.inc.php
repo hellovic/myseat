@@ -47,7 +47,7 @@ if ($_SESSION['page'] == 7){
 	<p>
 			<?
 			if(($_SESSION['page'] != 7 && $row['userID'] !='') || ($_SESSION['page'] == 6 && $row['userID'] =='')){	
-				echo "<div class='option'>\n<div class='text'></div>\n<select name='role' id='role' size='1'>\n";
+				echo "<select name='role' id='role' size='1'>\n";
 				//set role
 				$role = ($row['role']) ? $row['role'] : 6;
 				
@@ -61,7 +61,7 @@ if ($_SESSION['page'] == 7){
 						}
 				}
 				
-				echo "</select></div>\n";
+				echo "</select>";
 			}else{
 				// creating a new property and admin
 				echo "<span class='bold'>".$roles[2]."</strong><input type='hidden' name='role' id='role' value='2'>";

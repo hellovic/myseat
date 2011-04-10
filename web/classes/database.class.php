@@ -174,11 +174,19 @@ function writeForm($table =''){
 				$keys[$i] = $key;
 				$values[$i] = "'".abs($value)."'";
 				
-			}else if($key == 'outlet_child_tables'){	
-				
-				// make value always positive (abs)
+			}else if($key == 'outlet_child_capacity'){	
+
+				// make value always positive
 				$keys[$i] = $key;
-				$values[$i] = "'".abs($value)."'";
+				$values[$i] = "'".$value."'";
+
+			}else if($key == 'role'){	
+				if ($value<2) {
+					$value = 6;
+				}
+				// add role field
+				$keys[$i] = $key;
+				$values[$i] = "'".$value."'";
 				
 			}else if( $key != "action"
 				 && $key != "email_type"
