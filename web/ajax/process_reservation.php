@@ -76,6 +76,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 				 && $key != "s_datepicker"
 				 && $key != "MAX_FILE_SIZE"
 				 && $key != "propertyID"
+				 && $key != "old_outlet_id"
 				 && $key != "token"
 				 && $key != "recurring_span"
 				 && $key != "reservation_bookingnumber"
@@ -153,6 +154,10 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$startvalue = substr($startvalue, 0, -1);
 			$startvalue = substr($startvalue, 1);
 			
+			// do not subtract pax and table when reservation is moved
+			//$res_pax = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? $res_pax : $res_pax*2;
+			//$res_tbl = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? 1 : 2;
+			
 		// main loop to store all reservations ( one or recurring)	
 		 while ( $res_dat <= $recurring_date) {
 			
@@ -186,9 +191,6 @@ if ($_SESSION['token'] == $_POST['token']) {
 			$val_capacity = $_SESSION['outlet_max_capacity']-$occupancy[$startvalue];
 			$tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_occupancy[$startvalue]; 
 
-			// do not subtract pax and table when reservation is moved
-			$res_pax = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? $res_pax : $res_pax*2;
-			$res_tbl = ($_SESSION['outletID'] == $_POST['old_outlet_id']) ? 1 : 2;
 			if( $res_pax > $val_capacity || $tbl_capacity < $res_tbl ){
 				//prevent double entry 	
 				$index = array_search('reservation_wait',$keys);
