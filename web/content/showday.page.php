@@ -2,7 +2,7 @@
 	<!-- Begin 1st level tab -->
 	<ul class="first_level_tab">
 		<li>
-			<a href="main_page.php?q=1" <? if ($q == 1 || $q == 4) { echo " class='active'";}?> class='active'>
+			<a href="main_page.php?q=1" <? if ($q == 1 || $q == 4) { echo " class='active'";}else{ echo " class='inactive'"; }?> >
 				<?= _confirmed_reservations; ?>
 			</a>
 		</li>
@@ -10,12 +10,12 @@
 		if ( $today_date <= $_SESSION['selectedDate'] && $dayoff == 0 && current_user_can('Reservation-New') ){
 			echo'<li>
 				<a href="main_page.php?q=2"';
-				if ($q == 2) { echo " class='active'";}
-				echo'class="active" >'._add_reservation.'</a></li>';
+				if ($q == 2) { echo " class='active'";}else{ echo " class='inactive'"; } 
+				echo'>'._add_reservation.'</a></li>';
 		} 
 		?>
 		<li>
-			<a href="main_page.php?q=3&s=1" <? if ($q == 3) { echo " class='active'";}?> class='active'>
+			<a href="main_page.php?q=3&s=1" <? if ($q == 3) { echo " class='active'";}else{ echo " class='inactive'"; }?> >
 				<?= _canceled_reservations; ?>
 			</a>
 		</li>

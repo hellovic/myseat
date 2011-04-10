@@ -643,6 +643,20 @@ input.button_red:active                 {
                                             background: transparent url('../images/bg_2nd_tab_active.png') no-repeat center;
                                             margin-top: 3px;
                                         }
+.second_level_tab li a.inactive         {
+                                            display: block;
+                                            width: 130px;
+                                            height: 21px;
+                                            padding-top: 5px;
+                                            text-align: center;
+                                            color: #fff;
+                                            font-family: 'DroidSansBold', Arial;
+                                            font-size: 11px;
+                                            text-shadow: white 0px 0px 0px;
+                                            text-transform: uppercase;
+                                            background: transparent url('../images/bg_2nd_tab.png') no-repeat center;
+                                            margin-top: 3px;
+                                        }
 .content p                              { padding: 0px 5px 10px 5px }
 .pagination                             {
                                             display: block;
