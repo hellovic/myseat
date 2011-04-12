@@ -411,6 +411,16 @@ function querySQL($statement){
 							$_SESSION['outletID'], $_SESSION['statistic_month'], $_SESSION['selectedDate_year']);
 			return getRowList($result);
 		break;
+		case 'statistic_weekday':
+			$result = query("SELECT SUM(reservation_pax) AS paxsum FROM `reservations` 
+							WHERE `reservation_wait`=0 AND `reservation_hidden`=0 
+							AND `reservation_outlet_id`='%d' 
+							AND MONTH(reservation_date) = '%s'
+							AND YEAR(reservation_date) = '%s'
+							GROUP BY WEEKDAY(reservation_date)",
+							$_SESSION['outletID'], $_SESSION['statistic_month'], $_SESSION['selectedDate_year']);
+			return getRowList($result);
+		break;
 		case 'all_properties':
 			$result = query("SELECT * FROM `properties` ORDER BY name ASC");
 			return getRowList($result);

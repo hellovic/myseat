@@ -130,6 +130,13 @@
 					height: '240px',
 					colors: ['#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed','#f45a90','#e9e744']
 				}).appendTo('#graph_wrapper3');
+				
+				// Setup graph 4
+		    	$('#graph_weekday').visualize({
+					width: '760px',
+					height: '240px',
+					colors: ['#f45a90', '#D1E751']
+				}).appendTo('#graph_wrapper4');
 
 				$('.visualize').trigger('visualizeRefresh');
 

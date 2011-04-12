@@ -1,4 +1,25 @@
 <?
+/**
+ *
+ *  Gets the first weekday of that month and year
+ *
+ *  @param  int   The day of the week (0 = sunday, 1 = monday ... , 6 = saturday)
+ *  @param  int   The month (if false use the current month)
+ *  @param  int   The year (if false use the current year)
+ *
+ *  @return int   The timestamp of the first day of that month
+ *
+ **/ 
+function get_first_day($day_number=1, $month=false, $year=false)
+{
+  $month  = ($month === false) ? strftime("%m"): $month;
+  $year   = ($year === false) ? strftime("%Y"): $year;
+ 
+  $first_day = 1 + ((7+$day_number - strftime("%w", mktime(0,0,0,$month, 1, $year)))%7);
+
+  return mktime(0,0,0,$month, $first_day, $year);
+}
+
 //prepare selected Date
 list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
 
@@ -26,8 +47,10 @@ while ($i<=12){
 	
 $i++;
 }
+// Set month from selected date
+$_SESSION['statistic_month'] = $sm;
 
-// Bar Plot week DEF
+// Bar Plot def guests per day/week
 $data1 = array();
 $labels = array();
 $i=0;
@@ -44,10 +67,22 @@ while ($i<=6){
 $i++;
 }
 
-// Guest type
+// Bar Plot Guest by weekday/month
+$data_wk = array();
+$label_wk = array();
+
+	$statistic = querySQL('statistic_weekday');
+
+	foreach ($statistic as $key => $value) {
+		foreach($value as $paxsum){
+			$label_wk[] = $key;
+			$data_wk[] = $paxsum;
+		}
+	}
+
+// Cake Plot Guest type/month
 $datapie = array();
 $labelpie = array();
-$_SESSION['statistic_month'] = $sm;
 
 	$pie_data = querySQL('statistic_type');
 
@@ -91,9 +126,34 @@ $_SESSION['statistic_month'] = $sm;
 			</thead>
 			<tbody>
 				<tr>
-					<th><?= _week;?></th>
+					<th><?= _days;?></th>
 					<?
 					foreach ($statistic_week_def as $value) {
+						echo "<td>".$value."</td>";
+					}
+					?>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<div id="graph_wrapper4" class="graph_wrapper"></div>
+		<table id="graph_weekday" class="data" style="display:none" cellpadding="0" cellspacing="0" width="100%">
+			<caption><?= _occupancy_per_week." / "._days;?></caption>
+			<thead>
+				<tr>
+					<td class="no_input">&nbsp;</td>
+					<?
+					foreach ($label_wk as $value) {
+						echo "<th>".strftime("%A", get_first_day($value, $_SESSION['statistic_month'], $_SESSION['selectedDate_year']))."</th>";
+					}
+					?>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><?= _days;?></th>
+					<?
+					foreach ($data_wk as $value) {
 						echo "<td>".$value."</td>";
 					}
 					?>

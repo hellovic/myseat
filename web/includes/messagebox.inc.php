@@ -69,7 +69,7 @@ if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
 			_sp_events.": ".date($general['dateformat'],strtotime($row->event_date))." ".
 			$row->subject."</a> | ".$row->outlet_name."</span>
-			<p>".$row->description."<br/><cite><span class='bold'>
+			<p>".$row->description."</p><p><cite><span class='bold'>
 			".date($general['dateformat'],strtotime($row->event_date)).
 			"</span> ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])." | ".
@@ -93,7 +93,7 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
 			_today.": ".$row->subject."</a></span>
-			<p style='margin-bottom:13px;'>".$row->description."<br/><cite>
+			<p style='margin-bottom:13px;'>".$row->description."</p><p><cite>
 			".date($general['dateformat'],strtotime($row->event_date)).
 			" ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])." | ".

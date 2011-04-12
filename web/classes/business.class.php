@@ -260,7 +260,7 @@ function getStatusList($id, $title='NYA', $disabled=''){
 		$status = explode( ",", _statuslist);
 		$value	= array('NYA','ARR','STD','PKD','DEP','NSW');
 		
-		echo"<select name='status_id' id='stat_".$id."' size='1' class='status_dbox' $disabled style='width:100px;'>";
+		echo"<select name='status_id' id='stat_".$id."' size='1' class='status_dbox' $disabled style='width:90px;'>";
 		// loooping...
 		for ($i=0; $i < 6; $i++) { 
 			echo "<option value='".$value[$i]."' ";

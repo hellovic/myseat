@@ -33,9 +33,6 @@
 <![endif]-->
 
 <!-- jQuery Javascript Framework -->
-<!-- Grab Google CDN's jQuery + jQuery UI. fall back to local if necessary --> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script>!window.jQuery && document.write('<script src="js/jquery-1.4.4.min.js"><\/script>')</script>
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
 
