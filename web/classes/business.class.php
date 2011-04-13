@@ -208,7 +208,6 @@ function outletList($outlet_id = '1', $disabled = 'enabled',$tablename='outlet_i
 	echo"<select name='".$tablename."' id='".$tablename."' class='drop' title=' ' size='1' $disabled>\n";
 			
 		$outlets = querySQL('db_outlets');
-		
 
 		//echo "<option value='0' selected='selected'> -- </option>\n";
 		
@@ -216,7 +215,6 @@ function outletList($outlet_id = '1', $disabled = 'enabled',$tablename='outlet_i
 		 if ( ($row->saison_start<=$row->saison_end 
 			 && $_SESSION['selectedDate_saison']>=$row->saison_start 
 			 && $_SESSION['selectedDate_saison']<=$row->saison_end)
-			&& $row->webform == 1 
 			) {
 				$_SESSION['outletID'] = $row->outlet_id;
 				

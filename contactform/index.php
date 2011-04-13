@@ -23,10 +23,6 @@ $_SESSION['outletID'] = '';
 	include('../web/classes/connect.db.php');
 // ** all database queries
 	include('../web/classes/db_queries.db.php');
-// ** set configuration
-	include('../config/config.inc.php');
-// translate to selected language
-	translateSite(substr($_SESSION['language'],0,2),'../web/');
 
 //standard outlet for contact form
 	if ($_GET['outletID']) {
@@ -50,9 +46,19 @@ $_SESSION['outletID'] = '';
 	$_SESSION['barrier'] = $barrier;
 
 
-// Get POST data	
-   // outlet id
-    // property id
+	// Get POST data	
+    // outlet id
+    if (!$_SESSION['outletID']) {
+		$_SESSION['outletID'] = ($_GET['outletID']) ? (int)$_GET['outletID'] : querySQL('standard_outlet');
+    }
+    
+    if ($_GET['outletID']) {
+		$_SESSION['outletID'] = (int)$_GET['outletID'];
+    }else {
+    	$_SESSION['outletID'] = querySQL('standard_outlet');
+    }
+    
+	// property id
     if ($_GET['prp']) {
         $_SESSION['property'] = (int)$_GET['prp'];
     }elseif ($_POST['prp']) {
@@ -65,7 +71,25 @@ $_SESSION['outletID'] = '';
 	// get property info for logo path
 	$prp_info = querySQL('property_info');
 
-  //prepare selected Date
+	// selected date
+    if ($_GET['selectedDate']) {
+        $_SESSION['selectedDate'] = $_GET['selectedDate'];
+    } else {
+    	//$_SESSION['selectedDate'] = 
+    }
+	
+	// +++ memorize selected outlet details; maybe moved reservation +++
+	$rows = querySQL('db_outlet_info');
+	if($rows){
+		foreach ($rows as $key => $value) {
+			$_SESSION['selOutlet'][$key] = $value;
+		}
+	}
+
+	// ** set configuration
+	include('../config/config.inc.php');
+	
+  	//prepare selected Date
     list($sy,$sm,$sd) = explode("-",$_SESSION['selectedDate']);
   
 	// get outlet maximum capacity
@@ -82,6 +106,10 @@ $_SESSION['outletID'] = '';
 
   // some constants
     $outlet_name = querySQL('db_outlet');
+
+  // translate to selected language
+	$_SESSION['language'] = $language;
+	translateSite($_SESSION['language'],'../web/');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -135,14 +163,19 @@ $_SESSION['outletID'] = '';
 </head>
 <body>
 	<!-- start header -->
+	<br/>
 	<div id="wrapper"> 
-	  <header> 
 	    <!-- logo -->
 	    <h1 id="logo" style="background-image: url(../uploads/logo/<? echo ($prp_info['logo_filename']=='') ? 'logo.png' : $prp_info['logo_filename'];?>);">
 		<a href="index.php?p=2">mySeat</a>
 		</h1>
-	    <!-- nav -->
 	    <nav>
+			<div style='float:right; font-size: 0.7em; margin-top:8px;'>
+			<div><strong><?php lang("change_language"); ?></strong></div>		
+			<ul class="nav">
+				<?php language_navigation(); ?>
+			</ul>
+			</div>
 	      <ul id="nav">
 	        <li><a href="<?= $home_link;?>">Home</a></li>
 	        <li <? if($p == 2){echo'class="current"';} ?> ><a href="cancel.php?p=2"><?= $lang["contact_form_cxl"];?></a>
@@ -392,7 +425,6 @@ $_SESSION['outletID'] = '';
 	    <br class="cl" />
 	    <br class="cl" />		
 		</div><!-- page content end -->
-	</div></div><!-- page container end -->
 			
   <!-- Footer Start -->
   <footer>
@@ -401,6 +433,7 @@ $_SESSION['outletID'] = '';
     <br class="cl" />
   </footer>
   <!-- footer end -->
+</div></div><!-- page container end -->
 </div><!-- main close -->
 
   <!-- Javascript at the bottom for fast page loading --> 

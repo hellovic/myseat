@@ -14,7 +14,9 @@
 	// List the available languages sorted in an array, the keys are the slug names that correspond to each language file
 	$lang["available_language"] = array(
 		"en" => "English",
-		"de" => "简体中文"
+		"de" => "German",
+		"nl" => "Nederlands",
+		"cn" => "Chinese"
 	);
 
 	// The contact information in the top-right of the page -- "www.openmyseat.com <br /> www.myseat.us"

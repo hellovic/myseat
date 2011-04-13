@@ -4,10 +4,10 @@ Author: Chris Mooney (http://themeforest.net/user/ChrisMooney)
 */
 
 a, a:active, a:visited {
-color:#1a1a1a;	
+color:#1a1a1a !important;	
 }
 a:hover {
-color:#1a1a1a;	
+color:#1a1a1a !important;	
 }
 
 

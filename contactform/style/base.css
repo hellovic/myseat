@@ -16,17 +16,17 @@ h1 {
 	font-weight:bold;
 	font-size:200%;
 	float:left;
-	margin-top:5px;
+	margin-top:0px;
 }
 h1#logo {
 	display:inline;
-	height:82px;
+	height:92px;
 	text-indent:-4000px;
 	width:260px;
 }
 h1#logo a {
 	display:block;
-	height:62px;
+	height:92px;
 }
 h2 {
 	font-size:180%;

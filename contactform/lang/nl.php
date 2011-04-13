@@ -15,7 +15,8 @@
 	$lang["available_language"] = array(
 		"en" => "English",
 		"de" => "German",
-		"nl" => "Nederlands"
+		"nl" => "Nederlands",
+		"cn" => "Chinese"
 	);
 	
 	// The contact information in the top-right of the page -- "www.openmyseat.com <br /> www.myseat.us"

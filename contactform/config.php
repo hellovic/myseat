@@ -64,7 +64,7 @@
 	//Get the language used by the browser
 	$browser_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	$language = "";
-	
+
 	// Check if the language file exists
 	function use_lang($language)
 	{
