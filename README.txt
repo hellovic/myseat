@@ -16,11 +16,12 @@ Collaborate effortlessly on reservations.
 Whether you are a restaurant team of 5 or a Grand-Hotel,
 mySeat will help you keep track of your reservations with ease.
 
-LAST CHANGES in 0.178
+LAST CHANGES in 0.1781
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Major bugfix in Session variables which causes occasionally unusual behavior
 on editing and moving reservations.
-There was no database change.
+There was a bugfix for the contactform and the referrer is now stored.
+There was a database change. Please see documentation/database_update.sql.
 It is highly recommended to update to this version.
 
 

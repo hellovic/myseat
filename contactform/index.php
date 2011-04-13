@@ -5,6 +5,7 @@
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
 $_SESSION['outletID'] = '';
+$_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_SERVER['HTTP_REFERER'];
 
 // PHP part of page / business logic
 // ** set configuration
@@ -300,10 +301,10 @@ $_SESSION['outletID'] = '';
 			
 				if ($num_outlets>1) {
 					echo"<label>RESTAURANT</label><br/><div style='font-size:1.4em'>";
-					$outlet_result = outletList($_SESSION['outletID'],'enabled','reservation_outlet_id');
+					$outlet_result = outletListweb($_SESSION['outletID'],'enabled','reservation_outlet_id');
 					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
 				} else{
-					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'></div><br/><br/>";
+					echo "<input type='hidden' name='reservation_outlet_id' id='single_outlet' value='".$_SESSION['outletID']."'><br/><br/>";
 				}
 			
 			?>
@@ -406,6 +407,7 @@ $_SESSION['outletID'] = '';
                 	<div class="oh">
 				<input type="hidden" name="action" id="action" value="submit"/>
 				<input type="hidden" name="barrier" value="<?php echo $barrier; ?>" />
+				<input type="hidden" name="reservation_referer" value="<?php echo $_SESSION['referer']; ?>" />
 				<input type="hidden" name="reservation_hotelguest_yn" id="reservation_hotelguest_yn" value="PASS"/>
 				<input type="hidden" name="reservation_booker_name" id="reservation_booker_name" value="Contact Form"/>
 				<input type="hidden" name="reservation_author" id="reservation_author" value="<?= querySQL('db_property');?> Team"/>
