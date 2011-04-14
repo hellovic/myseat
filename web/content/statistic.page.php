@@ -214,6 +214,36 @@ $labelpie = array();
 				?>
 			</tbody>
 		</table>
+		<br/>
+		<!-- Begin referer table data -->
+		<div class="content nomargin">
+		<table class="global" width="100%" cellpadding="0" cellspacing="0">
+			<thead>
+			    <tr>
+					<th>Referer</th>
+					<th><?= _confirmed_reservations;?></th>
+			    </tr>
+			</thead>
+			<tbody>
+				<?
+				$total = 0;
+				$referer_data = querySQL('statistic_referer');
+				foreach ($referer_data as $row) {
+					if ($row->reservation_referer!='') {
+						echo "<tr><td>".$row->reservation_referer."</td>\n<td>".$row->total."</td>\n</tr>\n";
+						$total += $row->total;
+					}
+				}
+				?>
+			</tbody>
+			<tfoot>
+				<?
+					echo "<tr><td></td>\n<td>".$total."</td>\n</tr>\n";
+				?>
+			</tfoot>
+		</table>
+		</div>
+		<!-- End referer table data -->
 		
 	</div>
 </div>
