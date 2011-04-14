@@ -229,6 +229,7 @@ $sql = query("CREATE TABLE IF NOT EXISTS `reservations` (
   `reservation_table` int(3) DEFAULT NULL,
   `reservation_status` varchar(25) DEFAULT 'NYA',
   `reservation_advertise` varchar(5) NOT NULL DEFAULT 'NO',
+  `reservation_referer` text,
   PRIMARY KEY (`reservation_id`),
   KEY `reservation_outlet_id` (`reservation_outlet_id`),
   KEY `reservation_date` (`reservation_date`),
