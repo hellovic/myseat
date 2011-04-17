@@ -5,7 +5,6 @@
 $_SESSION['role'] = 6;
 $_SESSION['language'] = 'en_EN';
 $_SESSION['outletID'] = '';
-$_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_SERVER['HTTP_REFERER'];
 
 // PHP part of page / business logic
 // ** set configuration
@@ -25,6 +24,20 @@ $_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_
 // ** all database queries
 	include('../web/classes/db_queries.db.php');
 
+// get and define referer
+	$ref = getHost($_SERVER['HTTP_REFERER']);
+	$_SESSION['referer'] = ($_SESSION['referer']!='') ? $_SESSION['referer'] : $ref;
+
+// property id
+   if ($_GET['prp']) {
+       $_SESSION['property'] = (int)$_GET['prp'];
+   }elseif ($_POST['prp']) {
+       $_SESSION['property'] = (int)$_POST['prp'];
+   }elseif (!$_SESSION['property']){
+	$_SESSION['property'] = '1';
+}
+$_SESSION['propertyID'] = $_SESSION['property'];
+
 //standard outlet for contact form
 	if ($_GET['outletID']) {
 		$_SESSION['outletID'] = (int)$_GET['outletID'];
@@ -38,6 +51,11 @@ $_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_
 	}else{
 		// reset single outlet indicator
 		$_SESSION['single_outlet'] = 'OFF';	
+	}
+	
+	if ($_GET['times']) {
+		// set selected time
+		$time = $_GET['times'].":00";	
 	}
 
 // ** get superglobal variables
@@ -58,16 +76,6 @@ $_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_
     }else {
     	$_SESSION['outletID'] = querySQL('standard_outlet');
     }
-    
-	// property id
-    if ($_GET['prp']) {
-        $_SESSION['property'] = (int)$_GET['prp'];
-    }elseif ($_POST['prp']) {
-        $_SESSION['property'] = (int)$_POST['prp'];
-    }elseif (!$_SESSION['property']){
-		$_SESSION['property'] = '1';
-	}
-	$_SESSION['propertyID'] = $_SESSION['property'];
 	
 	// get property info for logo path
 	$prp_info = querySQL('property_info');
@@ -75,8 +83,6 @@ $_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_
 	// selected date
     if ($_GET['selectedDate']) {
         $_SESSION['selectedDate'] = $_GET['selectedDate'];
-    } else {
-    	//$_SESSION['selectedDate'] = 
     }
 	
 	// +++ memorize selected outlet details; maybe moved reservation +++
@@ -313,7 +319,7 @@ $_SESSION['referer'] = (isset($_SESSION['referer'])) ? $_SESSION['referer'] : $_
 		    <div>
 			<label><?php lang("contact_form_time"); ?>*</label><br/>
 			<?php
-			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time','',$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
+			    timeList($general['timeformat'], $general['timeintervall'],'reservation_time',$time,$_SESSION['selOutlet']['outlet_open_time'],$_SESSION['selOutlet']['outlet_close_time'],0);
 			?>
 		    </div>
 		  	<br/>

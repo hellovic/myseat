@@ -29,10 +29,18 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 		
 		// build list of timeslots from starttime to endtime
 		// in predefined intervall
+		
+		// set weather we have a daily or general break
+		// daily has priority
+		$week_day = date('w', strtotime($_SESSION['selectedDate']) );
+		$breaktime_open = ($_SESSION['selOutlet'][$week_day.'_open_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_open_break'] : $_SESSION['selOutlet']['outlet_open_break'];
+		$breaktime_close = ($_SESSION['selOutlet'][$week_day.'_close_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_close_break'] : $_SESSION['selOutlet']['outlet_close_break'];
+		
+		// calculate dates & times
 		list($h1,$m1)		= explode(":",$open_time);
 		list($h2,$m2)		= explode(":",$close_time);
-		list($h3,$m3)		= explode(":",$_SESSION['selOutlet']['outlet_open_break']);
-		list($h4,$m4)		= explode(":",$_SESSION['selOutlet']['outlet_close_break']);
+		list($h3,$m3)		= explode(":",$breaktime_open);
+		list($h4,$m4)		= explode(":",$breaktime_close);
 		$value  			= mktime($h1+0,$m1+0,0,$month,$day,$year);
 		$endtime		 	= mktime($h2+0,$m2+0,0,$month,$endday,$year);
 		$open_break  		= mktime($h3+0,$m3+0,0,$month,$day,$year);
@@ -75,6 +83,75 @@ function getTimeList($format,$intervall,$field='',$select,$open_time='00:00:00',
 			$i++;
 		} 
 		echo"</select>\n";
+}
+// calculate and print select list with intervall times
+function widgetTimeList($format,$intervall,$open_time='00:00:00',$close_time='24:00:00') 
+{ 
+		GLOBAL $availability, $tbl_availability;
+		// calculate after midnight
+		$day    = date("d");
+		$endday = ($open_time < $close_time) ? date("d") : date("d")+1;
+		$month  = date("m");
+		$year   = date("Y");
+		
+		// init variables & arrays
+		$timeslots = array();
+		$output = '';
+		$ava_passerby = '';
+		$pax_capacity = '';
+		
+		// build list of timeslots from starttime to endtime
+		// in predefined intervall
+		
+		// set weather we have a daily or general break
+		// daily has priority
+		$week_day = date('w', strtotime($_SESSION['selectedDate']) );
+		$breaktime_open = ($_SESSION['selOutlet'][$week_day.'_open_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_open_break'] : $_SESSION['selOutlet']['outlet_open_break'];
+		$breaktime_close = ($_SESSION['selOutlet'][$week_day.'_close_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_close_break'] : $_SESSION['selOutlet']['outlet_close_break'];
+		
+		// calculate dates & times
+		list($h1,$m1)		= explode(":",$open_time);
+		list($h2,$m2)		= explode(":",$close_time);
+		list($h3,$m3)		= explode(":",$breaktime_open);
+		list($h4,$m4)		= explode(":",$breaktime_close);
+		$value  			= mktime($h1+0,$m1+0,0,$month,$day,$year);
+		$endtime		 	= mktime($h2+0,$m2+0,0,$month,$endday,$year);
+		$open_break  		= mktime($h3+0,$m3+0,0,$month,$day,$year);
+		$close_break  		= mktime($h4+0,$m4+0,0,$month,$day,$year);
+		$i 					= 1;
+		$marker				= 'NO';
+		
+		// define dayoff
+		$day_off = getDayoff();
+		
+		while( $value <= $endtime ) { 
+			
+				// get loose of open time break
+				if( ($value <= $open_break || ($value >= $close_break && $value<=$endtime)) && $day_off == 0 ){
+					// Generating the time drop down menu
+					//check for maximum passerby
+					$max_passerby = ($_SESSION['passerby_max_pax'] == 0) ? $_SESSION['selOutlet']['outlet_max_capacity'] : $_SESSION['passerby_max_pax'];
+					 $ava_passerby = $max_passerby - $_SESSION['passbyTime'][date('H:i:s',$value)];
+					 $tbl_capacity = $_SESSION['outlet_max_tables']-$tbl_availability[date('H:i',$value)];
+					 $pax_capacity = ($tbl_capacity >=1) ? $_SESSION['outlet_max_capacity']-$availability[date('H:i',$value)] : 0;
+					 if ( $ava_passerby > 0 && $pax_capacity > 0 ) {
+						  // Generating the time drop down array
+					      $txt_value = ($format == 24) ? date('H:i',$value) : date("g:i a", $value);
+						  //$txt_value .= " - ".$ava_passerby.", ".$pax_capacity; Error reporting
+						  $output .= "['".$_SESSION['selectedDate']."','".date('H:i',$value)."','".$txt_value."'],\n";
+					 }
+						  	
+				}else if ($marker=='NO'){
+					$output .= "['".$_SESSION['selectedDate']."','','-----'],\n";
+					$marker = 'YES';
+				}
+				// calculate new time
+				$value = mktime($h1+0,$m1+$i*$intervall,0,$month,$day,$year); 
+				$i++;
+			} 
+		
+		// handle back the array in a variable
+		return $output;
 }
 
 // print select list with titles 

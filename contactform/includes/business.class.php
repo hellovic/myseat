@@ -1,4 +1,8 @@
 <?php
+function getHost($Address) {
+   $parseUrl = parse_url(trim($Address));
+   return trim($parseUrl[host] ? $parseUrl[host] : array_shift(explode('/', $parseUrl[path], 2)));
+}
 
 // calculate and print select list with interval times
 function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$close_time='24:00:00',$showtime=0) 
@@ -14,10 +18,18 @@ function timeList($format,$intervall,$field='',$select,$open_time='00:00:00',$cl
 		$timeslots = array();
 		// build list of timeslots from starttime to endtime
 		// in predefined intervall
+		
+		// set weather we have a daily or general break
+		// daily has priority
+		$week_day = date('w', strtotime($_SESSION['selectedDate']) );
+		$breaktime_open = ($_SESSION['selOutlet'][$week_day.'_open_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_open_break'] : $_SESSION['selOutlet']['outlet_open_break'];
+		$breaktime_close = ($_SESSION['selOutlet'][$week_day.'_close_break'] != '00:00:00') ? $_SESSION['selOutlet'][$week_day.'_close_break'] : $_SESSION['selOutlet']['outlet_close_break'];
+
+		// calculate dates & times
 		list($h1,$m1)		= explode(":",$open_time);
 		list($h2,$m2)		= explode(":",$close_time);
-		list($h3,$m3)		= explode(":",$_SESSION['selOutlet']['outlet_open_break']);
-		list($h4,$m4)		= explode(":",$_SESSION['selOutlet']['outlet_close_break']);
+		list($h3,$m3)		= explode(":",$breaktime_open);
+		list($h4,$m4)		= explode(":",$breaktime_close);
 		$value  		= mktime($h1+0,$m1+0,0,$month,$day,$year);
 		$endtime		= mktime($h2+0,$m2+0,0,$month,$endday,$year);
 		$open_break  		= mktime($h3+0,$m3+0,0,$month,$day,$year);

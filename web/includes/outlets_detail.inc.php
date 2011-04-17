@@ -1,5 +1,5 @@
 
-<div class="content" style="height:700px;">
+<div class="content" style="height:750px;">
 	<label><?= _property;?></label>
 	<p><span class='bold'>	 	 				 
 		<?= $row->name;?>
@@ -40,21 +40,29 @@
 	<p>		
 		<?= printOnOff($row->webform);?>
 	</p>
-	<br/><br/>
-	<label>Booking Link</label>
+	<br/>
+	<label>Booking Links</label>
 	<p>		
 		<?
 		echo "<br/><span class='bold'>".$row->outlet_name." :</span><br/>";
-		echo "<code>http://www.openmyseat.com/contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."</code>";
+		echo "<input type='text' name='' style='width:450px' value=' ".$global_basedir."contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."'/>";
 		echo "<br/><span class='bold'>"._property." :</span><br/>";
-		echo "<code>http://www.openmyseat.com/contactform/index.php?prp=".$row->property_id."</code>";
+		echo "<input type='text' name='' style='width:450px' value='".$global_basedir."contactform/index.php?prp=".$row->property_id."'/>";
+		echo "<br/><span class='bold'>Reclame Box :</span><br/>";
+		echo "<textarea style='width:450px; height:100px;'>".stripslashes("
+<script type='text/javascript'>
+	var propertyID = '".$row->property_id."';
+	var outletID = '".$row->outlet_id."';
+</script>
+<script src='".$global_basedir."widget/reclamebox.php'></script>").
+		"</textarea>";
 		?>
 	</p>	 	 	 	 	 	 	
 </div></div></div> <!-- end left column -->
 <!-- Beginn right column -->	
 <div class="twocolumn_wrapper right">
 	<div class="twocolumn" >
-		<div class="content" style="height:700px;">		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
+		<div class="content" style="height:750px;">		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
 			<label><?= _season_start;?></label>
 			<p>		
 				<?= buildDate($general['dateformat_short'],substr($row->saison_start,2,2),substr($row->saison_start,0,2));?>
