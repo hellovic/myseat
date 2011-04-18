@@ -241,7 +241,7 @@ var $tbTrans = array(
   * page to redirect after login
   * var char
   */
- //$_SESSION['forwardPage'] = "../web/main_page.php?p=2";
+ $_SESSION['forwardPage'] = "../web/main_page.php?p=2";
 
  }
  
