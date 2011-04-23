@@ -19,14 +19,16 @@
 .ui-datepicker td { border: 0; padding: 1px; }
 .ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: center; text-decoration: none; color: #4b4f5d; text-shadow:0 1px 0 #ebebeb; border: 1px solid transparent; }
 .ui-datepicker td span, .ui-datepicker td.ui-datepicker-current-day a, .ui-datepicker td span, .ui-datepicker td.ui-datepicker-current-day a:hover {
-	background: #666666;
-	color: #ffffff;
-	text-shadow: 1px 0 0 #000000;
+	background: #666;
+	color: #fff;
 }
 .ui-datepicker-today { background: #eee; }
 .ui-datepicker td.ui-state-disabled span{ 
-	background: #999999;
-	color: #ebebeb; 
+	background: #fff;
+	color: #ccc; 
+}
+.ui-datepicker td.ui-state-active span{ 
+	color: #fff; 
 }
 
 .ui-datepicker td a:hover { background: #ccc; }

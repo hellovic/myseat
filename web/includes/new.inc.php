@@ -2,7 +2,7 @@
 <br/>
 	<div class="twocolumn_wrapper">
 	 <div class="twocolumn">
-	  <div class="content" style="height:710px;">
+	  <div class="content res-height">
 <!-- Beginn left column -->	
 <form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 		<br/>
@@ -18,7 +18,7 @@
 		<br/>
 		<p>
 		<label><?= _guest_name; ?>&deg;*</label><br/>
-			<input type="text" name="reservation_guest_name" id="reservation_guest_name" class="required" title=' ' minlength="3" style="width:280px;"/>
+			<input type="text" name="reservation_guest_name" id="reservation_guest_name" class="required width-250" title=' ' minlength="3"/>
 		</p>
 		<br/>
 		<p>
@@ -38,7 +38,7 @@
 		<br/>
 		<p>
 		<label><?= _note; ?></label><br/>
-			<textarea name="reservation_notes" id="reservation_notes" rows="5" cols="35" style="width:97%"></textarea>
+			<textarea name="reservation_notes" id="reservation_notes" rows="5" cols="35" class="width-97"></textarea>
 		</p>
 		<br/>
 		<p>
@@ -46,7 +46,7 @@
 			<input type="text" name="reservation_booker_name" id="reservation_booker_name" class='required' minlength="3"  maxlength="30" title=' ' />
 		</p>
 		<br/>
-		<div style="text-align:center;">
+		<div class="center">
 			<input type="submit" class="button_dark" value="<?= _save;?>">
 		</div>
 	</div></div></div> <!-- end left column -->
@@ -54,7 +54,7 @@
 <!-- Beginn right column -->	
 	<div class="twocolumn_wrapper right">
 	 <div class="twocolumn" >
-	  <div class="content" style="height:710px;">
+	  <div class="content res-height">
 		<br/>
 		<p>
 		<label><?= _adress; ?></label><br/>
@@ -72,35 +72,31 @@
 				<small>&nbsp;<?= _fill_out; ?></small><br>
 				<small>
 					<?= _confirmation_email.": "; ?>
-					<input type="radio" name="email_type" checked="checked" value="no" style="width:20px;"><?= _no_; ?>
-					<input type="radio" name="email_type" value="loc" style="width:20px;"><?= _english; ?>
-					<input type="radio" name="email_type" value="en" style="width:20px;"><?= _international; ?>
-					<input type="hidden" name="reservation_advertise" value="">
+					<input type="radio" name="email_type" checked="checked" value="no"/><?= _no_; ?>
+					<input type="radio" name="email_type" value="loc"/><?= _english; ?>
+					<input type="radio" name="email_type" value="en"/><?= _international; ?>
+					<input type="hidden" name="reservation_advertise" value=""/>
 				</small><br>
-				<input type="checkbox" name="reservation_advertise" style="width:15px;" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<small><?= _reservation_advertise; ?></small>
+				<input type="checkbox" name="reservation_advertise" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<small><?= _reservation_advertise; ?></small>
 		</p>
 		<br/>		
 		<p>
 		<label><?= _discount; ?></label><br/>
-					<input name="reservation_discount" name="reservation_discount" id="reservation_discount" maxlength="3" style="width:30px;">
+					<input name="reservation_discount" name="reservation_discount" id="reservation_discount" maxlength="3" class="width-50"/>
 		</p>
 		<br/>
 		<p>
 		<label><?= _parking; ?></label><br/>
-					<input name="reservation_parkticket" name="reservation_parkticket" id="reservation_parkticket" maxlength="3" style="width:30px;">
+					<input name="reservation_parkticket" name="reservation_parkticket" id="reservation_parkticket" maxlength="3" class="width-50"/>
 		</p>
 		<br/>
-		<!-- <p><label><?= _Tisch; ?></label><br/>
-					<input name="reservation_table" id="reservation_table" maxlength="3" style="width:30px;">
-			 </p><br/>
-		-->
 		<p>
 		<label><?= _payment; ?></label><br/>
-			<span style="width: 250px;">
+			<span class="width-250">
 			<?= _paid;?>
-			<input type="checkbox" style="width:20px; margin-top:10px; margin-right:20px;" name="reservation_bill_paid" value="<? if ($reservation_bill_paid!=""){echo $reservation_bill_paid;} else {echo date($general['dateformat']);} ?>" >
+			<input type="checkbox" class="margin-right-20" name="reservation_bill_paid" value="<? if ($reservation_bill_paid!=""){echo $reservation_bill_paid;} else {echo date($general['dateformat']);} ?>" />
 			<?= _shipped;?>
-			<input type="checkbox" style="width:20px;" name="reservation_billet_sent" value="<? if ($reservation_billet_sent!=""){echo $reservation_billet_sent;} else {echo date($general['dateformat']);} ?>" > 
+			<input type="checkbox" name="reservation_billet_sent" value="<? if ($reservation_billet_sent!=""){echo $reservation_billet_sent;} else {echo date($general['dateformat']);} ?>" /> 
 			</span>
 		</p>
 		<br/>
@@ -117,16 +113,16 @@
 			<input type="hidden" name="recurring_dbdate" id="recurring_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
 		</div>
 		<br/>
-		<input type="radio" class="radio" name="recurring_span" value="1" checked="checked"><img src='images/icons/calendar-select-days-span.png' alt='daily' title='Daily'>&nbsp;
-		<input type="radio" class="radio" name="recurring_span" value="7"><img src='images/icons/calendar-select-days.png' alt='weekly' title='Weekly'>
+		<input type="radio" class="radio" name="recurring_span" value="1" checked="checked"/><img src='images/icons/calendar-select-days-span.png' alt='daily' title='Daily'>&nbsp;
+		<input type="radio" class="radio" name="recurring_span" value="7"><img src='images/icons/calendar-select-days.png' alt='weekly' title='Weekly'/>
 		</p>
 	</div></div></div> <!-- end right column -->
 
-	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>">
-	<input type="hidden" name="reservation_timestamp" value="<?= date('Y-m-d H:i:s');?>">
-	<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>">
+	<input type="hidden" name="reservation_outlet_id" value="<?= $_SESSION['outletID'];?>"/>
+	<input type="hidden" name="reservation_timestamp" value="<?= date('Y-m-d H:i:s');?>"/>
+	<input type="hidden" name="reservation_ip" value="<?= $_SERVER['REMOTE_ADDR'];?>"/>
 	<input type="hidden" name="token" value="<?php echo $token; ?>" />
-	<input type="hidden" name="action" value="save_res">
+	<input type="hidden" name="action" value="save_res"/>
  </form><!-- end form -->
  <br class="clear">
 </div> <!-- end content wrapper -->

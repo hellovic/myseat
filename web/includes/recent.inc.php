@@ -1,5 +1,5 @@
 <!-- Begin one column box -->
-<div class="onecolumn" id="most_recent" style='margin-top:50px; margin-left: auto; margin-right: auto; width:450px;'>
+<div class="onecolumn most-recent" id="most_recent">
 	
 	<div class="header">
 	

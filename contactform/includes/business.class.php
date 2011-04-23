@@ -131,6 +131,41 @@ function titleList($title='',$disabled=''){
 		echo "</select>\n";
 }
 
+function defineOffDays(){
+	
+	$date_string = "";
+	
+	$dayoffs  =	querySQL('maitre_dayoffs');
+	
+	if($dayoffs){
+		foreach ($dayoffs as $dayoff) {
+			$date_string .= "'".$dayoff->maitre_date."',";
+		}
+	}
+	
+	$outlet_closedays   = querySQL('outlet_closedays');
+	$outlet_closedays = "'".$outlet_closedays."'";
+	
+	$day		= mktime(0, 0, 0, date('m'), date('d'), date('y'));
+	$enddate 	= mktime(0, 0, 0, date('m')+6, date('d'), date('y'));
+
+	while ($day < $enddate) {
+		if ( strpos($outlet_closedays, date("w",$day)) === false) {
+			// do nothing ; '=== false' is manatory
+		}else{
+			$date_string .= "'".date('Y-m-d',$day)."',";
+		}
+		
+		//add 1 day
+		$day = $day + 86400;
+	}
+	
+	$date_string = substr($date_string,0,-1);
+	//print_r($dayoffs);
+	//echo $outlet_closedays;
+	echo $date_string;
+}
+
 function processBooking(){
 // rather than recursively calling query, insert all rows with one query
 	 GLOBAL $general;

@@ -116,7 +116,7 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 
   // translate to selected language
 	$_SESSION['language'] = $language;
-	translateSite($_SESSION['language'],'../web/');
+	translateSite(substr($language,0,2),'../web/');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -177,11 +177,11 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 		<a href="index.php?p=2">mySeat</a>
 		</h1>
 	    <nav>
-			<div style='float:right; font-size: 0.7em; margin-top:8px;'>
-			<div><strong><?php lang("change_language"); ?></strong></div>		
-			<ul class="nav">
-				<?php language_navigation(); ?>
-			</ul>
+			<div class='langnav'>
+				<div><strong><?php lang("change_language"); ?></strong></div>		
+				<ul class="nav">
+					<?php language_navigation(); ?>
+				</ul>
 			</div>
 	      <ul id="nav">
 	        <li><a href="<?= $home_link;?>">Home</a></li>
@@ -216,7 +216,7 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 				$captchaField2 = ($captchaField2%2) ? "+" : "-";
 			?>
 
-		<form action="process_booking.php" method="post" id="contactForm" style="margin-left:30px">
+		<form action="process_booking.php" method="post" id="contactForm">
 		    
 		    <!-- Datepicker -->
 		    <label> </label><div id="bookingpicker"></div>
@@ -306,7 +306,7 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 			}
 			
 				if ($num_outlets>1) {
-					echo"<label>RESTAURANT</label><br/><div style='font-size:1.4em'>";
+					echo"<label>RESTAURANT</label><br/><div class='txt-big'>";
 					$outlet_result = outletListweb($_SESSION['outletID'],'enabled','reservation_outlet_id');
 					echo "<input type='hidden' id='single_outlet' value='".$_SESSION['outletID']."'>";
 				} else{
@@ -376,7 +376,7 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 		    <br/>
 		<div>
 			<label></label>
-			<input type="checkbox" name="reservation_advertise" style="width:15px;" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<?php lang("contact_form_advertise"); ?>
+			<input type="checkbox" name="reservation_advertise" class="small" id="reservation_advertise" value="YES"/>&nbsp;&nbsp;<?php lang("contact_form_advertise"); ?>
                     </div>
 		    <br/>
 		    <div>
@@ -404,7 +404,7 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 							
 							<span class="captchaField">=</span>
 						</label>
-                		<input type="text" name="captcha" class="form required captcha" id="captcha" value="" />
+                		<input type="text" name="captcha" class="form required captcha small" id="captcha" value="" />
                   		
 	            		
                 		<div class="clear"></div>
@@ -421,9 +421,9 @@ $_SESSION['propertyID'] = $_SESSION['property'];
                 <?php
 				$day_off = getDayoff();
                 if ($day_off == 0) {
-                	echo"<div style='text-align:center;'><br/><br/><input class='button ".$default_color." large' type='submit' value='".$lang['contact_form_send']."' /></div>";
+                	echo"<div class='tc'><br/><br/><input class='button ".$default_color." large' type='submit' value='".$lang['contact_form_send']."' /></div>";
                 }else{
-					echo "<div id='messageBox' style='margin-left:120px; width:500px;'><div class='alert_error'>
+					echo "<div id='messageBox'><div class='alert_error'>
 					<p><img src='../web/images/icon_error.png' alt='error' class='middle' />&nbsp;&nbsp;"._day_off."</p></div></div>";
 				}
                 ?>	
@@ -446,6 +446,27 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 
   <!-- Javascript at the bottom for fast page loading --> 
 <script>
+	var disabledDays = [<?php defineOffDays(); ?>];
+
+	/* utility functions */
+	function offDays(date) {
+	  var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+		m = m+1;
+		/* add leading zero */
+		if (d < 10) d = "0" + d;
+		if (m < 10) m = "0" + m;
+	  for (i = 0; i < disabledDays.length; i++) {
+	    if ($.inArray( y + '-' + m + '-' + d, disabledDays) != -1 || new Date() > date) {
+	      return [false];
+	    }
+	  }
+	  return [true];
+	}
+	function noDayoffs(date) {
+	  var noWeekend = jQuery.datepicker.noWeekends(date);
+	  return noWeekend[0] = offDays(date);
+	}
+
     jQuery(document).ready(function($) {
       // Setup datepicker input at customer reservation form
       $("#bookingpicker").datepicker({
@@ -454,10 +475,12 @@ $_SESSION['propertyID'] = $_SESSION['property'];
 	      firstDay: 1,
 	      numberOfMonths: 2,
 		  minDate: 0,
+		  maxDate: '+6M',
 	      gotoCurrent: true,
 	      altField: '#dbdate',
 	      altFormat: 'yy-mm-dd',
 	      defaultDate: 0,
+		  beforeShowDay: noDayoffs,
 	      dateFormat: '<?= $general['datepickerformat'];?>',
 	      regional: '<?= substr($_SESSION['language'],0,2);?>',
 	      onSelect: function(dateText, inst) { window.location.href="?selectedDate=" + $("#dbdate").val() + "&outletID=" + $("#single_outlet").val(); }

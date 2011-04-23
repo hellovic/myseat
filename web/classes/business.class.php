@@ -347,7 +347,8 @@ function outletListweb($outlet_id = '1', $disabled = 'enabled',$tablename='outle
 				
 				 echo "<option value='".$row->outlet_id."' ";
 				 echo ($outlet_id==$row->outlet_id && $dayoff==0) ? "selected='selected'" : "";
-				 echo ($dayoff > 0) ? "disabled='disabled'" : "";
+					// uncomment to have the day off outlets greyed out
+					//echo ($dayoff > 0) ? "disabled='disabled'" : "";
 				 echo ">".$row->outlet_name."</option>\n";
 				 // echo ">".$dayoff." - ".$row->outlet_name."</option>\n";
 				

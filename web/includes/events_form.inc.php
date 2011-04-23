@@ -51,7 +51,7 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 	<br/>	
 	<label><?= _subject;?></label>
 	<p>
-		<input type="text" name="subject" id="subject" class="required" minlength="6" title=' ' style='width: 97%;' value="<?= $row['subject'];?>"/>
+		<input type="text" name="subject" id="subject" class="required width-97" minlength="6" title=' ' value="<?= $row['subject'];?>"/>
 	</p>
 	<label><?= _description;?></label>
 	<p>
@@ -95,7 +95,7 @@ $eventdate			 = buildDate($general['dateformat'],$sd,$sm,$sj);
 			<input type="hidden" name="token" value="<?php echo $token; ?>" />
 			<input type="hidden" name="action" value="save_evnt">
 	<br/>
-	<div style="text-align:center;">
+	<div class="center">
 		<input type="submit" class="button_dark" value="<?= _save;?>">
 	</div>
 </form>

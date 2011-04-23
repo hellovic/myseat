@@ -93,7 +93,7 @@
 		$language = $_SESSION['lang'];
 	}
 	
-	
+	$language = substr($language,0,2);
 	
 	$_SESSION['lang'] = $language;
 	

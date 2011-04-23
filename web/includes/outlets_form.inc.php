@@ -3,7 +3,7 @@ if ($_SESSION['button']==2) {
 	$row = "";
 }
 ?>
-<div class="content" style="height:960px;">
+<div class="content form-height">
 <form method="post" action="?p=6" id="edit_outlet_form">
 	<label><?= _property;?></label>
 	<p><span class='bold'>	 	 				 
@@ -19,8 +19,8 @@ if ($_SESSION['button']==2) {
 	</p>
 	<br/>
 	<label><?= _description;?></label>
-	<p style="max-width:500px;">
-		<textarea name="outlet_description" id="outlet_description" rows="5" cols="35" class="required" title=' ' style="width:97%"><?= trim($row->outlet_description);?></textarea>
+	<p>
+		<textarea name="outlet_description" id="outlet_description" rows="5" cols="35" class="required width-97" title=' '><?= trim($row->outlet_description);?></textarea>
 	</p>	
 	<label><?= _confirmation_email;?></label>
 	<p>
@@ -53,7 +53,7 @@ if ($_SESSION['button']==2) {
 <!-- Beginn right column -->	
 <div class="twocolumn_wrapper right">
 	<div class="twocolumn" >
-		<div class="content" style="height:960px;">
+		<div class="content form-height">
 			<label><?= _season_start;?></label>
 			<p>		
 				<?

@@ -7,7 +7,7 @@ $passbyTime = reservationsByTime('pass');
 // Maitre day comment
 if (trim($maitre['maitre_comment_day']) != "" && $_SESSION['page'] == 2 ) {
 	echo "<div class='alert_error'>
-	<p style='text-align:center;margin-bottom:10px;'><img src='images/icon_info.png' alt='error' class='middle'/>";
+	<p class='center margin-bottom-10'><img src='images/icon_info.png' alt='error' class='middle'/>";
 		// maitre comment
 		echo $maitre['maitre_comment_day']."<br>";
 	echo "</p></div>";
@@ -41,7 +41,7 @@ if (count($_SESSION['messages']) > 0) {
 
 // Error & success messages
 if ( !empty($_SESSION['errors']) ) {
-	echo "<div id='messageBox' style='cursor:pointer;'>";
+	echo "<div id='messageBox'>";
 	echo "<div class='alert_error'>
 	<p><img src='images/icon_error.png' alt='error' class='middle' />";
 	foreach ($_SESSION['errors'] as $key => $value) {
@@ -85,7 +85,7 @@ if ($events_advertise && ($_SESSION['page'] == 2 || $_SESSION['page'] == 1) ) {
 // Special event of the day and outlet
 $special_events = querySQL('event_data_day');
 if ($special_events && $_SESSION['page'] == 2 ) {
-	echo "<div class='alert_info' style='padding:6px;'>";
+	echo "<div class='alert_info'>";
 		// special events
 		foreach($special_events as $row) {
 			echo "
@@ -93,7 +93,7 @@ if ($special_events && $_SESSION['page'] == 2 ) {
 			<span class='bold'>
 			<a href='".$_SERVER['SCRIPT_NAME']."?outletID=".$row->outlet_id."&selectedDate=".$row->event_date."'>".
 			_today.": ".$row->subject."</a></span>
-			<p style='margin-bottom:13px;'>".$row->description."</p><p><cite>
+			<p class='margin-bottom-10'>".$row->description."</p><p><cite>
 			".date($general['dateformat'],strtotime($row->event_date)).
 			" ".formatTime($row->start_time,$general['timeformat']).
 			" - ".formatTime($row->end_time,$general['timeformat'])." | ".

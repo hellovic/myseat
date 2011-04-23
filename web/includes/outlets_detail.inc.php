@@ -1,5 +1,5 @@
 
-<div class="content" style="height:750px;">
+<div class="content res-height">
 	<label><?= _property;?></label>
 	<p><span class='bold'>	 	 				 
 		<?= $row->name;?>
@@ -13,7 +13,7 @@
 		<?= $cuisines[($row->cuisine_style-1)];?>
 	</p>
 	<label><?= _description;?></label>
-	<p style="max-width:500px;">	 	 	 	 	 	 	 
+	<p>	 	 	 	 	 	 	 
 		<?= trim(utf8_encode($row->outlet_description));?>
 	</p>	
 	<label><?= _confirmation_email;?></label>
@@ -45,11 +45,11 @@
 	<p>		
 		<?
 		echo "<br/><span class='bold'>".$row->outlet_name." :</span><br/>";
-		echo "<input type='text' name='' style='width:450px' value=' ".$global_basedir."contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."'/>";
+		echo "<input type='text' name='' class='width-450' value=' ".$global_basedir."contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."'/>";
 		echo "<br/><span class='bold'>"._property." :</span><br/>";
-		echo "<input type='text' name='' style='width:450px' value='".$global_basedir."contactform/index.php?prp=".$row->property_id."'/>";
+		echo "<input type='text' name='' class='width-450' value='".$global_basedir."contactform/index.php?prp=".$row->property_id."'/>";
 		echo "<br/><span class='bold'>Reclame Box :</span><br/>";
-		echo "<textarea style='width:450px; height:100px;'>".stripslashes("
+		echo "<textarea class='script-box'>".stripslashes("
 <script type='text/javascript'>
 	var propertyID = '".$row->property_id."';
 	var outletID = '".$row->outlet_id."';
@@ -62,7 +62,7 @@
 <!-- Beginn right column -->	
 <div class="twocolumn_wrapper right">
 	<div class="twocolumn" >
-		<div class="content" style="height:750px;">		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
+		<div class="content res-height">		 	 	 	 	 	 		 	 	 	 	 	 				 	 	 	 	 	 	 
 			<label><?= _season_start;?></label>
 			<p>		
 				<?= buildDate($general['dateformat_short'],substr($row->saison_start,2,2),substr($row->saison_start,0,2));?>
@@ -99,7 +99,7 @@
 						$weekday = date("w",$day);
 						$field_open = $weekday.'_open_time';
 						$field_close = $weekday.'_close_time';
-						echo "<tr><td><div class='bold'>".date("l",$day)."</div></td><td style='padding-left:20px;'>".
+						echo "<tr><td><div class='bold'>".date("l",$day)."</div></td><td class='padding-left-20'>".
 						date('H:i',strtotime($row->$field_open))." - ".date('H:i',strtotime($row->$field_close)).
 						"<br/></td></tr>";
 						$day = $day + 86400;
@@ -117,7 +117,7 @@
 						$weekday = date("w",$day);
 						$field_open = $weekday.'_open_break';
 						$field_close = $weekday.'_close_break';
-						echo "<tr><td><div class='bold'>".date("l",$day)."</div></td><td style='padding-left:20px;'>".
+						echo "<tr><td><div class='bold'>".date("l",$day)."</div></td><td class='padding-left-20'>".
 						date('H:i',strtotime($row->$field_open))." - ".date('H:i',strtotime($row->$field_close)).
 						"<br/></td></tr>";
 						$day = $day + 86400;

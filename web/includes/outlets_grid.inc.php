@@ -1,18 +1,18 @@
 <!-- Begin example table data -->
-<table class="global" style="margin:0px 0px;" cellpadding="0" cellspacing="0">
+<table class="global width-100" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr>
-			<th style="width:2%">ID</th>
-			<th style="width:28%"><?= _name; ?></th>
-			<th style="width:5%"><?= _seats; ?></th>
-			<th style="width:5%"><?= _tables; ?></th>
-			<th style="width:15%"><?= _open_time; ?></th>
-			<th style="width:8%"><?= _duration; ?></th>
-			<th style="width:18%"><?= _season_start; ?></th>
-			<th style="width:5%"><?= _year; ?></th>
-			<th style="width:5%"><?= _cuisine_style; ?></th>
-	    	<th style="width:5%"><?= _webform; ?></th>
-			<th style="width:5%"><?= _delete; ?></th>
+			<th>ID</th>
+			<th><?= _name; ?></th>
+			<th><?= _seats; ?></th>
+			<th><?= _tables; ?></th>
+			<th><?= _open_time; ?></th>
+			<th><?= _duration; ?></th>
+			<th><?= _season_start; ?></th>
+			<th><?= _year; ?></th>
+			<th><?= _cuisine_style; ?></th>
+	    	<th><?= _webform; ?></th>
+			<th><?= _delete; ?></th>
 	    </tr>
 	</thead>
 	<tbody>

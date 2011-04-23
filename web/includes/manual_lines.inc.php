@@ -3,7 +3,7 @@
 	<thead>
 	<tr>
 		<th style='width:10%;'><?= _time;?></th>
-		<th style='width:80%;'><?= _guest_name;?></th>
+		<th style='width:90%;'><?= _guest_name;?></th>
 		<th style='width:10%;'><?= _pax;?></th>
 	</tr>
 	</thead>

@@ -70,10 +70,9 @@ $history = 	querySQL('reservation_history');
 
 echo "<label>"._visits."</label><p>".$visits."</p>";
 echo "<label>"._last_visit."</label><p>".$lastvisit."</p>";
-echo "<label>"._history."</label><p>";
+echo "<label>"._history."</label>";
  
-	//echo "Anz:".count($history)."<br/>";
-echo "<ul style='margin-left:40px'>";
+echo "<p><ul class='global'>";
 if(count($history)>0){
 	foreach ($history as $row) {
 		if (trim($row->reservation_notes)!=''){
@@ -98,21 +97,6 @@ echo "</select></div></p><br/>";
 </div>
 <?}?>
 <br/>
-	<div style='margin-left:85px;float:left;'>
-		<a href="?p=2&outletID=<?= $_SESSION['outletID']; ?>" class="button_dark">
-			<input type="button" class="button_dark" value="<?= _back;?>"/>
-		</a>
-	</div>
-	<!--
-	<div style='margin-right:85px;float:right;'>
-		<a href="?p=2&outletID=<?= $_SESSION['outletID']; ?>" class="button_red">
-		<input type="button" class="button_red" value="<?= ucfirst(_delete);?>"/>
-		</a>
-		<a href="?p=2&outletID=<?= $_SESSION['outletID']; ?>" class="button_red">
-		<input type="button" class="button_red" value="<?= ucfirst(_delete_all_entries);?>"/>
-		</a>
-	</div>
-	-->
 <br style='clear:both;'/>
 </div>
 <!-- End one column box -->

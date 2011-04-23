@@ -1,7 +1,7 @@
 <div id="content_wrapper">
 <br/>
 	<div class="onecolumn_wrapper">
-	 <div class="onecolumn" style="margin-right:20%; margin-left:20%;">
+	 <div class="onecolumn small-column">
 	  <div class="content" >
 		<? 				
 		//message box
@@ -91,13 +91,13 @@
 			}else{
 			echo "<p><label>".$formtext."</label><br/>
 				<input type='text' name='".$key."' id='".$key."' value='".$value."' 
-				class='required' title=' ' style='width:120px;'/></p><br/>";	
+				class='required width-50' title=' '/></p><br/>";	
 		}
 	}
 	?>
 		<!-- <input type="hidden" name="property_id" value="<?= $row->property_id;?>"> -->
 		<input type="hidden" name="token" value="<?php echo $token; ?>" />
-		<div style="text-align:center;">
+		<div class="center">
 			<input type="submit" class="button_dark" value="<?= _save;?>">
 		</div>
 	</div></div></div> <!-- end one column -->

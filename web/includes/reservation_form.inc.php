@@ -1,6 +1,6 @@
 
 <div class="twocolumn_wrapper" >
- <div class="twocolumn" style="height:930px;">
+ <div class="twocolumn form-height">
   <div class="content detailbig content-height">
   <form method="post" action="ajax/process_reservation.php" id="new_reservation_form">
 	<br/>
@@ -29,7 +29,7 @@
 			<label><?= _guest_name; ?></label>
 			<p>
 				<span class='bold'>
-				<input type="text" name="reservation_guest_name" id="reservation_guest_name" class="required" title=' ' minlength="3" style="width:280px;" value="<?= $_SESSION[reservation_guest_name];?>"/>
+				<input type="text" name="reservation_guest_name" id="reservation_guest_name" class="required widht-250" title=' ' minlength="3" value="<?= $_SESSION[reservation_guest_name];?>"/>
 </strong>
 			</p>
 			<label><?= _pax; ?></label>
@@ -46,7 +46,7 @@
 			</p>
 			<label><?= _note; ?></label>
 			<p>
-				<textarea name="reservation_notes" id="reservation_notes" rows="5" cols="35" style="width:97%"><?= trim($row->reservation_notes); ?></textarea>
+				<textarea name="reservation_notes" id="reservation_notes" rows="5" cols="35" class="width-97"><?= trim($row->reservation_notes); ?></textarea>
 			</p>
 			<label><?= _author; ?></label>
 			<p>
@@ -59,7 +59,7 @@
 
 	<!-- Beginn right column -->	
 		<div class="twocolumn_wrapper right">
-		 <div class="twocolumn" style="height:930px;">
+		 <div class="twocolumn form-height">
 		  <div class="content detailbig content-height">
 			<br/>
 			<label><?= _adress; ?></label>
@@ -72,15 +72,15 @@
 			</p>
 			<label><?= _email; ?></label>
 			<p>
-				<input type="text" name="reservation_guest_email" id="reservation_guest_email" style="width:280px;" value='<?= $row->reservation_guest_email; ?>'/>
+				<input type="text" name="reservation_guest_email" id="reservation_guest_email" class="width-250" value='<?= $row->reservation_guest_email; ?>'/>
 			</p>
 			<label><?= _discount; ?></label>
 			<p>
-				<input name="reservation_discount" name="reservation_discount" id="reservation_discount" maxlength="3" style="width:30px;" value='<?= $row->reservation_discount; ?>' />
+				<input name="reservation_discount" name="reservation_discount" id="reservation_discount" maxlength="3" class="width-50" value='<?= $row->reservation_discount; ?>' />
 			</p>
 			<label><?= _parking; ?></label>
 			<p>
-				<input name="reservation_parkticket" name="reservation_parkticket" id="reservation_parkticket" maxlength="3" style="width:30px;" value='<?= $row->reservation_parkticket; ?>' />
+				<input name="reservation_parkticket" name="reservation_parkticket" id="reservation_parkticket" maxlength="3" class="width-50" value='<?= $row->reservation_parkticket; ?>' />
 			</p>
 			<!-- <label><?= _Tisch; ?></label>
 				 <p>
@@ -90,14 +90,14 @@
 
 			<label><?= _payment; ?></label>
 			<p>
-				<span style="width: 250px;">
+				<span class="width-250">
 				<?
 				echo _paid."<br>";
-				echo'<input type="checkbox" style="width:20px; margin-top:10px; margin-right:20px;" name="reservation_bill_paid" value="';
+				echo'<input type="checkbox" name="reservation_bill_paid" value="';
 				if ($reservation_bill_paid!=""){echo $reservation_bill_paid;} else {echo date('d.m.Y');} 
-				echo'" >';
+				echo'" >&nbsp;&nbsp;';
 				echo "<br>"._shipped."<br>";
-				echo'<input type="checkbox" style="width:20px;" name="reservation_billet_sent" value="';
+				echo'<input type="checkbox" name="reservation_billet_sent" value="';
 				if ($reservation_billet_sent!=""){echo $reservation_billet_sent;} else {echo date('d.m.Y');}
 				echo '" >'; 
 				?>

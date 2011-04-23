@@ -1,4 +1,3 @@
-
 <!-- Begin one column box -->
 <div class="onecolumn">
 	<div class="header">
@@ -20,7 +19,7 @@
 	<div id="content_wrapper">
 	<br/>
 		<div class="onecolumn_wrapper">
-		 <div class="onecolumn" style="margin-right:20%; margin-left:20%;">
+		 <div class="onecolumn smallcontent">
 		  <div class="content" >
 			
 			<table class="general">
@@ -28,7 +27,7 @@
 			<tr>
 				<td>
 					<th></th>
-					<label style='float:left'><?= _date; ?></label>
+					<label class='leftside'><?= _date; ?></label>
 					<br class="clear"/>
 					<div class="date dategroup">
 						<div class="text" id="s_datetext"><?= $_SESSION['selectedDate_user']; ?></div>
@@ -36,7 +35,7 @@
 						<input type="hidden" name="s_dbdate" id="s_dbdate" value="<?= $_SESSION['selectedDate']; ?>"/>
 		    	    </div>
 					
-					<strong style='float:left'>&nbsp;&nbsp; <?= _till;?> &nbsp;&nbsp;</strong>  
+					<strong class='leftside'>&nbsp;&nbsp; <?= _till;?> &nbsp;&nbsp;</strong>  
 					
 					<div class="date dategroup">
 						<div class="text" id="e_datetext"><?= $_SESSION['selectedDate_user']; ?></div>

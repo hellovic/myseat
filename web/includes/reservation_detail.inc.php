@@ -1,5 +1,5 @@
 <div class="twocolumn_wrapper">
- <div class="twocolumn"  style="height:930px;">
+ <div class="twocolumn form-height">
   <div class="content detailbig content-height">
 	<br/>
 	<label><?= _booknum;?></label>
@@ -52,7 +52,7 @@
 
 	<!-- Beginn right column -->	
 		<div class="twocolumn_wrapper right">
-		 <div class="twocolumn"  style="height:930px;">
+		 <div class="twocolumn form-height">
 		  <div class="content detailbig content-height">
 			<br/>
 			<label><?= _adress; ?></label>
@@ -68,9 +68,9 @@
 				<?
 					echo $row->reservation_guest_email; 
 					if ( $row->reservation_advertise =='YES' ) {
-						echo"<img src='images/icons/mail_yes.png' style='margin-left:11px; vertical-align:middle;' title='Advertise allowed'/>";
+						echo"<img src='images/icons/mail_yes.png' class='mail-icon' title='Advertise allowed'/>";
 					}else{
-						echo"<img src='images/icons/mail_no.png'  style='margin-left:11px; vertical-align:middle;' title='No advertise'/>";	
+						echo"<img src='images/icons/mail_no.png'  class='mail-icon' title='No advertise'/>";	
 					}
 				?>
 			</p>
@@ -90,7 +90,7 @@
 
 			<label><?= _payment; ?></label>
 			<p>
-				<span style="width: 250px;">
+				<span class="width-250">
 				<?
 				echo _paid."<br>";
 				$paid = ($row->reservation_bill_paid) ? 1 : 0;

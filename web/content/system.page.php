@@ -167,7 +167,7 @@
 			</ul>
 			<?php endif ?>
 			<?php if ( $q == 5 ): ?>
-			<ul class="second_level_tab" style="line-height:1.4em">
+			<ul class="second_level_tab">
 				<?php if ( current_user_can( 'Settings-Outlets' ) ): ?>
 				<li>
 					<a href="#" id="editToggle" onclick="return false;">

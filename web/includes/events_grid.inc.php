@@ -1,17 +1,17 @@
 <!-- Begin example table data -->
-<table class="global" style="margin:0px 0px;" cellpadding="0" cellspacing="0">
+<table class="global width-100" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr>
-			<th style="width:10%"><?= _date; ?></th>
-			<th style="width:30%"><?= _subject; ?></th>
-			<th style="width:10%"><?= _outlets; ?></th>
-			<th style="width:5%"><?= _open_time; ?></th>
-			<th style="width:5%"><?= _close_time; ?></th>
-			<!-- ><th style="width:10%"><?= _open_to; ?></th> 
-			<th style="width:15%"><?= _contact; ?></th> -->
-			<th style="width:5%"><?= _advertise_start; ?></th>
-			<th style="width:5%"><?= _ticket_price; ?></th>
-			<th style="width:5%"><?= _delete; ?></th>
+			<th><?= _date; ?></th>
+			<th><?= _subject; ?></th>
+			<th><?= _outlets; ?></th>
+			<th><?= _open_time; ?></th>
+			<th><?= _close_time; ?></th>
+			<!-- ><th><?= _open_to; ?></th> 
+			<th><?= _contact; ?></th> -->
+			<th><?= _advertise_start; ?></th>
+			<th><?= _ticket_price; ?></th>
+			<th><?= _delete; ?></th>
 	    </tr>
 	</thead>
 	<tbody>

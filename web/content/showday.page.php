@@ -28,7 +28,6 @@
 	<div class="onecolumn">
 		
 		<div class="header">
-			
 			<? if ($searchquery == ''){ ?>
 			<a href="?selectedDate=<?= buildDate($settings['dbdate'],$sd,$sm,$sj,-1); ?>" class="navgroup">
 				&laquo;
@@ -48,9 +47,8 @@
 					" - ".strftime("%A",strtotime($_SESSION['selectedDate'])).
 					" , ".date($general['dateformat'],strtotime($_SESSION['selectedDate'])); 
 					?>
-				</div>
 				</a>
-			
+			</div>
 			<!-- Begin 2nd level tab -->
 			<ul class="second_level_tab noprint">
 				<li>
@@ -129,7 +127,7 @@
 						include('includes/reservations_grid.inc.php');
 					}
 				 }else{
-					echo "<h2 style='margin-left:45%;margin-top:50px;'>"._day_off."</h2>";
+					echo "<h2 class='dayoff'>"._day_off."</h2>";
 				 }
 				break;
 				case '2':

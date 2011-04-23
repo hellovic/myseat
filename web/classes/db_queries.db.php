@@ -209,6 +209,19 @@ function querySQL($statement){
 							LIMIT 1",$_SESSION['outletID'],$_SESSION['selectedDate']);
 			return getRowList($result);
 		break;
+		case 'maitre_dayoffs':
+			$result = query("SELECT `maitre_date` FROM `maitre` 
+							WHERE `outlet_child_dayoff` = 'ON'
+							AND YEAR(maitre_date) = '%s' 
+							ORDER BY `maitre_date` ASC",date('Y'));
+			return getRowList($result);
+		break;
+		case 'outlet_closedays':
+			$result = query("SELECT `outlet_closeday` FROM `outlets` 
+							WHERE `outlet_id` ='%d' 
+							",$_SESSION['outletID']);
+			return getResult($result);
+		break;
 		case 'db_all_users':
 			$result = query("SELECT * FROM `plc_users` ORDER BY username");
 			return getRowList($result);
