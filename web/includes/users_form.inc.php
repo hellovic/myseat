@@ -76,7 +76,7 @@ if ($_SESSION['page'] == 7){
 			<input type="hidden" name="token" value="<?php echo $token; ?>" />
 			<input type="hidden" name="action" value="save_usr">
 	<br/>
-	<div style="text-align:center;">
+	<div class="center">
 		<input type="submit" class="button_dark" value="<?= _save;?>">
 	</div>
 	<br/>

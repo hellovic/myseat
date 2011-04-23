@@ -1,14 +1,14 @@
 <!-- Begin example table data -->
-<table class="global" style="margin:0px 0px;" cellpadding="0" cellspacing="0">
+<table class="global resv-table" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr>
-			<th style="width:5%">ID</th>
-			<th style="width:40%"><?= _name; ?></th>
-			<th style="width:20%"><?= _email; ?></th>
-			<th style="width:10%"><?= _type; ?></th>
-			<th style="width:10%">IP</th>
-			<th style="width:20%"><?= _time; ?></th>
-			<th style="width:5%"></th>
+			<th>ID</th>
+			<th><?= _name; ?></th>
+			<th><?= _email; ?></th>
+			<th><?= _type; ?></th>
+			<th>IP</th>
+			<th><?= _time; ?></th>
+			<th></th>
 	    </tr>
 	</thead>
 	<tbody>

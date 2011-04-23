@@ -1,16 +1,16 @@
 <!-- Begin reservation table data -->
-<table class="global" style="margin:15px 0px 0px 0px;" cellpadding="0" cellspacing="0">
+<table class="global resv-table" cellpadding="0" cellspacing="0">
 	<thead>
-	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
-			<th style="width:10%"><?= _date; ?></th>    	
-			<th style="width:5%"><?= _time; ?></th>
-			<th style="width:3%"></th>
-			<th style="width:25%"><?= _guest_name; ?></th>
-			<th style="width:2%"><?= _pax; ?></th>
-			<th style="width:10%"><?= _phone_room; ?></th>
-			<th style="width:2%"><?= _type; ?></th>
-			<th style="width:25%"><?= _outlets; ?></th>
-			<th style="width:10%"><?= _author; ?></th>
+	    <tr>
+			<th><?= _date; ?></th>    	
+			<th><?= _time; ?></th>
+			<th></th>
+			<th><?= _guest_name; ?></th>
+			<th><?= _pax; ?></th>
+			<th><?= _phone_room; ?></th>
+			<th><?= _type; ?></th>
+			<th><?= _outlets; ?></th>
+			<th><?= _author; ?></th>
 	    </tr>
 	</thead>
 	<tbody>

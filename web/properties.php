@@ -80,7 +80,7 @@ echo "<body>
 ?>
 	<!-- Begin empty main menu -->
 	<div id="menu_wrapper">
-		<ul class="nav" style='margin-left:40px;'>
+		<ul class="nav margin-left-40">
 			<li>
 				<a href="#" <?if($_GET['p']=='2'){echo "class='active'";} ?> >
 					Sign up Property	

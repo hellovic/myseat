@@ -1015,9 +1015,23 @@ label.error                             { margin-left: 6px; }
 					    background:#DBCBDE;
 					    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.746094);
 					}
+.tautologous		{
+						color: #936 !important;
+					}
+.waitlist-header	{
+						background:#FFB4B4;
+					}
+.grey				{
+						color:#bbb !important;
+					}
 /* 
 	Specials 
 */
+.resv-table			{
+						margin:15px 0px 0px 0px; 
+						font-size:0.9em; 
+						width:100%;
+					}
 .outlet-left		{
 						margin-left:5px;	
 					}
@@ -1028,6 +1042,9 @@ label.error                             { margin-left: 6px; }
 					}
 .margin-80		    {
 						margin-top:80px !important;
+					}
+.margin-left-40		{
+						margin-left:40px !important;
 					}
 .width-50		    {
 						width:50px !important;
@@ -1046,6 +1063,9 @@ label.error                             { margin-left: 6px; }
 					}					
 .right-side			{
 						float: right;
+					}	
+.right-side-text	{
+						text-align:right;
 					}
 .detail-slider		{
 						width:45%; 

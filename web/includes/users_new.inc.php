@@ -3,7 +3,7 @@
 		<div id="content_wrapper">
 		<br/>
 			<div class="onecolumn_wrapper">
-			 <div class="onecolumn" style="margin-right:20%; margin-left:20%;">
+			 <div class="onecolumn small-column">
 			  <div class="content" >
 		
 			<? 

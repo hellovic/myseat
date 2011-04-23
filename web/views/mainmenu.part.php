@@ -1,7 +1,7 @@
 <!-- Begin main menu -->
 <div id="menu_wrapper">
 
-	<ul class="nav" style='margin-left:40px;'>
+	<ul class="nav margin-left-40">
 		<li>
 			<a href="main_page.php?p=1" <?if($_SESSION['page']=='1'){echo "class='active'";} ?> >
 				<?= _dashboard; ?>	

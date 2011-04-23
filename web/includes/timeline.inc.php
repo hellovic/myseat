@@ -114,5 +114,5 @@ $close_break  		= mktime($h4+0,$m4+0,0,date("m"),$day,date("Y"));
 		$i++;
 	}
 ?>
-<li><span class="label"></span><span class="label2" style='font-family:DroidSansRegular; color:#bbb;'>&copy;timecontrol</span><span class="count"></span></li>
+<li><span class="label"></span><span class="label2 grey">&copy;timecontrol</span><span class="count"></span></li>
 </ul>

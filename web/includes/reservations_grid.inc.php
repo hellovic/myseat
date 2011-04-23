@@ -1,8 +1,8 @@
 <!-- Begin reservation table data -->
 
-<table class="global" style="margin:15px 0px 0px 0px; font-size:0.9em; width:100%;" cellpadding="0" cellspacing="0">
+<table class="global resv-table" cellpadding="0" cellspacing="0">
 	<thead>
-	    <tr <? if($waitlist){echo"style='background: #FFB4B4;'";} ?>>
+	    <tr <? if($waitlist){echo"class='waitlist-header'";} ?>>
 	    	<th><?= _time; ?></th>
 			<th></th>
 			<th><?= _guest_name; ?></th>
@@ -55,7 +55,7 @@
 			echo "<td";
 			// reservation after maitre message
 			if ($row->reservation_timestamp > $maitre['maitre_timestamp'] && $maitre['maitre_comment_day']!='') {
-				echo " style='color:#FF0000;' title='"._sentence_13."' ";
+				echo " class='tautologous' title='"._sentence_13."' ";
 			}
 			// daylight coloring
 			if ($row->reservation_time > $daylight_evening){
@@ -71,7 +71,7 @@
 			<td>
 			<strong><a href='?p=102&resID=".$id."'"; 
 			// color guest name if tautologous
-			if($tautologous>1){echo" style='color: #936;' class='tipsy' title='"._tautologous_booking."'";}
+			if($tautologous>1){echo" class='tautologous tipsy' title='"._tautologous_booking."'";}
 			echo ">".$row->reservation_guest_name."</a></strong>";
 			if ($row->repeat_id !=0)
 	            {
@@ -81,7 +81,7 @@
 	            }
 				// old reservations symbol
 				if( (strtotime($row->reservation_timestamp) + $general['old_days']*86400) <= time() ){
-					echo "<img src='images/icons/clock-ex.png' class='help tipsy' title='"._sentence_11."' style='float:right;'/>";
+					echo "<img src='images/icons/clock-ex.png' class='help tipsy right-side' title='"._sentence_11."' />";
 				}
 			echo"</td>
 			<td><strong>".$row->reservation_pax."</strong></td>
@@ -104,7 +104,7 @@
 			echo "<td class='noprint'>";
 			echo "<small>".humanize($row->reservation_timestamp)."</small>";
 			echo "</td>";
-			echo "<td style='padding:7px 0px;' class='noprint'>";
+			echo "<td class='noprint'>";
 			// DELETE BUTTON
 			if ( current_user_can( 'Reservation-Delete' ) && $q!=3 ){
 		    	echo"<a href='#modalsecurity' name='".$row->repeat_id."' id='".$id."' class='delbtn'>
@@ -129,9 +129,9 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="3" style="text-align:right;" class="bold"><?= _guest_summary;?></td>
+			<td colspan="3" class="bold right-side-text"><?= _guest_summary;?></td>
 			<td class="bold"><?= $guestsum;?></td>
-			<td style="text-align:right;" class="bold"><?= _tables_summary;?></td>
+			<td class="bold right-side-text"><?= _tables_summary;?></td>
 			<td class="bold"><?= $tablesum;?></td>
 			<td></td>
 			<td></td>
