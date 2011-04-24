@@ -226,6 +226,13 @@ function querySQL($statement){
 			$result = query("SELECT * FROM `plc_users` ORDER BY username");
 			return getRowList($result);
 		break;
+		case 'db_prp_users':
+			$result = query("SELECT * FROM `plc_users`
+				WHERE `property_id` ='%d'
+				ORDER BY username
+				",$_SESSION['property']);
+			return getRowList($result);
+		break;
 		case 'recent':
 			$result = query("SELECT * FROM `reservations` WHERE reservation_outlet_id='%d' ORDER BY reservation_timestamp DESC LIMIT 0,4",$_SESSION['outletID']);
 			return getRowList($result);

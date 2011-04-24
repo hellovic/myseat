@@ -1,5 +1,5 @@
 <!-- Begin example table data -->
-<table class="global resv-table" cellpadding="0" cellspacing="0">
+<table class="global width-100" cellpadding="0" cellspacing="0">
 	<thead>
 	    <tr>
 			<th>ID</th>
@@ -14,7 +14,7 @@
 	<tbody>
 		<?
 
-		$users = querySQL('db_all_users');
+		$users = querySQL('db_prp_users');
 		
 		if ($users) {
 			foreach($users as $row) {
