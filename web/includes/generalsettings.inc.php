@@ -91,7 +91,7 @@
 			}else{
 			echo "<p><label>".$formtext."</label><br/>
 				<input type='text' name='".$key."' id='".$key."' value='".$value."' 
-				class='required width-50' title=' '/></p><br/>";	
+				class='required' title=' '/></p><br/>";	
 		}
 	}
 	?>
