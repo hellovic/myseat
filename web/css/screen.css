@@ -944,6 +944,50 @@ input.button_red:active                 {
 .paginate_enabled_next                  { background-image: url('../images/icons/next.png') }
 
 /* 
+	Pagination nested dataTable 
+*/
+div.stats_section_title 				{
+											font-family: 'DroidSansBold', Arial;
+											font-size : 12px;
+											color : #777777;
+											font-weight : bold;
+											border-bottom: 1px solid #888888;
+											margin-bottom: 10px;
+										}
+
+div.stats_section_content 				{
+											color : #AAAAAA;
+											font-weight : bold;
+}
+span.big_number 						{
+											font-size : 90px;
+										}
+
+span.bigger_number 						{
+											font-size : 120px;
+										}
+
+span.biggest_number 					{
+											font-size : 180px;
+										}
+span.stats_small_text 					{
+											font-size: 18px;
+											color: #BBB;
+										}
+h1.stats_header_text 					{
+											color: #2398C9;
+											text-decoration: none;
+											font-weight: bold;
+										}
+div.stats_section_content li			{
+										list-style-type: none;
+										font-size: 22px;
+										line-height: 20pt;
+										color: #C0DB1E;
+										text-decoration: none;
+										font-weight: bold;
+										}
+/* 
 	Error 
 */
 .error                                  { background: #F7CBCA }

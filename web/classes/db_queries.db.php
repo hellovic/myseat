@@ -321,7 +321,7 @@ function querySQL($statement){
 		break;
 		case 'timecontrol':
 			$result = query("SELECT reservation_time, SUM(reservation_pax) AS paxsum FROM reservations 
-						WHERE `reservation_wait`=0 AND `reservation_hidden`=0 AND `reservation_outlet_id`='%d' 
+						WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0' AND `reservation_outlet_id`='%d' 
 						AND `reservation_date`='%s' GROUP BY reservation_time 
 						ORDER BY paxsum DESC",$_SESSION['outletID'],$_SESSION['selectedDate']);
 			return getRowListarray($result);
@@ -397,7 +397,7 @@ function querySQL($statement){
 		break;
 		case 'statistic_month':
 			$result = query("SELECT SUM(reservation_pax) AS paxsum FROM `reservations` 
-							WHERE `reservation_wait`=0 AND `reservation_hidden`=0 
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0' 
 							AND `reservation_outlet_id`='%d' 
 							AND MONTH(reservation_date) = '%s'
 							AND YEAR(reservation_date) = '%s'",
@@ -433,7 +433,7 @@ function querySQL($statement){
 		break;
 		case 'statistic_weekday':
 			$result = query("SELECT SUM(reservation_pax) AS paxsum FROM `reservations` 
-							WHERE `reservation_wait`=0 AND `reservation_hidden`=0 
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0' 
 							AND `reservation_outlet_id`='%d' 
 							AND MONTH(reservation_date) = '%s'
 							AND YEAR(reservation_date) = '%s'
@@ -443,14 +443,93 @@ function querySQL($statement){
 		break;
 		case 'statistic_referer':
 			$result = query("SELECT reservation_referer, COUNT(*) AS total FROM `reservations` 
-							WHERE `reservation_wait`=0 AND `reservation_hidden`=0 
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0' 
 							AND `reservation_outlet_id`='%d' 
 							AND MONTH(reservation_date) = '%s'
 							AND YEAR(reservation_date) = '%s'
 							GROUP BY reservation_referer
-							ORDER BY total
-							LIMIT 10",
+							ORDER BY total DESC
+							LIMIT 0,7",
 							$_SESSION['outletID'], $_SESSION['statistic_month'], $_SESSION['selectedDate_year']);
+			return getRowList($result);
+		break;
+		case 'statistic_res_days':
+			$result = query("SELECT ROUND(AVG(DATEDIFF(reservation_date,reservation_timestamp)),1)
+							FROM `reservations`  
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0'  
+							AND `reservation_outlet_id`='%d'
+							AND MONTH(reservation_date) = '%s' 
+							AND YEAR(reservation_date) = '%s' 
+							",$_SESSION['outletID'],$_SESSION['statistic_month'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_guest_year':
+			$result = query("SELECT SUM(reservation_pax) FROM `reservations`  
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0'  
+							AND `reservation_outlet_id`='%d' 
+							AND YEAR(reservation_date) = '%s' 
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_all_guest_year':
+			$result = query("SELECT SUM(reservation_pax) FROM `reservations` 
+							INNER JOIN `outlets` ON `outlet_id` = `reservation_outlet_id` 
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0'   
+							AND `property_id` = '%d' 
+							AND YEAR(reservation_date) = '%s' 
+							",$_SESSION['propertyID'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_cxl_year':
+			$result = query("SELECT COUNT(*) FROM `reservations`  
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0'  
+							AND `reservation_outlet_id`='%d' 
+							AND YEAR(reservation_date) = '%s' 
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_booker_year':
+			$result = query("SELECT COUNT(*) FROM (SELECT `reservation_id` FROM `reservations`  
+							WHERE `reservation_hidden`= '1'  
+							AND `reservation_outlet_id`='%d' 
+							AND YEAR(reservation_date) = '%s'
+							GROUP BY `reservation_booker_name` ) groups 
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_wait_year':
+			$result = query("SELECT COUNT(*) FROM `reservations`  
+							WHERE `reservation_wait`= '1'  
+							AND `reservation_outlet_id`='%d' 
+							AND YEAR(reservation_date) = '%s' 
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year']
+							);
+			return getResult($result);
+		break;
+		case 'statistic_online_year':
+			$result = query("SELECT COUNT(*) FROM `reservations`  
+							WHERE `reservation_outlet_id`='%d' 
+							AND `reservation_outlet_id` = '%s'
+							AND `reservation_booker_name` = '%s'
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year'],'Contact Form'
+							);
+			return getResult($result);
+		break;
+		case 'statistic_top5_guest_year':
+			$result = query("SELECT reservation_guest_name, COUNT(*) as total FROM `reservations`  
+							WHERE `reservation_wait`= '0' AND `reservation_hidden`= '0'  
+							AND `reservation_outlet_id`='%d' 
+							AND YEAR(reservation_date) = '%s'
+							GROUP BY `reservation_guest_name`
+							ORDER BY total DESC
+							LIMIT 0,7
+							",$_SESSION['outletID'],$_SESSION['selectedDate_year']
+							);
 			return getRowList($result);
 		break;
 		case 'all_properties':

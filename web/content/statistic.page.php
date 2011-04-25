@@ -96,8 +96,6 @@ $labelpie = array();
 <!-- Begin one column box -->
 <div class="onecolumn">
 	<div class="header">
-		<h2><?= _statistics." ".querySQL('db_outlet').": ".date('d.m.',mktime(0,0,0,$sm,$sd,$sy));?></h2>
-		
 		<!-- Begin 2nd level tab -->
 		<ul class="second_level_tab">
 			<li>
@@ -110,6 +108,108 @@ $labelpie = array();
 		
 	</div>
 	<div class="content">
+		<h1 class="stats_header_text">
+			<?= _statistics." "._for_." ".strftime("%B",strtotime($_SESSION['selectedDate']))." "._for_." ".querySQL('db_outlet');?>
+		</h1>
+		<table id="numbers" class="data center" cellpadding="0" cellspacing="20">
+			<tbody>
+				<tr>
+					
+					<td width="400px">
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_pax."/"._year);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<?
+						 $pax_outlet = querySQL('statistic_guest_year');
+						 $pax_prpty = querySQL('statistic_all_guest_year');
+						?>
+						<span class="bigger_number"><?= $pax_outlet;?></span>&nbsp;<span class='stats_small_text'>(<?= round((100/$pax_prpty*$pax_outlet),1);?>%)</span>
+					 </div>
+					</td>
+					
+					<td width="200px">
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_cancelled."/"._year);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<span class="big_number"><?= querySQL('statistic_cxl_year');?></span>
+					 </div>
+					</td>
+					
+					<td width="200px">
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_wait_list."/"._year);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<span class="big_number"><?= querySQL('statistic_wait_year');?></span>
+					 </div>
+					</td>
+					
+					</tr><tr>
+					
+					<td>
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_webform."/"._year);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<span class="bigger_number"><?= querySQL('statistic_online_year');?></span>
+					 </div>
+					</td>
+					
+					<td colspan="2">
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_top." 7 "._trsources);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<ul>
+							<?
+							$referer_data = querySQL('statistic_referer');
+							foreach ($referer_data as $row) {
+								if ($row->reservation_referer!='') {
+									echo "<li>".$row->reservation_referer."&nbsp;
+									<span class='stats_small_text'>(".$row->total."&times;)</span></li>";
+								}
+							}
+							?>
+						</ul>
+					 </div>
+					</td>
+					
+					<td><!-- empty --></td>
+					
+					</tr><tr>
+					
+					<td>
+					 <div class="stats_section_title">
+						<span><?= strtoupper(_top." 7 "._pax."/"._year);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<ul>
+						<?
+						$top_guests = querySQL('statistic_top5_guest_year');
+						foreach ($top_guests as $top_guest) {
+							echo "<li>".$top_guest->reservation_guest_name."&nbsp;<span class='stats_small_text'>(".$top_guest->total."&times;)</span></li>";
+						}
+						?>
+						</ul>
+					 </div>
+					</td>
+					
+					<td><!-- empty --></td>
+					
+					<td>
+					 <div class="stats_section_title">
+						<span>&empty; <?= strtoupper(_days."/"._reservations);?></span>
+					 </div>
+					 <div class="stats_section_content">
+						<span class="biggest_number"><?= querySQL('statistic_res_days');?></span>
+					 </div>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
 		<br/>
 		<div id="graph_wrapper1" class="graph_wrapper"></div>
 		<table id="graph_week" class="data" style="display:none" cellpadding="0" cellspacing="0" width="100%">
@@ -215,37 +315,7 @@ $labelpie = array();
 			</tbody>
 		</table>
 		<br/>
-		<!-- Begin referer table data -->
-		<div class="content nomargin">
-		<table class="global" width="100%" cellpadding="0" cellspacing="0">
-			<thead>
-			    <tr>
-					<th>Referer</th>
-					<th><?= _confirmed_reservations;?></th>
-			    </tr>
-			</thead>
-			<tbody>
-				<?
-				$total = 0;
-				$referer_data = querySQL('statistic_referer');
-				foreach ($referer_data as $row) {
-					if ($row->reservation_referer!='') {
-						echo "<tr><td>".$row->reservation_referer."</td>\n<td>".$row->total."</td>\n</tr>\n";
-						$total += $row->total;
-					}
-				}
-				?>
-			</tbody>
-			<tfoot>
-				<?
-					echo "<tr><td></td>\n<td>".$total."</td>\n</tr>\n";
-				?>
-			</tfoot>
-		</table>
-		</div>
-		<!-- End referer table data -->
-		
+		<small>Inspired by Nicholas Felton's fantastic <a href="http://www.feltron.com" target="_blank">Feltron Annual Report</a></small>
 	</div>
 </div>
-
 <br class="clear"/><br/>

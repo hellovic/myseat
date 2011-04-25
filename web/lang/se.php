@@ -77,6 +77,9 @@ define ( '_printlist', 'Skriv ut' );
 //original text: "Users"
 define ( '_users', 'Användare' );
 
+//original text: "Reservations"
+define ( '_reservations', 'Reservationer' );
+
 //original text: "Confirmed reservations"
 define ( '_confirmed_reservations', 'Bekräftade reservationer' );
 
@@ -598,5 +601,11 @@ define ( '_ads', 'Annons' );
 
 //original text: "Print"
 define ( '_print', 'Skriv ut' );
+
+//original text: "Top"
+define ( '_top', 'Top' );
+
+//original text: "Traffic sources"
+define ( '_trsources', 'Trafikkällor' );
 
 ?>

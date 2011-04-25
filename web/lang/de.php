@@ -78,6 +78,9 @@ define ( '_printlist', 'Drucken' );
 define ( '_users', 'Benutzer' );
 
 //original text: "Confirmed reservations"
+define ( '_reservations', 'Reservierungen' );
+
+//original text: "Confirmed reservations"
 define ( '_confirmed_reservations', 'Feste Reservierungen' );
 
 //original text: "Canceled reservations"
@@ -599,5 +602,11 @@ define ( '_ads', 'Anzeige' );
 
 //original text: "Print"
 define ( '_print', 'Drucken' );
+
+//original text: "Top 5"
+define ( '_top', 'Top' );
+
+//original text: "Traffic sources"
+define ( '_trsources', 'Zugriffsquellen' );
 
 ?>

@@ -77,6 +77,9 @@ define ( '_printlist', '列印清单' );
 //original text: "Users"
 define ( '_users', '使用者' );
 
+//original text: "Reservations"
+define ( '_reservations', '约记录' );
+
 //original text: "Confirmed reservations"
 define ( '_confirmed_reservations', '预约记录' );
 
@@ -593,5 +596,9 @@ define ( '_PROF_', 'Prof.' );
 //original text: "Online"
 define ( '_online', '线上预约' );
 
+//original text: "Top"
+define ( '_top', '前' );
 
+//original text: "Traffic sources"
+define ( '_trsources', '流量来源' );
 ?>

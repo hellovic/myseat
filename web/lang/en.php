@@ -77,6 +77,9 @@ define ( '_printlist', 'Print list' );
 //original text: "Users"
 define ( '_users', 'Users' );
 
+//original text: "Reservations"
+define ( '_reservations', 'Reservations' );
+
 //original text: "Confirmed reservations"
 define ( '_confirmed_reservations', 'Confirmed reservations' );
 
@@ -599,4 +602,9 @@ define ( '_ads', 'Ad' );
 //original text: "Print"
 define ( '_print', 'Print' );
 
+//original text: "Top"
+define ( '_top', 'Top' );
+
+//original text: "Traffic sources"
+define ( '_trsources', 'Traffic sources' );
 ?>

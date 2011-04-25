@@ -112,7 +112,7 @@
 		    	$('#graph_week').visualize({
 					width: '760px',
 					height: '240px',
-					colors: ['#26ADE4', '#D1E751']
+					colors: ['#2398C9']
 				}).appendTo('#graph_wrapper1');
 
 				// Setup graph 2
@@ -120,7 +120,7 @@
 					type: 'area',
 					width: '760px',
 					height: '240px',
-					colors: ['#26ADE4', '#D1E751']
+					colors: ['#2398C9', '#C0DB1E']
 				}).appendTo('#graph_wrapper2');
 
 				// Setup graph 3
@@ -128,14 +128,14 @@
 					type: 'pie',
 					width: '760px',
 					height: '240px',
-					colors: ['#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed','#f45a90','#e9e744']
+					colors: ['#2398C9','#C0DB1E','#ee8310','#be1e2d','#666699','#ee8310','#92d5ea','#8d10ee','#5a3b16','#26a4ed']
 				}).appendTo('#graph_wrapper3');
 				
 				// Setup graph 4
 		    	$('#graph_weekday').visualize({
 					width: '760px',
 					height: '240px',
-					colors: ['#f45a90', '#D1E751']
+					colors: ['#C0DB1E']
 				}).appendTo('#graph_wrapper4');
 
 				$('.visualize').trigger('visualizeRefresh');
