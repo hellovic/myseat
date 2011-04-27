@@ -247,7 +247,7 @@ if ($_SESSION['token'] == $_POST['token']) {
 		 } // end while: reservation to store
 		
 			// *** send confirmation email
-			if ( $_POST['email_type'] != 'no' ) {
+			if ( $_POST['email_type'] != 'no' && $new_id != $_POST['reservation_id']) {
 				include('../classes/email.class.php');
 			}
 			
