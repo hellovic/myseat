@@ -14,8 +14,9 @@
 	// List the available languages sorted in an array, the keys are the slug names that correspond to each language file
 	$lang["available_language"] = array(
 		"en" => "English",
-		"de" => "German",
-		"nl" => "Nederlands",
+		"de" => "Deutsch",
+		"fr" => "Fran&ccedil;aise",
+		"nl" => "Nederlandse",
 		"cn" => "Chinese"
 	);
 
@@ -32,8 +33,8 @@
 	$lang["title"] = '<strong>Online</strong> Reservation';
 
 	// A line of text before the contact form -- "<h3>Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<p><strong>Make an instant reservation now!
-	<br/>For private parties, large bookings or all other queries please call us.</strong></p>';
+	$lang["contact_form_intro"] = '<p>Make an instant reservation now!
+	<br/>For private parties, large bookings or all other queries please call us.</p>';
 
 	// Default text of the contact form -- "Name or Group Name"
 	$lang["contact_form_name"] = 'Name or Group Name';

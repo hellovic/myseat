@@ -34,7 +34,7 @@
 			</p>
 			<label><?= _pax; ?></label>
 			<p>
-				<input type="text" name="reservation_pax" id="reservation_pax" class="required digits" title=' ' value='<?= $row->reservation_pax; ?>'/>
+				<input type="text" name="reservation_pax" id="reservation_pax" class="required digits width-50" title=' ' value='<?= $row->reservation_pax; ?>'/>
 			</p>
 		    <label><?= _type; ?></label>
 			<p>

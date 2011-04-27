@@ -23,7 +23,7 @@
 		<br/>
 		<p>
 		<label><?= _pax; ?>*</label><br/>
-			<input type="text" name="reservation_pax" id="reservation_pax" class="required digits" title=' ' />
+			<input type="text" name="reservation_pax" id="reservation_pax" class="required digits width-50" title=' ' />
 		</p>
 		<br/>
 		<p>

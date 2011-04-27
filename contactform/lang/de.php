@@ -2,7 +2,7 @@
 	//LANGUAGE: GERMAN
 	
 	// PLEASE USE HTML ENTITIES HERE !
-	// e.g.: š = &ouml;
+	// e.g.: Ã¶ = &ouml;
         
 	//----------------------------
 	// HEADER
@@ -13,10 +13,11 @@
 	
 	// List the available languages sorted in an array, the keys are the slug names that correspond to each language file
 	$lang["available_language"] = array(
-		"en" => "Englisch",
+		"en" => "English",
 		"de" => "Deutsch",
-		"nl" => "Niederl&auml;ndisch",
-		"cn" => "Chinesisch"
+		"fr" => "Fran&ccedil;aise",
+		"nl" => "Nederlandse",
+		"cn" => "Chinese"
 	);
 	
 	// The contact information in the top-right of the page -- "www.openmyseat.com <br /> www.myseat.us"

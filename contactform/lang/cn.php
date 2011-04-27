@@ -14,8 +14,9 @@
 	// List the available languages sorted in an array, the keys are the slug names that correspond to each language file
 	$lang["available_language"] = array(
 		"en" => "English",
-		"de" => "German",
-		"nl" => "Nederlands",
+		"de" => "Deutsch",
+		"fr" => "Fran&ccedil;aise",
+		"nl" => "Nederlandse",
 		"cn" => "Chinese"
 	);
 

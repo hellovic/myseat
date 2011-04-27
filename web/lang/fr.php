@@ -402,7 +402,7 @@ define ( '_retype', 'entrez de nouveau' );
 define ( '_cuisine_style', 'style de cuisine' );
 
 //original text: "Special Event"
-define ( '_sp_events', 'événement spécial' );
+define ( '_sp_events', 'Événement spécial' );
 
 //original text: "Subject"
 define ( '_subject', 'objet' );

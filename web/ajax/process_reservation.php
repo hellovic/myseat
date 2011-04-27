@@ -1,8 +1,4 @@
 <?php session_start();
- // Error reporting
- //error_reporting(E_ALL & ~E_NOTICE);
- //ini_set("display_errors", 1);
- //print_r($_POST);
  
 // ** set configuration
 include('../../config/config.general.php');
@@ -149,6 +145,11 @@ if ($_SESSION['token'] == $_POST['token']) {
 			//cut both " ' " from reservation_pax
 			$res_pax = substr($_SESSION['reservation_pax'], 0, -1);
 			$res_pax = substr($_SESSION['reservation_pax'], 1);
+			
+			// check if pax not '0'; prevent 'Christof Keller' bug
+			if ($res_pax < 1) {
+				$res_pax = 1;
+			}
 			//cut both " ' " from reservation_time
 			$startvalue = $_SESSION['reservation_time'];
 			$startvalue = substr($startvalue, 0, -1);

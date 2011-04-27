@@ -2,7 +2,7 @@
 	//LANGUAGE: NEDERLANDS
 	
 	// PLEASE USE HTML ENTITIES HERE !
-	// e.g.: ö = &ouml;
+	// e.g.: √∂ = &ouml;
 	
 	//----------------------------
 	// HEADER
@@ -14,8 +14,9 @@
 	// List the available languages sorted in an array, the keys are the slug names that correspond to each language file
 	$lang["available_language"] = array(
 		"en" => "English",
-		"de" => "German",
-		"nl" => "Nederlands",
+		"de" => "Deutsch",
+		"fr" => "Fran&ccedil;aise",
+		"nl" => "Nederlandse",
 		"cn" => "Chinese"
 	);
 	
@@ -32,8 +33,8 @@
 	$lang["title"] = '<strong>Online</strong> Reservering';
 	
 	// A line of text before the contact form -- "<h3>Get your table.Make an instant reservation now!</h3>"
-	$lang["contact_form_intro"] = '<p><strong>Boek nu uw tafel en reserveer nu direct!<br/>
-	Voor Privé partijen, grote groepsboekingen of andere vragen kunt u ons bellen.</strong></p>';
+	$lang["contact_form_intro"] = '<p>Boek nu uw tafel en reserveer nu direct!<br/>
+	Voor Priv√© partijen, grote groepsboekingen of andere vragen kunt u ons bellen.</p>';
 	
 	// Default text of the contact form -- "Name or Company"
 	$lang["contact_form_name"] = 'Naam of bedrijfsnaam';
