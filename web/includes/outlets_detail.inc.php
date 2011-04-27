@@ -48,7 +48,7 @@
 		echo "<input type='text' name='' class='width-450' value=' ".$global_basedir."contactform/index.php?so=ON&prp=".$row->property_id."&outletID=".$row->outlet_id."'/>";
 		echo "<br/><span class='bold'>"._property." :</span><br/>";
 		echo "<input type='text' name='' class='width-450' value='".$global_basedir."contactform/index.php?prp=".$row->property_id."'/>";
-		//echo "<br/><span class='bold'>Reclame Box :</span><br/>";
+		echo "<br/><span class='bold'>Reclame Box :</span><br/>";
 		echo "<textarea class='script-box'>".stripslashes("
 <script type='text/javascript'>
 	var propertyID = '".$row->property_id."';
