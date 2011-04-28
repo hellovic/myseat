@@ -703,9 +703,8 @@ function getAvailability($ava_by_time, $intervall='15') {
 	
 	// calculate after midnight
 	$day    = date("d");
-	$dayshift = ($open_time < $close_time) ? 0 : 1;
+	$dayshift = ($close_time < $open_time) ? 1 : 0;
 	$endday = date("d") + $dayshift;
-	
 	list($h1,$m1,$s1)	= explode(":",$open_time);
 	list($h2,$m2,$s2)	= explode(":",$close_time);
 	$value  			= mktime($h1+0,$m1+0,0,date("m"),$day,date("Y"));
@@ -735,10 +734,10 @@ function getAvailability($ava_by_time, $intervall='15') {
 				// not smaller than starttime
 				//$startvalue = ($startvalue < $opentime) ? $opentime : $startvalue;
 				if ($startvalue >= $opentime){
-					// after midnight correction
+					/* after midnight correction **FALSE**
 					if($value-$startvalue > 3600 && $dayshift == 1){
-						$startvalue = $value-3600;
-					}
+						//$startvalue = $value-3600;
+					} */
 					$ava_temp = ($ava_by_time[date('H:i:s',$startvalue)]) ? $ava_by_time[date('H:i:s',$startvalue)] : 0;
 					$out_ava_temp_before += $ava_temp;
 				}
@@ -765,7 +764,6 @@ function getAvailability($ava_by_time, $intervall='15') {
 			// ***
 			
 			// block before and after reservation time
-			//echo "<b>".date('H:i - d.m.y',$value)."</b><br>";
 			$out_availability[date('H:i',$value)] = $out_ava_temp_before + $out_ava_temp_after; 
 			// block after reservation time
 			//$out_availability[date('H:i',$value)] = $out_ava_temp_before; 
